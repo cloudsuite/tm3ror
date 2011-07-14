@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!--  ————————————————————————————————————————————————————————————————
+		
+		Layout: application.html.erb
+	
+		Doc: layout template applied to all files in the site
+	
+		——————————————————————————————————————————————————————————————————————
+	
+		ToDo:
+			1. get correct container divs from trumedical3
+			2. get correct set of stylesheets and javascript includes from trumedical3
+			2. insert register/login cart/checkout buttons fixed in upper right 
+	
+		Known Bugs:	
+			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
+		
+		Unknowns:
+			1. Where do the large images that scroll in from the right on the home page fit into this template? 
+			2. in Footer: How does 'Request a Catalog' work?  Does it work at all? 
+			3. unclear how/when logo div moves around the window
+			4. set of float declarations that lets right_content move over to the left below menu when 
+				the window is too small for it to appear on the right, is currently a mystery to me.
+			5. Should /shared/_menu.html.erb be included in individual templates:  home, category, product, company — rather than being included in application.html.erb?  div 'subcontainer' binds the menu and content in the main-content area together. ..  
+		-->
+	
+	  <title>TruMedical Solutions</title>
+		<%= stylesheet_link_tag "custom-theme/jquery-ui-1.8.10.custom.css" %>
+		
+    <%= stylesheet_link_tag "style.css" %>
+   
+
+		<!--  csrf_meta_tag %> -->
+		
+		<!--[if IE]>
+			<meta http-equiv="imagetoolbar" content="no" />
+			<%= stylesheet_link_tag "style-ie.css" %>
+		<![endif]-->
+		<!--[if lte IE 7]>
+			<%= stylesheet_link_tag "style-ie67.css" %>
+		<![endif]-->
+		
+		
+		
+		<script type="text/javascript">
+			var language ='en';
+		</script>
+		
+		<%= javascript_include_tag "mavic.js" %>
+		
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$("a[href='#']").click(function(){
+					alert("As-yet-unimplemented link ");
+					return false;
+				});
+				$("a[href='#url']").click(function(){
+					alert("As-yet-unimplemented link.");
+					return false;
+				});
+				$("a[href='#Netsuite']").click(function(){
+					alert("This link will take you to one of the pages implemented in Netsuite's secure server.");
+					return false;
+				});
+
+			});
+		</script>
+		
+		<!-- for Google analytics —————————————————— -->
+		<script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		
+		<%= yield :header %>
+
+	
+	</head>
+	<body id="body">
+		
+
+		<!-- header links  ————————————————————————————————————————————————————————— -->
+
+		<div id="login_links">
+			<ul>
+				<li><a href="#">register</a></li>
+				<li><a href="#">login</a></li>
+				<li><a href="#">cart</a></li>
+				<li><a href="#">checkout</a></li>
+				<li><a href="#">search</a></li>
+			</ul>
+		</div>
+		
+		
+		<%= yield :body %>
+		
+			  
+		<!-- footer     ————————————————————————————————————————————————————————————— -->
+		
+		<!-- NOTE: class="home_footer" makes the div 'position:absolute'; w/o it is 'position:relative';
+				 This is defined in file style.css (modified version of style-mavic.css) which became the
+				 base for trumedical_base.css.
+				 Fix this once get home page working in Rails.
+		-->
+		
+		<div id="footer" >
+		
+			<script type="text/javascript">
+				var nlvalue,firstFocus=true;
+				$(document).ready(function() {
+					var enternl = $('#newsl_input');
+					enternl.focus( function () {
+						if(firstFocus){
+							firstFocus=false;
+							nlvalue = enternl.val();
+							enternl.val('');
+						}
+				}).blur( function () {
+					(enternl.val().replace(/\s*/,"") == "")?enternl.val(nlvalue):"";
+				});
+				popupnewslettersubscript();
+				});
+			</script>
+			
+			<div class="left">
+				<a href="#">Request a Catalog</a>
+				<form id="nlsubmit" action="#" method="post" name="nlsubmit">
+					<a href="#">Competitor Cross Reference:</a>
+					<div class="whitebg">
+						<input class="enternl" id="newsl_input" type="text" name="adress" value="Enter product number" maxlength="100" autocomplete="off" style="width:136px;"> 
+						<input class="submitnl" type="submit" name="submitnl" value="GO">
+					</div>
+				</form>
+			 
+				<a href="#">Contact Us</a> 
+				<a href="#">Privacy Policy</a> 
+				<!-- <a href="#">FAQs</a> -->
+				
+				<span style="color:white;">Find us on:</span> 
+				<a href="#"><img src="../images/footer/facebook.png" width="16" height="16" alt="">&nbsp;Facebook</a> 
+				<a href="#"><img src="../images/footer/twitter.png" width="16" height="16" alt="">&nbsp;Twitter</a>
+				<a>&copy;TruMedical Solutions LLC, 2011</a>     
+			</div> <!-- end of div 'left' -->
+		
+			<div class="right"></div> 			<!-- used for? -->
+			<div class="clear"></div>				<!-- purpose? -->
+			<div class="clear-both"></div>  <!-- purpose? -->
+				
+		</div> <!-- end div 'footer' -->
+			
+		<%= yield :js_before_close_of_body %> 
+		
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			var pageTracker = _gat._getTracker( 'UA-2489222-1' );
+			pageTracker._trackPageview('/en/products/range/wheels/road&triathlon');
+			pageTracker._trackPageLoadTime('/en/products/range/wheels/road&triathlon');
+
+			//function for direct call in webtv flash elements
+			function pagetracker_trackPageview(url){
+				return pageTracker._trackPageview(url);
+				}
+		</script>
+		
+	</body>
+</html>
+

@@ -1,0 +1,298 @@
+/* CSS file */
+/*
+	The search field is iwhtin the menu on the left side of the page
+	Search results are returned by Google in <div> within <div> 
+*/
+
+
+/* ———— #mavic_search module ( <where>? ) ——————————————————————————*/
+
+	#search-form div.form-checkboxes {
+		overflow: hidden;
+		margin: 12px 0 16px 0;
+		padding: 4px;
+		background-color: #eee;
+	}
+
+	#search-form .form-checkboxes .form-item {
+		float: left;
+		width: auto;
+		padding-right: 20px;
+	}
+
+	#search-form .form-checkboxes .form-item label input {
+		position: relative;
+		top:2px; /* checkbox aligned aside text */
+	}
+
+	#search-form .container-inline .form-item {
+		display: inline;
+	}
+/* ———— #mavic_search (within menu on left side of the page ————————*/
+
+	#mavic_search h1 {
+		padding: 20px 20px 6px 20px;
+		margin: 0px;
+	}
+
+	#mavic_search .search-form-test .container-inline {
+		padding: 10px 20px 3px 20px;
+	}
+
+	#mavic_search .search-form-test .form-checkboxes {
+		background: #f7f7f7;
+		height: 21px;
+		font-weight: bold;
+		font-family: tahoma;
+		font-size: 11px;
+		padding: 10px 20px 10px 20px;
+		margin:0px 0px 5px 0px;
+	}
+
+	#mavic_search .box  ul {
+		margin:0px;
+		padding: 0px;
+		text-indent: 0px;
+	}
+
+	#mavic_search .box ul li {
+		padding: 0px 20px 0px 20px;
+		text-indent:0px;
+		margin: 0px;
+		list-style: none;
+	}
+
+	#mavic_search .box .node-results li {
+
+		padding: 15px 20px 15px 20px;
+		text-indent:0px;
+
+		margin: 0px;
+		list-style: none;
+	}
+
+	#mavic_search .box .node-results li p {
+		margin:0px;
+		padding: 0px;
+	}
+
+	#mavic_search .box .node-results li p.url {
+		font-size: 11px;
+	}
+
+	#mavic_search .box .node-results .odd0 {
+		background: #f7f7f7;
+	}
+	
+
+/* ———— search result filters (for Google CSE adv )  ———————————————*/
+
+	#search-result-filters {
+		clear: both;
+		position: relative;
+		display: block;
+		background: #F7F7F7;
+		height: 18px;
+		font-weight: bold;
+		font-family: tahoma;
+		font-size: 11px;
+		padding: 10px 20px 10px 20px;
+		margin: 0px 0px 5px 0px;
+	}
+
+	#search-result-filters ul {
+		position: relative;
+		float: left;
+		width: auto;
+		padding: 0px;
+		padding-right: 10px;
+		list-style-type: none;
+		margin: 0px;
+	}
+
+	#search-result-filters ul li {
+		margin: 0;
+		padding: 0px 30px 0px 0px;
+		border: 0;
+		display: block;
+		float: left;
+		position: relative;
+		background: none;
+	}
+
+	#search-result-filters ul li a {
+		background-image: url(images/radiobox_off.gif); /* --- IMAGE ----------------  */
+		background-repeat: no-repeat;
+		background-position: 0px 2px;
+		padding-left: 17px;
+	}
+
+	#search-result-filters ul li.active a {
+		background-image: url(images/radiobox_on.gif); /* --- IMAGE ----------------  */
+	}
+
+/* ———— search results styling (from Google)  ——————————————————————*/
+
+	#mavic_search .box .google_cse_adv-results li {
+		padding: 15px 20px 15px 20px;
+		text-indent:0px;
+		margin: 0px;
+		list-style: none;
+	}
+
+	#mavic_search .box .google_cse_adv-results li p {
+		margin:0px;
+		padding: 0px;
+	}
+
+	#mavic_search .box .google_cse_adv-results li p.url {
+		font-size: 11px;
+	}
+
+	#mavic_search .box .google_cse_adv-results .odd0 {
+		background: #f7f7f7;
+	}
+
+
+/* ———— search autocomplete  ———————————————————————————————————————*/
+
+table.gsc-completion-container {
+	z-index: 10000 !important;
+	font-family: tahoma;
+	font-size: 11px;
+}
+
+/* ———— search suggestions   ———————————————————————————————————————*/
+	
+	#suggestion_block {
+		margin-left: 160px;
+		margin-bottom: 20px;
+		font-family: Tahoma;
+		font-size: 11px;
+	}
+
+	#suggestion_block .mean {
+		float: left;
+	}
+
+	#suggestion_block .item-list {
+		float: left;
+	}
+
+	.item-list ul {
+		margin-top: 0px;
+		padding-left: 2px;
+		list-style: none;
+		display: inline-block;
+	}
+
+	#suggestion_block ul li {
+		padding-left: 11px;
+		float: left;
+		padding-right: 6px;
+		background: url('images/slash.png') no-repeat;  /* --- IMAGE ----------------  */
+		background-position: 0px 3px;
+	}
+
+	#suggestion_block ul li.first {
+		padding-left: 2px;
+		background: none;
+	}
+
+	#suggestion_block ul li a {
+		color: #f00200;
+		font-weight: bold;
+	}
+	
+	/* ———— filter content   ———————————————————————————————————————————*/
+
+		#filters_content {
+			font-weight: bold;
+			background: #fafafa;
+			background-image: url('images/bg_1px_7f.gif'); /* --- IMAGE ----------------  */
+			background-repeat: repeat-x;
+			background-position:bottom left;
+			z-index: 19;
+			width: 711px !important;
+			display:  none;
+		}
+
+		#filters_content img {
+			vertical-align: middle;
+		}
+
+		#filters_content div.filter {
+			float: left;
+			border-right: 1px solid #d6d6d6;
+			height: 222px;
+			padding-left: 10px;
+			font-size: 11px;
+			line-height: 23px;
+			margin: 30px 0px 0px 0px;
+		}
+
+		#filters_content div.filter.pos3 {
+			border-right: 0px solid #d6d6d6;
+		}
+
+		#filters_content div.filter h1 {
+			margin-bottom: 8px;
+			font-size: 11px;
+			text-transform: uppercase;
+			margin-top: 0px;
+		}
+
+		#filters_content div.filter div.filterfield {
+			margin: 0;
+			width: 159px;
+			padding: 0px 0px 0px 6px;
+			display: block;
+			cursor: hand;
+			cursor:pointer;
+			clear:both;
+		}
+
+		#filters_content div.filter div.bullet {
+			width:11px;
+			line-height: 22px;
+			margin:0px;
+			margin: 0px 7px 0px 0px;
+			float:left;
+		}
+
+		#filters_content div.filter div.bullet.radiobox {
+			background: url(images/radiobox_on_off.gif);
+			background-repeat: no-repeat;
+			background-position: -11px 6px;
+		}
+
+		#filters_content div.filter div.bullet.checkbox {
+			background: url(images/checkbox_on_off.gif);
+			background-repeat: no-repeat;
+			background-position: -11px 6px;
+		}
+
+		#filters_content div.filter div.label {
+			width:133px;
+			line-height: 15px;
+			margin: 0px;
+			padding: 3px 0px 0px 0px;
+			float:left;
+		}
+
+		#filters_content a.view_results {
+			background-image: url('images/view_results.gif'); /* --- IMAGE ----------------  */
+			float: right;
+			margin-right: 0px;
+		}
+
+		#filters_content a.view_results:hover {
+			background-image: url('images/view_results_hover.gif'); /* --- IMAGE ----------------  */
+			float: right;
+			margin-right: 0px;
+		}
+
+		#filters_content a.view_results img {
+		  border: 0px;
+		  margin-right: 5px;
+		}

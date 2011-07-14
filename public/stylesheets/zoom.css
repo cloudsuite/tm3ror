@@ -1,0 +1,70 @@
+/** ZOOM **/
+	#zoomBar {
+		height:30px;
+		width: 346px;
+		height:23px;
+		margin:0px;
+		padding: 0px;
+		overflow:show;
+	}
+
+	#zoomBox {
+		display:none;
+
+		position: absolute;
+		top:0px;
+		left: 0px;
+		margin:0px;
+		padding:0px;
+
+		background: #ffffff;
+		text-align:center;
+		z-index: 101;
+	}
+
+	#zoomBox,
+	#product .picture {
+		cursor: url(../images/themes/zoominblack.cur), auto;  /* --- IMAGE: GOT ----------------  */
+	}
+
+	#zoomBox img,
+	#zoomBoxImg {
+		align:center;
+		margin: auto;
+	}
+
+	#megaZoom {
+		cursor: url(../images/themes/zoomoutblack.cur), auto; /* --- IMAGE: GOT ----------------  */
+		z-index: 102;
+		display:none;
+		position: absolute;
+		top:0px;
+		left: 0px;
+		background: #ffffff;
+	}
+
+	#closeZoom {
+		margin: 0px;
+		background: #000 url('images/white_cross.gif') no-repeat 10px 8px; /* --- IMAGE ----------------  */
+	}
+
+	#closeZoom:hover,
+	#closeZoom_wrapper.hover #closeZoom,
+	#closeZoom_wrapper:hover #closeZoom {
+		background: #ffe500 url('images/black_cross.gif') no-repeat 10px 8px; /* --- IMAGE ----------------  */
+	}
+
+	#closeZoom_wrapper.hover #closeZoom,
+	#closeZoom_wrapper:hover #closeZoom {
+		color: #000000;
+	}
+
+	#closeZoom_wrapper {
+		cursor: pointer;
+		padding: 10px 0 10px 10px;
+		position: absolute;
+		right:0px;
+		top: 20px;
+		z-index: 103;
+		display: none;
+	}

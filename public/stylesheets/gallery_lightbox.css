@@ -1,0 +1,133 @@
+/*
+	gallerie
+*/
+#gallery {
+	width:710px;
+	margin:15px 0px 0px -2px;
+}
+
+/*
+	lightbox gallery
+*/
+#lightbox-overlay {
+	position:absolute; /* for IE6 */
+	display:none;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	height: expression((document.body.scrollHeight+31) +'px'); /* for IE6 */
+	background-color:#ffffff;
+	z-index:99990;
+}
+
+#lightbox-box {
+	position:absolute; /* for IE6 */
+	display:none;
+	width:400px;
+	height:400px;
+	top:50%;
+	left:50%;
+	margin-top:-200px;
+	margin-left:-200px;
+	z-index:99991;
+}
+
+#lightbox-info {
+	position:absolute;
+	bottom:5px;
+	left:10px;
+	right:10px;
+	color:#000;
+	font-size:11px;
+	height:35px;
+	z-index:99993;
+}
+
+#lightbox-close {
+	position:absolute;
+	top:30px;
+	right:0;
+	margin-right:0;
+	z-index:99999;
+	background:#000 url("images/white_cross.gif") no-repeat 10px 8px;
+}
+#lightbox-close:hover {
+	background:#ffe500 url("images/black_cross.gif") no-repeat 10px 8px ;
+}
+
+#lightbox-loader {
+	position:absolute;
+	width:16px;
+	height:16px;
+	top:50%;
+	left:50%;
+	margin-top:-8px;
+	margin-left:-8px;
+	z-index:99999;
+}
+
+#lightbox-image {
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:45px;
+	overflow:hidden;
+	z-index:99993;
+}
+
+#lightbox-prevholder {
+	position:absolute;
+	width:50%;
+	height:100%;
+	left: 0px;
+	cursor:pointer;
+	z-index:99995;
+	background: url("../../../../../images/blank.gif") no-repeat scroll 0px 0px transparent; /* bug IE */
+}
+
+#lightbox-nextholder {
+	position:absolute;
+	width:50%;
+	height:100%;
+	right:0px;
+	cursor:pointer;
+	z-index:99995;
+	background: url("../../../../../images/blank.gif") no-repeat scroll 0px 0px transparent; /* bug IE */
+}
+
+#lightbox-prev,#lightbox-next  {
+	position:absolute;
+	top:50%;
+	margin-top:-20px;
+	height:40px;
+	width:30px;
+	background:#000 url("images/triangle_white_left.gif") no-repeat 13px 16px;
+	display:none;
+	line-height:40px;
+	text-align:center;
+	color:#000;
+	opacity:0.7;
+	filter:alpha(opacity=70);
+}
+#lightbox-prev  {
+	left:0px;
+}
+#lightbox-next {
+	background-image:url("images/triangle_white_right.gif");
+	right:0px;
+}
+#lightbox-prev:hover,#lightbox-next:hover {
+	opacity:1;
+	filter:none;
+}
+#lightbox-title {
+	/* float:left; */
+	font-weight: bold;
+}
+
+#lightbox-counter {
+	/*float:right;
+	margin-left:8px; */
+}

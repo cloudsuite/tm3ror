@@ -1,0 +1,345 @@
+<!--  ————————————————————————————————————————————————————————————————
+
+Layout: index.html.erb
+
+Doc: home page for the site
+		 Note: right_container does not move on the home page (unlike on llC and
+			Product page ); here it is anchored on left under menu.
+			Both divs (menu and right-content) are 235px wide. 
+
+——————————————————————————————————————————————————————————————————————
+
+ToDo:
+	1. Figure out how 2ndary nav is going to work — bring up images as in mavic,
+		or more of a fly-out menu look?
+	2. Replace slide 1 collage photos with whatever Mandy comes up with 
+	3. Rename the 8 slides: in index.html.erb, in home.css — DEBUG: didn't work 1st time I tried it
+	4. Implement Request a Catalog in footer: popup display; if registered ..., if not ....
+	5. Implement Search in upper right 
+	6. Insert javascript to link register/login, cart/checkout to Netsuite
+	7. move include of home.css to this file, and remove it from application.html.erb
+
+Known Bugs:	
+	1. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
+	solution: move search to upper right under register/login cart/checkout links  
+	3. lost footer entirely Tuesday July 5th AM.  Could fall back to last version committed in git. application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages? 
+	4. footer is back, but it is too low on the page (below the fold). Pinned in at 760px from top. 
+	5. layout of title text in box truValue products 
+
+Unknowns:
+	1. how to control placement of figure and title in slides
+	2. how/when logo-container moves around the window. What triggers the recalculation
+		(presumably window resize); what algorithm used for the recalculation; how does the 
+		algorithm chose where to move it to. 
+	3. Should /shared/_menu.html.erb be included in individual templates:  home, category, product, company — rather than being included in application.html.erb?  [ YES, and it is now. ] 
+	4. Where are these classes with hyphens (not underscores) in the name, defined? 
+	"view view-frontpage view-id-frontpage view-display-id-page view-dom-id-1"  also "view-content"
+	5. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
+-->
+<%= content_for(:header) do %>
+
+	<script type="text/javascript">
+
+		$(window).bind("resize", function(){
+
+			checkSize();
+			//handle homeslide on homepage
+			homeCheckSize();
+			
+			repositionDescription(); /* ???? Repositioning logomark or content_right?  */ 
+		});
+
+		var initHome = function(){
+			$('HTML').css('overflow','auto');
+			$("#homeslide_"+slides[activeSlide]).ezBgResize();
+			checkSize();
+			//handle homeslide on homepage
+			homeCheckSize();
+			homeShowSlide(0);
+			setTimeout("homeAutoDefil()",6000);
+		};
+
+		var slides = new Array();
+		var activeSlide = false;
+		var homeTimer;
+		var firstSlide = true;
+		var oldSlide;
+
+		var onHomePage = true;
+
+	</script>
+
+	<script type="text/javascript">
+			$(document).ready(function(){
+				initHome();
+			});	
+	</script>	
+	
+
+<% end %>
+
+
+<%= content_for(:body) do %>
+	
+	<div id="container" class="home">
+
+		<div id="black_screen"></div>
+		
+		<!-- subcontainer  ———————————————————————————————————————————————————————————— -->
+		<!-- groups menu and right_content on home page; it doesn't move here  ———————— -->
+		
+		<div id="subcontainer" class="home">
+			
+			<!-- menu —————————————————————————————————————————— -->
+			<%= render :partial => 'shared/menu_home' %>
+			
+			<!-- right content container  —————————————————————— -->
+			<div id="home_right_content_container">
+				<div id="home_right_content">
+					
+					<!-- top? -->
+					<style type="text/css">
+						table { margin-left:-4px;}
+						td.colorBlock {
+								width:115px; /* x2 = 230 + 4 cellspacing = 234px, the width of the left column nav (within its white background */ 
+								height:80px;
+								background-color:orange;
+							}
+						td.imageBlock {
+							width:115px;
+							overflow:none;
+							border:solid thin gainsboro;
+							background-color:white;
+						}
+						td.colorBlock p.title1 {
+								font-size:16px; font-weight:bold;line-height:16px;
+								text-transform:none; 
+								margin-left:5px;
+								margin-top:-2px;
+								}
+						td.colorBlock p.title2 {
+								font-size:16px; font-weight:bold;line-height:16px; margin-top:-2px;
+								text-transform:none; 
+								margin-left:5px
+								}
+						td.colorBlock p.content {
+								margin-left:5px;
+								margin-top: -5px;
+								}
+						tr.promotions td.colorBlock {background-color:orange;}
+						tr.truvalue_products td.colorBlock {background-color:#0094DE;}
+					</style>
+					<table cellspacing="5">
+						<tr class="promotions">
+								<td class="colorBlock">
+									<p class="title1">Promotions</p>
+									<p class="content">See what's on special now!</p>
+								</td>
+								<td class="imageBlock">
+									<img src="../images/homepage/710033-000.jpg" width="115" height="80"/>
+								</td>
+						</tr>
+						<tr class="truvalue_products">
+								<td class="colorBlock">
+									<p class="title1">TruValue<br/>Products</p>
+									<p class="content">offer high quality and value</p>
+								</td>
+								<td class="imageBlock">
+									<img src="../images/homepage/Tru_branded_products.jpg" width="115" height="80" />
+								</td>
+						</tr>
+					</table>
+					
+				</div><!-- end div 'home-right-content' -->
+			</div><!-- end div 'home-right_content_container' -->
+	
+		</div><!-- end of div 'subcontainer' -->
+		
+		<!-- slides on home page  ————————————————————————————————————————————————————— -->
+
+		<div class="view view-frontpage view-id-frontpage view-display-id-page view-dom-id-1">
+
+			<div class="view-content"> <!-- DEBUG: can't find view-content in style.css? -->
+
+	       <!-- home slide 1: photo collage —————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_roubaix">
+        		<img class="img" id="img_roubaix" src="../images/homepage/home_1_opt2_nogear.png" width="1200" height="1200" name="img_roubaix">
+            	<div class="homedescription" id="homedescription_roubaix">
+                	<h1 class="helvetica title_product">
+                    	<img src="../images/homepage/trumedical_logoMark_310x78.jpg" style="margin-right:-16px;">
+                    	<br>partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient
+                	</h1>
+                    <div class="helvetica"></div><a href="#" class="homemore">MORE</a>
+                </div>
+            </div>
+            <script type="text/javascript">
+            	slides[slides.length]='roubaix';
+        	</script>
+	       
+
+	       <!-- home slide 2: modalities (electrotheraphy, ultrasound, ...)  ————— -->
+
+	       <div class="homeslide" id="homeslide_footwear">
+	           <img class="img" id="img_footwear" src="../images/homepage/710016-000.png"  name="img_footwear">
+	           <div class="homedescription" id="homedescription_footwear" style="left:68%!important;">
+	               <h1 class="helvetica title_product">
+	                   Intellec 'Legend' 
+	               </h1>
+	               <div class="helvetica">
+	                   Portable Electrotherapy and Ultrasound units
+	               </div><a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='footwear';
+	       </script>
+
+	       <!-- home slide 3: clinical supplies  ————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_wheel1">
+	           <img class="img" id="img_wheel1" src="../images/homepage/710125-222.jpg" width="1200" height="1200" name="img_wheel1">
+	           <div class="homedescription" id="homedescription_wheel1">
+	               <h1 class="helvetica title_product">
+	                   Crossmax ST Disc
+	               </h1>
+	               <div class="helvetica">
+	                   Innovative and reliable, the Crossmax<br>
+	                   ST Disc is a proven reference
+	               </div>
+	               <a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='wheel1';
+	       </script>
+
+	       <!-- home slide 4: tables & traction  ————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_pedal">
+	           <img class="img" id="img_pedal" src="../images/homepage/Compact-Dumbbell-Rack.png"  name="img_pedal">
+	           <div class="homedescription" id="homedescription_pedal">
+	               <h1 class="helvetica title_product">
+	                   Race SL Ti
+	               </h1>
+	               <div class="helvetica">
+	                   Lighweight high performance pedal<br>
+	                   that offers excellent durability,<br>
+	                   power transfer and ease of use.
+	               </div><a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='pedal';
+	       </script>
+
+	       <!-- home slide 5: fitness ———————————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_wheel2">
+	           <img class="img" id="img_wheel2" src="../images/homepage/C521u-1.png" name="img_wheel2">
+	           <div class="homedescription" id="homedescription_wheel2">
+	               <h1 class="helvetica title_product">
+	                   Cosmic Carbone SLR <img src="../images/logos/ssc_product.png">
+	               </h1>
+	               <div class="helvetica">
+	                   Technology and look of the Ultimate,<br>
+	                   into the most efficient clincher<br>
+	                   wheel-tyre system
+	               </div><a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='wheel2';
+	       </script>
+
+	       <!-- home slide 6: orthopedics ———————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_apparel2011-1">
+	           <img class="img" id="img_apparel2011-1" src="../images/homepage/Infinity_wrist1.png" width="1200" height="1200" name="img_apparel2011-1">
+	           <div class="homedescription" id="homedescription_apparel2011-1">
+	           	 <h1 class="helvetica title_product">
+	                   <span>2011 spring-summer</span><br>
+	                   <span class="nextline">apparel range</span>
+	               </h1>
+	               <div class="helvetica">
+	                   performance and comfort
+	               </div><a href="#" class="homemore">MORE</a>
+
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='apparel2011-1';
+	       </script>
+
+	       <!-- home slide 7: ATC/Taping: blue wraps ————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_apparel2011-2">
+	           <img class="img" id="img_apparel2011-2" src="../images/homepage/710060-000.jpg" width="1200" height="1200" name="img_apparel2011-2">
+	           <div class="homedescription" id="homedescription_apparel2011-2">
+	           	<h1 class="helvetica title_product">
+	                   <span>Electrotherapy Accessories</span><br>
+	                   <span class="nextline">Nylatex Wraps</span>
+	               </h1>
+	               <div class="helvetica">
+	                   ideal for holding electrodes in place
+	               </div><a href="#" class="homemore">MORE</a>
+
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='apparel2011-2';
+	       </script>
+
+	       <!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_computer">
+	       <script type="text/javascript">
+	           slides[slides.length]='computer';
+	       </script>
+
+	     </div> <!-- end div 'view-content' -->
+
+		</div> <!-- end div ~'slides on home page' -->
+
+
+
+		<div id="forScrollTop" class="clear"></div>
+			
+		<!-- header links (now in application.html.erb ———————————————————————————————— 
+		<div id="login_links">
+			<ul>
+				<li><a href="#">register</a></li>
+				<li><a href="#">login</a></li>
+				<li><a href="#">cart</a></li>
+				<li><a href="#">checkout</a></li>
+			</ul>
+		</div>
+	-->
+	</div> <!-- end of div 'container' -->
+				 
+
+	<!-- floating logo —————————————————————————————————————————————————————————— -->
+
+	<div id="logo_container">
+		[[ TRU-MEDICAL LOGO ]]
+	</div>
+		
+	<!-- row of rectangles controlling slides on home page  ————————————————————————————————— -->
+		<!-- DEBUG: Why not group these into a single div? OK. and position that? (not OK)
+			See line 2508 in style.css: each homebutton is positioned absolutely — relative to what?
+		-->
+	<div id="slide_controls">	
+		  <div onClick="clearTimeout(homeTimer);homeShowSlide(0);" id="homebutton_0" class="homebutton" style="right:106px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(1);" id="homebutton_1" class="homebutton" style="right:93px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(2);" id="homebutton_2" class="homebutton" style="right:80px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(3);" id="homebutton_3" class="homebutton" style="right:67px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(4);" id="homebutton_4" class="homebutton" style="right:54px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(5);" id="homebutton_5" class="homebutton" style="right:41px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(6);" id="homebutton_6" class="homebutton" style="right:28px;"></div>
+	    <div onClick="clearTimeout(homeTimer);homeShowSlide(7);" id="homebutton_7" class="homebutton" style="right:15px;"></div>
+	</div>
+
+<% end %> <!-- end of content for :body -->
+
+
+

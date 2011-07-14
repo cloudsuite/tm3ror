@@ -1,0 +1,158 @@
+/* select */
+
+	#select_page {
+		float:left;
+	}
+	
+	#select_page #selected_product {
+		white-space: nowrap;
+		font-weight:bold;
+		font-size:11px;
+		border: 1px solid #7d7d7d;
+		background: url("images/select_arrow.gif") no-repeat right center #FFFFFF;
+		padding-left:4px;
+		padding-right:17px;
+		cursor: pointer;
+	}
+	
+	#select_page #list_select {
+		max-height: 300px;
+		
+		z-index:1;
+		white-space: nowrap;
+		margin:0;
+		padding:0 30px 0 0;
+		margin-top:-1px;
+		position:absolute;
+		border: 1px solid #7d7d7d;
+		background-color:#ffffff;
+		display:  none;
+		overflow: auto;
+	}
+	
+	#select_page #list_select li {
+		list-style:none;
+		float:none;
+		padding-left:4px;
+		padding-right:4px;
+	}
+	
+	#select_page #list_select li a {
+		padding-left:0px;
+		padding-right:0px;
+		white-space: nowrap;
+		font-weight:bold;
+		font-size:11px;
+		width:auto;
+	}
+	
+	#select_page #list_select li a.active {
+		color: #7d7d7d;
+	}
+	
+	#select_page #list_select li a:hover {
+		color: #ff0000;
+	}
+	
+	#select_page #list_select li a.active:hover {
+		color: #ff0000;
+	}
+	
+	
+	
+	/*specific custom select boxes*/
+	/*
+	.customselect {
+		white-space: nowrap;
+		font-size:10px;
+		border: 1px solid #7d7d7d;
+		background: url("images/select_arrow2.gif") no-repeat right center #FFFFFF;
+		padding-left:4px;
+		padding-right:17px;
+		width:131px;
+		cursor: pointer;
+	float:left;
+	}
+	
+	ul.customselect-list {
+	
+		max-height: 300px;
+	
+		overflow: auto;
+		z-index:10000;
+		white-space: nowrap;
+		margin:0;
+		padding: 0 30px 0 0;
+		margin-top:-1px;
+		position: relative;
+		left: 200px;
+		border: 1px solid #7d7d7d;
+		background-color:#ffffff;
+		display:  none;
+
+	}
+	
+	ul.customselect-list li {
+		list-style:none;
+		float:none;
+		
+	}
+	
+	ul.customselect-list li {
+		padding:0 4px;
+		white-space: nowrap;
+		font-size:10px;
+		width:auto;
+		cursor: pointer;
+	}
+	ul.customselect-list li a,.customselect a{
+		display:block;
+		color: #808080;
+	}
+
+	ul.customselect-list li a.active,ul.customselect-list li.active {
+		color: #7d7d7d;
+	}
+	
+	.customselect a:hover,.customselect a:active,.customselect a:focus,
+	ul.customselect-list li a:hover,ul.customselect-list li a.active:hover,
+	ul.customselect-list li a:focus,ul.customselect-list li a.active:focus,
+	ul.customselect-list li a:active,ul.customselect-list li a.active:active,
+	ul.customselect-list li.over{
+		color: #ff0000;
+	} */
+	.customselect-wrap{
+		position:relative;
+		border: 1px solid #7d7d7d;
+		background: url("images/select_arrow2.gif") no-repeat right center #FFFFFF;
+		width:220px;
+		height:23px;
+		overflow:hidden;
+	}
+	.customselect-wrap select{
+		position:relative;
+		border:0;
+		min-width:222px;
+		z-index: 50
+	}
+	.customselect-wrap select option,.customselect-text{
+		height:20px;
+		padding: 2px 0 1px 5px;
+		font-size: 12px;
+	}
+	.customselect-text{
+		width:190px;
+		position:absolute;
+		z-index: 49;
+		color: #808080;
+		overflow:hidden
+	}
+	.error .customselect-text{
+		color: red;
+	}
+	.customselect-focus{
+		border:1px dotted #808080;
+		padding: 1px 0 1px 4px;
+		height:19px;
+		width:189px;
+	}

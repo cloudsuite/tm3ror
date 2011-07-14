@@ -1,0 +1,74 @@
+
+/*
+	distributeur
+*/
+#distributor {
+	font-size: 11px;
+	padding: 0px 0px 0px 0px;
+	margin-left: 10px;
+	/*border-spacing: 0px;*/
+}
+
+#distributor td {
+	padding: 0px 10px 0px 0px;
+	width: 220px;
+}
+
+#distributor h1 {
+	font-size: 12px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#distributor .infoBox {
+	background: white;
+	padding: 0px;
+	margin: 5px 0px 10px 0px;
+	border-bottom: 1px solid #7D7D7D;
+}
+
+#distributor .infoBox h2 {
+	text-transform: uppercase;
+	margin: 0px;
+	padding: 5px 10px 5px 10px;
+	font-size: 11px;
+}
+
+#distributor .infoBox .infoBoxContent {
+	padding: 2px 10px 0px 10px;
+	font-size: 11px;
+}
+
+#distributor .img_distri {
+	display: none;
+	margin: 0px 0px 1px -5px;
+}
+
+#distributor .country {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 10px;
+	cursor: pointer;
+	background-color: #ffffff;
+	font-weight: normal;
+}
+
+#distributor .country:hover {
+	color: #ff0000;
+}
+
+#distributor .country_selected {
+	background-color: #ffe500 !important;
+	font-weight: bold !important;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+	margin-top: 2px !important;
+	color: #000000 !important;
+}
+
+#distributor .country_selected:hover {
+	color: #000000 !important;
+}
+
+#distributor .country_dist {
+	width: 220px;
+}

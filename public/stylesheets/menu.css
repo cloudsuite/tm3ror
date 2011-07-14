@@ -1,0 +1,409 @@
+
+/* ÑÑÑÑ menu styles  ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ */
+
+	#menu .submenucontent2 .level2 a.menu_red {
+		color: #ff0000;
+		display: none;
+	}
+	
+	#menu {
+		width: 233px;
+
+		margin-right: 2px;
+		float: left;
+		z-index: 88;
+		position: relative;
+	}
+
+	#menu .menu_main {
+		background: #fff;
+	}
+
+	#menu a.level1 {
+		font-weight: bold;
+		height: 22px;
+		text-decoration: none;
+		font-size: 22px;
+		padding: 8px 0 4px 3px;
+		display: block;
+		color: #000000;
+	}
+	#menu a.level1B {
+		font-weight: bold;
+		height: 22px;
+		text-decoration: none;
+		font-size: 22px;
+		padding: 8px 0 4px 3px;
+		display: block;
+		color: gray; /* to differentiate patients/clinicians/payors from product categories */
+	}
+
+	#menu a.first {
+		padding-top: 8px ;
+	}
+
+	#menu a.level1, 
+	#menu a.level1B,
+	#menu .menu_separator {
+		margin: 0 10px;
+	}
+
+	#menu .menu_separator {
+		background: url('images/bg_menu.gif') left bottom repeat-x; /* --- IMAGE ----------------  */
+		height: 1px;
+		line-height: 1px;
+		font-size: 1px;
+	}
+
+	#menu a.level1:hover,
+	#menu div.active,
+	#menu div.current,
+	#menu a.level1.active,
+	#menu a.level1.current 
+	#menu a.level1B:hover,
+	#menu a.level1B.active,
+	#menu a.level1B.current
+	
+	{
+		background: orange; /* 0094DE */
+		margin-left: 0px;
+		margin-right: 0px;
+		padding-left: 13px;
+	}
+
+	#menu .submenu {
+		position: absolute;
+		background:url('images/bg_right_content_white.gif') no-repeat; /* --- IMAGE ----------------  */
+		background-position: 0 -30px;
+		left: 230px;
+		display: none;
+		z-index: 10000;
+	}
+
+	#menu .submenu .submenucontent {
+		background: #ffffff;
+		margin-left:5px;
+		padding-top: 9px;
+		padding-right: 0px;
+		padding-left: 9px;
+		padding-bottom: 0px;
+		font-size: 17px;
+
+	}
+	#menu .submenu .submenucontent .row {
+		width: 732px;
+		margin: 0px;
+		padding: 0px;
+	}
+	#menu .submenu .submenucontent .row.rims {
+		width: 489px;
+	}
+	#menu .submenu .submenucontent .row.rims a {
+		width: 236px;
+	}
+
+	#menu .submenu .submenucontent a.link {
+		float:left;
+		color: #000000;
+		text-decoration: none;
+		height: 136px;
+		background: none;
+		margin: 0px 8px 9px 0px;
+		padding: 0px 0px 0px 0px;
+		font-size: 16px;
+	}
+	#menu .submenu .submenucontent a.noimg {
+		height: 50px;
+		width: 236px;
+}
+	#menu .submenu .submenucontent a.link span {
+		padding: 7px 0px 0px 10px;
+	}
+
+	#menu .submenu .submenucontent a.link.apparel {
+		display:table;
+		width: 175px;
+	}
+
+	#menu .submenu .submenucontent a.link.apparel:hover img {
+		border:none;
+	}
+
+	#menu .submenu .submenucontent a.link.apparel:hover span {
+		padding-top: 8px;
+	}
+
+	#menu .submenu .submenucontent a.link.apparel img {
+		border-bottom: 1px solid #7f7f7f;
+	}
+
+	#menu .submenu .submenucontent a.link * {
+		display: block;
+		border: 0px;
+	}
+
+	#menu .submenu .submenucontent a.link:hover {
+		background: orange;
+	}
+
+	#menu #submenu_mavic {
+		top: 233px;
+	}
+
+	#menu #submenu_search {
+		top: 265px;
+	}
+
+	#menu .submenu .submenucontent2 {
+		margin-left:5px;
+		font-size: 17px;
+		width: 733px;
+	}
+
+	#menu .submenucontent2 .left {
+		float: left;
+		background: orange;
+		margin-right: 1px;
+		padding-top: 10px;
+		padding-left: 19px;
+		width: 207px;
+		height: 255px; /* 255 + padding top 10 = 265 */
+	}
+
+	#menu .submenucontent2 .level2 {
+		font-size: 16px;
+		background: none;
+		font-weight: bold;
+		padding: 3px 0;
+	}
+
+	#menu .submenucontent2 .level2 a {
+		font-weight: bold;
+		font-size: 16px;
+		/*height: 17px;*/
+		display: block;
+	}
+
+	#menu .submenucontent2 .level2 a:hover {
+		color: #ff0000;
+	}
+
+	#menu .submenu .submenucontent2 .wraplevel3 {
+		padding: 4px 0;
+	}
+
+	#menu .submenucontent2 .level2 a.level3 {
+		font-weight: normal;
+		font-size: 11px;
+		background:transparent url('images/puce-mini.gif') no-repeat 4px 7px; /* --- IMAGE ----------------  */
+	/*	height: 11px;  */
+		padding: 0 0 0 11px;
+		line-height: 14px;
+	}
+
+	#menu .submenucontent2 .level3_separator {
+		display:none
+/*		height: 10px;
+		font-size: 1px; */
+	}
+
+	#menu .submenu_mavic {
+		background: none !important;
+	}
+
+	#menu .submenu_mavic .right .element .title {
+		margin: 0;
+		padding-top: 4px;
+	}
+
+	#menu .submenu .submenucontent2 .right {
+		background: orange;
+		width: 320px;
+		float: left;
+		height: 251px; /* 251 + padding top 14 = 265 */
+		padding-top: 14px;
+		padding-left: 15px;
+		padding-right: 16px;
+		font-size: 11px;
+	}
+
+
+	#menu .submenu .submenucontent2 .right a {
+		color: #000000;
+		font-weight: bold;
+		text-decoration: none;
+		border: none;
+		background: none;
+		font-size: 11px;
+	}
+
+	#menu .submenu .submenucontent2 .right a:hover {
+		text-decoration: none;
+		color: #ff0000;
+	}
+
+	#menu .submenu .submenucontent2 .right .element {
+		font-weight: bold;
+	}
+
+	#menu .submenu .submenucontent2 .right .element a {
+		text-decoration: none;
+	}
+
+	#menu .submenu .submenucontent2 .right .element img {
+		float: left;
+		margin-left: 0; /*3px;*/
+		margin-right: 13px;
+		border: none;
+	}
+
+	#menu .submenu .submenucontent2 .right .element {
+		line-height: 13px;
+	}
+
+	#menu .submenu .submenucontent2 .right .complement {
+		margin-top: 15px;
+		margin-bottom: 30px;
+		margin-left: 0;
+		line-height: 13px;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons {
+		padding-bottom: 4px;
+		border-bottom: 1px solid #000000;
+		margin-bottom: 4px;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons img {
+		vertical-align: baseline;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .left_buttons {
+		float: left;
+		margin-left: 0; /*4px;*/
+		width: auto;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .left_buttons a {
+		display: inline;
+		margin:0px;
+		padding: 0px;
+		text-decoration: none;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .left_buttons a:hover {
+		color: #ff0000;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .left_buttons img {
+		margin-right: 6px;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .right_buttons {
+		float: right;
+		margin-right: 1px;
+		margin-left: 1px;
+		text-align:right;
+	}
+
+	#menu .submenu.submenu_mavic .submenucontent2 .right .buttons .right_buttons {
+		margin-top: 2px;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .right_buttons a.left,
+	#menu .submenu .submenucontent2 .right .buttons .right_buttons a.right {
+		padding: 0;
+		margin: 0px 0px 0px 1px;
+		width: 14px;
+		height: 13px;
+		cursor: pointer;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .right_buttons img {
+			margin-left: 1px;
+			border: none;
+	}
+
+	#menu .submenu .submenucontent2 .right .buttons .right_buttons a.left.disabled,
+	#menu .submenu .submenucontent2 .right .buttons .right_buttons a.right.disabled {
+		opacity: 0.3;
+		filter: alpha(opacity=30);
+		cursor: default;
+	}
+
+	.news_date_menu {
+		font-weight: normal;
+		font-size: 10px;
+	}
+
+/** SEARCH FORM IN MENU **/
+	#search_form {
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		height: 43px;
+	}
+
+	#search_text {
+		margin-left: -7px;
+	}
+
+	#search_input {
+		border-color: #ddd; /* transparent don't work in ie6 */
+		margin: 5px 10px 0;
+		border-color: #ddd;
+		font-size: 22px;
+		font-family: Arial;
+		height: 24px;
+		display: none;
+		width: 181px; /* 1*2 padding + 1*2 border + 181 = 185 */
+	}
+
+	#search_input:focus {
+		outline: none;
+	}
+
+	#search_input,
+	#search_hint {
+		font-weight: bold;
+		color: #BABABA;
+		height: 24px;
+		margin: 5px 0 0 10px;
+		padding: 0 1px 0;
+		border-width: 1px;
+		border-style: solid;
+		line-height: 24px;
+	}
+
+	#search_hint {
+		font-size: 22px;
+		cursor: text;
+		border-color: #fff; /* transparent don't work in ie6 */
+		cursor: pointer;
+	}
+
+	#search_wrapper {
+		width: 199px;
+		float: left;
+	}
+
+	#search_form .submit {
+		display: none;
+		background-color: black;
+		border: medium none;
+		color: white;
+		font-size: 10px;
+		height: 19px; /* 19 + 1 padding = 20 */
+		margin: 7px 0 0;
+		padding: 1px 0 0 5px;
+		width: 19px; /* 19 + 5 padding = 24 */
+		font-weight: bold;
+		text-transform: uppercase;
+		float: left;
+	}
+
+	#search_form .submit:hover  {
+		background-color: orange;
+		color: black;
+	}
+

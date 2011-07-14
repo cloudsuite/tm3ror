@@ -1,0 +1,378 @@
+<!-- 
+      —————————————————————————————————————————————————————————————————————————————————————————
+      
+			Site#search
+			
+			—————————————————————————————————————————————————————————————————————————————————————————
+     
+					to do:
+
+			        1. set up a page template for search results: see template w/example content at localhost:3000/site/search.html
+							2. make it live; if you type a term into search box now and press return it fails
+					
+					to fix:
+							1. missing circles on items used to restrict the search to particular subsets of the site. Missing black highlight for the one chosen. 
+							2. pagination of search results not working
+
+			    open questions:
+			        1. background image for product search? 
+			 				2. Site Catalyst stuff in the content_for(:js_at_end_of_page): Omniture/Adobe stuff.
+			Drop in favor of straight Google? 
+
+			    aesthetics:
+			        1. 
+
+			    refactoring:    
+			        1. consider using HTML5 sections, SASS 
+			   		
+          
+      —————————————————————————————————————————————————————————————————————————————————————————
+  -->
+      
+
+<%= content_for(:header) do %>
+
+	<title>TruMedical Solutions / Products / Search </title>       									
+	<script type="text/javascript" >
+
+		$(document).ready(function() {	
+				$("#body-background").ezBgResize();				
+				getSessionProductCompare();
+				checkSize();
+			});
+			var macromodels=new Array();
+			var showCompare = false;
+			var activeFamily = '167837';
+			var basePath ='/en'; 
+			var itemtimer=new Array();
+			
+	</script>
+	<!-- check this out: anything in it that is not in mavix.js?  --> 
+	<script type="text/javascript" 	
+		src="/sites/default/themes/mavic/js/script.combined.js?version=2">
+	</script>
+
+<% end %>
+
+  
+<%= content_for(:body) do %>
+
+	<!-- structure of nested divs within <body> is currently as follows: 
+		
+	container
+		subcontainer
+			some div with position:relative
+			menu
+			main-content
+				breadcrumb
+				error-messages
+				(mavic)-search
+					search-form-test
+					suggestion_block
+				search-result-filters — distinction between results for patients vs clinicials will go here
+				box (= search results; rename to search_results ) 
+			}
+		}
+		right_content_container
+			right_content
+		}
+	} 
+	
+	--> 
+		
+
+	<div id="body-background">
+		<img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg">
+	</div>
+      
+	<!-- container —————————————————————————————————————————————————————————————————— -->
+
+	<div id="container">
+		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+
+    <!-- subcontainer —————————————————————————————————————————————————————— -->
+
+		<div id="subcontainer">
+	
+			<div style="position:relative">  <!-- Why relative? Why Compare Header in Search results? -->
+
+				<div id="productCompareContainer"  >
+					<div id="productCompareHeader" >
+		
+						<h1 class="helvetica" >Product Compare</h1>
+						<a id="productCompareClose" class="button_view" onclick="closeProductCompare();" >CLOSE</a>
+		
+					</div>
+					<div id="loader" style="text-align:center">Loading...</div>
+					<table id="productCompareTable" border="0" cellspacing="12" cellpadding="0">
+					</table>
+
+				</div>
+
+			</div>	
+			
+			<!-- MENU —————————————————————————————————————————————————————  -->
+			
+			<%= render :partial => 'shared/menu' %>
+
+			<div id="main_content">
+
+				<!-- Breadcrumb ————————————————————————— -->
+				<div id="breadcrumb">
+					<b><a href="/en">home page</a></b>
+					&gt; <b>search</b>
+					
+					<script type="text/javascript" >
+						$(document).ready(function() {	
+							$("#body-background").ezBgResize();	
+							checkSize();
+						});
+					</script>
+				</div>
+
+				<!-- Error Msgs ——————————————————————————— -->
+				<div id="error-messages" style="display:none"></div>
+				
+				<!-- Search  —————————————————————————————— -->
+				<div id="mavic_search">
+					<h1 class="helvetica">Search</h1>
+					
+					<div class="search-form-test">
+						
+						<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+						
+						<script type="text/javascript">
+							google.load('search', '1');
+							google.setOnLoadCallback(function() {
+								google.search.CustomSearchControl.attachAutoCompletion(
+									'014338948727438158850:bsnpnwdxyvo',
+									document.getElementById('edit-keys-vis'),
+									'search-form');
+							});
+
+							var filter = 'all';
+
+							function setMoreAndSubmit(more) {
+								filter = more;
+								jQuery('#search-form').submit();
+							}
+
+							function updateKeys(text) {
+								jQuery('#edit-keys').val(text);
+								if(filter) {
+									jQuery('#edit-keys').val(jQuery('#edit-keys').val() + ' more:' + filter)
+								}
+							}
+
+							jQuery("table.gsc-completion-container td").live("mouseover", function(){
+								updateKeys($(this).text());
+							});
+						</script>
+						
+						<form 
+							action="/en/search/google_cse_adv"  
+							accept-charset="UTF-8" 
+							method="post" 
+							id="search-form" 
+							class="search-form" 
+						 onsubmit="jQuery(&#039;#edit-keys&#039;).val(jQuery(&#039;#edit-keys-vis&#039;).val()); if(filter) {jQuery(&#039;#edit-keys&#039;).val(jQuery(&#039;#edit-keys&#039;).val() + &#039; more:&#039; + filter)}; true"
+						>
+						
+							<div>
+								<input type="hidden" name="form_build_id" 
+									id="form-89e04434647bed2827e9e8361721b9b3" 	
+									value="form-89e04434647bed2827e9e8361721b9b3"  />
+								<input type="hidden" name="form_id" 
+									id="edit-search-form" 
+									value="search_form"  />
+								<div class="container-inline">
+									<div class="form-item">
+										<label>Enter your keywords: </label>
+									</div>
+
+									<input type="hidden" name="keys" id="edit-keys" value="pedals"  autocomplete="off" />
+						
+									<div class="form-item" id="edit-keys-vis-wrapper">
+										<input type="text" maxlength="255" name="keys-vis" id="edit-keys-vis" size="25" value="pedals" autocomplete="off" class="form-text" />
+									</div>
+						
+									<div class="form-item">
+										<input type="submit" name="op" id="edit-submit" value="Search"  class="form-submit" />
+									</div>
+						
+									<div class="form-item total-items">(1000 results)</div>
+						
+									<div style="clear:both;"></div>
+						
+									<div class="form-item"></div>
+								</div>
+							</div>
+						</form>
+			
+					</div> <!-- end of div 'search-form-test' -->
+		
+					<!-- suggestions -->
+					<div id="suggestion_block"></div>
+
+				</div> <!-- end of div 'mavic_search' -->
+
+				<!-- filters —————————————————————————— -->
+				<!--
+				<div id="search-result-filters">
+					<ul id="search-result-filter-list" class="block search-result-filter">
+						<li class="active"><a href="#" onclick="setMoreAndSubmit('all');">all</a></li>
+						<li><a href="#" onclick="setMoreAndSubmit('macromodel');">products</a></li>
+						<li><a href="#" onclick="setMoreAndSubmit('news');">news</a></li>
+						<li><a href="#" onclick="setMoreAndSubmit('technology');">technologies</a></li>
+						<li><a href="#" onclick="setMoreAndSubmit('history');">history</a></li>
+						<li><a href="#" onclick="setMoreAndSubmit('video');">video</a></li>
+					</ul>
+				</div>
+				-->
+				
+				<!-- Search results —————————————————————————— -->
+				<div class="box">
+					<h2>Search results</h2>
+  					<div class="content">
+						<ul class="search-results google_cse_adv-results">
+							
+  						<li class="odd1" > 
+  							<b><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals">pedals - Mavic</a></b>
+      					<p class="search-snippet">4 Jul 2011 ... pedals. footwear. triathlon road mountain bike. apparel. bottoms vests / jackets   jerseys underwear / undershort ...</p>
+      					<p class="url"><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals">http://www.mavic.com/en/product/pedals/Pedals/pedals</a></p>
+							</li>
+							
+							<li class="odd0" > 
+  							<b><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Race">Race - pedals - Mavic</a></b>
+      					<p class="search-snippet">5 Jul 2011 ... High performance race ready pedal. ... On QRM pedals, they provide high   durability and high efficiency. More infos. ETS ...</p>
+								<p class="url">
+									<a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Race">
+										http://www.mavic.com/en/product/pedals/Pedals/pedals/Race
+									</a>
+								</p>
+							</li>
+							
+							<li class="odd1" > 
+							  <b><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Sprint">Sprint - pedals - Mavic</a></b>
+								<p class="search-snippet">4 Jul 2011 ... High value road pedal for weight and budget conscious riders.</p>
+								<p class="url"><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Sprint">http://www.mavic.com/en/product/pedals/Pedals/pedals/Sprint</a>
+								</p>
+								
+							</li><li class="odd0" > 
+							  <b><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/RACE-SL-TI">Race SL Ti - pedals - Mavic</a></b>
+								<p class="search-snippet">4 Jul 2011 ... Lighweight high performance pedal that offers excellent durability, power   transfer and ease of use.</p>
+								<p class="url"><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/RACE-SL-TI">
+									http://www.mavic.com/en/product/pedals/Pedals/pedals/RACE-SL-TI</a>
+								</p>
+							</li>
+
+							<li class="odd1" > 
+							  <b><a href="http://www.mavic.com/en/technology/pedals/QRM">QRM - pedals - technology - Mavic</a></b>
+							      <p class="search-snippet">4 Jul 2011 ... pedals. footwear. triathlon road mountain bike. apparel. bottoms vests / jackets   jerseys underwear / undershort ...</p>
+							      <p class="url"><a href="http://www.mavic.com/en/technology/pedals/QRM">http://www.mavic.com/en/technology/pedals/QRM</a></p>
+							</li>
+
+							<li class="odd0" > 
+							  <b><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Road-Cleat-7%C2%B0">Road Cleat 7° - pedals - Mavic</a></b>
+							      <p class="search-snippet">4 Jul 2011 ... pedals. footwear. triathlon road mountain bike. apparel. bottoms vests / jackets   jerseys underwear / undershort ...</p>
+							      <p class="url"><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Road-Cleat-7%C2%B0">http://www.mavic.com/en/product/pedals/Pedals/pedals/Road-Cleat-7%C2%B0</a></p>
+							</li>
+
+							<li class="odd1" > 
+							  <b><a href="http://www.mavic.com/en/history/2002/2008/Pedals">Pedals - 2002/2010 - history - Mavic</a></b>
+							      <p class="search-snippet">4 Jul 2011 ... A range of road pedals sees the light of day. ... This range of Mavic pedals   follows on from the innovative 646 LMS of 1990, and comprises ...</p>
+							      <p class="url"><a href="http://www.mavic.com/en/history/2002/2008/Pedals">http://www.mavic.com/en/history/2002/2008/Pedals</a></p>
+							</li>
+
+							<li class="odd0" > 
+							  <b><a href="http://www.mavic.com/en/technology/pedals/ETS">ETS - pedals - technology - Mavic</a></b>
+							      <p class="search-snippet">5 Jul 2011 ... pedals. footwear. triathlon road mountain bike. apparel. bottoms vests / jackets   jerseys underwear / undershort ...</p>
+
+							      <p class="url"><a href="http://www.mavic.com/en/technology/pedals/ETS">http://www.mavic.com/en/technology/pedals/ETS</a></p>
+							</li>
+
+							<li class="odd1" > 
+							  <b><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Road-Cleat-0%C2%B0?996943">Road Cleat 0° - pedals - Mavic</a></b>
+							      <p class="search-snippet">Energy Transfer System (ETS) for optimal rider/ bike interface. Mavic pedals   feature wide cleat/pedal contact area for maximum energy transmission. ...</p>
+							      <p class="url"><a href="http://www.mavic.com/en/product/pedals/Pedals/pedals/Road-Cleat-0%C2%B0?996943">http://www.mavic.com/en/product/pedals/Pedals/pedals/Road-Cleat-0%C2%B0?996943</a></p>
+							</li>
+
+							<li class="odd0" > 
+							  <b><a href="http://www.mavic.com/en/node/168443">pedals - Mavic</a></b>
+							      <p class="search-snippet">pedals. COMPARE (). (3 items maximum). レースSL Ti. Select to compare. レースSL   Ti. パワー伝達性・耐久性・使い勝手に優れる超軽量チタンペダル ...</p>
+
+							      <p class="url"><a href="http://www.mavic.com/en/node/168443">http://www.mavic.com/en/node/168443</a></p>
+							</li>
+						</ul>
+						
+						<div class="item-list">
+							<ul class="pager">
+								<li class="pager-current first">1</li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=1" title="Go to page 2" class="active">2</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=2" title="Go to page 3" class="active">3</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=3" title="Go to page 4" class="active">4</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=4" title="Go to page 5" class="active">5</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=5" title="Go to page 6" class="active">6</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=6" title="Go to page 7" class="active">7</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=7" title="Go to page 8" class="active">8</a></li>
+								<li class="pager-item"><a href="/en/search/google_cse_adv/pedals?page=8" title="Go to page 9" class="active">9</a></li>
+								<li class="pager-ellipsis">…</li>
+								<li class="pager-next"><a href="/en/search/google_cse_adv/pedals?page=1" class="active">NEXT</a></li>
+								<li class="pager-last last"><a href="/en/search/google_cse_adv/pedals?page=99" title="Go to last page" class="active">last »</a></li>
+							</ul>
+						</div>
+
+					</div> <!-- end of div 'content'? -->
+				</div> <!-- end of div 'box' -->
+				
+			</div> <!-- end of div 'main_content' -->
+								
+		</div><!-- end of div 'subcontainer' -->
+		
+	</div><!-- end of div 'container' -->
+	
+	
+		<!--  right_content_container: empty –––––––––––––––––––––––––– -->
+	
+		<div id="right_content_container">
+			<div id="right_content">
+			</div>
+		</div><!-- /encart -->
+		
+		<div id="forScrollTop" class="clear"></div>
+		
+	</div><!-- end of div 'container' -->
+
+	<!-- logo container ————————————————————————————————————————————— -->
+	<div id="logo_container">
+		<a href="/en" id="logo" title="home page">home page</a>	
+	</div>
+	
+<% end %>	<!-- end of content_for(:body) -->	
+	
+<!-- javascript before close of body ——————————————————————————————————————————————— -->	
+		
+<%= content_for(:js_before_close_of_body) do %> 
+	
+	<!-- SiteCatalyst code version: H.19.3.
+	Copyright 1997-2009 Omniture, Inc. More info available at
+	http://www.omniture.com -->
+	<script language="JavaScript" type="text/javascript"><!--
+		/* You may give each page an identifying name, server, and channel on
+		the next lines. */
+		s.pageName="search:google_cse_adv:pedals";
+		s.channel="search";
+		s.prop1="google_cse_adv";
+		s.prop2="pedals";
+		s.prop3="";
+		s.prop4="";
+		s.prop12="en";
+		s.prop31="mavic.com";
+		s.prop5="pedals";		/****** DO NOT ALTER ANYTHING BELOW THIS LINE ! *******/
+		var s_code=s.t();if(s_code)document.write(s_code)
+		//-->
+	</script>
+	<!-- End SiteCatalyst code version: H.19.3. -->
+	
+<% end %>	<!-- end of content_for(:js_before_close_of_body) -->
+	

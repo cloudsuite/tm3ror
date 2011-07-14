@@ -1,0 +1,205 @@
+/* ———— Product Compare  ——————————————————————————————————————————— */
+
+	#helpmechoose {
+		position: absolute ;
+		right:0;
+		margin:0px;
+		padding:0px;
+		text-align: right;
+		z-index:3;
+		top:-1px;
+	}
+
+	#product_compare_placeholder {
+		display: table;
+		float: left;
+		margin: 0px;
+		padding: 7px 0px 0px 0px;
+		height: 40px;
+		width: 100%;
+	}
+
+	#product_compare_block {
+		display: none;
+		float: left;
+		margin: 5px 0px 0px 0px;
+		padding: 0px;
+		width: 100%;
+		font-size: 10px;
+		text-transform: uppercase;
+	}
+
+	#product_compare_block  #product_compare_title {
+		margin-right:2px;
+		padding-left:21px;
+		padding-right:10px;
+		float:left;
+		color:#ffffff;
+		background: #000000;
+		font-weight: bold;
+		font-size: 10px;
+		cursor: pointer;
+		line-height: 20px;
+		text-decoration: none;
+		display: block;
+		background: #000 url('images/compare.gif') no-repeat 6px 5px; /* --- IMAGE ----------------  */
+	}
+
+	#product_compare_block  #product_compare_title:hover {
+	    background: orange url('images/compare_hover.gif') no-repeat 6px 5px; /* --- IMAGE ----------------  */
+	    color: #000;
+	    text-decoration: none;
+	}
+
+	#product_compare_block #product_compare_3items {
+		padding-bottom:4px;
+		padding-top:2px;
+	}
+
+	#product_compare_block  #product_compare_title img {
+		vertical-align: middle;
+		border: 0px;
+	}
+
+	#productCompareContainer {
+		display: none;
+		position: absolute;
+		background: #ffffff ur(images/loader.gif);
+		z-index: 89;
+		width: 976px;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 0px;
+	}
+
+	#productCompareContainer #productCompareHeader {
+		background: #ffffff;
+		height: 20px;
+		padding: 18px 0px 18px 0px;
+	}
+
+	#productCompareContainer h1 {
+		margin: 0px 0px 0px 20px;
+		padding: 0px;
+		font-size: 18px;
+	}
+
+	#productCompareContainer .compareBit {
+		display: none;
+	}
+
+	#productCompareContainer #productCompareClose {
+		position: absolute;
+		right: 0px;
+		top: 18px;
+		background: #000 url('images/white_cross.gif') no-repeat 10px 8px; /* --- IMAGE ----------------  */
+		margin:0px;
+	}
+
+	#productCompareContainer #productCompareClose:hover {
+		background: orange url('images/black_cross.gif') no-repeat 10px 8px; /* --- IMAGE ----------------  */
+	}
+
+	#productCompareContainer #productCompareTable {
+		background: #ffffff;
+		margin-bottom: 50px;
+	}
+
+	#productCompareContainer #productCompareTable img {
+		width: 300px;
+		margin-bottom: 18px;
+
+	}
+
+	#productCompareContainer #productCompareTable select {
+		width:100%;
+		margin-bottom: 4px;
+		border: 1px solid #7d7d7d;
+		background: white;
+		font-size: 11px;
+		font-weight: bold;
+	}
+
+	#productCompareContainer #productCompareTable .linkcontainer a {
+		float: right;
+		margin-right:2px;
+		line-height: 20px;
+		padding: 0px 12px 0px 15px;
+		color:#ffffff;
+		font-weight: bold;
+		font-size: 10px;
+		cursor: pointer;
+		background: #000 url('images/triangle_white_right_small.gif') no-repeat 7px 8px; /* --- IMAGE ----------------  */
+		text-decoration: none;
+		display: block;
+		text-transform: uppercase;
+	}
+
+	#productCompareContainer #productCompareTable .linkcontainer a:hover {
+		color: #000;
+		background-color: #ffe500;
+
+		background: #ffe500 url('images/triangle_black_right_small.gif') no-repeat 7px 8px; /* --- IMAGE ----------------  */
+	}
+
+	#productCompareContainer #productCompareTable td {
+		width: 310px;
+	}
+
+	#productCompareContainer #productCompareTable td h2 {
+		margin: 0px 0px 0px 0px;
+		padding: 0px 0px 0px 9px;
+		font-size: 12px;
+		background: url('images/puce.gif') no-repeat 0px 7px;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock {
+		margin: 0px 14px 0px 14px;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock ul {
+		list-style: none;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock ul li {
+		margin:0px;
+		padding: 0px;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock ul.technologies {
+		margin-top: 15px;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock ul.technologies li {
+		font-weight: bold;
+		line-height: 45px;
+		margin-top: 3px;
+	}
+
+	#productCompareContainer #productCompareTable .odd {
+		background: #fafafa;
+	}
+
+	#productCompareContainer #productCompareTable .odd .infoblock {
+		padding-top: 7px;
+		padding-bottom: 7px;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock img.picto {
+		width: 40px;
+		height: 40px;
+		display: block;
+		float:left;
+		margin: 0px 10px 0px 0px;
+		padding: 0px;
+		background: #ffe500;
+	}
+
+	#productCompareContainer #productCompareTable .infoblock  .techno_nopicto {
+		margin: 5px 10px 0px 0px;
+		width:40px;
+		height:40px;
+		background: #ffffff;
+		float:left;
+	}

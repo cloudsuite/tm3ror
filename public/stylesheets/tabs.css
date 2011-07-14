@@ -1,0 +1,174 @@
+/* CSS file: tabs.css */ 
+/* occurs within <div>? */
+
+	#tabs_buttons,
+	#tabs_buttons_gamme {
+		height: 30px;
+		background-image: url('images/bg_tabs.gif'); /* --- IMAGE ----------------  */
+		background-repeat:repeat-x;
+		background-position: 0px right;
+		overflow:hidden;
+	}
+
+	#tabs_buttons img,
+	#tabs_buttons_gamme img {
+		vertical-align:middle;
+	}
+
+	#tabs_buttons div.tab,
+	#tabs_buttons_gamme div.tab {
+		text-transform: uppercase;
+		float: left;
+		display: block;
+		font-size: 12px;
+		font-weight: bold;
+		margin: 0px;
+		padding: 9px 10px 0px 19px;
+		height: 21px;
+		background: transparent url('images/tab_unactive.gif') no-repeat 10px 11px; /* --- IMAGE ----------------  */
+		cursor: pointer;
+	}
+
+	#tabs_buttons_gamme.history div.tab {
+		background-position: 8px 11px;
+		padding-right: 8px;
+		padding-left: 17px;
+	}
+	#tabs_buttons_gamme.history div.tab a {
+		padding-left: 0;
+	}
+
+	#tabs_buttons div.tabover,
+	#tabs_buttons_gamme div.tabover,
+	#tabs_buttons div.active,
+	#tabs_buttons_gamme div.active {
+		background-color: orange;
+	}
+
+	#tabs_buttons div.active,
+	#tabs_buttons_gamme div.active {
+		background-image: url('images/tab_active.gif'); /* --- IMAGE ----------------  */
+		background-position: 8px 13px;
+	}
+
+	.ja #tabs_buttons_gamme.history div.tab {
+		padding: 6px 5px 3px 13px;
+	}
+	.ja #tabs_buttons_gamme.history div.last {
+		padding-right: 4px;
+	}
+/*
+	.ja #tabs_buttons_gamme.history div.active {
+		background-position: 5px 14px;
+	}*/
+	#tabs_buttons,
+	#tabs_buttons_gamme a,
+	#tabs_buttons_gamme a:hover {
+		color: #000000;
+	}
+
+
+	.tab_space {
+		margin-top:42px;
+	}
+
+	#tabs p {
+		padding: 0px;
+		margin: 0px;
+	}
+
+	#tabs .technologies,
+	#tabs .relatednews {
+		padding-left: 7px;
+		padding-top: 21px;
+	}
+
+	#tabs .moreinfos {
+		font-size: 10px;
+	}
+
+	#tabs .moreinfos:hover {
+		color: #ff0000;
+		text-decoration: none;
+	}
+
+	#tabs .technologies .element,
+	#tabs .relatednews .element {
+		margin: 0px;
+		padding: 0px;
+		margin-bottom: 15px;
+	}
+
+	#tabs .technologies p {
+		padding-right: 40px;
+	}
+
+	#tabs .technologies p.title {
+		margin: 0px;
+		font-weight: bold;
+		padding-top: 5px;
+		margin-bottom: 0px;
+
+	}
+
+	#tabs .technologies div img.big {
+		float: left;
+		margin-right: 15px;
+		border:none;
+	}
+
+	#tabs .technologies a,
+	#tabs .relatednews a,
+	#tabs .downloads a {
+		color: #000;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	#tabs .downloads a:hover {
+		color:#FF0000;
+	}
+
+	#tabs .tab_content {
+		padding-bottom: 15px;
+	}
+
+	#tabs .features {
+	padding-top: 19px;
+	}
+
+	#tabs .features p {
+		margin: 0;
+		margin-bottom: 6px;
+		padding-left: 15px;
+		padding-top: 5px;
+		padding-bottom: 7px;
+	}
+
+	#tabs .features p.color1 {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+
+	#tabs .gallery {
+		padding-top: 20px;
+	}
+
+	#tabs .downloads {
+		padding-top: 14px;
+	}
+
+	#tabs .downloads p {
+		padding-top: 7px;
+		padding-bottom: 4px;
+		padding-lefT: 10px;
+	}
+
+	#tabs .downloads p.color1 {
+		padding-bottom: 6px;
+	}
+
+	#tabs .downloads p img {
+		margin-right: 8px;
+		vertical-align: middle;
+	}

@@ -1,0 +1,283 @@
+/* CSS file: technology.css */ 
+
+/** TECHNOLOGIES **/
+	#techno_list_cat_big {
+		margin-top: -10px;
+		padding-left: 0px;
+		margin-left: 0px;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	#techno_list_cat_small {
+		margin-top: 26px;
+		padding-left: 0px;
+		margin-left: 0px;
+		width: 100%;
+		margin-bottom: 0px;
+	}
+
+	#techno_list_cat_big .li_cat {
+		margin-bottom: 7px;
+		margin-left: 0px;
+		padding-left: 0px;
+		list-style-type: none;
+	}
+
+	#techno_list_cat_small .li_cat {
+		float: left;
+		width: 352px;
+		margin-bottom: 17px;
+		margin-top: 0px;
+		margin-left: 0px;
+		margin-right: 6px;
+		padding: 0px, 0px, 0px, 0px;
+		list-style-type: none;
+		line-height: 0px;
+	}
+
+	#techno_list_cat_small .second_li_cat {
+		margin-right: 0px;
+	}
+
+	#techno_list_cat_big a,
+	#techno_list_cat_small a {
+		color:#000000;
+		text-decoration:none;
+		display: block;
+		border: 0px;
+	}
+
+	#techno_list_cat_small a {
+		width: 350px;
+		line-height: 15px;
+	}
+
+	#techno_list_cat_big a:hover,
+	#techno_list_cat_small a:hover {
+		background: none repeat scroll 0 0 orange;
+		color: #000000;
+	}
+
+	#techno_list_cat_small .li_cat .more {
+		font-size: 11px;
+	}
+
+	#techno_list_cat_small .li_cat .current_tech_cat {
+		background: none repeat scroll 0 0 orange;
+	}
+
+	#techno_list_cat_big .li_cat img,
+	#techno_list_cat_small .li_cat img {
+		border:0px;
+	}
+
+	#techno_list_cat_big .li_cat .img_cat,
+	#techno_list_cat_small .li_cat .img_cat {
+		margin-right: 10px;
+		float:left;
+	}
+
+	#techno_list_cat_big .li_cat .plus_cat {
+		margin-right: 4px;
+		margin-top: 5px;
+	}
+
+	#techno_list_cat_big .li_cat .cat_link {
+		font-weight:bold;
+		text-decoration:none;
+		font-size: 11px;
+	}
+
+	#techno_list_cat_big .li_cat .cat_link:hover {
+		text-decoration: none;
+	}
+
+	#techno_list_cat_big .li_cat h1 {
+		margin: 0px 0px 0px 0px;
+		padding: 10px 0px 0px 0px;
+		font-size: 22px;
+	}
+
+	#techno_list_cat_small .li_cat h1 {
+		margin: 0px 0px 0px 0px;
+		padding: 10px 0px 0px 0px;
+		font-size: 20px;
+	}
+
+	#techno_logo {
+		margin-right:8px;
+		vertical-align: middle;
+	}
+
+	#techno_title {
+		margin: 0 0 0 10px;
+		padding: 12px 0 0;
+		font-size: 24px;
+	}
+
+	#techno_img_full {
+		margin-top: 11px;
+		margin-bottom: 23px;
+	}
+
+	#techno_content {
+
+		margin-left: 10px;
+	}
+
+	#techno_content_text {
+		margin-right: 245px;
+	}
+
+	#techno_assoc {
+		float:right;
+		margin: 0 0 0 40px;
+		padding: 0;
+		width: 205px;
+		list-style:square outside none
+	}
+
+	#techno_assoc h5 {
+		margin: 0;
+		padding: 0;
+		font-size: 11px;
+	}
+
+	#techno_assoc li {
+		background:url("images/puce_mini.jpg") no-repeat scroll 0 60% transparent; /* --- IMAGE ----------------  */
+		line-height:15px;
+		list-style:none outside none;
+		padding-left:15px;
+	}
+
+	#child_techno_title {
+		margin-top: 0;
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+
+	.child_techno_content {
+		font-size: 11px;
+		margin:0 225px 0 170px;
+	}
+
+	#child_techno_ul {
+		margin-top: 25px;
+		padding-left: 0px;
+		margin-left: 0px;
+		margin-bottom: 0px;
+	}
+
+	#child_techno_ul .li_child_techno {
+		margin: 0;
+		padding: 0 0 10px;
+		list-style-type: none;
+	}
+
+	#child_techno_ul .li_child_techno img {
+		margin: 0;
+		padding: 0;
+		float: left;
+	}
+
+	#child_techno_ul .li_child_techno ul {
+		float:right;
+		margin: 0;
+		padding: 0;
+		text-align:left;
+		font-size: 11px;
+		width: 205px;
+	}
+
+	#child_techno_ul .li_child_techno ul h5 {
+		margin: 0;
+		padding: 0;
+		font-weight: bold;
+		font-size: 11px;
+	}
+
+	#child_techno_ul .li_child_techno ul li {
+		background:url("images/puce_mini.jpg") no-repeat scroll 0 60% transparent; /* --- IMAGE ----------------  */
+		line-height:15px;
+		list-style:none outside none;
+		padding-left:15px;
+	}
+
+	#child_techno_ul .li_child_techno ul li a {
+		text-decoration: none;
+		color: #000000;
+	}
+
+	#child_techno_ul .li_child_techno ul li a:hover {
+		color: #ff0000;
+	}
+
+	#child_techno_ul .li_child_techno h4 {
+		font-size:14px;
+		margin:0 0 4px;
+	}
+
+	#news_prev_next,
+    #techno_prev_next,
+	#history_prev_next {
+		background-image: url('images/bg_next_prev.gif'); /* --- IMAGE ----------------  */
+		background-repeat:repeat-x;
+		background-position: 0px -1px;
+		overflow:hidden;
+		height:21px;
+		margin-bottom:22px;
+		margin-top:10px;
+	}
+	#techno_prev_next
+	{
+		background-position: 0px 19px;
+		margin-top:0px;
+		padding-top: 20px;
+	}
+
+	.techno_brother {
+		text-decoration: none;
+		color: #000000;
+		float: left;
+		width: 233px;
+		background: none repeat scroll 0 0 #FFFFFF;
+		margin-right:5px;
+		margin-bottom: 10px;
+		border : 0px;
+	}
+
+	.techno_brother img {
+		border : 0px;
+	}
+
+	.techno_brother:hover, .techno_brother_actif {
+		background: none repeat scroll 0 0 orange;
+	}
+
+	#techno_conso {
+		list-style:square outside none;
+		margin-left: 0px;
+		padding-left: 15px;
+	}
+
+	#techno_assoc {
+		float:right;
+		margin: 0px 0px 0px 40px;
+		padding: 0px 0px 0px 0px;
+		width: 205px;
+		list-style:square outside none;
+		font-size: 11px;
+	}
+
+	.third_brother_techno {
+		margin-right:0px;
+	}
+
+	.techno_brother_title {
+		font-size: 12px;
+		font-weight: bold;
+		padding-left: 11px;
+		padding-top: 7px;
+		padding-bottom: 7px;
+	}

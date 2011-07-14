@@ -1,0 +1,82 @@
+
+/** downloads **/
+	.download_content {
+		height:28px;
+		line-height:25px;
+		padding:0 6px;
+		vertical-align: middle;
+		background: #F7F7F7;
+	}
+	.athletes .download_content {
+		padding:0 6px 0 14px;
+		background: #F7F7F7 url('images/puce-mini.gif') no-repeat 8px 13px;
+	}
+	.download_content.odd {
+		background-color: #FFFFFF;
+	}
+	.download_content img {
+		border: 0;
+		vertical-align: middle;
+		margin: 0;
+		padding: 0 5px 0 0;
+	}
+	.download_content a {
+		font-weight: bold;
+	}
+
+	.download_content a:hover {
+		color:#FF0000;
+	}
+
+	.download_content .size {
+		font-size: 11px;
+		padding-left: 3px;
+	}
+
+	.sub_category_download_content {
+		margin-bottom: 25px;
+	}
+
+	.sub_category_download_content h2 {
+		margin:0;
+		padding: 0 0 10px 5px;
+		font-size: 22px;
+	}
+
+	#category_download_content {
+		padding: 25px 0;
+	}
+
+	.archive_button {
+		background-image:url("images/bg_next_prev.gif");
+		background-position:0 -20px;
+		background-repeat:repeat-x;
+		height:21px;
+		margin-top: 20px;
+	}
+	.archive_button .button_view {
+		background-image: url('images/filters.gif');
+	}
+	.archive_button .button_view:hover {
+		background-image: url('images/filters_hover.gif');
+	}
+	#downloads_content .archive_button a.button_view {
+		color: #ffffff;
+	}
+
+	#downloads_content {
+		padding-left: 15px;
+	}
+
+
+	#downloads_content.tab_content
+	{padding-left: 0px;}
+
+	#downloads_content .archive_button a.button_view:hover {
+                 color: #000000;
+         }
+
+	.archive_files {
+		display: none;
+		margin-top: 20px;
+	}

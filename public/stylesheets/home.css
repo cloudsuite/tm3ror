@@ -1,0 +1,203 @@
+/* CSS file: home_page.css */ 
+
+/* ————— home page —————————————————————————————— */
+
+	.homeslide {
+		position:absolute;	
+		top:0; 
+		left:0;
+		width:100%;
+		height:100%; 
+		display:none;
+		cursor: normal;
+		z-index: 2;
+	}
+
+	#homeslide_footwear,
+	#homeslide_wheel2 {
+		background: black;
+	}
+	#homeslide_roubaix,
+	#homeslide_wheel1,
+	#homeslide_pedal,
+	#homeslide_apparel2011-1,
+	#homeslide_apparel2011-2,
+	#homeslide_computer {
+		background: white;
+	}
+
+	.homeslide .img {
+		position: absolute; 
+	}
+	/* -------- hand position each of the 7 full-page slides left-to-right to fit with text ----- */
+
+	#img_wheel1,
+	#img_wheel2,
+	#img_pant,
+	#img_apparel2011-1,
+	#img_roubaix{
+		right: 0px;
+	}
+
+
+	#img_computer,
+	#img_footwear,
+	#img_pedal{
+		left: 50%;
+	}
+	#img_apparel2011-2{
+		left: 20%;
+	}
+
+	.homedescription {
+		position:absolute;
+		font-size: 17px;
+	}
+
+	.homedescription h1 {
+		font-size: 27px;
+		line-height:27px;
+		margin:0px;
+		padding: 0px 0px 0px 0px;
+		white-space: nowrap;
+	}
+	.homedescription h1 img {
+		position:relative;
+		top: 1px;
+	}
+
+	#homedescription_wheel1 {
+		color: black;
+		text-align: right;
+		top:20%;
+		width: 350px;
+	}
+
+	#homedescription_wheel2 {
+		color: white;
+		text-align: right;
+		top:15%;
+		left:40%;
+		width: 360px;
+	}
+
+	#homedescription_computer {
+		color: black;
+		text-align: left;
+		top: 50%;
+	}
+
+	#homedescription_pedal {
+		color: black;
+		text-align: left;
+		top: 10%;
+		width:500px;
+		overflow:show;
+	}
+
+	#homedescription_footwear {
+		color: white;
+		text-align: left;
+		top: 70%;
+		left: 95%;
+	}
+
+	#homedescription_pant {
+		color: black;
+		text-align: right;
+		top: 15%;
+		width: 270px;
+	}
+
+	#homedescription_apparel2011-1 {
+		color: black;
+		text-align: right;
+		top: 15%;
+		width: 315px;
+		padding:0 50px 0 0;
+	}
+
+	#homedescription_apparel2011-2 {
+		color: black;
+		text-align: left;
+		top: 35%;
+	}
+	#homedescription_roubaix {
+		color: black;
+		text-align: right;
+		top:34%;
+		width: 350px;
+
+	}
+	
+	.homemore {
+		line-height: 22px;
+		display: block;
+		float: left;
+		margin-top: 7px;
+		padding-left: 16px;
+		padding-right: 10px;
+		font-weight: bold;
+		font-size: 10px;
+		text-decoration: none;
+		text-align:left;
+		text-transform: uppercase;
+		background-repeat: no-repeat;
+		background-position: 6px 9px;
+	}
+
+	#homedescription_pant a.homemore:hover,
+	#homedescription_wheel1 a.homemore:hover,
+	#homedescription_wheel2 a.homemore:hover,
+	#homedescription_computer a.homemore:hover,
+	#homedescription_pedal a.homemore:hover,
+	#homedescription_footwear a.homemore:hover,
+	#homedescription_apparel2011-1 a.homemore:hover,
+	#homedescription_apparel2011-2 a.homemore:hover,
+	#homedescription_roubaix a.homemore:hover{
+		color: black;
+		background-image: url('images/black_arrow.gif'); /* --- IMAGE ----------------  */
+		background-color: #ffe500;
+	}
+
+	#homedescription_pant .homemore,
+	#homedescription_wheel1 .homemore,
+	#homedescription_wheel2 .homemore,
+	#homedescription_apparel2011-1 a.homemore,
+	#homedescription_roubaix .homemore{
+		float:right;
+	}
+
+	#homedescription_wheel1 .homemore,
+	#homedescription_pant .homemore,
+	#homedescription_computer .homemore,
+	#homedescription_pedal .homemore,
+	#homedescription_apparel2011-1 a.homemore,
+	#homedescription_apparel2011-2 a.homemore,
+	#homedescription_roubaix .homemore	{
+		color:#ffffff;
+		background-color: #000000;
+		background-image: url('images/white_arrow.gif'); /* --- IMAGE ----------------  */
+	}
+
+	#homedescription_wheel2 .homemore,
+	#homedescription_footwear .homemore {
+		color:#000000;
+		background-color: #ffffff;
+		background-image: url('images/black_arrow.gif'); /* --- IMAGE ----------------  */
+	}
+
+	.homebutton {
+		width: 11px;
+		line-height: 8px;
+		height: 8px;
+		margin: 0px;
+		padding: 0px;
+		position:absolute;
+		display:block;
+		top: 15px;
+		background: orange;
+		font-size: 0px;
+		z-index: 3;
+		cursor: pointer;
+	}

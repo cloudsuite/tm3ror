@@ -1,0 +1,70 @@
+/** history **/
+	#history_content {
+		margin: 30px 0px 30px 22px;
+	}
+	#history_preview {
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#history_preview a {
+		height: 100px; /* 2*15 padding + 100 = 130 */
+		display: block;
+		text-decoration: none;
+		padding: 15px;
+		width: 203px; /* 2*15 padding + 203 = 233 */
+		float: left;
+		margin-right: 6px;
+	}
+	#history_preview a.last {
+		margin-right: 0px;
+	}
+
+	.history_item,
+	.history_item_active {
+		background: none repeat scroll 0 0 #FFFFFF;
+	}
+	.history_item img,
+	.history_item_active img {
+		border: 0;
+	}
+
+	#history_preview .history_item,
+	#history_preview .history_item:hover {
+		color: #000000;
+	}
+
+	#history_preview .history_item:hover {
+		background: #ffe500;
+	}
+
+	#history_preview .history_item_active,
+	#history_preview .history_item_active:hover {
+		color: #b4b4b4;
+	}
+
+	.history_item .year,
+	.history_item_active .year {
+		font-weight: bold;
+		font-size: 30px;
+	}
+
+	.history_item .title,
+	.history_item_active .title {
+		font-weight: bold;
+		display: block;
+	}
+
+	.history_item .readmore {
+		font-weight: bold;
+		font-size: 10px;
+	}
+
+	.history_item_active .readmore {
+		display: none;
+	}
+
+	#history_prev_next {
+		padding-top: 35px;
+		background-position: 0px 34px
+	}

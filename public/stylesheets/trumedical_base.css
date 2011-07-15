@@ -82,9 +82,9 @@
 		
 	#login_links {  
 		position:fixed;
-		top: 35px;
-		right:15px;
-		display:block;
+		top:35px;
+		right:30px; /* rightmost 15px of offset disappears when get scroll bar on window; made it 30? */
+						/* reposition it relative to #container; and/or put them horizontal above image scroll buttons on home */
 		z-index:99;	/* above images scrolling in  */
 		}
 		
@@ -94,7 +94,7 @@
 		width: 100%;
 		background: SlateGray;
 		z-index:1000;
-		position: absolute; top:760px; /* top added; see discussion of position absolute in ... */
+		position: fixed; bottom:0; left:0;
 		}
 
 /* ———— generic styles (may be overridden later in this file)  ———— */

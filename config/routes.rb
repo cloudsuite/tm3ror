@@ -1,6 +1,7 @@
 Tm2ror::Application.routes.draw do
    
   get "site/search"
+  get "site/search_mavic"
 
   get "product/display"
   

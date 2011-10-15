@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
    
-  def display
+  def show
   end
 
 end

@@ -1,7 +1,7 @@
 <!-- 
       —————————————————————————————————————————————————————————————————————————————————————————
 
-				LeafCategory#display
+				LeafCategory#show
 				
 			—————————————————————————————————————————————————————————————————————————————————————————	
       to do:
@@ -98,6 +98,13 @@
 		}
 		
 	</style>
+	
+	<style type="text/css">
+		div.products_div { margin-top:20px;}
+		div.product_div {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
+			background-color:#E6E6E6; border:1px solid #E6E6E6;}
+		div.productName { padding:5px;margin:0;text-align:center;}
+	</style>
 <% end %>
 
   
@@ -149,7 +156,7 @@
 				<script type="text/javascript">
 
 					$(document).ready(function() {   
-						$("#body-background").css('background-color','red')
+						$("#body-background").css('background-color','#E6E6E6')
 					});
 					var macromodels=new Array();
 					var showCompare = false;
@@ -208,21 +215,9 @@
 
 					
 					<!-- PRODUCTS  ————————————————————————————————————————————————————————————————— -->
-					<!-- 
-						Actually, at this level we need images for the leaf level categories, not products.
-						And the images have to switched based on the choices within the tabs 
-					-->
-					<div id="product_items">
-						<% @products.each do |p| %>
-							<div class="product_item">
-								<div class="image">
-								<%= link_to( image_tag("/images/products/modalities/" + p.image_filename.slice(0,6) +"-000" + ".jpg"), display_product_path(p.id) ) %>
-								</div>
-								<div class="name"><p><%= p.description %></p></div>
-							</div>
-						<% end %>
-                        
-					</div><!-- end content_product_items -->                   
+
+					<%= render "products" %>
+                
 					<div class="clear"></div>
                   
 				</div> <!-- end div 'tabs' -->

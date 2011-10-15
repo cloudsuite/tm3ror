@@ -1,0 +1,18 @@
+			<div class="products_div"> 
+				
+				<% @products.each do |p| %>
+					
+					<!-- render a clickable partial that displays the product image and name -->
+					
+					<div class="product_div">
+						<%= image_tag("/images/products/modalities/" + p.image_filename[0,6] + "-000" + ".jpg", :size => "120x80",:style => "float:left; border:1px solid #E6E6E6;") %>
+						
+						<div class="productName"> 
+							<%= link_to( raw(p.name), { :controller => "products", :action => "show", :id => p.id } ) %>
+						</div>
+						
+					</div> <!-- end div.product --> 
+					
+				<% end %>
+
+			</div><!-- end div.products --> -

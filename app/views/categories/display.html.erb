@@ -7,8 +7,8 @@
 				—————————————————————————————————————————————————————————————————————————————————————————	
         to do:
 	
-					1. Create partial for products related section of the left nav: [DONE]
-					2. Create partial for search if want to put it on LLC and product pages as well as home page
+					1. Use /shared/_menu.html.erb for menu  [DONE]
+					2. 
 					3. Create partial for right_content
 					3. Create rails code that iterates through products for this leaf-level category
 					4. create controllers/actions for category#display, product#display
@@ -82,17 +82,6 @@
                 
 				<div id="main_content">
                 
-					<!-- Breadcrumb ———————————————————————————————————————————— -->
-					<div id="breadcrumb">
-						<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
-						<div style="float:left">
-							<b><a href="/en">home page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="/en">Modalities</a></b>
-						</div>
-
-					</div>
 					
 					<!-- Error Messages ———————————————————————————————————————— -->
 					<div id="error-messages" style="display:none"></div>
@@ -100,7 +89,7 @@
 					<script type="text/javascript">
 
 						$(document).ready(function() {   
-							$("#body-background").css('background-color','red')
+							$("#body-background").css('background-color','#E6E6E6')
 						});
 						var macromodels=new Array();
 						var showCompare = false;
@@ -115,6 +104,8 @@
 						   Change to products for a different subcategory if he selects it here
 							 How does/should this work if there is another level of categories?
 							 Never is in Mavics?  Does occur in TruMedical?
+							
+					<!-- Sibling Nav  ——————————————————————————————————————————————————————————————————— -->
                     
 					<div id="tabs">
 						
@@ -152,24 +143,26 @@
 						<div class="clear"></div>
 
 						
-						<!-- PRODUCTS  ————————————————————————————————————————————————————————————————— -->
-						<!-- 
-							Actually, at this level we need images for the leaf level categories, not products.
-							And the images have to switched based on the choices within the tabs 
-						-->
-						<div id="content_gamme_items">
-							<% @products.each do |p| %>
-								<div class="product_item">
-									<div class-"product_image">
-									<%= link_to( image_tag("/images/products/modalities" + p.image_filename + ".png", { :height => 179, :width => 169 }), display_product_path(p.id) ) %>
+						<!-- SUBCATEGORIES  ———————————————————————————————————————————————————————————— -->
+
+						
+						<div class="subcategories">
+
+							<% @category.children.each do |subcat| %>
+								<!-- render a clickable partial that displays the subcategory image and name -->
+								<div class="subcategory">
+									<%= image_tag("/images/categories/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left;") %>
+									<div class="subcategoryName">
+										<%= subcat.name %>
+										<%# link_to(subcat.name, category_path(subcat)) %>
 									</div>
-									<div class="name"><!-- why not product_name? -->
-										<p class="helvetica"><%= p.name %></p>
-									</div
-								</div>
+								</div> <!-- end div.subcategory --> 
 							<% end %>
-                          
-						</div>                    
+
+						</div><!-- end div.subcategories -->
+						
+						
+	                    
 						<div class="clear"></div>
                     
 					</div> <!-- end div 'tabs' -->
@@ -179,7 +172,7 @@
 			</div><!-- end div 'subcontainer'  -->
 			
 			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
-			<!-- The following (through '/encart' comment ) was copied from source of page -->
+			<!-- Replace the following with right_content  partial -->
 			<div id="right_content_container">
                 <div id="right_content">
                     <a class="link" href="/en/news/road/Mavic-riders-win-National-Championships-across-Europe?intcmp=roadtriathlon+news" evar4="news">

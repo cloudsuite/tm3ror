@@ -1,0 +1,261 @@
+
+	<!-- 
+        —————————————————————————————————————————————————————————————————————————————————————————
+
+					Category#show
+					
+				—————————————————————————————————————————————————————————————————————————————————————————	
+        to do:
+	
+					1. Use /shared/_menu.html.erb for menu  [DONE]
+					2. 
+					3. Create partial for right_content
+					3. Create rails code that iterates through products for this leaf-level category
+					4. create controllers/actions for category#display, product#display
+					5. factor mavic css file [DONE]    
+            
+        open questions:
+					1. Background image for modalities — or just a color block?  
+					2. width:  
+            	15 left_content(235) 745 (main) 5px (running total:1000) right_content(235), 160; total 1395  (but only measures 1390; where is the 5px?) Answer: main+right padding=745 not 750
+                so:
+                	1000 to edge of main content block + 5 px border, so 1010 to balance it with 15px border on right/left
+                    1235 to right end of right_content block; 1250 if include a 15px border on right
+                    170 logomark which overlaps with the content-right by 10 px, and is tied to right edge of window      			
+					3. Enable floating logomark?  if so : design one that works on a block of color. 
+					4. Need to understand how the code is moving right_content from right to left under menu if page is too narrow. This works here, in mavic_llc.html  but not in mav0llc_3.html, where it drops below the main block also. Even on this page, works on Safari, but drops below left on Firefox.
+						— If left it on left in all pages, then it would not interfere with upper right links
+						to Netsuite. 
+						
+				problems
+					1. the register/login checkout/cart search stuff on upper right — should it be here? 
+					
+				refactoring:    
+					1. Consider using HTML5 'semantic' sections, SASS      
+            
+        —————————————————————————————————————————————————————————————————————————————————————————
+    -->
+        
+
+	<%= content_for(:header) do %>
+
+		<title>TruMedical Solutions / Products / [category] / [subcategory ] / [leaf category] </title>       									
+		<script type="text/javascript" >
+
+			$(document).ready(function() {	
+					$("#body-background").ezBgResize();				
+					getSessionProductCompare();
+					checkSize();
+				});
+				var macromodels=new Array();
+				var showCompare = false;
+				var activeFamily = '167837';
+				var basePath ='/en'; 
+				var itemtimer=new Array();
+				
+		</script>
+  
+	<% end %>
+
+    
+	<%= content_for(:body) do %>
+		
+		<div id="body-background">
+			<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+		</div>
+        
+		<!-- container —————————————————————————————————————————————————————————————————— -->
+        
+		<div id="container">
+        
+			<div id="black_screen"></div>
+			
+			<!-- subcontainer —————————————————————————————————————————————————————— -->
+            
+			<div id="subcontainer"> <!-- Why are menu and main content grouped into a combination div 'subcontainer' ? -->
+				<!-- MENU —————————————————————————————————————————————————————  -->
+				
+				<%= render :partial => 'shared/menu' %>
+
+					
+				<!-- MAIN CONTENT —————————————————————————————————————————————— -->
+                
+				<div id="main_content">
+                
+					
+					<!-- Error Messages ———————————————————————————————————————— -->
+					<div id="error-messages" style="display:none"></div>
+					
+					<script type="text/javascript">
+
+						$(document).ready(function() {   
+							$("#body-background").css('background-color','#E6E6E6')
+						});
+						var macromodels=new Array();
+						var showCompare = false;
+						var activeFamily = '167837';
+						var basePath ='/en'; 
+						var itemtimer=new Array();
+						
+					</script>
+					
+					<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
+					<!-- Show products for the subcategory that he selected on the home page
+						   Change to products for a different subcategory if he selects it here
+							 How does/should this work if there is another level of categories?
+							 Never is in Mavics?  Does occur in TruMedical?
+							
+					<!-- Sibling Nav  ——————————————————————————————————————————————————————————————————— -->
+                    
+					<div id="tabs">
+						
+						<!-- horizontal line of tabs/buttons: one per subcategory ————————————————————————— -->
+						<!-- problem: subcategory names are too long to allow all subcategories to fit in a single horizontal row as this design assumes; in Modalities there is room for 3 of 5 subcategories --> 
+						<div id="tabs_buttons_gamme">
+							<!-- replace this with a div#subcategories/ { div.subcategory } nested divs with the 
+								inner div.subcategory generated from the category tree in the database 
+								Its really a tabbed interface but with the tabs styled like buttons not tabs.
+								Remove all the inline javascript to jQuery on-document ready. '
+						 		See if there is a tab library that I could use instead? 
+								Or just write another home-brew one as I did on the home page. 
+							-->
+							<div id="all_exercisers" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab active">
+								<a class="helvetica" href="../images/product/wheels/road-triathlon/wheels">Clinical Electrotheraphy</a>
+							</div>
+							
+							<div id="ellipticals" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Continuous Passive Motion</a>
+							</div>
+							
+							<div id="exercise_bikes" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Hot & Cold Therapy</a>
+							</div>
+							
+							<div id="treadmills" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Hydrotherapy & Acquatics</a>
+							</div>
+							
+							<div id="weight_equipment" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Personal Electrotherapy</a>
+							</div>
+							
+						</div>
+						<div class="clear"></div>
+
+						
+						<!-- SUBCATEGORIES  ———————————————————————————————————————————————————————————— -->
+
+						
+						<div class="subcategories">
+
+							<% @category.children.each do |subcat| %>
+								<!-- render a clickable partial that displays the subcategory image and name -->
+								<div class="subcategory">
+									<%= image_tag("/images/categories/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left;") %>
+									<div class="subcategoryName">
+										<%= subcat.name %>
+										<%# link_to(subcat.name, category_path(subcat)) %>
+									</div>
+								</div> <!-- end div.subcategory --> 
+							<% end %>
+
+						</div><!-- end div.subcategories -->
+						
+						
+	                    
+						<div class="clear"></div>
+                    
+					</div> <!-- end div 'tabs' -->
+                    
+				</div> <!-- end div 'main content' -->
+                
+			</div><!-- end div 'subcontainer'  -->
+			
+			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+			<!-- Replace the following with right_content  partial -->
+			<div id="right_content_container">
+                <div id="right_content">
+                    <a class="link" href="/en/news/road/Mavic-riders-win-National-Championships-across-Europe?intcmp=roadtriathlon+news" evar4="news">
+                        <div class="text">
+                            <p class="helvetica title">news</p>
+        
+                            <p class="content">Mavic riders win National Championships across Europe</p>
+                        </div>
+                        <div style="float:left;background-color:#000;width:117px;height:83px;overflow:hidden;">
+                            <table style="width:117px;height:83px;" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td style="width:117px;height:83px;overflow:hidden;padding: 0 0 0 0;" valign="middle">
+                                        <img width="117px" src="http://farm6.static.flickr.com/5153/5876997884_5e13477568_m.jpg" />
+                                    </td>
+                                </tr>
+                            </table>
+                         </div>
+                    </a>
+    
+                    <div class="clear"></div>
+                    <a class="link" href="http://www.mavic.com/en/athlete/road?intcmp=road+athletes" target="_self" evar4="road athletes">
+                        <div class="text">
+                            <p class="helvetica title">athletes</p>
+                            <p class="content">more information about Mavic athletes</p>
+                        </div>
+                        <img style="float:left;" src="../images/athletes_0.jpg" />
+                    </a>
+    
+                    <div class="clear"></div>
+                    <div class="flash_content" id="player">
+                        <img src="../images/flash_right_content.jpg" />
+                    </div>
+    
+                    <script type="text/javascript">
+                        //if(parameters == undefined) { // pas de video si il y en a deja une dans la page
+                            var pqs2 = new ParsedQueryString();
+                            var parameterNames2 = pqs2.params(false);
+                            var parameters2 =
+                            {	id: "1"
+                                ,   width: "233"
+                                ,   height: "131"
+                                ,   videoID: "aerodynamic-wheel-development-with-garmin-transition-part-2"
+                                ,	language: language
+                                ,	configuration: "/sites/default/modules/webtv/configuration.xml"
+                                ,   wmode: "opaque"
+                            };
+            
+                            for (var i=0; i<parameterNames2.length; i++)
+                            {
+                                var parameterName2 = parameterNames2[i];
+                                parameters2[parameterName2]
+                                    =	pqs2.param(parameterName2)
+                                    ||	parameters2[parameterName2];
+                            }
+                            // Embed the player SWF:
+                                swfobject.embedSWF
+                                    ( "/sites/default/modules/webtv/biMediaPlayer.swf"
+                                    , "player"
+                                    , parameters2["width"], parameters2["height"]
+                                    , "10.0.0"
+                                    , {}
+                                    , parameters2
+                                    , { allowFullScreen: "true", wmode: "opaque" }
+                                    , { name: "StrobeMediaPlayback" }
+                                    );
+                        //}
+                    </script>
+            
+                    <div class="clear"></div>
+                </div>
+            </div><!-- end div 'right_content_container' -->
+			<!-- /encart -->
+        
+			<div id="forScrollTop" class="clear"></div> <!-- what does this clearing div do?  -->
+            
+		</div><!-- end div 'container' -->
+        
+		<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+        
+		<div id="logo_container">
+			<a href="/en" id="logo" title="home page" name="logo">home page</a>
+		</div>
+		
+	<% end %>
+
+

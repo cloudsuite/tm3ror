@@ -1,5 +1,7 @@
 Tm2ror::Application.routes.draw do
    
+  get "leaf_category/display"
+
   get "site/search"
   get "site/search_mavic"
 
@@ -14,6 +16,7 @@ Tm2ror::Application.routes.draw do
 
   get "home/index"
   get "home0/index"
+  get "home/circle"
   
   root :to => "home#index"
 

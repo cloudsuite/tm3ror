@@ -73,7 +73,7 @@
 
 	#menu .submenu {
 		position: absolute;
-		background:url('images/bg_right_content_white.gif') no-repeat; /* --- IMAGE ----------------  */
+		background:url('/images/bg_right_content_white.gif') no-repeat; /* --- IMAGE ----------------  */
 		background-position: 0 -30px;
 		left: 230px;
 		display: none;

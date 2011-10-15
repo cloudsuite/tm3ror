@@ -10,31 +10,51 @@ Doc: home page for the site
 ——————————————————————————————————————————————————————————————————————
 
 ToDo:
-	1. Figure out how 2ndary nav is going to work — bring up images as in mavic,
-		or more of a fly-out menu look?
-	2. Replace slide 1 collage photos with whatever Mandy comes up with 
-	3. Rename the 8 slides: in index.html.erb, in home.css — DEBUG: didn't work 1st time I tried it
-	4. Implement Request a Catalog in footer: popup display; if registered ..., if not ....
-	5. Implement Search in upper right 
-	6. Insert javascript to link register/login, cart/checkout to Netsuite
-	7. move include of home.css to this file, and remove it from application.html.erb
+	1. Implement popup displays for 2ndary nav
+		 1.1 lymphedema popup coming up without any content
+		 1.2 setup of @category variable within handlers for hovers on menu items not working properly
+		     — works if do @category = Category.where(:name => 'Modalities').first for all of them, but
+						not if put in correct where clauses on categories after Modalities.  Notice black dots 
+						beyond thumbnails for Modalities subcategories in all of the subsequent subcategories
+						(but not in Modalities) 
+		 1.3 link_to in the partial /views/home/_subcategories.html.erb does not work — attempting to 
+					find a category_path(@category) for an array of categories, not a single category.  Why? 
+	2. extract left-nav into a partial:
+		1. one for the home page with TruMedical, patients, payers, ...; one for other pages without 
+		2. variants of each with and without the colored blocks 
+	3. extract home_right_content_container into a partial (more appropriate name, or does that risk messing up code that dynamically changes the location of this div on the page?  Leave it for now, 
+	4. Implement SEARCHd retaining the graphics of the mavic site rather than the Google replacement; use MetaSearch again? or its replacement
+	5. move include of home.css to this file, and remove it from application.html.erb
+	
+	6. Replace slide 1 collage photos with whatever Mandy comes up with 
+	7. Rename the 8 slides: in index.html.erb, in home.css — DEBUG: didn't work 1st time I tried it
+	8. Implement Request a Catalog in footer: popup display; if registered ..., if not ....
+	
+	9. Insert javascript to link register/login, cart/checkout to Netsuite — in Application.html.erb rather than home/index.html.erb
 
-Known Bugs:	
+
+Known Bugs:
+	1. when hover over a subcategory, it highlights properly, but highlight needs to be removed from other subcategories
+	2. links in subcategory partial views/home/_subcategories are not working: don't compile
+	3. attempt to set @category in the on-hover handlers defined in jQuery on-page-ready are not working
+	4. lymphedema popup is not working; display comes up, but no content 
+	
 	1. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
 	solution: move search to upper right under register/login cart/checkout links  
 	3. lost footer entirely Tuesday July 5th AM.  Could fall back to last version committed in git. application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages? 
 	4. footer is back, but it is too low on the page (below the fold). Pinned in at 760px from top. 
 	5. layout of title text in box truValue products 
+	6. Popup div is not closing when hover over a different one; works on 2nd hover; works with
+	small divs that are empty. Why not ... 
 
 Unknowns:
 	1. how to control placement of figure and title in slides
 	2. how/when logo-container moves around the window. What triggers the recalculation
 		(presumably window resize); what algorithm used for the recalculation; how does the 
-		algorithm chose where to move it to. 
-	3. Should /shared/_menu.html.erb be included in individual templates:  home, category, product, company — rather than being included in application.html.erb?  [ YES, and it is now. ] 
-	4. Where are these classes with hyphens (not underscores) in the name, defined? 
+		algorithm chose where to move it to. 	
+	3. Where are these classes with hyphens (not underscores) in the name, defined? 
 	"view view-frontpage view-id-frontpage view-display-id-page view-dom-id-1"  also "view-content"
-	5. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
+	4. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
 -->
 <%= content_for(:header) do %>
 
@@ -74,6 +94,150 @@ Unknowns:
 				initHome();
 			});	
 	</script>	
+	<style type="text/css">
+		#popupsContainer { 
+			position: absolute; 
+			top:40px; left:230px; 
+			width: 700px;
+			
+			background-color:pink;
+			z-index:100;
+		}
+			
+		.popup_base { 
+			position:absolute; /* within popupsContainer */ 
+			left: 20px; width:100%; 
+			background-color:white; 
+			padding:10px 20px 0px 20px; 
+			min-height:34px; 
+			} 
+		.popup_base h2 { font-size:12px; font-weight:bold;}
+		#popup_modalities {top:-25px;z-index:10001; }
+		#popup_clinicalSupplies {top:9px;z-index:10001; }
+		#popup_tables {top:44px;z-index:10001;}
+		#popup_fitness {top:79px;z-index:10001;}
+		#popup_orthopedics {top:114px;z-index:10001;}
+		#popup_taping {top:150px;z-index:10001; }
+		#popup_evaluation {top:184px;z-index:10001; }
+		#popup_dailyLiving {top:220px;z-index:10001; }
+		#popup_lymphedema {top:254px;z-index:10001; }
+		#popup_woundCare {top:290px;z-index:10001; }
+		
+		#popup_trumedical {top:324px;z-index:10001; background-color:#0094DE; color:white; }
+		
+		#popup_patients {top:360px; z-index:10001; background-color:orange;} /* plus 36? */
+		#popup_providers {top:394px; z-index:10001;background-color:orange;}
+		#popup_payors {top:430px; z-index:10001;background-color:orange;}
+		div.subcategories { }
+		div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px; }
+		div.subcategoryName { padding:5px;margin:0;text-align:center;}
+
+	
+	</style>
+
+	<!--  jQuery to support popup menu for non-product categories so far -->
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				
+				$(".popup_base").hide();
+				
+				$("#modalities").hover(function(){
+					<% @category = Category.where(:name => "Modalities").first %>
+					$(".popup_base").hide();	
+					$("#popup_modalities").show();
+					return false;
+				})
+				
+				$("#clinicalSupplies").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Clinical Products & Supplies").first %>
+					$("#popup_clinicalSupplies").show();
+					return false;
+				})
+				$("#tables").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.find_by_id(25) %>
+					$("#popup_tables").show();
+					return false;
+				})
+				$("#fitness").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_fitness").show();
+					return false;
+				})
+				$("#orthopedics").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_orthopedics").show();
+					return false;
+				})
+				$("#taping").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_taping").show();
+					return false;
+				})
+				$("#evaluation").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_evaluation").show();
+					return false;
+				})
+				$("#dailyLiving").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_dailyLiving").show();
+					return false;
+				})
+				$("#lymphedema").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_lymphedema").show(); /* DEBUG: Why is this one coming up with no content */
+					return false;
+				})
+				$("#woundCare").hover(function(){
+					$(".popup_base").hide();
+					<% @category = Category.where(:name => "Modalities").first %>
+					$("#popup_woundCare").show();
+					return false;
+				})
+									
+				$("#trumedical").hover(function(){
+					$(".popup_base").hide();
+					$("#popup_trumedical").show();
+					return false;
+				})
+				
+				$("#patients").hover(function(){
+					$(".popup_base").hide();
+					$("#popup_patients").show();
+					return false;
+				})
+				
+				$("#providers").hover(function(){
+					$(".popup_base").hide();
+					$("#popup_providers").show();
+					return false;
+				})
+				
+				$("#payors").hover(function(){
+					$(".popup_base").hide();
+					$("#popup_payors").show();
+					return false;
+				})
+				
+				$("div.subcategory").hover(function(){
+					$(this).css('background-color','orange');
+				});
+				/* if click on this subcategory, link to subcategory landing page. 
+					How get correct subcategory? */
+
+			});
+
+		</script>
+
 	
 
 <% end %>
@@ -86,7 +250,9 @@ Unknowns:
 		<div id="black_screen"></div>
 		
 		<!-- subcontainer  ———————————————————————————————————————————————————————————— -->
-		<!-- groups menu and right_content on home page; it doesn't move here  ———————— -->
+		<!-- groups menu and right_content on home page; right_content 
+			is the little block of 4 blocks that on wider pages is to the right of the main section
+			of the page, but on the home page is locked in place below the left menu -->
 		
 		<div id="subcontainer" class="home">
 			
@@ -155,27 +321,27 @@ Unknowns:
 	
 		</div><!-- end of div 'subcontainer' -->
 		
+		
 		<!-- slides on home page  ————————————————————————————————————————————————————— -->
 
 		<div class="view view-frontpage view-id-frontpage view-display-id-page view-dom-id-1">
 
 			<div class="view-content"> <!-- DEBUG: can't find view-content in style.css? -->
 
-	       <!-- home slide 1: photo collage —————————————————————————————————————— -->
-
-	       <div class="homeslide" id="homeslide_roubaix">
-        		<img class="img" id="img_roubaix" src="../images/homepage/home_1_opt2_nogear.png" width="1200" height="1200" name="img_roubaix">
-            	<div class="homedescription" id="homedescription_roubaix">
-                	<h1 class="helvetica title_product">
-                    	<img src="../images/homepage/trumedical_logoMark_310x78.jpg" style="margin-right:-16px;">
-                    	<br>partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient
-                	</h1>
-                    <div class="helvetica"></div><a href="#" class="homemore">MORE</a>
-                </div>
-            </div>
-            <script type="text/javascript">
-            	slides[slides.length]='roubaix';
-        	</script>
+				<!-- home slide 1: photo collage —————————————————————————————————————— -->
+				
+				<div class="homeslide" id="homeslide_roubaix">
+        	<img class="img" id="img_roubaix" src="../images/homepage/home_1_opt2_nogear.png" width="1200" height="1200" name="img_roubaix">
+					<div class="homedescription" id="homedescription_roubaix">
+						<h1 class="helvetica title_product">
+							<img src="../images/homepage/trumedical_logoMark_310x78.jpg" style="margin-right:-16px;"><br>partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient
+						</h1>
+						<div class="helvetica"></div><a href="#" class="homemore">MORE</a>
+					</div>
+				</div>
+				<script type="text/javascript">
+					slides[slides.length]='roubaix';
+				</script>
 	       
 
 	       <!-- home slide 2: modalities (electrotheraphy, ultrasound, ...)  ————— -->
@@ -293,6 +459,7 @@ Unknowns:
 	       <!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
 
 	       <div class="homeslide" id="homeslide_computer">
+				 </div>
 	       <script type="text/javascript">
 	           slides[slides.length]='computer';
 	       </script>
@@ -301,45 +468,151 @@ Unknowns:
 
 		</div> <!-- end div ~'slides on home page' -->
 
-
-
 		<div id="forScrollTop" class="clear"></div>
 			
-		<!-- header links (now in application.html.erb ———————————————————————————————— 
-		<div id="login_links">
-			<ul>
-				<li><a href="#">register</a></li>
-				<li><a href="#">login</a></li>
-				<li><a href="#">cart</a></li>
-				<li><a href="#">checkout</a></li>
-			</ul>
+
+		<!-- popups which become visible when user clicks menu items ———————————-->
+
+		<div id="popupsContainer">
+			
+			<!-- Modalities  popup ———————————————————————————————————————————————-->
+
+			<div id="popup_modalities" class="popup_base">
+				
+				<div class="subcategories">
+					
+					<% @category.children.each do |subcat| %>
+						<!-- render a clickable partial that displays the subcategory image and name -->
+						<div class="subcategory">
+							<%= image_tag("/images/categories/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left;") %>
+							<div class="subcategoryName">
+								<%= subcat.name %>
+								<%# link_to(subcat.name, category_path(subcat)) %>
+							</div>
+						</div> <!-- end div.subcategory --> 
+					<% end %>
+
+				</div><!-- end div.subcategories --> 
+			</div> <!-- end div#popup_modalities -->
+			
+			<!-- Clinical Supplies  popup ————————————————————————————————————————-->
+			<div id="popup_clinicalSupplies" class="popup_base">
+				<%= render "subcategories" %>
+			</div>
+			
+			<!-- Tables & Traction  popup ————————————————————————————————————————-->
+			<div id="popup_tables" class="popup_base">
+				<%= render "subcategories" %>
+			</div>
+			
+			<!-- Fitness  popup ——————————————————————————————————————————————————-->
+			<div id="popup_fitness" class="popup_base">
+  			<%= render "subcategories" %>
+			</div>
+			
+			<!-- Orthopedics  popup ——————————————————————————————————————————————-->
+			<div id="popup_orthopedics" class="popup_base">
+				<%= render "subcategories" %>  
+			</div>
+			
+			<!-- ATC/Taping  popup ———————————————————————————————————————————————-->
+			<div id="popup_taping" class="popup_base">
+				<%= render "subcategories" %>  
+			</div>
+			
+			<!-- Evaluation  popup ———————————————————————————————————————————————-->
+			<div id="popup_evaluation" class="popup_base">
+				<%= render "subcategories" %>  
+			</div>
+			
+			<!-- Daily Ling Aids  popup ——————————————————————————————————————————-->
+			<div id="popup_dailyLiving" class="popup_base">
+				<%= render "subcategories" %>  
+			</div>
+			
+			<!-- Lymphedema  popup ———————————————————————————————————————————————-->
+			<div id="popup_lymphedema" class="popup_base">  
+			</div>
+			
+			<!-- Wound Care  popup ———————————————————————————————————————————————-->
+			<div id="popup_woundCare" class="popup_base">
+				<%= render "subcategories" %>  
+			</div>
+
+			<!-- TruMedical  popup ———————————————————————————————————————————————-->
+			<div id="popup_trumedical" class="popup_base">  
+				<p><span style="font-weight:bold">Tru Medical Solutions, LLC (TMS)</span> is a manufacturer and distributor of orthopedic and rehabilitation products sold to hospitals, orthopedic and rehab clinics, nursing homes, assisted living centers, chiropractors and patients across the United States.</p> 
+				<p>Our corporate mission is to <span class="mission">partner with provider and the payer by to meet the needs of the patient.</span></p>
+				<p>We are owned and managed by 6 partners who are each actively involved in the daily operations of the business. Leadership experience ranges from former executives and managers of medical product manufacturers and distributors to executives and managers of insurance, transportation and food companies.</p>
+				<p>Founded in November 2009 and located in Collegedale Tennessee, TMS currently operates out of 21,000 square feet of offices and warehouse space with expansion capabilities existing through lease arrangements with adjoining tenants.</p> 
+				<p>Sales and marketing activities are divided into two categories, clinic and patient. Clinic sales are generated direct to clinics by TMS direct sales employees and contracted sales associates. Additionally, direct sales to clinics are accomplished through catalog marketing and our 21st century web ordering vehicle. Indirect clinical sales are achieved through dealers/re-sellers strategically located throughout the U.S.</p>
+				<p>Patient sales are generated on a referral basis by clinics both on a prescription and non-prescription basis. TMS is an accredited Medicare and Medicaid provider and currently accepts assignments from Medicare and Medicaid programs on certain items in TN, GA and KY. Additionally, TMS maintains contacted in network reimbursement status with many commercial payers in TN, GA & KY.</p>
+				<p>Our management team believes there is an excellent opportunity for sustainable multi-year growth due to recent consolidations and our multi channeled go to market strategy.  We believe that many of the products we offer provide cost effective approaches to treating many conditions and that there will be a solid demand as the health care industry reforms. </p>
+			</div>
+
+			<!-- Patients popup ————————————————————————————————————————————————— -->
+			<div id="popup_patients" class="popup_base">	
+				<p>TruMedical Solutions, LLC places the highest priority on patient care.  We partner with Providers (your doctors) and Payers (Insurance Companies) to achieve the best possible outcomes.</p>
+				<p>At TruMedical Solutions we have a team of professionals who understands the unique challenges that patients face in our changing healthcare system.  We strive to educate our patients on their product options allowing them to make an informed decision.  Through a wide product offering we enable the patients, caregivers and clinicians to choose the best products to treat their conditions and meet their needs.</p>
+				<p>We offer patients’ options; multiple products to meet the needs of both simple and complex patient requests.  We provide over the counter retail products for health and well being as well as prescribed products that can be billed directly to the patients insurance including Medicare and Medicaid.</p>
+				<p>We also partner with the Payers (Insurance Companies) on behalf of the patient to maximize the patient’s opportunity for recovery.  We work side by side with the insurance companies to ensure that the products we provide are covered for patient care.  We communicate benefit coverage and authorization requirements to the patient and work with the Clinicians to meet the needs of the patient efficiently and affordably.</p>
+				<p>We have a team of customer service professionals who can assist patients, caregivers, and/or clinicians with products offerings and requirements for insurance billing.  We also provide fitting services to ensure that products fit properly giving the patient the additional support that they need.</p>  
+				<p>To learn more about our patient services please feel free to call us at, 877.882.7844 we’ll be glad to hear from you and look forward to working with you.</p>
+
+			</div>
+
+
+			<!-- Providers popup —————————————————————————————————————————————————-->
+			<div id="popup_providers" class="popup_base">
+				<div class="row">
+					Lorem ipsum ... 
+				</div> 
+			</div>
+
+			<!-- Payors popup ————————————————————————————————————————————————————-->
+			<div id="popup_payors" class="popup_base">
+
+				<p>Our team of professionals is built on a foundation of 25 years of Health Plan Management Experience.  We understand the challenges that your members face when they enter the healthcare system and we’re here to help them navigate the course.  Our goal is to reduce the administrative burden placed on health plans as it relates to member specific healthcare products and services.  Through our in-depth knowledge of products and member education we believe that the end result will be healthier more individually engaged members.</p>
+
+				<h2>Patient Centered Focus</h2>
+				<p>We take a patient centered approach to total population health management.  We take a collaborative approach in working with all stake holders, patients, payers, and providers to coordinate the most efficient and effective patient plan of care.  We welcome the opportunity to work with your Case Managers & Disease Management to deliver the prescribed products when and where needed.  We are constantly working through patient outreach to help ensure patient compliance and therefore helping to reduce total health plan spend.</p>
+
+				<h2>Credentialing and Accreditation</h2>
+				<p>TruMedical Solutions is fully accredited as an Exemplary Provider by The Compliance Team.  We are CMS certified to deliver Durable Medical Equipment (DME) and Orthothic & Prosthetic (O&P) products and services for Medicare and Medicaid patient populations.</p>
+
+				<h2>HIPAA Compliance<h2>
+				<p>All Processes, procedures, and systems are HiPAA Compliant.  Add Link for Privacy Policy</p>
+
+				<h2>EDI</h2>
+				<p>We have full capability of interfacing with all payers through Electronic Data Interchange (EDI) claims systems.</p>
+
+			</div>  
+
 		</div>
-	-->
-	</div> <!-- end of div 'container' -->
-				 
 
-	<!-- floating logo —————————————————————————————————————————————————————————— -->
-
-	<div id="logo_container">
-		[[ TRU-MEDICAL LOGO ]]
-	</div>
 		
-	<!-- row of rectangles controlling slides on home page  ————————————————————————————————— -->
-		<!-- DEBUG: Why not group these into a single div? OK. and position that? (not OK)
-			See line 2508 in style.css: each homebutton is positioned absolutely — relative to what?
-		-->
-	<div id="slide_controls">	
-		  <div onClick="clearTimeout(homeTimer);homeShowSlide(0);" id="homebutton_0" class="homebutton" style="right:106px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(1);" id="homebutton_1" class="homebutton" style="right:93px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(2);" id="homebutton_2" class="homebutton" style="right:80px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(3);" id="homebutton_3" class="homebutton" style="right:67px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(4);" id="homebutton_4" class="homebutton" style="right:54px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(5);" id="homebutton_5" class="homebutton" style="right:41px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(6);" id="homebutton_6" class="homebutton" style="right:28px;"></div>
-	    <div onClick="clearTimeout(homeTimer);homeShowSlide(7);" id="homebutton_7" class="homebutton" style="right:15px;"></div>
-	</div>
+		<!-- floating logo —————————————————————————————————————————————————————————— -->
+
+		<div id="logo_container">
+			[[ TRU-MEDICAL LOGO ]]
+		</div>
+		
+		
+		<!-- row of rectangles controlling slides on home page  ———————————————————— -->
+			<!-- DEBUG: Why not group these into a single div? OK. and position that? (not OK)
+				See line 2508 in style.css: each homebutton is positioned absolutely — relative to what?
+			-->
+		<div id="slide_controls">	
+			  <div onClick="clearTimeout(homeTimer);homeShowSlide(0);" id="homebutton_0" class="homebutton" style="right:106px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(1);" id="homebutton_1" class="homebutton" style="right:93px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(2);" id="homebutton_2" class="homebutton" style="right:80px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(3);" id="homebutton_3" class="homebutton" style="right:67px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(4);" id="homebutton_4" class="homebutton" style="right:54px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(5);" id="homebutton_5" class="homebutton" style="right:41px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(6);" id="homebutton_6" class="homebutton" style="right:28px;"></div>
+		    <div onClick="clearTimeout(homeTimer);homeShowSlide(7);" id="homebutton_7" class="homebutton" style="right:15px;"></div>
+		</div>
+		
+	</div> <!-- end of div 'container' -->
 
 <% end %> <!-- end of content for :body -->
-
-
-

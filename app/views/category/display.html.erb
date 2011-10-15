@@ -5,37 +5,34 @@
 					Category#display
 					
 				—————————————————————————————————————————————————————————————————————————————————————————	
-        
         to do:
-        	
-        	1. Create partial for products related section of the left nav: [DONE]
-			2. Create partial for search if want to put it on LLC and product pages as well as home page
-            3. Create partial for right_content
-            3. Create rails code that iterates through products for this leaf-level category
-            4. create controllers/actions for category#display, product#display
-            5. factor maveric css file [DONE]    
+	
+					1. Create partial for products related section of the left nav: [DONE]
+					2. Create partial for search if want to put it on LLC and product pages as well as home page
+					3. Create partial for right_content
+					3. Create rails code that iterates through products for this leaf-level category
+					4. create controllers/actions for category#display, product#display
+					5. factor mavic css file [DONE]    
             
         open questions:
-        	1. Background image for modalities — or just a color block?  
-            2. width:  
-            	15 left_content(235) 745 (main) 5px right_content(235), 160; total 1395  (but only measures 1390; where is the 5px?) 
+					1. Background image for modalities — or just a color block?  
+					2. width:  
+            	15 left_content(235) 745 (main) 5px (running total:1000) right_content(235), 160; total 1395  (but only measures 1390; where is the 5px?) Answer: main+right padding=745 not 750
                 so:
                 	1000 to edge of main content block + 5 px border, so 1010 to balance it with 15px border on right/left
                     1235 to right end of right_content block; 1250 if include a 15px border on right
                     170 logomark which overlaps with the content-right by 10 px, and is tied to right edge of window      			
-                    
-            3. Enable floating logomark?  if so : design one that works on a block of color. 
-            4. Need to understand how the code is moving right_content from right to left under menu if page is too narrow. 
-               This works here, in mavic_llc.html  but not in mav0llc_3.html, where it drops below the main block also 
-             
+					3. Enable floating logomark?  if so : design one that works on a block of color. 
+					4. Need to understand how the code is moving right_content from right to left under menu if page is too narrow. This works here, in mavic_llc.html  but not in mav0llc_3.html, where it drops below the main block also. Even on this page, works on Safari, but drops below left on Firefox.
+						— If left it on left in all pages, then it would not interfere with upper right links
+						to Netsuite. 
+						
+				problems
+					1. the register/login checkout/cart search stuff on upper right — should it be here? 
+					
+				refactoring:    
+					1. Consider using HTML5 'semantic' sections, SASS      
             
-         problems
-         	1. the register/login checkout/cart search stuff on upper right — should it be here? 
-            
-         refactoring:    
-            1. Consider using HTML5 'semantic' secitons, SASS      
-            
-        
         —————————————————————————————————————————————————————————————————————————————————————————
     -->
         
@@ -64,7 +61,7 @@
 	<%= content_for(:body) do %>
 		
 		<div id="body-background">
-			<img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg">
+			<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
 		</div>
         
 		<!-- container —————————————————————————————————————————————————————————————————— -->
@@ -87,72 +84,14 @@
                 
 					<!-- Breadcrumb ———————————————————————————————————————————— -->
 					<div id="breadcrumb">
+						<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
 						<div style="float:left">
-							<b><a href="/en">home page</a></b> &gt;&nbsp;&nbsp;
+							<b><a href="/en">home page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
 						</div>
-						<div id="select_page">
-							<div id="selected_product" onClick="show_hide_select('#list_select')">
-								wheels&nbsp;-&nbsp;road &amp; triathlon
-							</div>
-							<ul id="list_select">
-								<li>
-									<a href="/en/product/wheels/track/wheels">wheels&nbsp;-&nbsp;track</a>
-								</li>
-								<li>
-									<a class="active" href="/en/product/wheels/road-triathlon/wheels">wheels&nbsp;-&nbsp;road &amp; triathlon</a>
-								</li>
-								<li>
-									<a href="/en/product/wheels/mountain-bike/wheels">wheels&nbsp;-&nbsp;mountain bike</a>
-								</li>
-								<li>
-									<a href="/en/product/rims/road-triathlon/rims">rims&nbsp;-&nbsp;road &amp; triathlon</a>
-								</li>
-								<li>
-									<a href="/en/product/rims/mountain-bike/rims">rims&nbsp;-&nbsp;mountain bike</a>
-								</li>
-								<li>
-									<a href="/en/product/tyres/tyres/tyres">tyres</a>
-								</li>
-								<li>
-									<a href="/en/product/computers/computers/computers">computers</a>
-								</li>
-								<li>
-									<a href="/en/product/pedals/Pedals/pedals">pedals</a>
-								</li>
-								<li>
-									<a href="/en/product/footwear/triathlon/footwear">footwear&nbsp;-&nbsp;triathlon</a>
-								</li>
-								<li>
-									<a href="/en/product/footwear/road/footwear">footwear&nbsp;-&nbsp;road</a>
-								</li>
-								<li>
-									<a href="/en/product/footwear/mountain-bike/footwear">footwear&nbsp;-&nbsp;mountain bike</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/bottoms/men">apparel&nbsp;-&nbsp;bottoms</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/vests/jackets/men">apparel&nbsp;-&nbsp;vests / jackets</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/jerseys/men">apparel&nbsp;-&nbsp;jerseys</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/underwear/undershort/apparel">apparel&nbsp;-&nbsp;underwear / undershort</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/gloves/apparel">apparel&nbsp;-&nbsp;gloves</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/headwear/warmers/apparel">apparel&nbsp;-&nbsp;headwear / warmers</a>
-								</li>
-								<li>
-									<a href="/en/product/apparel/booties/socks/apparel">apparel&nbsp;-&nbsp;booties / socks</a>
-								</li>
-							</ul><script type="text/javascript">
-$('#body').click( function(){ $('#list_select').css('display','none'); });
-							</script>
+						<div style="float:left">
+							<b><a href="/en">Modalities</a></b>
 						</div>
+
 					</div>
 					
 					<!-- Error Messages ———————————————————————————————————————— -->
@@ -161,9 +100,7 @@ $('#body').click( function(){ $('#list_select').css('display','none'); });
 					<script type="text/javascript">
 
 						$(document).ready(function() {   
-							$("#body-background").ezBgResize(); 
-								getSessionProductCompare();
-								checkSize();
+							$("#body-background").css('background-color','red')
 						});
 						var macromodels=new Array();
 						var showCompare = false;
@@ -173,317 +110,69 @@ $('#body').click( function(){ $('#list_select').css('display','none'); });
 						
 					</script>
 					
-					<!-- TABS: LINES('gamme'): Wheels/Accessories  ——————————————————————————————— -->
+					<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
+					<!-- Show products for the subcategory that he selected on the home page
+						   Change to products for a different subcategory if he selects it here
+							 How does/should this work if there is another level of categories?
+							 Never is in Mavics?  Does occur in TruMedical?
                     
 					<div id="tabs">
 						
-						<!-- Lines ———————————————————————————————— -->
+						<!-- horizontal line of tabs/buttons: one per subcategory ————————————————————————— -->
+						<!-- problem: subcategory names are too long to allow all subcategories to fit in a single horizontal row as this design assumes; in Modalities there is room for 3 of 5 subcategories --> 
 						<div id="tabs_buttons_gamme">
-							<div id="wheels" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab active">
-								<a class="helvetica" href="../images/product/wheels/road-triathlon/wheels">wheels</a>
+							<!-- replace this with a div#subcategories/ { div.subcategory } nested divs with the 
+								inner div.subcategory generated from the category tree in the database 
+								Its really a tabbed interface but with the tabs styled like buttons not tabs.
+								Remove all the inline javascript to jQuery on-document ready. '
+						 		See if there is a tab library that I could use instead? 
+								Or just write another home-brew one as I did on the home page. 
+							-->
+							<div id="all_exercisers" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab active">
+								<a class="helvetica" href="../images/product/wheels/road-triathlon/wheels">Clinical Electrotheraphy</a>
 							</div>
-							<div id="accessories" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-								<a class="helvetica" href="/en/node/168065/mid/50866">accessories</a>
+							
+							<div id="ellipticals" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Continuous Passive Motion</a>
 							</div>
+							
+							<div id="exercise_bikes" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Hot & Cold Therapy</a>
+							</div>
+							
+							<div id="treadmills" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Hydrotherapy & Acquatics</a>
+							</div>
+							
+							<div id="weight_equipment" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<a class="helvetica" href="/en/node/168065/mid/50866">Personal Electrotherapy</a>
+							</div>
+							
 						</div>
 						<div class="clear"></div>
-						<div class="clear"></div> <!-- DEBUG: Why two of these clearing divs? -->
-						
-						<!-- Filter ———————————————————————————————— -->
-						
-						<div style="position:relative;">
-							<div id="helpmechoose">
-								<a href="javascript:%20void(0)" onClick="show_hide_filters()" id="filters_button" class="filters button_view" name="filters_button">
-									<img id="filters_button_img" src="" alt="" name="filters_button_img"> &nbsp;sort products
-								</a>
-							</div>
-						</div>
-						
-						<div id="filters_content">
-							<div class="filter pos0">
-								<h1>
-									rim height
-								</h1><script type="text/javascript">
-var filters = new Array();
-								</script>
-								<div class="filterfield" id="filterField167831" onClick="checkUncheckButtons('167831', '167835'); highlightMacroModels();omniture_click_filter(this, 'rim height:&lt; 30mm')">
-									<div class="bullet radiobox" id="imgFilter167831">
-										&nbsp;
-									</div>
-									<div class="label">
-										&lt; 30mm <script type="text/javascript">
-filters['167831'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167831"></div>
-								<div class="filterfield" id="filterField167832" onClick="checkUncheckButtons('167832', '167835'); highlightMacroModels();omniture_click_filter(this, 'rim height:30 à 40 mm')">
-									<div class="bullet radiobox" id="imgFilter167832">
-										&nbsp;
-									</div>
-									<div class="label">
-										30 à 40 mm <script type="text/javascript">
-filters['167832'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167832"></div>
-								<div class="filterfield" id="filterField167833" onClick="checkUncheckButtons('167833', '167835'); highlightMacroModels();omniture_click_filter(this, 'rim height:40 à 52 mm')">
-									<div class="bullet radiobox" id="imgFilter167833">
-										&nbsp;
-									</div>
-									<div class="label">
-										40 à 52 mm <script type="text/javascript">
-filters['167833'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167833"></div>
-								<div class="filterfield" id="filterField167834" onClick="checkUncheckButtons('167834', '167835'); highlightMacroModels();omniture_click_filter(this, 'rim height:&gt; 52 mm')">
-									<div class="bullet radiobox" id="imgFilter167834">
-										&nbsp;
-									</div>
-									<div class="label">
-										&gt; 52 mm <script type="text/javascript">
-filters['167834'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167834"></div><script type="text/javascript">
-filters_list[167835]=[filters,'radiobox'];
-								</script>
-							</div>
-							<div class="filter pos1">
-								<h1>
-									field
-								</h1><script type="text/javascript">
-var filters = new Array();
-								</script>
-								<div class="filterfield" id="filterField167873" onClick="checkUncheckButtons('167873', '167876'); highlightMacroModels();omniture_click_filter(this, 'field:flat')">
-									<div class="bullet radiobox" id="imgFilter167873">
-										&nbsp;
-									</div>
-									<div class="label">
-										flat <script type="text/javascript">
-filters['167873'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167873"></div>
-								<div class="filterfield" id="filterField167874" onClick="checkUncheckButtons('167874', '167876'); highlightMacroModels();omniture_click_filter(this, 'field:hilly')">
-									<div class="bullet radiobox" id="imgFilter167874">
-										&nbsp;
-									</div>
-									<div class="label">
-										hilly <script type="text/javascript">
-filters['167874'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167874"></div>
-								<div class="filterfield" id="filterField167875" onClick="checkUncheckButtons('167875', '167876'); highlightMacroModels();omniture_click_filter(this, 'field:mountain')">
-									<div class="bullet radiobox" id="imgFilter167875">
-										&nbsp;
-									</div>
-									<div class="label">
-										mountain <script type="text/javascript">
-filters['167875'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167875"></div><script type="text/javascript">
-filters_list[167876]=[filters,'radiobox'];
-								</script>
-							</div>
-							<div class="filter pos2">
-								<h1>
-									weight
-								</h1><script type="text/javascript">
-var filters = new Array();
 
-								</script>
-								<div class="filterfield" id="filterField167897" onClick="checkUncheckButtons('167897', '167900'); highlightMacroModels();omniture_click_filter(this, 'weight:&lt; 1400g')">
-									<div class="bullet radiobox" id="imgFilter167897">
-										&nbsp;
-									</div>
-									<div class="label">
-										&lt; 1400g <script type="text/javascript">
-filters['167897'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167897"></div>
-								<div class="filterfield" id="filterField167898" onClick="checkUncheckButtons('167898', '167900'); highlightMacroModels();omniture_click_filter(this, 'weight:1400g to 1600g')">
-									<div class="bullet radiobox" id="imgFilter167898">
-										&nbsp;
-									</div>
-									<div class="label">
-										1400g to 1600g <script type="text/javascript">
-filters['167898'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167898"></div>
-								<div class="filterfield" id="filterField167899" onClick="checkUncheckButtons('167899', '167900'); highlightMacroModels();omniture_click_filter(this, 'weight:&gt; 1600g')">
-									<div class="bullet radiobox" id="imgFilter167899">
-										&nbsp;
-									</div>
-									<div class="label">
-										&gt; 1600g <script type="text/javascript">
-filters['167899'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167899"></div><script type="text/javascript">
-filters_list[167900]=[filters,'radiobox'];
-
-								</script>
-							</div>
-							<div class="filter pos3">
-								<h1>
-									tyre type
-								</h1><script type="text/javascript">
-var filters = new Array();
-								</script>
-								<div class="filterfield" id="filterField167921" onClick="checkUncheckButtons('167921', '167923'); highlightMacroModels();omniture_click_filter(this, 'tyre type:tubular')">
-									<div class="bullet radiobox" id="imgFilter167921">
-										&nbsp;
-									</div>
-									<div class="label">
-										tubular <script type="text/javascript">
-filters['167921'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167921"></div>
-								<div class="filterfield" id="filterField167922" onClick="checkUncheckButtons('167922', '167923'); highlightMacroModels();omniture_click_filter(this, 'tyre type:clincher')">
-									<div class="bullet radiobox" id="imgFilter167922">
-										&nbsp;
-									</div>
-									<div class="label">
-										clincher <script type="text/javascript">
-filters['167922'] = false; 
-										</script>
-									</div>
-								</div>
-								<div class="altpop" id="altpopfilter_167922"></div><script type="text/javascript">
-filters_list[167923]=[filters,'radiobox'];
-								</script>
-							</div>
-							<div class="clear"></div><a href="javascript:%20void(0)" onClick="show_hide_filters()" class="view_results button_view"><img src="" alt=""> VIEW RESULTS</a>
-							<div class="clear"></div>
-						</div>
-						<div class="clear"></div>
-						
-						<script type="text/javascript">
-							var t_compare = "COMPARE";
-						</script>
-						<div id="product_compare_placeholder">
-							<div id="product_compare_block">
-								<a href="javascript:%20void(0)" id="product_compare_title" onClick="openProductCompare()" name="product_compare_title">COMPARE ()</a>
-								<div id="product_compare_3items">
-									&nbsp;(3 items maximum)
-								</div>
-							</div>
-						</div>
-						<div class="clear"></div>
 						
 						<!-- PRODUCTS  ————————————————————————————————————————————————————————————————— -->
-						
+						<!-- 
+							Actually, at this level we need images for the leaf level categories, not products.
+							And the images have to switched based on the choices within the tabs 
+						-->
 						<div id="content_gamme_items">
-                        
-              <!-- PRODUCT 172939 ———————————————————————————— -->
-							<div id="divProduct172939" class="product_item" onMouseOver="overItem('172939');" onMouseOut="itemtimer[172939]=setTimeout('outItem(\'172939\')',0);">
-								<div id="productImg172939" class="product_image" onClick="document.location.href='/en/product/wheels/road-triathlon/wheels/Com%C3%A8te-Road'">
-									<img alt="Comète Road" name="111543" src="../images/products/range/111543.jpg">
-								</div>
-								<div id="compare172939" name="compare172939" class="select_to_compare" onClick="storeToCompare('172939');">
-									<img id="imgCompare172939" src="../images/select_to_compare_off.gif" alt="" name="imgCompare172939">
-                                    Select to compare
-								</div>
-								<div id="item172939" name="item172939" class="name">
-									<a class="helvetica" href="/en/product/wheels/road-triathlon/wheels/Com%C3%A8te-Road">
-                                    	<img src="../images/logos/ssc.gif" alt="Special Service Course. The Mavic SSC label products are developed in close collaboration with our top athletes. These products meet the strict performance demands of pro riders, and are made for pro cycling.">
-                                        Comète Road
-                                    </a>
-								</div>
-                                <a id="hidder172939" href="/en/product/wheels/road-triathlon/wheels/Com%C3%A8te-Road" class="hidder" name="hidder172939"></a>
-								<div id="altpop172939" name="altpop172939" class="altpop">
-									The reference rear wheel-tyre system for time trial and triathlon - <span id="new_product">new</span>
-									<div class="sscaltiumAltpop">
-										<img src="../images/logos/ssc.gif" alt="Special Service Course. The Mavic SSC label products are developed in close collaboration with our top athletes. These products meet the strict performance demands of pro riders, and are made for pro cycling.">
+							<% @products.each do |p| %>
+								<div class="product_item">
+									<div class-"product_image">
+									<%= link_to( image_tag("/images/products/modalities" + p.image_filename + ".png", { :height => 179, :width => 169 }), display_product_path(p.id) ) %>
 									</div>
+									<div class="name"><!-- why not product_name? -->
+										<p class="helvetica"><%= p.name %></p>
+									</div
 								</div>
-								<script type="text/javascript">
-									//filter values
-									macromodels[172939] = new Array();
-									macromodels[172939]['167834'] =  true;
-									macromodels[172939]['167873'] =  true;
-									macromodels[172939]['167897'] =  true;
-									macromodels[172939]['167921'] =  true;
-									
-									//itemtimer for blinking ie
-									itemtimer[172939]='';            
-								</script>
-							</div>
-                            
-              <!-- PRODUCT 172999 ———————————————————————————— -->
-							<div id="divProduct172999" class="product_item" onMouseOver="overItem('172999');" onMouseOut="itemtimer[172999]=setTimeout('outItem(\'172999\')',0);">
-								<div id="productImg172999" class="product_image" onClick="document.location.href='/en/product/wheels/road-triathlon/wheels/Cosmic-Carbone-Ultimate'">
-									<img alt="Cosmic Carbone Ultimate" name="118079" src="../images/products/range/118079.jpg">
-								</div>
-								<div id="compare172999" name="compare172999" class="select_to_compare" onClick="storeToCompare('172999');">
-									<img id="imgCompare172999" src="../images/select_to_compare_off.gif" alt="" name="imgCompare172999">
-                                    Select to compare
-								</div>
-								<div id="item172999" name="item172999" class="name">
-									<a class="helvetica" href="/en/product/wheels/road-triathlon/wheels/Cosmic-Carbone-Ultimate">
-                                    	<img src="../images/logos/ssc.gif" alt="Special Service Course. The Mavic SSC label products are developed in close collaboration with our top athletes. These products meet the strict performance demands of pro riders, and are made for pro cycling.">
-                                    	Cosmic Carbone Ultimate
-                                    </a>
-								</div>
-                                <a id="hidder172999" href="/en/product/wheels/road-triathlon/wheels/Cosmic-Carbone-Ultimate" class="hidder" name="hidder172999"></a>
-								<div id="altpop172999" name="altpop172999" class="altpop">
-									Light AND aerodynamic, the Cosmic Carbone Ultimate is the wheel-tyre system to beat for aerodynamic wheels - <span id="new_product">new</span>
-									<div class="sscaltiumAltpop">
-										<img src="../images/logos/ssc.gif" alt="Special Service Course. The Mavic SSC label products are developed in close collaboration with our top athletes. These products meet the strict performance demands of pro riders, and are made for pro cycling.">
-									</div>
-								</div>
-								
-								<script type="text/javascript">
-									//filter values
-									macromodels[172999] = new Array();
-									macromodels[172999]['167832'] =  true;
-									macromodels[172999]['167873'] =  true;
-									macromodels[172999]['167874'] =  true;
-									macromodels[172999]['167875'] =  true;
-									macromodels[172999]['167897'] =  true;
-									macromodels[172999]['167921'] =  true;
-									
-									//itemtimer for blinking ie
-									itemtimer[172999]='';            
-								</script>
-							</div>
-                            
+							<% end %>
+                          
 						</div>                    
 						<div class="clear"></div>
-						
-						<!-- insert TruMedical products block here in lieu of Mavic SSC label products -->
-                        
-						<div id="sscaltiumBlock">
-							<div class="ssc">
-								<div class="sscaltiumImage" style="">
-									<img src="../images/logos/ssc.gif" alt="Special Service Course. The Mavic SSC label products are developed in close collaboration with our top athletes. These products meet the strict performance demands of pro riders, and are made for pro cycling.">
-								</div>
-								<div class="sscaltiumContent" style="">
-									Special Service Course. The Mavic SSC label products are developed in close collaboration with our top athletes. These products meet the strict performance demands of pro riders, and are made for pro cycling.
-								</div>
-							</div>
-						</div>
-                        
-					</div> <!-- end div 'tabs' -->
                     
-					<div id="altpopdisplayer" style="position:absolute;z-index: 3;"></div>
+					</div> <!-- end div 'tabs' -->
                     
 				</div> <!-- end div 'main content' -->
                 

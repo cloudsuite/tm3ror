@@ -10,15 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704200507) do
+ActiveRecord::Schema.define(:version => 20111001034218) do
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
     t.integer  "parent_id"
+    t.string   "tree_path"
+    t.string   "name"
+    t.string   "color"
     t.integer  "list_order"
     t.string   "title"
     t.string   "description"
-    t.string   "image_url"
+    t.string   "image_filename"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -27,20 +29,35 @@ ActiveRecord::Schema.define(:version => 20110704200507) do
     t.integer  "category_id"
     t.string   "netsuite_id"
     t.string   "tms_part_no"
-    t.string   "image_url"
     t.string   "sammons_part_no"
-    t.string   "sammons_match"
+    t.string   "sammons_category_match"
+    t.string   "image_filename"
+    t.string   "name"
     t.string   "description"
-    t.string   "header"
-    t.string   "sale_units"
+    t.text     "long_description"
+    t.text     "xlong_description"
     t.string   "category_l1"
     t.string   "category_l2"
     t.string   "category_l3"
-    t.string   "ship_via"
-    t.decimal  "cost"
-    t.decimal  "price_web"
-    t.decimal  "price_clinic"
-    t.decimal  "price_trueblue"
+    t.integer  "latex_p"
+    t.integer  "Tru_p"
+    t.integer  "assembly_p"
+    t.integer  "clinician_only_p"
+    t.integer  "ship_by_truck_p"
+    t.decimal  "price_clinic_list"
+    t.decimal  "price_tru_blue"
+    t.decimal  "price_deviation_floor"
+    t.decimal  "price_corporate_2"
+    t.decimal  "price_corporate_3"
+    t.decimal  "price_dealer_1"
+    t.decimal  "price_dealer_2"
+    t.decimal  "price_dealer_3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name_last"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

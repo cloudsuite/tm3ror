@@ -1,5 +1,5 @@
 
-/* ���� menu styles  ���������������������������������������������� */
+/* ÑÑÑÑ menu styles  ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ */
 
 	#menu .submenucontent2 .level2 a.menu_red {
 		color: #ff0000;
@@ -88,13 +88,43 @@
 		padding-left: 9px;
 		padding-bottom: 0px;
 		font-size: 17px;
+	}
+	/* ——— added for TruMedical menu item on home page ———————————— */
+	#menu .submenu .submenucontent_tm {
+		background: orange;
+		margin-left:5px;
+		padding-top: 9px;
+		padding-right: 9px;
+		padding-left: 9px;
+		padding-bottom: 9px;
+		font-size: 10px;
+	}
+	#menu .submenu .submenucontent_tm h2 { font-size:14px;color:red;}
+	#menu .submenu .submenucontent_tm p {font-size:10px; color:black; line-height:15px;}
+	#menu .submenu .submenucontent_tm .row {width: 732px;margin: 0px;padding: 0px;}
+	#menu .submenu .submenucontent_tm p span.mission { color:white!important; }
 
+	/* ——— added for Patients menu item on home page ———————————— */	
+	#menu .submenu .submenucontent_patients {
+		background: orange;
+		margin-left:5px;
+		padding-top: 9px;
+		padding-right: 9px;
+		padding-left: 9px;
+		padding-bottom: 9px;
+		font-size: 10px;
 	}
-	#menu .submenu .submenucontent .row {
-		width: 732px;
-		margin: 0px;
-		padding: 0px;
-	}
+	#menu .submenu .submenucontent_patients h2 { font-size:14px;color:red;}
+	#menu .submenu .submenucontent_patients p {font-size:10px; color:black; line-height:15px;}
+	#menu .submenu .submenucontent_patients .row {width: 732px;margin: 0px;padding: 0px;}
+	#menu .submenu .submenucontent_patients p span.mission { color:white!important; }
+	
+	/* ——— added for Providers menu item on home page ———————————— */	
+	
+	/* ——— added for Payors menu item on home page ———————————— */	
+	
+	/* ——— end Payors ———— */	
+		
 	#menu .submenu .submenucontent .row.rims {
 		width: 489px;
 	}

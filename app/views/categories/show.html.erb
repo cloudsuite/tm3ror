@@ -28,7 +28,7 @@
 						to Netsuite. 
 					
 				refactoring:
-					1. Create partial for right_content and replace it in all templates with a render <partial>
+					1. Create partial for right_content and replace it in all templates with a render(:partial)  [DONE]
             
         —————————————————————————————————————————————————————————————————————————————————————————
     -->
@@ -160,79 +160,9 @@
 			</div><!-- end div 'subcontainer'  -->
 			
 			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
-			<!-- Replace the following with right_content  partial -->
 			<div id="right_content_container">
-                <div id="right_content">
-                    <a class="link" href="/en/news/road/Mavic-riders-win-National-Championships-across-Europe?intcmp=roadtriathlon+news" evar4="news">
-                        <div class="text">
-                            <p class="helvetica title">news</p>
-        
-                            <p class="content">Mavic riders win National Championships across Europe</p>
-                        </div>
-                        <div style="float:left;background-color:#000;width:117px;height:83px;overflow:hidden;">
-                            <table style="width:117px;height:83px;" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td style="width:117px;height:83px;overflow:hidden;padding: 0 0 0 0;" valign="middle">
-                                        <img width="117px" src="http://farm6.static.flickr.com/5153/5876997884_5e13477568_m.jpg" />
-                                    </td>
-                                </tr>
-                            </table>
-                         </div>
-                    </a>
-    
-                    <div class="clear"></div>
-                    <a class="link" href="http://www.mavic.com/en/athlete/road?intcmp=road+athletes" target="_self" evar4="road athletes">
-                        <div class="text">
-                            <p class="helvetica title">athletes</p>
-                            <p class="content">more information about Mavic athletes</p>
-                        </div>
-                        <img style="float:left;" src="../images/athletes_0.jpg" />
-                    </a>
-    
-                    <div class="clear"></div>
-                    <div class="flash_content" id="player">
-                        <img src="../images/flash_right_content.jpg" />
-                    </div>
-    
-                    <script type="text/javascript">
-                        //if(parameters == undefined) { // pas de video si il y en a deja une dans la page
-                            var pqs2 = new ParsedQueryString();
-                            var parameterNames2 = pqs2.params(false);
-                            var parameters2 =
-                            {	id: "1"
-                                ,   width: "233"
-                                ,   height: "131"
-                                ,   videoID: "aerodynamic-wheel-development-with-garmin-transition-part-2"
-                                ,	language: language
-                                ,	configuration: "/sites/default/modules/webtv/configuration.xml"
-                                ,   wmode: "opaque"
-                            };
-            
-                            for (var i=0; i<parameterNames2.length; i++)
-                            {
-                                var parameterName2 = parameterNames2[i];
-                                parameters2[parameterName2]
-                                    =	pqs2.param(parameterName2)
-                                    ||	parameters2[parameterName2];
-                            }
-                            // Embed the player SWF:
-                                swfobject.embedSWF
-                                    ( "/sites/default/modules/webtv/biMediaPlayer.swf"
-                                    , "player"
-                                    , parameters2["width"], parameters2["height"]
-                                    , "10.0.0"
-                                    , {}
-                                    , parameters2
-                                    , { allowFullScreen: "true", wmode: "opaque" }
-                                    , { name: "StrobeMediaPlayback" }
-                                    );
-                        //}
-                    </script>
-            
-                    <div class="clear"></div>
-                </div>
-            </div><!-- end div 'right_content_container' -->
-			<!-- /encart -->
+	      <%= render(:partial => 'shared/rightContent') %>	       
+			</div>
         
 			<div id="forScrollTop" class="clear"></div> <!-- what does this clearing div do?  -->
             

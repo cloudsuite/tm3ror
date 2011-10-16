@@ -5,10 +5,10 @@
 					<!-- render a clickable partial that displays the product image and name -->
 					
 					<div class="product_div">
-						<%= image_tag("/images/products/modalities/" + p.image_filename[0,6] + "-000" + ".jpg", :size => "120x80",:style => "float:left; border:1px solid #E6E6E6;") %>
+						<%= image_tag("/images/products/modalities/" + p.image_filename[0,6] + "-000" + ".jpg", :size => "120x80",:style => "float:left;") %>
 						
 						<div class="productName"> 
-							<%= link_to( raw(p.name), { :controller => "products", :action => "show", :id => p.id } ) %>
+							<%= link_to( sanitize(p.name), { :controller => "products", :action => "show", :id => p.id } ) %>
 						</div>
 						
 					</div> <!-- end div.product --> 

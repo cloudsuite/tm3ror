@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111001034218) do
+ActiveRecord::Schema.define(:version => 20111016042045) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -34,16 +34,19 @@ ActiveRecord::Schema.define(:version => 20111001034218) do
     t.string   "image_filename"
     t.string   "name"
     t.string   "description"
-    t.text     "long_description"
-    t.text     "xlong_description"
+    t.string   "long_description"
+    t.string   "xlong_description"
+    t.string   "sale_units"
     t.string   "category_l1"
     t.string   "category_l2"
     t.string   "category_l3"
     t.integer  "latex_p"
-    t.integer  "Tru_p"
+    t.integer  "tru_p"
     t.integer  "assembly_p"
     t.integer  "clinician_only_p"
-    t.integer  "ship_by_truck_p"
+    t.integer  "msds_p"
+    t.integer  "more_info_p"
+    t.string   "method_of_shipment"
     t.decimal  "price_clinic_list"
     t.decimal  "price_tru_blue"
     t.decimal  "price_deviation_floor"

@@ -261,62 +261,7 @@ Unknowns:
 			
 			<!-- right content container  —————————————————————— -->
 			<div id="home_right_content_container">
-				<div id="home_right_content">
-					
-					<!-- top? -->
-					<style type="text/css">
-						table { margin-left:-4px;}
-						td.colorBlock {
-								width:115px; /* x2 = 230 + 4 cellspacing = 234px, the width of the left column nav (within its white background */ 
-								height:80px;
-								background-color:orange;
-							}
-						td.imageBlock {
-							width:115px;
-							overflow:none;
-							border:solid thin gainsboro;
-							background-color:white;
-						}
-						td.colorBlock p.title1 {
-								font-size:16px; font-weight:bold;line-height:16px;
-								text-transform:none; 
-								margin-left:5px;
-								margin-top:-2px;
-								}
-						td.colorBlock p.title2 {
-								font-size:16px; font-weight:bold;line-height:16px; margin-top:-2px;
-								text-transform:none; 
-								margin-left:5px
-								}
-						td.colorBlock p.content {
-								margin-left:5px;
-								margin-top: -5px;
-								}
-						tr.promotions td.colorBlock {background-color:orange;}
-						tr.truvalue_products td.colorBlock {background-color:#0094DE;}
-					</style>
-					<table cellspacing="5">
-						<tr class="promotions">
-								<td class="colorBlock">
-									<p class="title1">Promotions</p>
-									<p class="content">See what's on special now!</p>
-								</td>
-								<td class="imageBlock">
-									<img src="../images/homepage/710033-000.jpg" width="115" height="80"/>
-								</td>
-						</tr>
-						<tr class="truvalue_products">
-								<td class="colorBlock">
-									<p class="title1">TruValue<br/>Products</p>
-									<p class="content">offer high quality and value</p>
-								</td>
-								<td class="imageBlock">
-									<img src="../images/homepage/Tru_branded_products.jpg" width="115" height="80" />
-								</td>
-						</tr>
-					</table>
-					
-				</div><!-- end div 'home-right-content' -->
+				<%= render(:partial => 'homeRightContent') %>
 			</div><!-- end div 'home-right_content_container' -->
 	
 		</div><!-- end of div 'subcontainer' -->

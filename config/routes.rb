@@ -1,5 +1,7 @@
 Tm2ror::Application.routes.draw do
    
+  get "search/results"
+
   get "product_sets/show"
 
   get "products/show"

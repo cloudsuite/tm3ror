@@ -1,0 +1,116 @@
+
+<!-- ————————————————————————————————————————————————————————————————
+		Controller: Search
+		Action: results 
+————————————————————————————————————————————————————————————————————— -->
+
+<%= content_for(:header) do %>
+
+	<title>TruMedical Solutions | Search Results </title> 
+	
+	<script type="text/javascript" >
+
+		$(document).ready(function() {	
+				$("#body-background").ezBgResize();
+				$("#body-background").css("background-color","#E6E6E6");				
+				checkSize();
+			
+			});
+		
+	</script>
+
+	<style type="text/css">
+		div.left { float:left; }
+		div.right { }
+
+	</style>
+
+
+
+<% end %>
+
+
+<%= content_for(:body) do %>
+
+	<div id="body-background">	
+		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+	</div>
+    
+	<!-- container —————————————————————————————————————————————————————————————————— -->
+
+	<div id="container">
+		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+
+	  <!-- subcontainer —————————————————————————————————————————————————————— -->
+
+		<div id="subcontainer">
+		
+			<!-- menu —————————————————————————————————————————————————————  -->
+		
+			<%= render :partial => 'shared/menu' %>
+			<%= render :partial => 'shared/search' %>
+
+	    <!-- main content —————————————————————————————————————————————— -->
+
+			<div id="main_content">
+				
+				<div id="error-messages" style="display:none">
+					<div class="messages error"></div>
+				</div>
+
+	      <!-- results from Google CSE ———————————————————————————————————————————————————————————— -->
+				<div id="cse" style="width: 100%;">Loading</div>
+				<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+				<script type="text/javascript"> 
+				  function parseQueryFromUrl () {
+				    var queryParamName = "q";
+				    var search = window.location.search.substr(1);
+				    var parts = search.split('&');
+				    for (var i = 0; i < parts.length; i++) {
+				      var keyvaluepair = parts[i].split('=');
+				      if (decodeURIComponent(keyvaluepair[0]) == queryParamName) {
+				        return decodeURIComponent(keyvaluepair[1].replace(/\+/g, ' '));
+				      }
+				    }
+				    return '';
+				  }
+
+				  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+				  google.setOnLoadCallback(function() {
+				    var customSearchControl = new google.search.CustomSearchControl(
+				      '003127155990866530065:djbmv7tmoes');
+
+				    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+				    customSearchControl.draw('cse');
+				    var queryFromUrl = parseQueryFromUrl();
+				    if (queryFromUrl) {
+				      customSearchControl.execute(queryFromUrl);
+				    }
+				  }, true);
+				</script>
+			
+
+			</div> <!-- end div#main_content -->
+
+		</div><!-- end div#subcontainer -->
+
+
+		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+
+		<div id="right_content_container">
+	    <%= render(:partial => 'shared/rightContent') %>	       
+		</div>
+
+		<div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
+
+	</div><!-- end div#container -->
+
+
+	<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+
+	<div id="logo_container">
+		<a href="/en" id="logo" title="home page" name="logo">home page</a>
+	</div>
+
+<% end %>
+

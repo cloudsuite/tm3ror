@@ -137,7 +137,8 @@
 				<div id="breadcrumb">
 					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
 					<div style="float:left">
-						<b><a href="#url">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+						<b><%= link_to("Home Page",{ :controller => 'home',:action =>'index'} ) %></b><span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
+							<!-- <a href="/home/index">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp; -->
 					</div>
 					<div style="float:left">
 						<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
@@ -158,23 +159,15 @@
 					$(document).ready(function() {   
 						$("#body-background").css('background-color','#E6E6E6')
 					});
-					var macromodels=new Array();
-					var showCompare = false;
-					var activeFamily = '167837';
-					var basePath ='/en'; 
-					var itemtimer=new Array();
 					
 				</script>
 				
-				<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
-				<!-- Show products for the subcategory that he selected on the home page
-					   Change to products for a different subcategory if he selects it here
-						 How does/should this work if there is another level of categories?
-						 Never is in Mavics?  Does occur in TruMedical?
+				
                   
 				<div id="tabs">
 					
 					<!-- horizontal line of tabs/buttons: one per subcategory ————————————————————————— -->
+					
 					<!-- problem: subcategory names are too long to allow all subcategories to fit in a single horizontal row as this design assumes; in Modalities there is room for 3 of 5 subcategories --> 
 					<div id="tabs_buttons_gamme">
 						<!-- replace this with a div#subcategories/ { div.subcategory } nested divs with the 
@@ -184,42 +177,32 @@
 					 		See if there is a tab library that I could use instead? 
 							Or just write another home-brew one as I did on the home page. 
 						-->
-						<div id="all_exercisers" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab active">
-							<a class="helvetica" href="../images/product/wheels/road-triathlon/wheels">Ultrasound</a>
-						</div>
-						
-						<div id="ellipticals" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-							<a class="helvetica" href="/en/node/168065/mid/50866">Stim</a>
-						</div>
-						
-						<div id="exercise_bikes" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-							<a class="helvetica" href="/en/node/168065/mid/50866">Combination</a>
-						</div>
-						
-						<div id="treadmills" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-							<a class="helvetica" href="/en/node/168065/mid/50866">Iontophoresis</a>
-						</div>
-						
-						<div id="weight_equipment" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-							<a class="helvetica" href="/en/node/168065/mid/50866">Electrodes</a>
-						</div>
-						<div id="weight_equipment" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-							<a class="helvetica" href="/en/node/168065/mid/50866">Lotions & Gels</a>
-						</div>
-						<div id="weight_equipment" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
-							<a class="helvetica" href="/en/node/168065/mid/50866">Accessories</a>
-						</div>
-						
-					</div>
+						<div class="tab"><a class="helvetica" href="">Ultrasound</a></div>
+						<div class="tab"><a class="helvetica" href="">Stim</a></div>
+						<div class="tab"><a class="helvetica" href="">Combination</a></div>
+						<div class="tab"><a class="helvetica" href="">Iontophoresis</a></div>
+						<div class="tab"><a class="helvetica" href="">Electrodes</a></div>
+						<div class="tab active"><a class="helvetica" href="">Lotions & Gels</a></div>
+						<div class="tab"><a class="helvetica" href="">Accessories</a></div>					
+					</div> <!-- end div.tabs_buttons_gamme -->
+					
 					<div class="clear"></div>
 
 					
 					<!-- PRODUCTS  ————————————————————————————————————————————————————————————————— -->
 
-					<%= render "products" %>
+					<!-- if category does not make the type/model destinction, render the partial "products'
+						If it does, render the partial "product_types" 
+				
+					<% if @category.has_product_types_p == 1 %>
+						<%# render "product_types" %>
+					<% else %>
+						<%# render "products" %>
+					<% end %>
+          -->
+
+      		<%= render "products" %> <!-- testing with category id=7 lotions and gels -->
                 
-					<div class="clear"></div>
-                  
 				</div> <!-- end div 'tabs' -->
                   
 			</div> <!-- end div 'main content' -->

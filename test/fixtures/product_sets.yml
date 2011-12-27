@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tms_product_no: 1
+  name: MyString
+  description: MyText
+  image_filename: MyString
+
+two:
+  tms_product_no: 1
+  name: MyString
+  description: MyText
+  image_filename: MyString

@@ -62,15 +62,37 @@
 		</script>
 		
 		<%= javascript_include_tag "mavic.js" %> <!-- this includes jquery 1.4.2 and jquery-ui 1.8.x -->
+		<style type="text/css">
+			div#contactUs, div#privacyPolicy, div#requestCatelog { display:none; padding-bottom:40px; padding-top:20px; }
+			div#contactUs h2, div#privacyPolicy h2, div#requestCatelog h2 { font-size:10px; font-weight:bold; margin-bottom: -10px; }
+			div#contactUs p, div#privacyPolicy p, div#requestCatelog p {font-size:10px; line-height:13px;}
+			div#privacyPolicy dl { margin-left:10px; font-size:9px; line-height:12px;}
+			div#privacyPolicy dt { font-weight:bold;}
+			div#privacyPolicy dd { font-weight:normal; margin-left:10px;}
+			div#catelogImage { border: 1px solid gray;}
+			
+		</style>
 		
 		<script type="text/javascript">
 
 			$(document).ready(function(){
-
-				$("a[href='#']").click(function(){
-					alert("As-yet-unimplemented link ");
+				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[260,60], width:560, minHeight:200, title:"Contact Us" })
+				$("div#privacyPolicy").dialog( { autoOpen:false, modal:true, position:[260,60], width:800, minHeight:200, title: "Privacy Policy" })
+				$("div#requestCatelog").dialog( { autoOpen:false, modal:true, position:[260,60], width:560, minHeight:200, title:"Request a Catelog" })
+				
+				$("a[href='#contactUs']").click(function(){
+					$("div#contactUs").dialog('open');
 					return false;
 				});
+				$("a[href='#privacyPolicy']").click(function(){
+					$("div#privacyPolicy").dialog('open');
+					return false;
+				});
+				$("a[href='#requestCatelog']").click(function(){
+					$("div#requestCatelog").dialog('open');
+					return false;
+				});
+
 				$("a[href='#url']").click(function(){
 					alert("As-yet-unimplemented link.");
 					return false;
@@ -79,6 +101,7 @@
 					alert("This link will take you to one of the pages implemented in Netsuite's secure server.");
 					return false;
 				});
+
 
 			});
 		</script>
@@ -128,6 +151,127 @@ google.load('search', '1');
 			<div class="clear" style=""></div>
 		</form>
 	-->
+	
+		<!-- divs for popup dialogs     ————————————————————————————————————————————— -->
+	
+		
+		<!-- contact us ——————————————————————————————— -->
+		<div id='contactUs'>
+			<p>You may reach us by Mail, Phone, Fax, E-Mail, or the web at: </p>
+			
+			<h2>By Mail:</h2>
+			<p>
+				TruMedical Solutions, LLC.</br>
+				PO Box 1869</br>
+				Collegedale, TN 37315
+			</p>
+			
+			<h2>By Phone:</h2>
+			<p>
+				877-882-7844</br>
+				423-910-0121
+			</p>
+			
+			<h2>By Fax:</h2>
+			<p>
+				877-882-7845</br>
+				423-910-0121
+			</p>
+	
+			<h2>E-Mail:</h2>
+			<p>
+				<a href="sales@tru-medical.com">sales@tru-medical.com</a>
+				<a href="info@tru-medical.com">info@tru-medical.com</a>
+				<a href="customerservice@tru-medical.com">customerservice@tru-medical.com</a>
+			</p>
+			
+			<h2>By Web:</h2>
+			<p>
+				<a href="www.tru-medical.com">www.tru-medical.com</a>
+			</p>
+			
+			<p>If you prefer to email in your question, feedback or anything else, you can use the form below and someone will get back to you witin 24 hours or less.  We look forward to hearing from you!
+			</p>
+			<p>[ INSERT FORM HERE ] </p>
+			<h2>Hours of Operation</h2>
+			<p>Monday thru Friday 8:30AM to 6:00PM EST</p>
+		</div>
+		
+		<!-- privacy policy ——————————————————————————————— -->
+		<div id='privacyPolicy'>
+			<h2>This website takes every precaution to protect our users' information.</h2>
+			<p>Our entire site, including but not limited to areas where we ask users to enter sensitive information (such as credit card or bank account numbers) is encrypted and is protected by an advanced 128-bit encryption software protocol – SSL.</p>
+
+			<p>While we use SSL encryption to protect sensitive information online, we also take steps to protect user-information off-line. Only employees who need the information to perform a specific task are granted access to any personally identifiable information.</p>
+
+			<p>TruMedical Solutions, LLC.  places the utmost importance on protecting information transmitted via our website and takes security precautions to protect all such information from loss, misuse, and alteration. These precautions are regularly reviewed and enhanced as part of TruMedical Solutions’ ongoing commitment to customer security and privacy.</p>
+
+			<p>If you have any questions about the security at our website, please e-mail us at: <%= mail_to "websupport@tru-medical.com",nil, :subject => "privacy policy" %>.</p>
+
+
+			<p>TruMedical Solutions, LLC.  reserves the right to alter this policy at any time. Changes will be posted immediately on our website.</p>
+
+			<h2>Privacy Policy</h2>
+			<p>At TruMedical Solutions we respect your privacy. Whether you request a catalog, place an on-line order, or e-mail us, your personal information is handled with your privacy and security in mind.</p> 
+
+			<h2>Information Collection and Use</h2>
+			<p>TruMedical Solutions collects information from our users at several points on our website:
+			<dl>
+				<dt>Registration</dt><dd>In order to use some functions of this website, a user must first complete a registration form. During registration a user is required to give their contact information (such as name and email address).</dd>
+				<dt>Ordering</dt><dd>We request information from the user when completing an order. Here, a user must provide contact information (like name and shipping address) and financial information (like credit card number, expiration date). This information is used specifically for billing purposes and to fill customer's orders. If we have trouble processing an order, this contact information is used to get in touch with the user.</dd>
+				<dt>Cookies</dt><dd>Cookies are bits of information stored on your computer that enable us to customize your shopping experience and identify you when you return. Cookies can be disabled, but please keep in mind that if you do so, your browsing experience may be limited.</dd>
+				<dt>Log Files</dt><dd>We use IP addresses to analyze trends, administer the site, and track user movement only within our website. IP addresses are not linked to personally identifiable information.</dd>
+				<dt>Communications</dt><dd>TruMedical Solutions may also retain the content of the communications that are sent to our customer service representatives.</dd>
+			</dl>
+			<h2>Information Use</h2>
+			<p>The information collected by TruMedical Solutions is used to, among other things, aggregate statistical information, facilitate system administration, improve the content of the website, fill orders, and also to respond to user requests for information and to otherwise render service. TruMedical Solutions may also use the information collected to notify site users of changes to the website, to notify visitors of new products, special promotional offers, or for other legitimate business purposes. If you do not wish to receive e-mails from us, please contact Customer Service.</p>
+
+			<h2>Confidentiality and Disclosure</h2>
+			<p>TruMedical Solutions considers the personally identifiable information contained in our business records to be confidential. TruMedical Solutions does not provide any personally identifiable information to other companies except when necessary to render service. We may disclose personally identifiable information about you to our employees for TruMedical Solutions’ internal business purposes, as well as to outside auditors, professional advisors, service providers and regulators. We make these disclosures when the disclosure is necessary to render, or conduct a legitimate business activity. We may also be required by law or legal process to disclose certain personally identifiable information about you. TruMedical Solutions may use and disclose personally identifiable information as provided for by applicable law in order to perform legitimate business activity. Some examples: billing and invoicing, administration, surveys, collection of fees and charges, marketing, service delivery and customization, maintenance and operations, technical support, hardware and software upgrades, and fraud prevention.</p>
+
+			<h2>Legal Disclaimer</h2>
+			<p>We make every reasonable effort to protect site user privacy as described. Nevertheless, we may be required by law to disclose personally identifiable information about a site user without his or her consent and without notice in order to comply with a valid legal process such as a subpoena, court order, or search warrant. We may also use or disclose personally identifiable information about you without your consent to protect our customers, employees, or property.</p>
+
+			<h2>Transmission of Information</h2>
+			<p>TruMedical Solutions transmits personally identifiable and non-personally identifiable information about you when you receive e-mail, or electronic documents. Our transmission of this information is necessary to render service. TruMedical Solutions may use third parties to deliver some features and functions of service, such as electronic document delivery. These third parties are not permitted to use your personally identifiable information except for the purpose of providing their services.</p>
+
+			<h2>Links</h2>
+			<p>This website contains links to other sites. Please be aware that TruMedical Solutions is not responsible for the privacy practices of other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of each website that collects personally identifiable information. This privacy statement applies solely to information collected by TruMedical Solutions.</p>
+
+			<h2>Inactivate Online Accounts</h2>
+			<p>An online account may be inactivated by email request to Site Support. Inactivation could take up to 24 hours and only applies to registered online accounts, not ordering accounts. If there is an urgent security issue, please change the account password and email address if necessary and contact Site Support.</p>
+
+			<h2>Report Suspected Fraud</h2>
+			<p>If you suspect that you’re login information has been misused by other parties or fraudulent ordering is occurring on your account, please change your password and contact Customer Service immediately.</p>
+			
+		</div>
+		<div id='requestCatelog'>
+			<div id="catelogImage" style="float:left">
+				<%= image_tag("footer/catelog_cover.jpg") %> <!-- 125x162 -->
+			</div>
+			<!-- <img scr="/images/shared/catelog.jpg" alt="TruMedical Product Catelog" style="float:left;"  > -->
+			<div id="request" style="margin-left: 160px;">
+				<p>If you would like us to mail you a printed copy of our 2011 Product Catelog, please fill in your mailing address below, and indicate how many copies you would like. </p>
+	
+				<% @user = User.new() %> <!-- form_for takes an instance of the model class, not the class itself: awkward for object creation -->
+				<%= form_for @user do |f| %>
+					<%= f.label :first_name %>
+					<%= f.text_field :first_name %><br/>
+					<%= f.label :last_name %>
+					<%= f.text_field :last_name %><br />
+					<%= f.label :email_address %>
+					<%= f.email_field :email_address %><br/>
+					<%= f.label :wants_n_catelogs, "How many would you like?" %>
+					<%= f.number_field :wants_n_catelogs, :size => "3", :in => 1...10 %><br/>
+					
+					<%= f.submit "Submit" %>
+				<% end %>
+					
+					
+				 
+			</div>
+	
+		</div>
 		
 			<%= yield :body %>
 
@@ -161,23 +305,26 @@ google.load('search', '1');
 			</script>
 			
 			<div class="left">
-				<a href="#">Request a Catalog</a>
+				<a href="#requestCatelog">Request a Catalog</a> <!-- restyle; its not a clickable link -->
+				
+				<!-- <a href="#">Competitor Cross Reference:</a> -->
+				
 				<form id="nlsubmit" action="#" method="post" name="nlsubmit">
 					<a href="#">Competitor Cross Reference:</a>
 					<div class="whitebg">
-						<input class="enternl" id="newsl_input" type="text" name="adress" value="Enter product number" maxlength="100" autocomplete="off" style="width:136px;"> 
+						<input class="enternl" id="sammons_no" type="text" name="sammons_no" value="Enter product number" maxlength="100" autocomplete="off" style="width:136px;"> 
 						<input class="submitnl" type="submit" name="submitnl" value="GO">
 					</div>
-				</form>
+				</form>		
 			 
-				<a href="#">Contact Us</a> 
-				<a href="#">Privacy Policy</a> 
+				<a href="#contactUs">Contact Us</a> 
+				<a href="#privacyPolicy">Privacy Policy</a> 
 				<!-- <a href="#">FAQs</a> -->
 				
 				<span style="color:white;">Find us on:</span> 
-				<a href="#"><img src="../images/footer/facebook.png" width="16" height="16" alt="">&nbsp;Facebook</a> 
-				<a href="#"><img src="../images/footer/twitter.png" width="16" height="16" alt="">&nbsp;Twitter</a>
-				<a>&copy;TruMedical Solutions LLC, 2011</a>     
+				<a href="http://www.facebook.com/trumedical"><img src="../images/footer/facebook.png" width="16" height="16" alt="">&nbsp;Facebook</a> 
+				<a href="http://twitter.com/trumedical"><img src="../images/footer/twitter.png" width="16" height="16" alt="">&nbsp;Twitter</a>
+				<!-- <a>&copy;TruMedical Solutions LLC, 2011</a> -->    
 			</div> <!-- end of div 'left' -->
 		
 			<div class="right"></div> 			<!-- used for? -->
@@ -185,6 +332,7 @@ google.load('search', '1');
 			<div class="clear-both"></div>  <!-- purpose? -->
 				
 		</div> <!-- end div 'footer' -->
+		
 			
 		<%= yield :js_before_close_of_body %> 
 		

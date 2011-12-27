@@ -1,28 +1,20 @@
 Tm2ror::Application.routes.draw do
    
-  get "leaf_categories/display"
+  get "product_sets/show"
+
+  get "products/show"
+
+    resources :categories
+    resources :product_types
+    resources :users
 
   get "site/search"
-  get "site/search_mavic"
 
-  get "products/display"
-  
-   # resources :product (note singular: product, not products ) 
-    resources :products do  # can handle URLs of the form localhost:3000/products/1/display
-      get :display, :on => :member
-    end
 
-  #get "categories/display"
-  
-  resources :categories do  # can handle URLs of the form localhost:3000/categories/1/display
-    get :display, :on => :member
-  end
-
-  get "leaf_categories/display"
-  
   resources :leaf_categories do  # can handle URLs of the form localhost:3000/leaf_categories/1/display
     get :display, :on => :member
   end
+  
 
   get "home/index"
   get "home0/index"

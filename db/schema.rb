@@ -10,15 +10,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016042045) do
+ActiveRecord::Schema.define(:version => 20111211233658) do
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
+    t.integer  "level"
     t.string   "tree_path"
     t.string   "name"
     t.string   "color"
     t.integer  "list_order"
+    t.integer  "has_product_types_p"
     t.string   "title"
+    t.string   "description"
+    t.string   "image_filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manufacturers", :force => true do |t|
+    t.string   "name"
+    t.string   "logomark"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_lines", :force => true do |t|
+    t.string   "name"
+    t.string   "logomark"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_types", :force => true do |t|
+    t.string   "category_l1"
+    t.string   "category_l2"
+    t.string   "category_l3"
+    t.string   "leaf_category_id"
+    t.string   "name"
     t.string   "description"
     t.string   "image_filename"
     t.datetime "created_at"
@@ -27,15 +56,18 @@ ActiveRecord::Schema.define(:version => 20111016042045) do
 
   create_table "products", :force => true do |t|
     t.integer  "category_id"
-    t.string   "netsuite_id"
+    t.integer  "product_type_id"
     t.string   "tms_part_no"
+    t.string   "netsuite_item_no"
     t.string   "sammons_part_no"
     t.string   "sammons_category_match"
+    t.integer  "is_accessory_p"
+    t.integer  "accessory_for"
     t.string   "image_filename"
     t.string   "name"
-    t.string   "description"
-    t.string   "long_description"
-    t.string   "xlong_description"
+    t.text     "description"
+    t.text     "long_description"
+    t.text     "product_line_description"
     t.string   "sale_units"
     t.string   "category_l1"
     t.string   "category_l2"
@@ -45,7 +77,9 @@ ActiveRecord::Schema.define(:version => 20111016042045) do
     t.integer  "assembly_p"
     t.integer  "clinician_only_p"
     t.integer  "msds_p"
+    t.string   "mds_filename"
     t.integer  "more_info_p"
+    t.string   "more_info_filename"
     t.string   "method_of_shipment"
     t.decimal  "price_clinic_list"
     t.decimal  "price_tru_blue"
@@ -59,8 +93,19 @@ ActiveRecord::Schema.define(:version => 20111016042045) do
     t.datetime "updated_at"
   end
 
+  create_table "requests", :force => true do |t|
+    t.integer  "type_of_request"
+    t.integer  "number_of_catelogs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "name_last"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email_address"
+    t.string   "phone_number"
+    t.integer  "wants_n_catelogs"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

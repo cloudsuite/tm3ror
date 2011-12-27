@@ -1,0 +1,26 @@
+			<div class="products_div"> 
+				
+				<!-- for testing: if they are set, do they work? -->
+				
+				<%= @category = Category.find_by_id(7) %> 
+		    <%= @products = Product.where(:category_id => 7) %>
+		
+				<% @products.each do |p| %>
+					
+					<!-- render a clickable partial that displays the product image and name -->
+					<!-- this products in this leaf category make the type/model distinction, the 
+						links should go to ProductTypes/Show, not Product/Show.
+					-->
+					
+					<div class="product_div">
+						<%= image_tag("/images/products/all_small/" + p.image_filename[0,6] + "-000" + ".jpg", :size => "120x80",:style => "float:left;") %>
+						
+						<div class="productName"> 
+							<%= link_to( sanitize(p.name), { :controller => "product_types", :action => "show", :id => p.id } ) %>
+						</div>
+						
+					</div> <!-- end div.product --> 
+					
+				<% end %>
+
+			</div><!-- end div.products --> -

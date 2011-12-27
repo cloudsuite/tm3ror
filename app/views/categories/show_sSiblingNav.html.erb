@@ -1,0 +1,184 @@
+
+	<!-- 
+        —————————————————————————————————————————————————————————————————————————————————————————
+
+					Category#show
+					
+				—————————————————————————————————————————————————————————————————————————————————————————	
+        
+				to do:
+					1. Use /shared/_menu.html.erb for menu  [DONE]
+					2. Create code that iterates through leaf-level categories for this subcategory [DONE]
+					3. Comment out the sibling category navigation until can make it work:
+							1. how handle more than will fit on the line? —— scroll in from the right? 
+							2. when click on a link in the sibling have either: (a) highlight that one in orange and use AJAX to rbuild the set of images in the body of the page, or (b) go to a new page, in which the category clicked on is the left-most one in the top menu  ( or is correctly placed, but highlighted). Of these, I like the AJAX alternative. 
+				
+				bugs:
+					alignment of subcategories
+
+            
+        open questions:
+					1. Background image for modalities — or just a color block?  
+					2. width:  
+            	15 left_content(235) 745 (main) 5px (running total:1000) right_content(235), 160; total 1395  (but only measures 1390; where is the 5px?) Answer: main+right padding=745 not 750
+                so:
+                	1000 to edge of main content block + 5 px border, so 1010 to balance it with 15px border on right/left
+                    1235 to right end of right_content block; 1250 if include a 15px border on right
+                    170 logomark which overlaps with the content-right by 10 px, and is tied to right edge of window      			
+					3. Enable floating logomark?  if so : design one that works on a block of color. 
+					4. Need to understand how the code is moving right_content from right to left under menu if page is too narrow. This works here, in mavic_llc.html  but not in mav0llc_3.html, where it drops below the main block also. Even on this page, works on Safari, but drops below left on Firefox.
+						— If left it on left in all pages, then it would not interfere with upper right links
+						to Netsuite. 
+					
+				refactoring:
+					1. Create partial for right_content and replace it in all templates with a render(:partial)  [DONE]
+            
+        —————————————————————————————————————————————————————————————————————————————————————————
+    -->
+        
+
+	<%= content_for(:header) do %>
+
+		<title>TruMedical Solutions / Products / [category] / [subcategory ] / [leaf category] </title>       									
+		<script type="text/javascript" >
+
+			$(document).ready(function() {	
+					$("#body-background").ezBgResize();				
+					getSessionProductCompare();
+					checkSize();
+				});
+				var macromodels=new Array();
+				var showCompare = false;
+				var activeFamily = '167837';
+				var basePath ='/en'; 
+				var itemtimer=new Array();
+				
+		</script>
+		<style type="text/css">
+			div.leafCategories { margin-top:20px;}
+			div.leafCategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
+				background-color:#E6E6E6;}
+			div.leafCategoryName { padding:5px;margin:0;text-align:center;}
+		</style>
+  
+	<% end %>
+
+    
+	<%= content_for(:body) do %>
+		
+		<div id="body-background">
+			<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+		</div>
+        
+		<!-- container —————————————————————————————————————————————————————————————————— -->
+        
+		<div id="container">
+        
+			<div id="black_screen"></div>
+			
+			<!-- subcontainer —————————————————————————————————————————————————————— -->
+            
+			<div id="subcontainer"> <!-- Why are menu and main content grouped into a combination div 'subcontainer' ? -->
+				<!-- MENU —————————————————————————————————————————————————————  -->
+				
+				<%= render :partial => 'shared/menu' %>
+
+					
+				<!-- MAIN CONTENT —————————————————————————————————————————————— -->
+                
+				<div id="main_content">
+                
+					
+					<!-- Error Messages ———————————————————————————————————————— -->
+					<div id="error-messages" style="display:none"></div>
+					
+					<script type="text/javascript">
+
+						$(document).ready(function() {   
+							$("#body-background").css('background-color','#E6E6E6')
+						});
+						var macromodels=new Array();
+						var showCompare = false;
+						var activeFamily = '167837';
+						var basePath ='/en'; 
+						var itemtimer=new Array();
+						
+					</script>
+					
+					<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
+					<!-- Show products for the subcategory that he selected on the home page
+						   Change to products for a different subcategory if he selects it here
+							 How does/should this work if there is another level of categories?
+							 Never is in Mavics?  Does occur in TruMedical?
+							
+					<!-- Sibling Nav  ——————————————————————————————————————————————————————————————————— -->
+                    
+					<div id="tabs">
+						
+						<!-- horizontal line of tabs/buttons: one per subcategory ————————————————————————— -->
+						<!-- problem: subcategory names are too long to allow all subcategories to fit in a single horizontal row as this design assumes; in Modalities there is room for 3 of 5 subcategories --> 
+						<div id="tabs_buttons_gamme">
+							<!-- replace this with a div#subcategories/ { div.subcategory } nested divs with the 
+								inner div.subcategory generated from the category tree in the database 
+								Its really a tabbed interface but with the tabs styled like buttons not tabs.
+								Remove all the inline javascript to jQuery on-document ready. '
+						 		See if there is a tab library that I could use instead? 
+								Or just write another home-brew one as I did on the home page. 
+							-->
+							<div id="all_exercisers" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab active">
+								<%= link_to("Clinical Electrotherapy", { :controller => "categories", :action => 'show', :id => 2}) %>
+								
+							</div>
+							
+							<div id="ellipticals" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<%= link_to("Continuous Passive Motion", { :controller => "categories", :action => 'show', :id => 3}) %>
+							</div>
+							
+							<div id="exercise_bikes" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+								<%= link_to("Hot & Cold Therapy", { :controller => "categories", :action => 'show', :id => 13}) %>
+							</div>
+						
+							
+							<div id="treadmills" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+									<%= link_to("Hydrotherapy & Acquatics", { :controller => "categories", :action => 'show', :id => 19}) %>
+							</div>
+							
+							<div id="weight_equipment" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab">
+									<%= link_to("Personal Electrotherapy", { :controller => "categories", :action => 'show', :id => 22}) %>
+							</div>
+							
+						</div> <!-- end tabs_buttons_gamme -->
+						<div class="clear"></div>
+
+						
+						<!-- (Leaf-level) SUBCATEGORIES  ———————————————————————————————————————————————— -->
+
+						<%= render "leafCategories" %>
+						
+                
+						<div class="clear"></div>
+                    
+					</div> <!-- end div 'tabs' -->
+                    
+				</div> <!-- end div 'main content' -->
+                
+			</div><!-- end div 'subcontainer'  -->
+			
+			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+			<div id="right_content_container">
+	      <%= render(:partial => 'shared/rightContent') %>	       
+			</div>
+        
+			<div id="forScrollTop" class="clear"></div> <!-- what does this clearing div do?  -->
+            
+		</div><!-- end div 'container' -->
+        
+		<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+        
+		<div id="logo_container">
+			<a href="index.html" id="logo" title="home page" name="logo">home page</a>
+		</div>
+		
+	<% end %>
+
+

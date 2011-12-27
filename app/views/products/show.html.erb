@@ -1,502 +1,189 @@
+<!-- ————————————————————————————————————————————————————————————————
+		Controller: Products
+		Action: Show 
+————————————————————————————————————————————————————————————————————— -->
 
-	<!-- 
-        —————————————————————————————————————————————————————————————————————————————————————————
-        
-				Products#show
-				
-				—————————————————————————————————————————————————————————————————————————————————————————
-       
- 						to do:
-								0. set up @product and @category in Products#show action [DONE]
-				        1. insert breadcrumb {DONE]
-								2. create rails code that displays properties of this product
-				    				name, description, long_description [DONE]
-								2. insert quantity, add-to-cart 
-								3. insert shipping via
-								4. remove background image; replace with gray color E6E6E6 [DONE]
-								5. get zoom working w/galleria [DONE]
-									 — replace galleria with gallerific
-								6. if product group: options, accessories, etc.
-								7. if comes in colors/size, more complex selection options
-						
-						bugs:
-								1. can't find several .js files (background images used as corners in large image?)
-								2. zoom  line 331 
-									— Have I cut omniture_click? in my split out version of the js files?  
-									— Is it picking up correct image in /public/images/products/zoom/118079.jpg? No. It is still getting the one in /images/products/normal/118079.jpg; you can tell because the right part of the smaller image is cut off. The zoom is just blowing up the smaller image, not shifting to use the larger one. Why?  DEBUG
+<%= content_for(:header) do %>
 
-				     refactoring:    
-								1. insert partial for left nav
-				 				2. insert partial for search 
-								3. insert partial for right_content [NEXT]
-								4. move Google analytics into application.html.erb
-								
-						questions:
-								1. which of the variables being set on document ready are necessary?
-            
-        
-        —————————————————————————————————————————————————————————————————————————————————————————
-    -->
-        
-
-	<%= content_for(:header) do %>
-
-		<title>TruMedical Solutions | Products </title>       									
-		<% javascript_include_tag "galleria-1.2.4.min.js" %>
-		<% javascript_include_tag "zoom_and_mega_zoom.js" %>
-		
-		<script type="text/javascript" >
-
-			$(document).ready(function() {	
-					$("#body-background").ezBgResize();
-					$("#body-background").css("background-color","#E6E6E6");				
-					getSessionProductCompare();
-					checkSize();
-					
-				});
-				var macromodels=new Array();
-				var showCompare = false;
-				var activeFamily = '167837';
-				var basePath ='/en'; 
-				var itemtimer=new Array();
-				
-		</script>
-  
-	<% end %>
-
-    
-	<%= content_for(:body) do %>
+	<title>TruMedical Solutions | Products </title> 
 	
-	
-		
-		<div id="body-background">
+	<!-- Reenable this once have the basic display of product fields working  									
+	<%# javascript_include_tag "galleria-1.2.4.min.js" %>
+	<%# javascript_include_tag "zoom_and_mega_zoom.js" %>
+-->
+
+	<script type="text/javascript" >
+
+		$(document).ready(function() {	
+				$("#body-background").ezBgResize();
+				$("#body-background").css("background-color","#E6E6E6");				
+				checkSize();
 			
-			<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-		</div>
-        
-		<!-- container —————————————————————————————————————————————————————————————————— -->
+			});
+		
+	</script>
 
-		<div id="container">
-			<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+	<style type="text/css">
+		div.left { float:left; }
+		div.right { }
+		#products table {
+		    width: 200px;
+			}
+		#products td span {
+		    background-color: #FFF;
+			}
+		#products td.name:before {
+		    clip: rect(0px, 190px, 20px, 0px);
+		    content: " ............................................................ ";
+		    position: absolute;
+		    z-index: -1;
+			}
+		#products td.price {
+		    text-align: right;
+			}
+	</style>
 
-      <!-- subcontainer —————————————————————————————————————————————————————— -->
 
-			<div id="subcontainer">
-				
-				<!-- MENU —————————————————————————————————————————————————————  -->
-				
-				<%= render :partial => 'shared/menu' %>
 
-            <!-- Google search —————————————————————————————————— -->
-						<!-- consider putting product search back on left in Category#display and Product#display
-						<form id="search_form" action="/en/search/google_cse_adv" method="post" name="search_form">
-							<script type="text/javascript" src="http://www.google.com/jsapi">
-</script> <script type="text/javascript">
-google.load('search', '1');
-							google.setOnLoadCallback(function() {
-							google.search.CustomSearchControl.attachAutoCompletion(
-							'014338948727438158850:bsnpnwdxyvo',
-							document.getElementById('search_input'),
-							'search_form');
-							});
-							</script>
-							<div id="search_wrapper">
-								<h1 id="search_hint" class="helvetica">
-									search...
-								</h1><input class="" id="search_input" type="text" name="keys" value="" maxlength="30" autocomplete="off">
-							</div><a class="submit" href="javascript:%20document.getElementById('search_form').submit();">OK</a> <input type="hidden" value="b336c5e5cff036b0dcddac1772beee93" name="form_token"> <input type="hidden" value="search_form" id="edit-search-form" name="form_id">
-							<div class="clear" style=""></div>
-						</form>
-					-->
+<% end %>
 
-        <!-- MAIN CONTENT —————————————————————————————————————————————— -->
 
-				<div id="main_content">
-					<div id="breadcrumb">
-						<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
-						<div style="float:left">
-							<b><a href="#url">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= sanitize(@product.name) %></a></b>
-						</div>
+<%= content_for(:body) do %>
+
+	<div id="body-background">	
+		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+	</div>
+    
+	<!-- container —————————————————————————————————————————————————————————————————— -->
+
+	<div id="container">
+		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+
+	  <!-- subcontainer —————————————————————————————————————————————————————— -->
+
+		<div id="subcontainer">
+		
+			<!-- menu —————————————————————————————————————————————————————  -->
+		
+			<%= render :partial => 'shared/menu' %>
+			<%= render :partial => 'shared/search' %>
+
+	    <!-- main content —————————————————————————————————————————————— -->
+
+			<div id="main_content">
+				<div id="breadcrumb">
+					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
+					<div style="float:left">
+						<b><%= link_to("Home Page",{ :controller => 'home',:action =>'index'} ) %></b><span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
+							<!-- <a href="/home/index">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp; -->
 					</div>
-					
-
-					<div id="error-messages" style="display:none">
-						<div class="messages error">
-						</div>
+					<div style="float:left">
+						<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
 					</div>
-
-					<script type="text/javascript">
-
-					$(document).ready(function() {
-						$("#body-background").ezBgResize();
-						checkSize();
-
-						createTabsAction();
-						getSessionProductCompare();
-						displayTabs();
-
-						/* Visuel */
-						$('#product .visuel:first').show();
-
-						/* Colors*/
-						$('#product .change-color').css('opacity','1');
-						$('#product .change-color:first').css('opacity','0.3');
-
-						/* Feature */
-						$('#change_image a.feature-image').show();
-						$('#change_image a.feature-image-notooltip').show();
-						$('#features_content .feature-content').show();
-
-						//Get feature picture big
-						$('a.feature-image,a.feature-image-notooltip').click(function() {
-						showZoom(this.href,$(this).find('img').attr('alt'));
-						return false;
-						});
-
-						//Zoom on image
-						$('#product .picture').click(function(){
-						omniture_click(document.getElementById('zoom'), 'Zoom');
-						showZoom($('#zoom').attr('href'),$('#zoom').attr('alt'));
-						return false;
-						});
-
-						$('#closeZoom_wrapper').click(function(){
-						hideMegaZoom();
-						hideZoom();
-						});
-						$('#closeZoom').click(function(e){
-						e.stopPropagation(); //$('#closeZoom_wrapper').click() will not fire
-						hideMegaZoom();
-						hideZoom();
-						});
-
-						//hover for #closeZoom_wrapper in ie6
-						if ($.browser.msie && $.browser.version.substr(0,1)<7) {
-						$('#closeZoom_wrapper').mouseenter(function(){
-						$(this).addClass('hover');
-						}).mouseleave(function(){
-						$(this).removeClass('hover');
-						});
-						}
-
-						/* Color switch*/
-
-						//Associated and size init
-						$('a.associated-off').hide();
-						$('a.associated-on').show();
-						$('p.size-off').hide();
-						$('p.size-on').show();
-						$('#change_color a').click(function() {
-
-						//change opacity for others
-						$('#product .change-color').css('opacity','1');
-						$(this).css('opacity','0.3');
-
-						$('#change_view a.button_view').show();//Link to change view available
-						var associated = $(this).attr("name").split('_');
-						var articleId = $(this).children(":first").attr("name");
-
-						$('a.associated').hide();
-						$('p.size').hide();
-						$('p.size-'+articleId).show();
-						for ( var i=0;i<associated.length;i++) {
-						$('a.associated-'+associated[i]).show();
-						}
-						$color_href = $(this).attr("href");
-
-						var $imgVisuel = $('#product img:visible');
-						$('#product img.visuel').hide();
-						if($imgVisuel.hasClass('visuel-front')) {
-						$('#product img.visuel-front-'+articleId).show();
-						$('#zoom').attr("href", $color_href.replace('normal', 'zoom').replace('.jpg', '_wheelsFront.jpg'));
-						} else {
-						$('#product img.visuel-'+articleId).show();
-						$('#zoom').attr("href", $color_href.replace('normal', 'zoom'));
-
-						}
-						$('#zoom').show();
-						$('#change_view').show();
-
-						return false;
-						});
-
-						/* Front/Rear wheel */
-						$('a.button_view').click(function() {
-						$(this).parent().children().removeClass('button-view-active button-view-rear-active button-view-front-active');
-						});
-						$('a.button-view-front').click(function() {
-						//Get article/color of active image
-						var articleId = $('#product img.visuel:visible').attr("name");
-						if(articleId) {
-						$('#product img.visuel').hide();
-						$('#product .visuel-front-'+articleId).show();
-						$(this).addClass('button-view-active button-view-front-active');
-						var $visibleSrc = $('#product img.visuel:visible').attr("src");
-						$('#zoom').attr("href", $visibleSrc.replace('normal', 'zoom'));
-						}
-						//
-						// omniture event 
-						//
-						omniture_click(this, 'Front view');
-						});
-						$('a.button-view-rear').click(function() {
-						var articleId = $('#product img.visuel:visible').attr("name");
-						if(articleId) {
-						$('#product img.visuel').hide();
-						$('#product .visuel-'+articleId).show();
-						$(this).addClass('button-view-active button-view-rear-active');
-						var $visibleSrc = $('#product img.visuel:visible').attr("src");
-						$('#zoom').attr("href", $visibleSrc.replace('normal', 'zoom'));
-						}
-						//
-						// omniture event 
-						//
-						omniture_click(this, 'Rear view');
-						});
-
-						});
-						var megaZoomImgSrc = "/sites/default/files/products/megazoom/118079.jpg";
-						var activeFamily = '167837';
-						var basePath ='/en';
-						var t_compare = "COMPARE";
-					</script>
-
-          <!-- PRODUCT —————————————————————————————————————————————— -->
-
-					<div id="product">
-						<!-- left column: image, zoom, alternate images, ... ———————————————— -->
-						
-						<div class="left">
-							<div id="zoomBar">
-								<a onClick="omniture_click(document.getElementById('zoom'),'Zoom');showZoom(this.href,'<%= @product.name %>'); return false;" alt="Cosmic Carbone Ultimate" id="zoom" class="button_view" href="/images/products/modalities/710029-000.jpg" name="zoom">
-									ZOOM
-								</a> 
-								<img id="corner" src="../images/themes/corner.gif" alt="" name="corner">
-							</div>
-							<div class="picture">
-								<img name="118079" style="display: none;" class="visuel visuel-118079" src="/images/products/modalities/710029-000.jpg" alt="Cosmic Carbone Ultimate">
-								<!-- 
-								<img name="118079" style="display: none;" class="visuel visuel-front visuel-front-118079" src="../images/products/normal/118079_wheelsFront.jpg" alt="Cosmic Carbone Ultimate">
-								<img class="visuel visuel-feature" style="display:none;" src="" alt="">
-								-->
-							</div>
-							
-							<!-- 	
-								href="../images/products/zoom/118079.jpg
-								
-								<div class="picture">
-									<# image_tag(@product.image_filename[0,6] + "-000.jpg") %> 
-								</div>
-							-->
-							
-							<div id="zoomBox" onClick="showMegaZoom()"></div>
-							<div id="megaZoom" class="zoom" onClick="hideMegaZoom()">
-								<img id="megaZoomImg" style="" src="" name="megaZoomImg">
-							</div>
-							<div id="closeZoom_wrapper">
-								<a onClick="hideMegaZoom();hideZoom();" id="closeZoom" class="button_view" name="closeZoom">CLOSE</a>
-							</div>
-							
-							<!--	Multiple images with switching commented out. If want to reinstate
-							it, switch to Gallerific; Galleria is not swapping the thumbnail into the
-							main image section, it is blowing the thumbnail up into a zoom right away
-					
-							<div id="navigation_box">
-								
-								<div id="change_view" class="change_view_bg">
-									<a id="rear_wheel" href="javascript:void(0)" class="button_view button-view-rear button-view-rear-active button-view-active" name="rear_wheel">rear wheel</a> 
-									<a id="front_wheel" href="javascript:void(0)" class="button_view button-view-front" name="front_wheel">front wheel</a>
-								</div>
-								
-								<div class="clear"></div>
-								<div class="clear"></div>
-								
-								<div id="change_image">
-									<a onClick="omniture_click(this, 'Alternate view');" class="feature-image-notooltip" style="display: none;" href="../images/products/alternatives/zoom/118079_1_black.jpg">
-										<img src="../images/products/alternatives/mini/118079_1_black.jpg" alt="Cosmic Carbone Ultimate">
-									</a> 
-									<a class="empty">&nbsp;</a>
-									<a class="empty">&nbsp;</a>
-									<a class="empty">&nbsp;</a>
-								</div> 
-								
-							</div>
-						-->	
-							<div class="clear"></div>
-						</div>
-						
-						
-						
-
-						
-						
-						<!-- right column: description, ordering, shippping, ... ——————————— -->
-						<div class="right">
-							
-							<h1 class="helvetica title_product"><%= sanitize(@product.name) %></h1>
-							
-							<p class="bold first"><%= sanitize(@product.description) %></p>
-									
-							<p><%= sanitize(@product.long_description) %></p>
-							
-							<!-- if product that has options -->
-								<div class="yellow"><h2 class="helvetica">OPTIONS</h2></div>
-								<div id="options">
-									<ul>
-										<li>Option 1</li>
-										<li>Option 2</li>
-										<li>...</li>
-										<li>Option n</li>
-									</ul>
-								</div>
-								
-							<!-- if product that has accessories -->
-								<div class="yellow"><h2 class="helvetica">ACCESSORIES</h2></div>
-								<div id="accessories">
-									<ul>
-										<li>Accessory 1</li>
-										<li>Accessory 2</li>
-										<li>...</li>
-										<li>Accessory n</li>
-									</ul>
-								</div>
-
-							
-							<div class="yellow"><h2 class="helvetica">ORDERING / SHIPPING</h2></div>
-							<div id="ordering" style="padding:20px;">
-								<table>
-									<tr>
-										<td>Price:</td>
-										<td><%= number_to_currency(@product.price_clinic_list) %></td>
-									<tr>
-									<tr>
-										<td>Units:</td>
-										<td>each</td>
-									</tr>
-									<tr>
-										<td>Ship by: </td>
-										<td><%= @product.method_of_shipment %></td>
-									</tr>
-									<tr>
-										<td><%= if @product.latex_p = 1 then "latex" else "latex free" end %> </td>
-										<td></td>
-									</tr>
-								</table>
-							</div>
-
-						</div><!-- end div.right -->
-						<div class="clear"></div>
+					<div style="float:left">
+						<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
 					</div>
-
-					<!-- ANCILLARY PRODUCT DATA  —————————————————————————————————————————— -->
-					<!-- Drop all but msds, manuals, features (long description) 
-							 Insert code to test for availability and if not available generate
-							 HTML, e.g., Manufacturer's Safety Data Sheet not available for this product
-					--> 
-
-					<div id="tabs" class="tab_space">
-						
-						<!-- Tab buttons ———————————————————————————— -->
-
-						<div id="tabs_buttons">
-							<div id="features" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab helvetica">FEATURES</div>
-							<div id="downloads" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica">MANUALS</div>
-							<div id="technologies" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica active">CLINICIAN FEEDBACK</div>
-							<div id="gallery" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica">PATIENT FEEDBACK</div>
-
-							<div class="clear"></div>
-						</div>
-
-						<div class="clear"></div>
-						
-						<!-- features  —————————————————————————————— -->
-
-						<div class="tab_content features" id="features_content">
-							<%= @product.xlong_description %>
-							<div class="clear"></div>
-						</div>
-						
-							
-						<!-- download (pdfs): msds, manufacturer's sheets ————————————————— -->  
-
-						<div class="tab_content downloads" id="downloads_content">
-							<div class="download_content">
-								<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/2011_Mavic_BikeSystems_GB.pdf">2011 bike systems catalog</a> <span class="size">(5.47 mo)</span>
-							</div>
-							<div class="download_content">
-								<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/Swissstop_BrakePads_2_web.pdf">Swisstop brake pads</a> <span class="size">(0.24 mo)</span>
-							</div>
-							
-						</div>
-
-						<div class="clear"></div>
-
-						<!-- Clinicial feedback  ——————————————————————————— -->
-
-						<div class="tab_content technologies" id="technologies_content">
-							<div class="element">
-								<p>[ Clinician Feedback? ] </p> 
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-
-						</div>
-						
-						<!-- Patient Feedback ———————————————————————————— -->
-
-						<div class="tab_content gallery" id="gallery_content">
-							<div class="element">
-								<p>[ Patient Feedback? ] </p> 
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-							
-						</div>
-
-
-
-					</div> <!-- end div 'tabs' -->
-
-					<div id="altpopdisplayer" style="position:absolute;z-index: 20002;"></div>
-
+					<div style="float:left">
+						<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+					</div>
+					<div style="float:left">
+						<b><a href="#url"><%= sanitize(@product.name) %></a></b>
+					</div>
+				</div>
+			
+				<div id="error-messages" style="display:none">
+					<div class="messages error"></div>
 				</div>
 
-			</div><!-- end div 'subcontainer' -->
+	      <!-- product ———————————————————————————————————————————————————————————— -->
+
+				<div id="product_div">
+			
+					<!-- left column: image, zoom, [ alternate images if any ... ] ———————— -->
+				
+					<div class="left">
+
+						<div class="picture">
+							<%= image_tag("/images/products/all_medium/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
+
+						</div>
+			
+						<div class="clear"></div>
+					</div> <!-- end of div.left --> 
+				
+				
+					<!-- right column: description of this product  ——————————————————————— -->
+				
+					<div class="right">
+
+						<table cellspacing="10">
+							<col />
+							<col />
+
+							<th></th>
+							<th></th>
+							<tr>
+								<td>name:</td>			
+								<td><%= sanitize(@product.name) %></td>
+							</tr>
+							<tr>
+								<td>tms part number:</td>			
+								<td><%= @product.tms_part_no %></td>
+							</tr>
+							<tr>
+								<td>category:</td>
+								<td><%= @product.category.name %></td>
+							</tr>
+							<tr>
+								<td>description:</td>
+								<td><%= @product.description %></td>
+							</tr>
+						
+							<tr>
+								<td>price:</td>
+								<td><%= number_to_currency(@product.price_clinic_list) %></td>
+							</tr>
+							<tr>
+								<td>quantity:</td>
+								<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= @product.netsuite_item_no %>" style="width:30px;" type="text"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><button id="addToCart" class="ui-corner-all">ADD TO CART</button></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><button id="checkOut" class="ui-corner-all"><a href="https://checkout.netsuite.com/s.nl?c=3352985&sc=4&n=1" style="color:white; text-decoration:n;one">CHECK OUT</a></button></td>
+							</tr>
+			
+						</table>
+					
+					</div><!-- end div.right -->
+					<div class="clear"></div>
+				
+				</div> <!-- end div#product_div -->
+
+			</div> <!-- end div#main_content -->
+
+		</div><!-- end div#subcontainer -->
 
 
-			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
 
-			<div id="right_content_container">
-	      <%= render(:partial => 'shared/rightContent') %>	       
-			</div>
-
-			<div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
-
-		</div><!-- end div 'container' -->
-
-
-    <!-- logo_container ——————————————————————————————————————————————————————————————— -->
-
-		<div id="logo_container">
-			<a href="/en" id="logo" title="home page" name="logo">home page</a>
+		<div id="right_content_container">
+	    <%= render(:partial => 'shared/rightContent') %>	       
 		</div>
-		
-	<% end %>
+
+		<div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
+
+	</div><!-- end div#container -->
 
 
+	<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+
+	<div id="logo_container">
+		<a href="/en" id="logo" title="home page" name="logo">home page</a>
+	</div>
+
+<% end %>
 

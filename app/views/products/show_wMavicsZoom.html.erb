@@ -1,0 +1,303 @@
+<!-- ————————————————————————————————————————————————————————————————
+		Controller: Products
+		Action: Show 
+————————————————————————————————————————————————————————————————————— -->
+
+<%= content_for(:header) do %>
+
+	<title>TruMedical Solutions | Products </title> 
+	
+	<!-- Reenable this once have the basic display of product fields working  --> 									
+	<%= javascript_include_tag "galleria-1.2.4.min.js" %>
+	<%= javascript_include_tag "zoom_and_mega_zoom.js" %>
+
+
+	<script type="text/javascript" >
+
+		$(document).ready(function() {	
+				$("#body-background").ezBgResize();
+				$("#body-background").css("background-color","#E6E6E6");				
+				getSessionProductCompare();
+				checkSize();
+			
+			});
+		
+	</script>
+
+	<style type="text/css">
+		#products table {
+		    width: 200px;
+			}
+		#products td span {
+		    background-color: #FFF;
+			}
+		#products td.name:before {
+		    clip: rect(0px, 190px, 20px, 0px);
+		    content: " ............................................................ ";
+		    position: absolute;
+		    z-index: -1;
+			}
+		#products td.price {
+		    text-align: right;
+			}
+	</style>
+
+
+
+<% end %>
+
+
+<%= content_for(:body) do %>
+
+
+
+<div id="body-background">
+	
+	<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+</div>
+    
+<!-- container —————————————————————————————————————————————————————————————————— -->
+
+<div id="container">
+	<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+
+  <!-- subcontainer —————————————————————————————————————————————————————— -->
+
+	<div id="subcontainer">
+		
+		<!-- MENU —————————————————————————————————————————————————————  -->
+		
+		<%= render :partial => 'shared/menu' %>
+		<%= render :partial => 'shared/search' %>
+
+    <!-- MAIN CONTENT —————————————————————————————————————————————— -->
+
+		<div id="main_content">
+			<div id="breadcrumb">
+				<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
+				<div style="float:left">
+					<b><a href="#url">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+				</div>
+				<div style="float:left">
+					<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+				</div>
+				<div style="float:left">
+					<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+				</div>
+				<div style="float:left">
+					<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+				</div>
+				<div style="float:left">
+					<b><a href="#url"><%= sanitize(@product.name) %></a></b>
+				</div>
+			</div>
+			
+
+			<div id="error-messages" style="display:none">
+				<div class="messages error"></div>
+			</div>
+
+			<script type="text/javascript">
+
+
+      <!-- PRODUCT_TYPE —————————————————————————————————————————————— -->
+
+			<div id="product_type">
+				<!-- left column: image, zoom, [ alternate images if any ... ] ———————————————— -->
+				
+				<div class="left">
+	
+					<div id="zoomBar">
+						<a onClick="omniture_click(document.getElementById('zoom'),'Zoom');showZoom(this.href,'<%= @product.name %>'); return false;" alt="" id="zoom" class="button_view" href="/images/products/modalities/710029-000.jpg" name="zoom">
+							ZOOM
+						</a> 
+						<img id="corner" src="../images/themes/corner.gif" alt="" name="corner">
+					</div>
+
+					<div class="picture">
+						<img name="118079" style="display: none;" class="visuel visuel-118079" src="/images/products/modalities/710029-000.jpg" alt="">
+
+					</div>
+					
+					<!-- 	
+						href="../images/products/zoom/118079.jpg
+						
+						<div class="picture">
+							<# image_tag(@product.image_filename[0,6] + "-000.jpg") %> 
+						</div>
+					-->
+					
+					<div id="zoomBox" onClick="showMegaZoom()"></div>
+					<div id="megaZoom" class="zoom" onClick="hideMegaZoom()">
+						<img id="megaZoomImg" style="" src="" name="megaZoomImg">
+					</div>
+					<div id="closeZoom_wrapper">
+						<a onClick="hideMegaZoom();hideZoom();" id="closeZoom" class="button_view" name="closeZoom">CLOSE</a>
+					</div>
+					
+	
+				
+					<div class="clear"></div>
+				</div> <!-- end of div.left --> 
+				
+				
+				<!-- right column: description of this product  ——————————— -->
+				<div class="right">
+				
+
+					<table cellspacing="10">
+						<col />
+						<col />
+
+						<th></th>
+						<th></th>
+						<tr>
+							<td>name:</td>			
+							<td><%= @product.name %></td>
+						</tr>
+						<tr>
+							<td>tms part number:</td>			
+							<td><%= @product.tms_part_no %></td>
+						</tr>
+						<tr>
+							<td>category:</td>
+							<td><%= @product.category.name %></td>
+						</tr>
+						<tr>
+							<td>description:</td>
+							<td><%= @product.description %></td>
+						</tr>
+						
+						<tr>
+							<td>price:</td>
+							<td><%= number_to_currency(@product.price_clinic_list) %></td>
+						</tr>
+						<tr>
+							<td>quantity:</td>
+							<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= @product.netsuite_item_no %>" style="width:30px;" type="text"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><button id="addToCart" class="ui-corner-all">ADD TO CART</button></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><button id="checkOut" class="ui-corner-all"><a href="https://checkout.netsuite.com/s.nl?c=3352985&sc=4&n=1" style="color:white; text-decoration:n;one">CHECK OUT</a></button></td>
+						</tr>
+			
+					</table>
+					
+				</div><!-- end div.right -->
+				<div class="clear"></div>
+			</div>
+
+			<!-- ANCILLARY PRODUCT INFORMATION  —————————————————————————————————————————— -->
+			<!-- Drop all but product line, downloads (MSDS, mfs pdfs) ... 
+					 Insert code to test for availability and if not available generate
+					 HTML, e.g., Manufacturer's Safety Data Sheet not available for this product
+			--> 
+
+			<div id="tabs" class="tab_space">
+				
+				<!-- Tab buttons ———————————————————————————— -->
+
+				<div id="tabs_buttons">
+					<div id="features" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab helvetica">PRODUCT LINE</div>
+					<div id="downloads" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+						class="tab helvetica">DATA SHEETS</div>
+					<div id="links" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+						class="tab helvetica">LINKS</div>
+					<div id="technologies" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+						class="tab helvetica active">CLINICIAN FEEDBACK</div>
+					<div id="gallery" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+						class="tab helvetica">PATIENT FEEDBACK</div>
+
+					<div class="clear"></div>
+				</div>
+
+				<div class="clear"></div>
+				
+				<!-- product line  —————————————————————————————— -->
+
+				<div class="tab_content features" id="features_content">
+					<%= @product.product_line_description %>
+					<div class="clear"></div>
+				</div>
+				
+					
+				<!-- download (pdfs): msds, manufacturer's sheets ————————————————— -->  
+
+				<div class="tab_content downloads" id="downloads_content">
+					<div class="download_content">
+						<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/2011_Mavic_BikeSystems_GB.pdf">2011 bike systems catalog</a> <span class="size">(5.47 mo)</span>
+					</div>
+					<div class="download_content">
+						<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/Swissstop_BrakePads_2_web.pdf">Swisstop brake pads</a> <span class="size">(0.24 mo)</span>
+					</div>
+					
+				</div>
+
+				<div class="clear"></div>
+				
+				<!-- links (to information on the condition this product treats?) ———————— -->  
+
+				<div class="tab_content links" id="links_content">
+					<ul>
+						<li>link 1 </li>
+						<li>link 2 </li>
+						<li>... </li>
+						<li>link n</li>
+					</ul>
+				</div>
+
+				<div class="clear"></div>
+				
+
+				<!-- Clinicial feedback  ——————————————————————————— -->
+
+				<div class="tab_content technologies" id="technologies_content">
+					<div class="element">
+						<p>[ Clinician Feedback? ] </p> 
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<!-- Patient Feedback ———————————————————————————— -->
+
+				<div class="tab_content gallery" id="gallery_content">
+					<div class="element">
+						<p>[ Patient Feedback? ] </p> 
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+			</div> <!-- end div 'tabs' -->
+
+			<div id="altpopdisplayer" style="position:absolute;z-index: 20002;"></div>
+
+		</div>
+
+	</div><!-- end div 'subcontainer' -->
+
+
+	<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+
+	<div id="right_content_container">
+    <%= render(:partial => 'shared/rightContent') %>	       
+	</div>
+
+	<div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
+
+</div><!-- end div 'container' -->
+
+
+<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+
+<div id="logo_container">
+	<a href="/en" id="logo" title="home page" name="logo">home page</a>
+</div>
+
+<% end %>
+

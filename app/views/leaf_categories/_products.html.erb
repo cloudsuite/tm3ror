@@ -3,9 +3,12 @@
 				<% @products.each do |p| %>
 					
 					<!-- render a clickable partial that displays the product image and name -->
+					<!-- Since the products in this leaf category do note make the type/model distinction —
+							they are simpler — the links should go to ProductTypes/Show, not Product/Show.
+					-->
 					
 					<div class="product_div">
-						<%= image_tag("/images/products/modalities/" + p.image_filename[0,6] + "-000" + ".jpg", :size => "120x80",:style => "float:left;") %>
+						<%= image_tag("/images/products/all_small/" + p.image_filename[0,6] + "-000" + ".jpg", :size => "120x80",:style => "float:left;") %>
 						
 						<div class="productName"> 
 							<%= link_to( sanitize(p.name), { :controller => "products", :action => "show", :id => p.id } ) %>
@@ -15,4 +18,4 @@
 					
 				<% end %>
 
-			</div><!-- end div.products --> -
+			</div><!-- end div.products_div --> -

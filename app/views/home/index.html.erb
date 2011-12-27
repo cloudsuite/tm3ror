@@ -16,6 +16,8 @@ ToDo:
 						not if put in correct where clauses on categories after Modalities.  However: Notice 	
 						black dots beyond thumbnails for Modalities subcategories in all of the subsequent
 						subcategories. (but not in Modalities). Could problem 1.2 be related to 1.3? 
+						[[ NB: The problem is that I am putting Rails macros that are expanded into HTML
+						by erb in the middle of javascript. ]]
 		 1.3 link_to in the partial /views/home/_subcategories.html.erb does not work — attempting to 
 					find a category_path(@category) for an array of categories, not a single category.  Why? 
 	2. extract left-nav into a partial: shared/_menu
@@ -36,6 +38,8 @@ Known Bugs:
 	1. when hover over a subcategory, it highlights properly, but highlight needs to be removed from other subcategories
 	2. links in subcategory partial views/home/_subcategories are not working: don't compile
 	3. attempt to set @category in the on-hover handlers defined in jQuery on-page-ready are not working
+	4. reference to 710016-000.png failing. What is it? Where is it referenced? Copied it into images/homepage but it is huge. Need it?
+	5. reference to stylesheets/images/footer_triangle.gif — Where is it referenced? Can it be cut? 
 	
 	1. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
 	solution: move search to upper right under register/login cart/checkout links  
@@ -127,6 +131,7 @@ Unknowns:
 		div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
 			background-color:#E6E6E6;}
 		div.subcategoryName { padding:5px;margin:0;text-align:center;}
+		div.subcategory { border: 1px solid gainsboro; }
 
 	
 	</style>
@@ -139,7 +144,6 @@ Unknowns:
 				$(".popup_base").hide();
 				
 				$("#modalities").hover(function(){
-					<% @category = Category.where(:name => "Modalities").first %>
 					$(".popup_base").hide();	
 					$("#popup_modalities").show();
 					return false;
@@ -147,55 +151,46 @@ Unknowns:
 				
 				$("#clinicalSupplies").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Clinical Products & Supplies").first %>
 					$("#popup_clinicalSupplies").show();
 					return false;
 				})
 				$("#tables").hover(function(){
-					$(".popup_base").hide();
-					<% @category = Category.find_by_id(25) %>
+					$(".popup_base").hide();					
 					$("#popup_tables").show();
 					return false;
 				})
 				$("#fitness").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_fitness").show();
 					return false;
 				})
 				$("#orthopedics").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_orthopedics").show();
 					return false;
 				})
 				$("#taping").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_taping").show();
 					return false;
 				})
 				$("#evaluation").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_evaluation").show();
 					return false;
 				})
 				$("#dailyLiving").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_dailyLiving").show();
 					return false;
 				})
 				$("#lymphedema").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_lymphedema").show(); /* DEBUG: Why is this one coming up with no content */
 					return false;
 				})
 				$("#woundCare").hover(function(){
 					$(".popup_base").hide();
-					<% @category = Category.where(:name => "Modalities").first %>
 					$("#popup_woundCare").show();
 					return false;
 				})
@@ -250,9 +245,12 @@ Unknowns:
 		<div id="black_screen"></div>
 		
 		<!-- subcontainer  ———————————————————————————————————————————————————————————— -->
-		<!-- groups menu and right_content on home page; right_content 
-			is the little block of 4 blocks that on wider pages is to the right of the main section
-			of the page, but on the home page is locked in place below the left menu -->
+		
+		<!-- The div 'subcontainer groups 'menu' and 'right_content' on home page; 
+				 The div 'right_content' is the little block of 4 blocks that on wider pages is 
+				 to the right of the main section of the page, but on the home page is locked 
+				 in place below the left menu
+		-->
 		
 		<div id="subcontainer" class="home">
 			
@@ -423,52 +421,64 @@ Unknowns:
 			<!-- Modalities  popup ———————————————————————————————————————————————-->
 
 			<div id="popup_modalities" class="popup_base">
+				<% @category = Category.where(:name => "Modalities").first %>
 				<%= render "subcategories" %>		
 			</div> <!-- end div#popup_modalities -->
 			
 			<!-- Clinical Supplies  popup ————————————————————————————————————————-->
 			<div id="popup_clinicalSupplies" class="popup_base">
+				<% @category = Category.where(:name => "Clinical Products & Supplies").first %>
 				<%= render "subcategories" %>
 			</div>
 			
 			<!-- Tables & Traction  popup ————————————————————————————————————————-->
 			<div id="popup_tables" class="popup_base">
+				<!-- <% @category = Category.find_by_id(34) %> -->
+				<% @category = Category.where(:name => "Tables & Traction").first %>
 				<%= render "subcategories" %>
 			</div>
 			
 			<!-- Fitness  popup ——————————————————————————————————————————————————-->
 			<div id="popup_fitness" class="popup_base">
+				<% @category = Category.where(:name => "Fitness Equipment").first %>
   			<%= render "subcategories" %>
 			</div>
 			
 			<!-- Orthopedics  popup ——————————————————————————————————————————————-->
 			<div id="popup_orthopedics" class="popup_base">
+				<% @category = Category.where(:name => "Orthopedic Products & Supplies").first %>
 				<%= render "subcategories" %>  
 			</div>
 			
 			<!-- ATC/Taping  popup ———————————————————————————————————————————————-->
 			<div id="popup_taping" class="popup_base">
+				<% @category = Category.where(:name => "ATC & Taping").first %>
 				<%= render "subcategories" %>  
 			</div>
 			
 			<!-- Evaluation  popup ———————————————————————————————————————————————-->
 			<div id="popup_evaluation" class="popup_base">
+				<% @category = Category.where(:name => "Evaluation Products").first %>
 				<%= render "subcategories" %>  
 			</div>
 			
 			<!-- Daily Ling Aids  popup ——————————————————————————————————————————-->
 			<div id="popup_dailyLiving" class="popup_base">
+				<% @category = Category.where(:name => "Aids to Daily Living").first %>
 				<%= render "subcategories" %>  
 			</div>
 			
 			<!-- Lymphedema  popup ———————————————————————————————————————————————-->
-			<div id="popup_lymphedema" class="popup_base"> 
+			<div id="popup_lymphedema" class="popup_base">
+				<% @category = Category.where(:name => "Lymphedema").first %> 
 				<%= render "subcategories" %>  
 			</div>
 			
 			<!-- Wound Care  popup ———————————————————————————————————————————————-->
 			<div id="popup_woundCare" class="popup_base">
-				<%= render "subcategories" %>  
+				<% @category = Category.where(:name => "Wound Care").first %>
+				<%= render "subcategories" %> 
+				 
 			</div>
 
 			<!-- TruMedical  popup ———————————————————————————————————————————————-->

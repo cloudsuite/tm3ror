@@ -1,6 +1,17 @@
+
 <!-- ————————————————————————————————————————————————————————————————
-		Controller: Products
-		Action: Show 
+		Controller: base_products
+		Action: show 
+		
+		Presupposes an instance variable @base_product that has been 
+		set up by the controller/action. Also the leaf-level category of
+		this product in the instance variable @category. 
+		
+		Shows the image and description associated
+		with this base product. Then iterates through all of the specific products 
+		(choice of <size> and <color> the base product is offered in. 
+		TruMedical did not use Netsuite's 'matrix products' to model this, instead
+		modeling each specific product as a Netsuite item.  
 ————————————————————————————————————————————————————————————————————— -->
 
 <%= content_for(:header) do %>
@@ -24,23 +35,27 @@
 	</script>
 
 	<style type="text/css">
-		div.left { float:left; }
-		div.right { }
-		#products table {
-		    width: 200px;
-			}
-		#products td span {
-		    background-color: #FFF;
-			}
-		#products td.name:before {
+		div#product_image_description { margin-top:20px; padding-left:40px;}
+		div#products { margin-top:10px; padding-left:40px;}
+		div#title { color:orange; font-size:14px; font-weight:bold;}
+		#products table { margin-bottom:30px; }
+		/* How does this work? *
+		#products td.price:before {
 		    clip: rect(0px, 190px, 20px, 0px);
 		    content: " ............................................................ ";
 		    position: absolute;
 		    z-index: -1;
 			}
-		#products td.price {
-		    text-align: right;
+			*/
+		#products td.price {text-align: right;}
+		#addToCart, #checkOut {
+			background-color:orange; 
+			color:white; 
+			font-size:12px; 
+			padding-top:6px; padding-bottom:6px; 
+			border:none;
 			}
+
 	</style>
 
 
@@ -71,6 +86,8 @@
 	    <!-- main content —————————————————————————————————————————————— -->
 
 			<div id="main_content">
+				
+				<!-- breadcrumb trail ———————————————————————————————————————————————————— -->
 				<div id="breadcrumb">
 					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
 					<div style="float:left">
@@ -87,7 +104,7 @@
 						<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
 					</div>
 					<div style="float:left">
-						<b><a href="#url"><%= sanitize(@product.name) %></a></b>
+						<b><a href="#url"><%= sanitize(@base_product.name) %></a></b>
 					</div>
 				</div>
 			
@@ -95,73 +112,65 @@
 					<div class="messages error"></div>
 				</div>
 
-	      <!-- product ———————————————————————————————————————————————————————————— -->
+	      <!-- base product ———————————————————————————————————————————————————————————— -->
 
-				<div id="product_div">
-			
-					<!-- left column: image, zoom, [ alternate images if any ... ] ———————— -->
-				
-					<div class="left">
-
-						<div class="picture">
-							<%= image_tag("/images/products/all_medium/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
-
-						</div>
-			
-						<div class="clear"></div>
-					</div> <!-- end of div.left --> 
-				
-				
-					<!-- right column: description of this product  ——————————————————————— -->
-				
-					<div class="right">
-
-						<table cellspacing="10">
-							<col />
-							<col />
-
-							<th></th>
-							<th></th>
-							<tr>
-								<td>name:</td>			
-								<td><%= sanitize(@product.name) %></td>
-							</tr>
-							<tr>
-								<td>tms part number:</td>			
-								<td><%= @product.tms_part_no %></td>
-							</tr>
-							<tr>
-								<td>category:</td>
-								<td><%= @product.category.name %></td>
-							</tr>
-							<tr>
-								<td>description:</td>
-								<td><%= @product.long_description %></td>
-							</tr>
-						
-							<tr>
-								<td>price:</td>
-								<td><%= number_to_currency(@product.price_clinic_list) %></td>
-							</tr>
-							<tr>
-								<td>quantity:</td>
-								<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= @product.netsuite_item_no %>" style="width:30px;" type="text"></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><button id="addToCart" class="ui-corner-all">ADD TO CART</button></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><button id="checkOut" class="ui-corner-all"><a href="https://checkout.netsuite.com/s.nl?c=3352985&sc=4&n=1" style="color:white; text-decoration:n;one">CHECK OUT</a></button></td>
-							</tr>
-			
-						</table>
+				<div id="product_image_description">
 					
-					</div><!-- end div.right -->
-					<div class="clear"></div>
+					<%= image_tag("/images/products/all_medium/" + @base_product.image_filename[0,6] + "-000" + ".jpg") %>
+					<div id="title">
+						<%= raw(@base_product.name) %>
+					</div>
+					
+					<div id="description">
+						<%= raw(@base_product.long_description) %>
+					</div>
+					
+				</div> 
+
+				<!-- base product offered in:   ——————————————————————— -->
 				
-				</div> <!-- end div#product_div -->
+				<div id="products">
+		
+					<table cellspacing="10">
+						<col/>
+						<col align="left" width="250px"/>
+						<col align="right"/>
+						<col align="left"/>
+						<th align="left">Part No</th>
+						<th align="left">Name</th>
+						<th align="right">Price</th>
+						<th align="left">Qty</th>
+						
+					<% @base_product.products.each do |p| %>
+						<tr>
+							<td><%= p.tms_part_no %></td>
+							<td><%= p.description %></td>
+							<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
+							<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
+						</tr>
+					<% end %>	
+
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><button id="addToCart" class="ui-corner-all">ADD TO CART</button></td>
+
+						</tr>
+						
+						<tr>
+							<td>
+								<button id="checkOut" class="ui-corner-all">
+									<a href="https://checkout.netsuite.com/s.nl?c=3352985&sc=4&n=1" style="color:white; text-decoration:none">CHECK OUT</a>
+								</button>
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+			
+					</table>
+				
+				</div> <!-- end div#products -->
 
 			</div> <!-- end div#main_content -->
 
@@ -186,4 +195,3 @@
 	</div>
 
 <% end %>
-

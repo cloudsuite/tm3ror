@@ -10,7 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111211233658) do
+ActiveRecord::Schema.define(:version => 20111229210131) do
+
+  create_table "base_products", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "tms_product_no"
+    t.string   "image_filename"
+    t.string   "name"
+    t.text     "description"
+    t.text     "long_description"
+    t.string   "comes_in"
+    t.string   "comes_in2"
+    t.string   "sale_units"
+    t.string   "category_l1"
+    t.string   "category_l2"
+    t.string   "category_l3"
+    t.integer  "latex_p"
+    t.integer  "tru_p"
+    t.integer  "assembly_p"
+    t.integer  "clinician_only_p"
+    t.integer  "msds_p"
+    t.string   "msds_filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.integer  "parent_id"
@@ -57,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20111211233658) do
   create_table "products", :force => true do |t|
     t.integer  "category_id"
     t.integer  "product_type_id"
+    t.integer  "base_product_id"
+    t.string   "base_product_tms_no"
     t.string   "tms_part_no"
     t.string   "netsuite_item_no"
     t.string   "sammons_part_no"

@@ -1,18 +1,18 @@
 Tm2ror::Application.routes.draw do
    
-  get "search/results"
-
-  get "product_sets/show"
-
-  get "products/show"
+   get "search/results"
+   get "site/search"
 
     resources :categories
     resources :product_types
+    resources :base_products
+    resources :products
     resources :users
 
   get "site/search"
 
-
+   # replace display with show and use standard resources declaration
+   
   resources :leaf_categories do  # can handle URLs of the form localhost:3000/leaf_categories/1/display
     get :display, :on => :member
   end

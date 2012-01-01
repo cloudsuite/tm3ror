@@ -41,7 +41,7 @@ input.gsc-search-button {
   font-family: inherit;
   color: #000000;
   text-shadow: 0 1px 2px #FFFFFF;
-  background-color: #CECECE;
+  background-color: #CECECE; /* TA: this is not creating the orange color in the Google CSE search button */ 
   border: 1px outset;
   border-color: #666666;
   border-radius: 2px;

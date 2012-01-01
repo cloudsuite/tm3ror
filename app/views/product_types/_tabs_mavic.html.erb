@@ -1,0 +1,83 @@
+	<!-- Drop all but product line, downloads (MSDS, mfs pdfs) ... 
+			 Insert code to test for availability and if not available generate
+			 HTML, e.g., Manufacturer's Safety Data Sheet not available for this product
+	-->
+
+<div id="tabs" class="tab_space">
+
+	<!-- Tab buttons ———————————————————————————— -->
+
+	<div id="tabs_buttons">
+		<div id="features" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab helvetica">PRODUCT LINE</div>
+		<div id="downloads" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+			class="tab helvetica">DATA SHEETS</div>
+		<div id="links" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+			class="tab helvetica">LINKS</div>
+		<div id="technologies" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+			class="tab helvetica active">CLINICIAN FEEDBACK</div>
+		<div id="gallery" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
+			class="tab helvetica">PATIENT FEEDBACK</div>
+
+		<div class="clear"></div>
+	</div>
+
+	<div class="clear"></div>
+
+	<!-- product line  —————————————————————————————— -->
+
+	<div class="tab_content features" id="features_content">
+		[ long description for product_type goes here;  no in database yet ] 
+		<!-- <%# @product.long_description %> -->
+		<div class="clear"></div>
+	</div>
+
+
+	<!-- download (pdfs): msds, manufacturer's sheets ————————————————— -->  
+
+	<div class="tab_content downloads" id="downloads_content">
+		<div class="download_content">
+			<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/2011_Mavic_BikeSystems_GB.pdf">TMS catalog as pdf</a> <span class="size">(5.47 mo)</span>
+		</div>
+		<div class="download_content">
+			<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/Swissstop_BrakePads_2_web.pdf">Manufacturer's Safety Data Sheet</a> <span class="size">(0.24 mo)</span>
+		</div>
+
+	</div>
+
+	<div class="clear"></div>
+
+	<!-- links (to information on the condition this product treats?) ———————— -->  
+
+	<div class="tab_content links" id="links_content">
+		<ul>
+			<li>link 1 </li>
+			<li>link 2 </li>
+			<li>... </li>
+			<li>link n</li>
+		</ul>
+	</div>
+
+	<div class="clear"></div>
+
+
+	<!-- Clinicial feedback  ——————————————————————————— -->
+
+	<div class="tab_content technologies" id="technologies_content">
+		<div class="element">
+			<p>[ Clinician Feedback? ] </p> 
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<!-- Patient Feedback ———————————————————————————— -->
+
+	<div class="tab_content gallery" id="gallery_content">
+		<div class="element">
+			<p>[ Patient Feedback? ] </p> 
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+</div> <!-- end div 'tabs' -->

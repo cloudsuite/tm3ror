@@ -504,6 +504,7 @@
 
 	#breadcrumb a:hover {
 		text-decoration: none;
+		color: orange!important;
 	}
 
 	#breadcrumb select {

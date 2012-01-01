@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229210131) do
+ActiveRecord::Schema.define(:version => 20111231220009) do
 
   create_table "base_products", :force => true do |t|
     t.integer  "category_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20111229210131) do
   end
 
   create_table "product_lines", :force => true do |t|
+    t.integer  "manufacturer_id"
     t.string   "name"
     t.string   "logomark"
     t.text     "description"
@@ -66,12 +67,13 @@ ActiveRecord::Schema.define(:version => 20111229210131) do
   end
 
   create_table "product_types", :force => true do |t|
+    t.integer  "product_line_id"
     t.string   "category_l1"
     t.string   "category_l2"
     t.string   "category_l3"
-    t.string   "leaf_category_id"
+    t.integer  "leaf_category_id"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "image_filename"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20111229210131) do
   create_table "products", :force => true do |t|
     t.integer  "category_id"
     t.integer  "product_type_id"
+    t.integer  "accessory_of_id"
     t.integer  "base_product_id"
     t.string   "base_product_tms_no"
     t.string   "tms_part_no"

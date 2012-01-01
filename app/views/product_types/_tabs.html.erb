@@ -1,0 +1,50 @@
+					<div id="ancillary_info">
+
+						
+						<ul class="css-tabs">
+							<li><a href="#">Product Line</a></li>
+							<li><a href="#">Data Sheets</a></li>
+							<li><a href="#">Patient Feedback</a></li>
+							<li><a href="#">Clinician Feedback</a></li>
+						</ul>
+
+					
+						<div class = "css-panes">  <!-- tab contents in jquery tools are called 'panes' -->
+							<!-- Product Line info  ————————————————————————— -->
+							<div>
+								<%= image_tag("/images/product_lines/" + @product_type.product_line.logomark) %>
+								<%= raw(@product_type.product_line.description) %>						
+							</div> <!-- end of pane-1 -->
+
+							<!-- Data Sheets (msds ...)  ———————————————————— -->
+							<div>
+								<p>Click on the pdf icon to download any of the data sheets on products in this product family:</p>
+								<!-- DEBUG: Why doesn't this work if I wrap the image and a in a div? -->
+								<%= image_tag("/images/themes/picto_pdf.gif") %>
+								<a target="_blank" href="">Intelec&reg; Legend XT Data Sheet</a> <span class="size">(2.4 MB)</span>
+								</br>
+								<img src="/images/themes/picto_pdf.gif"> 
+								<a target="_blank" href="/sites/default/files/download/Swissstop_BrakePads_2_web.pdf">Manufacturer's Safety Data Sheet</a> <span class="size">(0.24 MB)</span>
+
+							</div> <!-- end of tabs-2 -->
+
+							<!-- patient feedback ——————————————————————————— -->
+							<div>
+	
+								<img class="testimonial" src= "/images/testimonials/boy_with_bear.jpg", width="200px", style="float:left; margin-right:20px;" >
+								<p class="quotation">My bear Buster is always falling down. I use my Tru-Medical stethescope to make sure he's OK."</p>
+								<p class="person">— Jimmy Byron</p>
+			
+							</div><!-- end of tabs-3 -->
+						
+							<!-- clinician feedback ————————————————————————— -->
+							<div>
+
+								<img class="testimonial" src= "/images/testimonials/nurse_with_pressure_cuff.jpg", width="200px">
+								<p class="quotation">Tru-Medical pressure cuffs give us accurate readings every time."</p>
+								<p class="person">— Kate Byron</p>
+
+							</div><!-- end of tabs-4 -->
+						</div><!-- end of div#panes -->
+
+					</div> <!-- end div#ancillary_info --> 

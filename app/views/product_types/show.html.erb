@@ -1,532 +1,253 @@
 
-	<!-- 
-        —————————————————————————————————————————————————————————————————————————————————————————
-        
-				ProductTypes#show
-				
-				—————————————————————————————————————————————————————————————————————————————————————————
-       
- 				to do:
- 				  context
- 						1. rename the Products controller ProductTypes [DONE]
-	 					2. create views/product_types  by renaming views/products [DONE] 
-	 					3. set up @leaf_category, @product_type,@products and @accessories in the #show action of the Product_Types controller [DONE]
-						4.define database schema for product_types and products; build spreadsheets; load database tables
-							— set up foreign keys that link product_types to leaf_categories
-							— set up foreign keys that link products to product_types 
-							
- 				  within product_types/show.html.erb  (this file).  Eventually determine price here also. For now copy clinicial_list price into price attribute 
- 				  	1. remove background image, replace with gray color E6E6E6 [DONE]
-						2. insert left-nav as a partial [DONE]
-						3. insert all of the overlays that the left-nav can call up on the home page as partials
-							  — rework the home page to invoke them as partials also 
-						4. insert search as a partial [DONE- though code within _search is commented out ]
- 				  	5. insert breadcrumb [DONE]
- 				  	6. in left column, insert @product_type.image and Zoom button 
-								— replace hardwired image reference to one from the database
- 				  	7. in right column, insert:
- 				  		a.  @product_type.name
- 				  		b.  @product_type.desription
- 				  		c.  models block
- 				  			— one line for each product in @products into this block
- 				  			— list @product.name dots @product.price  
- 				  		d. accessories block if @accessories is a non-empty relation
- 				  			— one line for each accessory in @accessories into this block
-							e. add-to-cart button [, and repeat checkout button here? ] or have [ quick-order button ]
-						8.insert information into tabs if it is present:
-							— line description (e.g., for Intellect Legend Xt )
-							— Downloads
-								MSDS if there is one for this product type
-								Manufacturers literature on the product type
-							[— Clinicians comments ]
-							[— Patient's comments ]
-							[ Useful links — links on the conditions treated by these devices, how to use them, 
-								great source of inbound link trading for SEO ]
+<!-- ————————————————————————————————————————————————————————————————
+		Controller: product_types
+		Action: show 
+		
+		Presupposes an instance variable @product_type that has been 
+		set up by the controller/action. Also the leaf-level category of
+		this product in the instance variable @category. 
+		
+		Shows the image and description associated
+		with this base product. 
+		Then iterates through all of the specific models (= specific products) 
+		the base product is offered in.
+		Has tab set that show other info on the product_type.
+		NOTE: No source for this information: expand the product_types schema 
+		to include it.  
+ 
+————————————————————————————————————————————————————————————————————— -->
+
+<%= content_for(:header) do %>
+
+	<title>TruMedical Solutions | Complex Products </title> 
 	
-					bugs:
-						1. can't find several .js files (background images used as corners in large image?)
-						2. zoom  line 331 
-							— Have I cut omniture_click? in my split out version of the js files?  
-							— Is it picking up correct image in /public/images/products/zoom/118079.jpg? No. It is still getting the one in /images/products/normal/118079.jpg; you can tell because the right part of the smaller image is cut off. The zoom is just blowing up the smaller image, not shifting to use the larger one. Why?  DEBUG
+	<!-- Reenable this once have the basic display of product fields working  									
+	<%# javascript_include_tag "galleria-1.2.4.min.js" %>
+	<%# javascript_include_tag "zoom_and_mega_zoom.js" %>
+	-->
+	<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+	<!-- <script src="http://cdn.jquerytools.org/1.2.6/tiny/jquery.tools.min.js"></script> -->
 
-					refactoring:    
-						1. insert partial for left nav (and the overlayps it triggers) 
-					 	2. insert partial for search 
-						3. insert partial for 'right_content' [NEXT]
-						4. move Google analytics into application.html.erb
-								
-					questions:
-						1. names for attributes:  product_type name/description/long_description? 
-						2. which of the variables being set on document ready are necessary?
-						3. which of the clearing divs in the tabs section are necessary? 
-            
-        —————————————————————————————————————————————————————————————————————————————————————————
-    -->
-        
+	<%= stylesheet_link_tag("jquery_tools_tabs_no_images.css") %>
 
-	<%= content_for(:header) do %>
+	
+	<script type="text/javascript" >
 
-		<title>TruMedical Solutions | Product Types </title>       									
-		<% javascript_include_tag "galleria-1.2.4.min.js" %>
-		<% javascript_include_tag "zoom_and_mega_zoom.js" %>
+		$(document).ready(function() {
+				$(".css-tabs:first").tabs(".css-panes:first > div"); /* What does ':first' do?  */
+				$("#body-background").ezBgResize();
+				$("#body-background").css("background-color","#E6E6E6");				
+				checkSize();				
+			});
 		
-		<script type="text/javascript" >
+	</script>
 
-			$(document).ready(function() {	
-					$("#body-background").ezBgResize();
-					$("#body-background").css("background-color","#E6E6E6");				
-					getSessionProductCompare();
-					checkSize();
-					
-				});
-				
-		</script>
+	<style type="text/css">
+		div#product_image_description { margin-top:20px; padding-left:40px;}
+		/* 
+		div#product_image_description img { float:left; margin-right:30px; }
+		div#product_image_description ul { margin-left:20px; }
+		*/
+		div#products { margin-top:10px; padding-left:40px;}
+		div#title { color:orange; font-size:14px; font-weight:bold;}
+		#products table { margin-bottom:30px; }
+		/* How does this work? 
+		#products td.price:before {
+		    clip: rect(0px, 190px, 20px, 0px);
+		    content: " ............................................................ ";
+		    position: absolute;
+		    z-index: -1;
+			}
+			*/
 		
-		<style type="text/css">
-			#products table {
-			    width: 200px;
-				}
-			#products td span {
-			    background-color: #FFF;
-				}
-			#products td.name:before {
-			    clip: rect(0px, 190px, 20px, 0px);
-			    content: " ............................................................ ";
-			    position: absolute;
-			    z-index: -1;
-				}
-			#products td.price {
-			    text-align: right;
-				}
-		</style>
+		div#products table td.price { text-align:right;}
+		div#accessories { padding-left: 40px;}
+		div#accessories table td.price { text-align:right;}
+		div#accessories table td.price:before {
+		    clip: rect(0px, 190px, 20px, 0px);
+		    content: " ............................................................ ";
+		    position: absolute;
+		    z-index: -1;
+			}
+		#addToCart, #checkOut {
+			background-color:orange; 
+			color:white; 
+			font-size:12px; 
+			padding-top:6px; padding-bottom:6px; 
+			border:none;
+			}
+			h2 { color:orange; font-size:14px; font-weight:bold}
+			
+		/* for content of 'ancillary info' partial: testimonials go in panels 3 and 4 */
+	
+		div#ancillary_info {margin:30px 40px 30px 40px;}
+		/* for jquery-ui panels, i.e., ones with embedded divs */
+		div#ancillary_info div.testimonial { overflow:auto; width:100%; padding-bottom:20px; }
+		div#ancillary_info div.testimonial p.quotation {font-style:italic;}
+		div#ancillary_info div.testimonial img { float:left; margin-right:20px;}
+		/* for jquery tools panels, i.e., one without embeded divs */
+		div#ancillary_info img.testimonial {float:left; margin-right:20px;}
+		div#ancillary_info p.quotation {font-style:italic;}
+		div.css-panes > div { overflow:auto; width:100%; padding-bottom:20px; }
+		
+
+	</style>
 
 
-  
-	<% end %>
 
+<% end %>
+
+
+<%= content_for(:body) do %>
+
+	<div id="body-background">	
+		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+	</div>
     
-	<%= content_for(:body) do %>
-	
-	
+	<!-- container —————————————————————————————————————————————————————————————————— -->
+
+	<div id="container">
+		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+
+	  <!-- subcontainer —————————————————————————————————————————————————————— -->
+
+		<div id="subcontainer">
 		
-		<div id="body-background">
-			
-			<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-		</div>
-        
-		<!-- container —————————————————————————————————————————————————————————————————— -->
+			<!-- menu —————————————————————————————————————————————————————  -->
+		
+			<%= render :partial => 'shared/menu' %>
+			<%= render :partial => 'shared/search' %>
 
-		<div id="container">
-			<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+	    <!-- main content —————————————————————————————————————————————— -->
 
-      <!-- subcontainer —————————————————————————————————————————————————————— -->
-
-			<div id="subcontainer">
+			<div id="main_content">
 				
-				<!-- MENU —————————————————————————————————————————————————————  -->
-				
-				<%= render :partial => 'shared/menu' %>
-				<%= render :partial => 'shared/search' %>
-
-        <!-- MAIN CONTENT —————————————————————————————————————————————— -->
-
-				<div id="main_content">
-					<div id="breadcrumb">
-						<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
-						<div style="float:left">
-							<b><a href="#url">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-						</div>
-						<div style="float:left">
-							<b><a href="#url"><%= sanitize(@product.name) %></a></b>
-						</div>
+				<!-- breadcrumb trail ———————————————————————————————————————————————————— -->
+				<div id="breadcrumb">
+					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
+					<div style="float:left">
+						<b><%= link_to("Home Page",{ :controller => 'home',:action =>'index'} ) %></b><span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
 					</div>
-					
-
-					<div id="error-messages" style="display:none">
-						<div class="messages error">
-						</div>
+					<!-- Why is @category evaluating to 'nil'? because field in leaf_category_id not category_id -->
+					<div style="float:left">
+						<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
 					</div>
-
-					<script type="text/javascript">
-
-					$(document).ready(function() {
-						$("#body-background").ezBgResize();
-						checkSize();
-
-						createTabsAction();
-						getSessionProductCompare();
-						displayTabs();
-
-						/* Visuel */
-						$('#product .visuel:first').show();
-
-						/* Colors*/
-						$('#product .change-color').css('opacity','1');
-						$('#product .change-color:first').css('opacity','0.3');
-
-						/* Feature */
-						$('#change_image a.feature-image').show();
-						$('#change_image a.feature-image-notooltip').show();
-						$('#features_content .feature-content').show();
-
-						//Get feature picture big
-						$('a.feature-image,a.feature-image-notooltip').click(function() {
-						showZoom(this.href,$(this).find('img').attr('alt'));
-						return false;
-						});
-
-						//Zoom on image
-						$('#product .picture').click(function(){
-						omniture_click(document.getElementById('zoom'), 'Zoom');
-						showZoom($('#zoom').attr('href'),$('#zoom').attr('alt'));
-						return false;
-						});
-
-						$('#closeZoom_wrapper').click(function(){
-						hideMegaZoom();
-						hideZoom();
-						});
-						$('#closeZoom').click(function(e){
-						e.stopPropagation(); //$('#closeZoom_wrapper').click() will not fire
-						hideMegaZoom();
-						hideZoom();
-						});
-
-						//hover for #closeZoom_wrapper in ie6
-						if ($.browser.msie && $.browser.version.substr(0,1)<7) {
-						$('#closeZoom_wrapper').mouseenter(function(){
-						$(this).addClass('hover');
-						}).mouseleave(function(){
-						$(this).removeClass('hover');
-						});
-						}
-
-						/* Color switch*/
-
-						//Associated and size init
-						$('a.associated-off').hide();
-						$('a.associated-on').show();
-						$('p.size-off').hide();
-						$('p.size-on').show();
-						$('#change_color a').click(function() {
-
-						//change opacity for others
-						$('#product .change-color').css('opacity','1');
-						$(this).css('opacity','0.3');
-
-						$('#change_view a.button_view').show();//Link to change view available
-						var associated = $(this).attr("name").split('_');
-						var articleId = $(this).children(":first").attr("name");
-
-						$('a.associated').hide();
-						$('p.size').hide();
-						$('p.size-'+articleId).show();
-						for ( var i=0;i<associated.length;i++) {
-						$('a.associated-'+associated[i]).show();
-						}
-						$color_href = $(this).attr("href");
-
-						var $imgVisuel = $('#product img:visible');
-						$('#product img.visuel').hide();
-						if($imgVisuel.hasClass('visuel-front')) {
-						$('#product img.visuel-front-'+articleId).show();
-						$('#zoom').attr("href", $color_href.replace('normal', 'zoom').replace('.jpg', '_wheelsFront.jpg'));
-						} else {
-						$('#product img.visuel-'+articleId).show();
-						$('#zoom').attr("href", $color_href.replace('normal', 'zoom'));
-
-						}
-						$('#zoom').show();
-						$('#change_view').show();
-
-						return false;
-						});
-
-						/* Front/Rear wheel */
-						$('a.button_view').click(function() {
-						$(this).parent().children().removeClass('button-view-active button-view-rear-active button-view-front-active');
-						});
-						$('a.button-view-front').click(function() {
-						//Get article/color of active image
-						var articleId = $('#product img.visuel:visible').attr("name");
-						if(articleId) {
-						$('#product img.visuel').hide();
-						$('#product .visuel-front-'+articleId).show();
-						$(this).addClass('button-view-active button-view-front-active');
-						var $visibleSrc = $('#product img.visuel:visible').attr("src");
-						$('#zoom').attr("href", $visibleSrc.replace('normal', 'zoom'));
-						}
-						//
-						// omniture event 
-						//
-						omniture_click(this, 'Front view');
-						});
-						$('a.button-view-rear').click(function() {
-						var articleId = $('#product img.visuel:visible').attr("name");
-						if(articleId) {
-						$('#product img.visuel').hide();
-						$('#product .visuel-'+articleId).show();
-						$(this).addClass('button-view-active button-view-rear-active');
-						var $visibleSrc = $('#product img.visuel:visible').attr("src");
-						$('#zoom').attr("href", $visibleSrc.replace('normal', 'zoom'));
-						}
-						//
-						// omniture event 
-						//
-						omniture_click(this, 'Rear view');
-						});
-
-						});
-						var megaZoomImgSrc = "/sites/default/files/products/megazoom/118079.jpg";
-						var activeFamily = '167837';
-						var basePath ='/en';
-						var t_compare = "COMPARE";
-					</script>
-
-          <!-- PRODUCT_TYPE —————————————————————————————————————————————— -->
-
-					<div id="product_type">
-						<!-- left column: image, zoom, alternate images, ... ———————————————— -->
-						
-						<div class="left">
-							<div id="zoomBar">
-								<a onClick="omniture_click(document.getElementById('zoom'),'Zoom');showZoom(this.href,'<%= @product.name %>'); return false;" alt="" id="zoom" class="button_view" href="/images/products/modalities/710029-000.jpg" name="zoom">
-									ZOOM
-								</a> 
-								<img id="corner" src="../images/themes/corner.gif" alt="" name="corner">
-							</div>
-							<div class="picture">
-								<img name="118079" style="display: none;" class="visuel visuel-118079" src="/images/products/modalities/710029-000.jpg" alt="">
-
-							</div>
-							
-							<!-- 	
-								href="../images/products/zoom/118079.jpg
-								
-								<div class="picture">
-									<# image_tag(@product_type.image_filename[0,6] + "-000.jpg") %> 
-								</div>
-							-->
-							
-							<div id="zoomBox" onClick="showMegaZoom()"></div>
-							<div id="megaZoom" class="zoom" onClick="hideMegaZoom()">
-								<img id="megaZoomImg" style="" src="" name="megaZoomImg">
-							</div>
-							<div id="closeZoom_wrapper">
-								<a onClick="hideMegaZoom();hideZoom();" id="closeZoom" class="button_view" name="closeZoom">CLOSE</a>
-							</div>
-							
-							<!--	Multiple images with switching commented out. If want to reinstate
-							it, switch to Gallerific; Galleria is not swapping the thumbnail into the
-							main image section, it is blowing the thumbnail up into a zoom right away
-					
-							<div id="navigation_box">
-								
-								<div id="change_view" class="change_view_bg">
-									<a id="rear_wheel" href="javascript:void(0)" class="button_view button-view-rear button-view-rear-active button-view-active" name="rear_wheel">rear wheel</a> 
-									<a id="front_wheel" href="javascript:void(0)" class="button_view button-view-front" name="front_wheel">front wheel</a>
-								</div>
-								
-								<div class="clear"></div>
-								<div class="clear"></div>
-								
-								<div id="change_image">
-									<a onClick="omniture_click(this, 'Alternate view');" class="feature-image-notooltip" style="display: none;" href="../images/products/alternatives/zoom/118079_1_black.jpg">
-										<img src="../images/products/alternatives/mini/118079_1_black.jpg" alt="Cosmic Carbone Ultimate">
-									</a> 
-									<a class="empty">&nbsp;</a>
-									<a class="empty">&nbsp;</a>
-									<a class="empty">&nbsp;</a>
-								</div> 
-								
-							</div>
-							-->	
-						
-							<div class="clear"></div>
-						</div> <!-- end of div.left --> 
-						
-						
-						<!-- right column: product type description, orderable products ——————————— -->
-						<div class="right">
-							
-							<h1 class="helvetica title_product"><%= sanitize(@product_type.name) %></h1>
-							
-							<p class="bold first"><%= sanitize(@product_type.description) %></p>
-									
-							<p><%= sanitize(@product_type.long_description) %></p>
-							
-							<!-- products within this product type —————————————— -->
-								<div class="yellow"><h2 class="helvetica">MODELS</h2></div>
-								<div id="products">
+					<div style="float:left">
+						<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+					</div>
+					<div style="float:left">
+						<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
+					</div>
+		
+					<div style="float:left">
+						<b><a href="#url"><%= sanitize(@product_type.name) %></a></b>
+					</div>
+				</div>
 			
-									
-									<table>
-										<col></col>
-										<col></col>
-										<col></col>
-										<col></col>
-										<col></col>
-										<col></col>
-										
-									<%= @products.each do |p|
-										<tr>
-											<td class="name"><span><%= p.tms_product_no %></span> </td>
-											<td><%= p.name %> </td>
-											<td class="price"><span><%= number_to_currency(p.price_clinic_list) %></span>
-											<td>Qty</td>
-											<td>Add</td>
-											<td>LTL?</td>
-										</tr>
-									<% end %>
-									</table>
-
-								</div>
-								
-							<!-- if product type that has accessories ————————————————— -->
-								<div class="yellow"><h2 class="helvetica">ACCESSORIES</h2></div>
-								<div id="accessories">
-									<table>
-										<col></col>
-										<col></col>
-										<col></col>
-										<col></col>
-										<col></col>
-										<col></col>
-										
-									<%= @accessories.each do |p|
-										<tr>
-											<td><%= p.tms_product_no %> </td>
-											<td><%= p.name %> </td>
-											<td><%= number_to_currency(p.price) %>
-											<td>Qty</td>
-											<td>Add</td>
-											<td>LTL?</td>
-										</tr>
-									<% end %>
-									</table>
-
-						</div><!-- end div.right -->
-						<div class="clear"></div>
-					</div>
-
-					<!-- ANCILLARY PRODUCT INFORMATION  —————————————————————————————————————————— -->
-					<!-- Drop all but product line, downloads (MSDS, mfs pdfs) ... 
-							 Insert code to test for availability and if not available generate
-							 HTML, e.g., Manufacturer's Safety Data Sheet not available for this product
-					--> 
-
-					<div id="tabs" class="tab_space">
-						
-						<!-- Tab buttons ———————————————————————————— -->
-
-						<div id="tabs_buttons">
-							<div id="features" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab helvetica">PRODUCT LINE</div>
-							<div id="downloads" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica">DATA SHEETS</div>
-							<div id="links" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica">LINKS</div>
-							<div id="technologies" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica active">CLINICIAN FEEDBACK</div>
-							<div id="gallery" onMouseOut="outTab(this)" onMouseOver="overTab(this)" 
-								class="tab helvetica">PATIENT FEEDBACK</div>
-
-							<div class="clear"></div>
-						</div>
-
-						<div class="clear"></div>
-						
-						<!-- product line  —————————————————————————————— -->
-
-						<div class="tab_content features" id="features_content">
-							<%= @product.xlong_description %>
-							<div class="clear"></div>
-						</div>
-						
-							
-						<!-- download (pdfs): msds, manufacturer's sheets ————————————————— -->  
-
-						<div class="tab_content downloads" id="downloads_content">
-							<div class="download_content">
-								<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/2011_Mavic_BikeSystems_GB.pdf">2011 bike systems catalog</a> <span class="size">(5.47 mo)</span>
-							</div>
-							<div class="download_content">
-								<img src="../images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/Swissstop_BrakePads_2_web.pdf">Swisstop brake pads</a> <span class="size">(0.24 mo)</span>
-							</div>
-							
-						</div>
-
-						<div class="clear"></div>
-						
-						<!-- links (to information on the condition this product treats?) ———————— -->  
-
-						<div class="tab_content links" id="links_content">
-							<ul>
-								<li>link 1 </li>
-								<li>link 2 </li>
-								<li>... </li>
-								<li>link n</li>
-							</ul>
-						</div>
-
-						<div class="clear"></div>
-						
-
-						<!-- Clinicial feedback  ——————————————————————————— -->
-
-						<div class="tab_content technologies" id="technologies_content">
-							<div class="element">
-								<p>[ Clinician Feedback? ] </p> 
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						
-						<!-- Patient Feedback ———————————————————————————— -->
-
-						<div class="tab_content gallery" id="gallery_content">
-							<div class="element">
-								<p>[ Patient Feedback? ] </p> 
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-						</div>
-
-					</div> <!-- end div 'tabs' -->
-
-					<div id="altpopdisplayer" style="position:absolute;z-index: 20002;"></div>
-
+				<div id="error-messages" style="display:none">
+					<div class="messages error"></div>
 				</div>
 
-			</div><!-- end div 'subcontainer' -->
+	      <!-- product type ———————————————————————————————————————————————————————————— -->
 
+				<div id="product_image_description">
+					
+					<%= image_tag("/images/products/modalities_large/" + @product_type.image_filename + ".jpg") %>
+					<div id="title">
+						<%= raw(@product_type.name) %>
+					</div>
+					
+					<div id="description" style="padding-right:40px;">
+						<%= raw(@product_type.description) %> <!-- defined in schema for product_types? -->
+					</div>
+					
+				</div> 
 
-			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
-
-			<div id="right_content_container">
-	      <%= render(:partial => 'shared/rightContent') %>	       
-			</div>
-
-			<div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
-
-		</div><!-- end div 'container' -->
-
-
-    <!-- logo_container ——————————————————————————————————————————————————————————————— -->
-
-		<div id="logo_container">
-			<a href="/en" id="logo" title="home page" name="logo">home page</a>
-		</div>
+				<!-- base product offered in:   ——————————————————————————— -->
+				
+				<div id="products">
 		
-	<% end %>
+					<table cellspacing="10">
+						<col/>
+						<col align="left" width="300px"/>
+						<col align="right" width="70px"/>
+						<col align="left"/>
+						<th align="left">Part No</th>
+						<th align="left">Model</th>
+						<th align="right">Price</th>
+						<th align="left">Qty</th>
+						
+					<% @product_type.products.each do |p| %>
+						<tr>
+							<td><%= p.tms_part_no %></td>
+							<td><%= p.description %></td>
+							<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
+							<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
+						</tr>
+					<% end %>	
+
+					</table>
+				
+				</div> <!-- end div#products -->
+				
+				<!-- if product type that has accessories ————————————————— -->
+				<!-- %= if @part_type.accessories.size > 0  %> -->
+					<%= render(:partial => "accessories") %> 
+
+				<!-- add-to-cart / checkout buttons (after accessories)  ————————————————— -->
+				
+				<table cellspacing="10" style="padding-left:40px;">
+					<col/>
+					<col align="left" width="300px"/>
+					<col align="right" width="70px" /> <!-- line this up with Qty column in tables above -->
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><button id="addToCart" class="ui-corner-all" style="margin-left:40px;">ADD TO CART</button></td>
+
+					</tr>
+				
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+							<button id="checkOut" class="ui-corner-all">
+								<a href="https://checkout.netsuite.com/s.nl?c=3352985&sc=4&n=1" style="color:white; text-decoration:none">CHECK OUT</a>
+							</button>
+						</td>
+
+					</tr>
+				</table>
+
+				<!-- Ancillary Product Information ———————————————————————— -->
+				
+				<!-- DEBUG: tabs built with jquery tools 'tab' give me simpler styling
+					control that those from jquery-ui.  However only rendering the content of tab-1 correctly; tab-2 gets only the header line; tab-3 and tab-4 are empty. --> 
+				<%= render(:partial => "tabs") %>
+	
 
 
+			</div> <!-- end div#main_content -->
 
+		</div><!-- end div#subcontainer -->
+
+
+		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+
+		<div id="right_content_container">		
+	    <%= render(:partial => 'shared/rightContent') %>		
+		</div>
+
+	</div><!-- end div#container -->
+
+
+	<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+
+	<div id="logo_container">
+		<a href="" id="logo" title="home page" name="logo">home page</a>
+	</div>
+
+<% end %>
+	

@@ -1,0 +1,28 @@
+<div id="accessories">
+	<h2>Accessories</h2>
+
+		<table cellspacing="10">
+			
+			<col/>
+			<col align="left" width="300px"/>
+			<col align="right" width="70px"/> <!-- coming out aligned left. Why? -->
+			<col align="left"/>
+			
+			<th align="left">Part No</th>
+			<th align="left">Accessory</th>
+			<th align="right">Price</th>
+			<th align="left">Qty</th>
+			
+		<% @product_type.accessories.each do |p| %>
+			<tr>
+				<td><%= p.tms_part_no %></td>
+				<td><%= raw(p.description) %></td>
+				<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
+				<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
+			</tr>
+		<% end %>
+		
+		</table>
+
+
+</div><!-- end div#accessories -->

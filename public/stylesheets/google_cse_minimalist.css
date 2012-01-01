@@ -67,6 +67,7 @@ input.gsc-input {
   border: 1px solid;
   border-color: #777777;
   padding: 3px;
+  margin-left:10px; /* TA added */
   width: 99%;
   font-size: 16px;
 }

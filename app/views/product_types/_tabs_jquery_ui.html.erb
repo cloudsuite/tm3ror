@@ -1,0 +1,48 @@
+					<div id="ancillary_info">
+
+						<ul>					
+							<li><a href="#tabs-1" class="tab_title">Product Line</a></li>
+							<li><a href="#tabs-2" class="tab_title">Data Sheets</a></li>
+							<li><a href="#tabs-3" class="tab_title">Patient Feedback</a></li>
+							<li><a href="#tabs-4" class="tab_title">Clinician Feedback</a></li>
+						</ul>
+
+						<!-- Product Line info  ————————————————————————— -->
+						<div id="tabs-1">
+	
+							<%= image_tag("/images/product_lines/" + @product_type.product_line.logomark) %>
+							<%= raw(@product_type.product_line.description) %>						
+						</div> <!-- end of tabs-1 -->
+
+						<!-- Data Sheets (msds ...)  ———————————————————— -->
+						<div id="tabs-2">
+							<pl>Click on the pdf icon to download any of the data sheets on products in this product family: </p>
+								<div class="download_content">
+									<img src="/images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/2011_Mavic_BikeSystems_GB.pdf">Intelec&reg; Legend XT Data Sheet</a> <span class="size">(2.4 MB)</span>
+								</div>
+								<div class="download_content">
+									<img src="/images/themes/picto_pdf.gif"> <a target="_blank" href="/sites/default/files/download/Swissstop_BrakePads_2_web.pdf">Manufacturer's Safety Data Sheet</a> <span class="size">(0.24 MB)</span>
+								</div>
+						</div> <!-- end of tabs-2 -->
+
+						<!-- patient feedback ——————————————————————————— -->
+						<div id="tabs-3">
+							<div class="testimonial">	
+								<img src= "/images/testimonials/boy_with_bear.jpg", width="200px">
+								<p class="quotation">My bear Buster is always falling down. I use my Tru-Medical stethescope to make sure he's OK."</p>
+								<p class="person">— Jimmy Byron</p>
+							</div>
+						
+						</div><!-- end of tabs-4 -->
+						
+						<!-- clinician feedback ————————————————————————— -->
+						<div id="tabs-4">
+									<div class="testimonial">	
+										<img src= "/images/testimonials/nurse_with_pressure_cuff.jpg", width="200px">
+										<p class="quotation">Tru-Medical pressure cuffs give us accurate readings every time."</p>
+										<p class="person">— Kate Byron</p>
+									</div>
+						</div><!-- end of tabs-4 -->
+						
+
+					</div> <!-- end div#ancillary_info --> 

@@ -1,0 +1,61 @@
+ul.css-tabs {
+    /* border-bottom: 1px solid #666666; */
+    height: 30px;
+    margin: 0 !important;
+    padding: 0;
+}
+ul.css-tabs li {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.css-tabs a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none; /* ?? */
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: orange; /* TA: color for the non-selected tabs */
+    border-color: #666666 #666666 -moz-use-text-color; /* color of border around (all/non-selected tabs? */
+    border-radius: 4px 4px 0 0;
+    border-style: solid solid none; /* why only 3 arguments, not 4? */
+    border-width: 1px 1px 0; /* why only 3 arguments, not 4? */
+    color: white; /* TA: color of text in the non-selected tabs */
+    display: block;
+    float: left;
+    font-size: 13px;
+    height: 18px;
+    margin-right: 2px;
+    outline: 0 none; /* ?? */
+    padding: 5px 30px;
+    position: relative;
+    text-decoration: none;
+    top: 1px; /* ?? */
+}
+ul.css-tabs a:hover {
+    background-color: gray;
+    color: white!important; /* TA: tab text not changing color on hover: why?  */
+}
+ul.css-tabs a.current {
+    background-color: white; /* background color of the tab, but not of the current panel */
+    border-bottom: 1px solid white; /* overwrites border on panes below the current tab */
+    color: #000000;
+    cursor: default;
+}
+.css-panes div {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: white; /* background color of the panels */
+    border-color: #666666;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    display: none;
+    min-height: 150px;
+    padding: 15px 20px;
+
+}
+

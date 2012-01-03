@@ -1,6 +1,14 @@
 <!-- ————————————————————————————————————————————————————————————————
 		Controller: Products
 		Action: Show 
+		
+		to fix:
+			1. table:  text: align top; fix by inserting an intro line into 
+					long descriptions in product_1229.xls that begin with a <ul>
+			2. description: sanitize so that it picks up html markup [DONE]
+			3. left/right columns on layout not working:  They do if product image is 169px wide
+			4. buttons: orange as in product_types.html.erb [DONE]
+			
 ————————————————————————————————————————————————————————————————————— -->
 
 <%= content_for(:header) do %>
@@ -11,6 +19,7 @@
 	<%# javascript_include_tag "galleria-1.2.4.min.js" %>
 	<%# javascript_include_tag "zoom_and_mega_zoom.js" %>
 -->
+
 
 	<script type="text/javascript" >
 
@@ -58,23 +67,19 @@
 	</script>
 
 	<style type="text/css">
+		div#product_div { margin-top:20px; margin-bottom:30px;}
 		div.left { float:left; }
 		div.right { }
-		#products table {
-		    width: 200px;
+
+		#addToCart, #checkOut {
+			background-color:orange; 
+			color:white; 
+			font-size:12px; 
+			padding-top:6px; padding-bottom:6px; 
+			border:none;
 			}
-		#products td span {
-		    background-color: #FFF;
-			}
-		#products td.name:before {
-		    clip: rect(0px, 190px, 20px, 0px);
-		    content: " ............................................................ ";
-		    position: absolute;
-		    z-index: -1;
-			}
-		#products td.price {
-		    text-align: right;
-			}
+			h2 { color:orange; font-size:14px; font-weight:bold}
+			
 	</style>
 
 
@@ -138,8 +143,11 @@
 					<div class="left">
 
 						<div class="picture">
-							<%= image_tag("/images/products/all_medium/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
-
+							<!-- change to large picture --> 
+							<%= image_tag("/images/products/modalities_large/" + @product.image_filename[0,6] +"-000" + ".jpg") %>
+							<!-- 
+							<%# image_tag("/images/products/all_medium/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
+						-->
 						</div>
 			
 						<div class="clear"></div>
@@ -169,8 +177,8 @@
 								<td><%= @product.category.name %></td>
 							</tr>
 							<tr>
-								<td>description:</td>
-								<td><%= @product.long_description %></td>
+								<td valign="top">description:</td>
+								<td><%= sanitize(@product.long_description) %></td>
 							</tr>
 						
 							<tr>

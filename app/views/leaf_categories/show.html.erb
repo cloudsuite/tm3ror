@@ -38,21 +38,42 @@
 
 <%= content_for(:header) do %>
 
-	<title>TruMedical Solutions / Products / <%= @category.parent.parent.name %> / <%= @category.parent.name %> / <%= @category.name %> </title>       									
+	<title>TruMedical Solutions / Products / <%= @category.parent.parent.name %> / <%= @category.parent.name %> / <%= @category.name %> </title>  
+	     									
 	<script type="text/javascript" >
 
 		$(document).ready(function() {	
 				$("#body-background").ezBgResize();				
+				checkSize();
+				/* 
+				$("#body-background").ezBgResize();				
 				getSessionProductCompare();
 				checkSize();
+				*/
+				$(".product").mouseenter(function(){
+					$(this).css("background-color","orange");
+				});
+				$(".product").mouseleave(function(){
+					$(this).css("background-color","#E6E6E6");
+				});
+				$("#body-background").css('background-color','#E6E6E6'); /* doing anything? */
 			});
-			var macromodels=new Array();
-			var showCompare = false;
-			var activeFamily = '167837';
-			var basePath ='/en'; 
-			var itemtimer=new Array();
-			
+	
 	</script>
+	<style type="text/css">
+		div.products { margin-top:20px;}
+		div.product {
+			width: 120px; height:120px; 
+			margin-right:10px; margin-bottom:10px; 
+			float:left; 
+			background-color:#E6E6E6;
+			border: 1px solid gainsboro;
+			}
+		div.productName { padding:5px;margin:0;text-align:center;}
+		div.productName a:hover { color:white!important;} /* Why working in category, leaf_category, but not here?*/
+
+	</style>
+	
 	<style type="text/css">
 		#content_gamme_items {float:left;} /* so will expand for contained floats */
 		#content_gamme_items div.product_item { position:relative; float:left; background-color:pink;outline: 1px solid red;}
@@ -104,6 +125,7 @@
 		div.product_div {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
 			background-color:#E6E6E6; border:1px solid #E6E6E6;}
 		div.productName { padding:5px;margin:0;text-align:center;}
+		div.productName a:hover { color:white;}
 	</style>
 <% end %>
 
@@ -152,31 +174,25 @@
 				</div>
 				
 				<!-- Error Messages ———————————————————————————————————————— -->
-				<div id="error-messages" style="display:none"></div>
-				
-				<script type="text/javascript">
-
-					$(document).ready(function() {   
-						$("#body-background").css('background-color','#E6E6E6')
-					});
-					
-				</script>
-				
-				
+				<div id="error-messages" style="display:none"></div>			
                   
 				<div id="tabs">
 					
 					<!-- horizontal line of tabs/buttons: one per subcategory ————————————————————————— -->
 					
-					<!-- problem: subcategory names are too long to allow all subcategories to fit in a single horizontal row as this design assumes; in Modalities there is room for 3 of 5 subcategories --> 
+					<!-- problem: in some cases, subcategory names are too long to allow all subcategories 
+						to fit in a single horizontal row as this design assumes; 
+						e.g., in Modalities there is room for 3 of 5 subcategories --> 
+					<!--	
 					<div id="tabs_buttons_gamme">
-						<!-- replace this with a div#subcategories/ { div.subcategory } nested divs with the 
+						<!-# replace this with a div#subcategories/ { div.subcategory } nested divs with the 
 							inner div.subcategory generated from the category tree in the database 
 							Its really a tabbed interface but with the tabs styled like buttons not tabs.
-							Remove all the inline javascript to jQuery on-document ready. '
-					 		See if there is a tab library that I could use instead? 
+							Remove all the inline javascript on document ready and replace it with jQUery
+					 		See if there is a tab library that I could use? 
 							Or just write another home-brew one as I did on the home page. 
-						-->
+						#->
+						
 						<div class="tab"><a class="helvetica" href="">Ultrasound</a></div>
 						<div class="tab"><a class="helvetica" href="">Stim</a></div>
 						<div class="tab"><a class="helvetica" href="">Combination</a></div>
@@ -184,25 +200,24 @@
 						<div class="tab"><a class="helvetica" href="">Electrodes</a></div>
 						<div class="tab active"><a class="helvetica" href="">Lotions & Gels</a></div>
 						<div class="tab"><a class="helvetica" href="">Accessories</a></div>					
-					</div> <!-- end div.tabs_buttons_gamme -->
-					
+					</div> 
+		
 					<div class="clear"></div>
-
+				-->
 					
 					<!-- PRODUCTS  ————————————————————————————————————————————————————————————————— -->
 
-					<!-- if category does not make the type/model destinction, render the partial "products'
-						If it does, render the partial "product_types" 
-				
-					<% if @category.has_product_types_p == 1 %>
-						<%# render "product_types" %>
-					<% else %>
-						<%# render "products" %>
-					<% end %>
-          -->
-
-      		<%= render "products" %> <!-- testing with category id=7 lotions and gels -->
-                
+					<!-- if category is simple render 'simple products', if matrix render the partial 'matrix_products', if complex render the partial 'complex_products'
+						--> 
+					<!-- test #1 category id=7 lotions and gels -->
+      		<%= render :partial => "simple_products" %> 
+					<!-- test #2 category id=X nylatex wraps
+      		<%# render :partial => "matrix_products" %>
+					-->
+					<!-- test #3 category id=X nylatex wraps 
+      		<%# render :partial => "matrix_products" %>
+           --> 
+    
 				</div> <!-- end div 'tabs' -->
                   
 			</div> <!-- end div 'main content' -->

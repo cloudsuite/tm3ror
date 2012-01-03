@@ -5,15 +5,13 @@
 				<% @category.children.each do |subcat| %>
 					
 					<!-- render a clickable partial that displays the subcategory image and name -->
-					
 					<div class="leafCategory">
-						<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left;") %>
-						
-						<div class="leafCategoryName">
-							<%= link_to(subcat.name, { :controller => "leaf_categories", :action => "show", :id => subcat.id } ) %>
-						</div>
-						
-					</div> <!-- end div.leafCategory --> 
+						<a href='<%= leaf_category_path(subcat.id) %>'>
+
+							<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left; border:0;") %>
+							<div class="leafCategoryName"><%= subcat.name %></div>
+						</a>
+					</div>
 					
 				<% end %>
 

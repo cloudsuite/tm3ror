@@ -44,19 +44,23 @@
 
 		<title>TruMedical Solutions / Products / [category] / [subcategory ] / [leaf category] </title>       									
 		<script type="text/javascript" >
-
 			$(document).ready(function() {	
+					/* 
 					$("#body-background").ezBgResize();				
 					getSessionProductCompare();
 					checkSize();
-				});
-				var macromodels=new Array();
-				var showCompare = false;
-				var activeFamily = '167837';
-				var basePath ='/en'; 
-				var itemtimer=new Array();
-				
+					*/
+					$(".leafCategory").mouseenter(function(){
+						$(this).css("background-color","orange");
+					});
+					$(".leafCategory").mouseleave(function(){
+						$(this).css("background-color","#E6E6E6");
+					});
+					$("#body-background").css('background-color','#E6E6E6');
+				});		
 		</script>
+		
+		
 		<style type="text/css">
 			div.leafCategories { margin-top:20px;}
 			div.leafCategory {
@@ -67,6 +71,7 @@
 				border: 1px solid gainsboro;
 				}
 			div.leafCategoryName { padding:5px;margin:0;text-align:center;}
+			div.leafCategory a:hover { color:white;}
 		</style>
   
 	<% end %>
@@ -100,20 +105,7 @@
 					<!-- Error Messages ———————————————————————————————————————— -->
 					<div id="error-messages" style="display:none"></div>
 					
-					<script type="text/javascript">
-
-						$(document).ready(function() {   
-							$("#body-background").css('background-color','#E6E6E6')
-						});
-						/* the following javascript variables are no longer used; cut them 
-						var macromodels=new Array();
-						var showCompare = false;
-						var activeFamily = '167837';
-						var basePath ='/en'; 
-						var itemtimer=new Array();
-						*/
-						
-					</script>
+					
 					
 					<!-- remove the breadcrumb from intermediate category pages; leave in for testing 
 						(as a way of getting back to the home page)  until have left-nav working 

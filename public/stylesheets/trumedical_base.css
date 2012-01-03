@@ -176,7 +176,7 @@
 /* ———— within main-content ——————————————————————————————————————— */
 	
 	#main_content h1{font-size: 21px;}
-	#main_content a:hover {text-decoration: none;color: #ff0000; border: none;}
+	/* #main_content a:hover {text-decoration: none;color: #ff0000; border: none;} */
 	#main_content .color0 { background: none;}
 	#main_content .color1 { background: #fafafa;}
 	#main_content .italic { font-style: italic;}

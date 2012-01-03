@@ -26,12 +26,45 @@
 	<script type="text/javascript" >
 
 		$(document).ready(function() {	
-				$("#body-background").ezBgResize();
-				$("#body-background").css("background-color","#E6E6E6");				
-				checkSize();
-			
+			$("#body-background").ezBgResize();
+			$("#body-background").css("background-color","#E6E6E6");				
+			checkSize();
+			$("#addToCart").click(function(){
+				addtocart();
+				return false;
 			});
-		
+		});
+		function addtocart()
+		{
+			alert("Adding items to cart. Click OK to continue.")
+
+			var multi = '';
+			$("input[id*=qty_]").each(function()
+			{
+				if($(this).val()!="")
+				{
+					if(parseInt($(this).val())>0)
+					{
+						var itemid = $(this).attr('id').replace('qty_','');
+						var itemqty = $(this).val();
+						multi+=itemid+','+itemqty+';';
+					}
+				}
+			});
+			$("input[id*=qty_]").each(function()
+			{
+				$(this).val('');
+			});
+
+			var accountid = "1114349"; //Netsuite account id
+		    //add to cart url
+			var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?multi='+multi+'&c='+accountid+'&qtyadd=1&buyid=multi';		     
+		    //create hidden iframe in body
+		    $('body').append('<iframe id="addtocartframe" style="display:none" />'); 
+		    //change src to iframe
+		    $('#addtocartframe').attr('src', myurl);
+		    return false;
+		}
 	</script>
 
 	<style type="text/css">
@@ -161,7 +194,7 @@
 						<tr>
 							<td>
 								<button id="checkOut" class="ui-corner-all">
-									<a href="https://checkout.netsuite.com/s.nl?c=3352985&sc=4&n=1" style="color:white; text-decoration:none">CHECK OUT</a>
+									<a href="https://checkout.netsuite.com/s.nl?c=1114349&sc=4&n=1" style="color:white; text-decoration:none">CHECK OUT</a>
 								</button>
 							</td>
 							<td></td>

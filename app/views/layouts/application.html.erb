@@ -12,7 +12,7 @@
 		ToDo:
 			1. get correct container divs from trumedical3
 			2. get correct set of stylesheets and javascript includes from trumedical3
-			2. insert register/login cart/checkout buttons fixed in upper right 
+			3. get search working as in Mavic site
 	
 		Known Bugs:	
 			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
@@ -108,11 +108,7 @@
 		</script>
 		
 		<!-- for Google analytics —————————————————— -->
-			<!-- does this have to be in the <body> rather than in the <head>? -->
-		<script type="text/javascript">
-				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
+
 		
 		<%= yield :header %>
 
@@ -125,10 +121,10 @@
 
 		<div id="login_links">
 			<ul>
-				<li><a href="#">register</a></li>
-				<li><a href="#">login</a></li>
-				<li><a href="#">cart</a></li>
-				<li><a href="#">checkout</a></li>
+				<li><a href="https://checkout.netsuite.com/s.nl?c=1114349&sc=6&login=T&reset=T&newcust=T&noopt=T">register</a></li>
+				<li><a href="https://checkout.netsuite.com/s.nl/c.1114349/sc.6/.f?login=T&reset=T">login</a></li>
+				<li><a href="http://www.tru-logic.com/s.nl/sc.3/.f">cart</a></li>
+				<li><a href="https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f">checkout</a></li>
 			</ul>
 		</div>
 	
@@ -336,18 +332,6 @@ google.load('search', '1');
 		
 			
 		<%= yield :js_before_close_of_body %> 
-		
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			var pageTracker = _gat._getTracker( 'UA-2489222-1' );
-			pageTracker._trackPageview('/en/products/range/wheels/road&triathlon');
-			pageTracker._trackPageLoadTime('/en/products/range/wheels/road&triathlon');
-
-			//function for direct call in webtv flash elements
-			function pagetracker_trackPageview(url){
-				return pageTracker._trackPageview(url);
-				}
-		</script>
 		
 	</body>
 </html>

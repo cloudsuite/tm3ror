@@ -75,6 +75,7 @@
 	</style>
 	
 	<style type="text/css">
+		/* Nothing in this style declaration is any longer used. Cut it? */
 		#content_gamme_items {float:left;} /* so will expand for contained floats */
 		#content_gamme_items div.product_item { position:relative; float:left; background-color:pink;outline: 1px solid red;}
 		
@@ -209,14 +210,33 @@
 
 					<!-- if category is simple render 'simple products', if matrix render the partial 'matrix_products', if complex render the partial 'complex_products'
 						--> 
-					<!-- test #1 category id=7 lotions and gels -->
-      		<%= render :partial => "simple_products" %> 
-					<!-- test #2 category id=X nylatex wraps
-      		<%# render :partial => "matrix_products" %>
-					-->
-					<!-- test #3 category id=X nylatex wraps 
-      		<%# render :partial => "matrix_products" %>
-           --> 
+					<!-- 
+					<%#
+						case @category.category_type
+							when "simple" 
+								render "simple_products
+							when "matrix"
+								render "matrix_products"
+							when "complex"
+								render "complex_products"
+							else
+								render "unknown_products"
+						end
+					%>
+				-->
+      		
+					<!-- <%# render "complex_products" %> -->
+					<!-- or, using an if then else ... -->
+					<%=
+						if @category.category_type == "simple"
+							render "simple_products"
+						elsif @category.category_type == "matrix"
+							render "matrix_products"
+						else 
+							render "complex_products"
+						end
+					%>
+				
     
 				</div> <!-- end div 'tabs' -->
                   

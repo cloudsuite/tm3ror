@@ -148,8 +148,11 @@
 	      <!-- base product ———————————————————————————————————————————————————————————— -->
 
 				<div id="product_image_description">
-					
-					<%= image_tag("/images/products/all_medium/" + @base_product.image_filename[0,6] + "-000" + ".jpg") %>
+					<!-- change to large picture --> 
+					<%= image_tag("/images/products/modalities_large/" + @base_product.image_filename[0,6] +"-000" + ".jpg") %>
+					<!--
+					<%# image_tag("/images/products/all_medium/" + @base_product.image_filename[0,6] + "-000" + ".jpg") %>
+					-->
 					<div id="title">
 						<%= raw(@base_product.name) %>
 					</div>

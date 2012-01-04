@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102204825) do
+ActiveRecord::Schema.define(:version => 20120104001934) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20120102204825) do
     t.string   "name"
     t.string   "color"
     t.integer  "list_order"
-    t.integer  "has_product_types_p"
+    t.string   "category_type"
     t.string   "title"
     t.string   "description"
     t.string   "image_filename"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(:version => 20120102204825) do
     t.string   "category_l1"
     t.string   "category_l2"
     t.string   "category_l3"
-    t.integer  "leaf_category_id"
+    t.integer  "category_id"
     t.string   "name"
     t.text     "description"
     t.string   "image_filename"

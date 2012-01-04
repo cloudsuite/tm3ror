@@ -1,7 +1,7 @@
 class LeafCategoriesController < ApplicationController
    
   def display
-     # for testing a leaf category that has product_typesand products 9= Modalities/Clinical Electrotheraphy/Ultrasound 
+     # for testing a leaf category that has product_types and products 9= Modalities/Clinical Electrotheraphy/Ultrasound 
      @category = Category.find_by_id(9)
      @products = Product.where(:category_id => 9)
   end
@@ -19,9 +19,11 @@ class LeafCategoriesController < ApplicationController
        # What should it expect?  a base-product-id, and set of product-ids.  
        # If write it to expect just a base-product-id, and have it pull the corresponding products out of 
        # the Products table, then I could test it by typing in a URL to the browser. 
-        
-       @category = Category.find_by_id(7)
-       @products = Product.where(:category_id => 7)
+       
+       # use 7 for simple products, 3 for matrix products, 9 for complex products 
+       
+       @category = Category.find_by_id(params[:id])
+      
   end
 
 end

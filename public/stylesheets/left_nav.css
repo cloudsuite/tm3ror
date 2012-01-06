@@ -1,0 +1,37 @@
+#popupsContainer { 
+	position: absolute; 
+	top:40px; left:230px; 
+	width: 700px;			
+	z-index:100;
+}		
+.popup_base { 
+	position:absolute; /* within popupsContainer */ 
+	left: 20px; width:100%; 
+	background-color:white; 
+	padding:10px 20px 0px 20px; 
+	min-height:34px; 
+	} 
+.popup_base h2 { font-size:12px; font-weight:bold;}
+#popup_modalities {top:-25px;z-index:10001; }
+#popup_clinicalSupplies {top:9px;z-index:10001; }
+#popup_tables {top:44px;z-index:10001;}
+#popup_fitness {top:79px;z-index:10001;}
+#popup_orthopedics {top:114px;z-index:10001;}
+#popup_taping {top:150px;z-index:10001; }
+#popup_evaluation {top:184px;z-index:10001; }
+#popup_dailyLiving {top:220px;z-index:10001; }
+#popup_lymphedema {top:254px;z-index:10001; } 
+#popup_woundCare {top:290px;z-index:10001; }
+
+#popup_trumedical {top:324px;z-index:10001; background-color:#0094DE; color:white; }
+
+#popup_patients {top:360px; z-index:10001; background-color:orange;} /* plus 36? */
+#popup_providers {top:394px; z-index:10001;background-color:orange;}
+#popup_payors {top:430px; z-index:10001;background-color:orange;}
+div.subcategories { }
+div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
+	background-color:#E6E6E6;}
+div.subcategoryName { padding:5px;margin:0;text-align:center;}
+div.subcategory { border: 1px solid gainsboro; }
+div.subcategory a:hover { color:white;}
+

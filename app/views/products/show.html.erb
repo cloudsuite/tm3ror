@@ -110,25 +110,9 @@
 	    <!-- main content —————————————————————————————————————————————— -->
 
 			<div id="main_content">
-				<div id="breadcrumb">
-					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
-					<div style="float:left">
-						<b><%= link_to("Home Page",{ :controller => 'home',:action =>'index'} ) %></b><span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
-							<!-- <a href="/home/index">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp; -->
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= sanitize(@product.name) %></a></b>
-					</div>
-				</div>
+				
+				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
+				
 			
 				<div id="error-messages" style="display:none">
 					<div class="messages error"></div>

@@ -1,0 +1,12 @@
+		<!-- generate breadcrumb trail using acts_as_tree: ancestors.reverse -->
+		<style type="text/css">
+			#breadcrumb { color:black; font-weight:bold; } /* not working as expected */
+			a#homelink:hover { color:orange } 
+		</style>
+		<div id="breadcrumb">
+			<%= link_to("Home Page",{ :controller => 'home',:action =>'index'}, :id =>"homeLink" ) %><span>&nbsp;&nbsp;&gt;&nbsp;</span>
+			<% for category in @category.ancestors.reverse %>
+				<%= category.name %>&nbsp;&nbsp;&gt;&nbsp;
+			<% end %>	
+			<%= @category.name %>
+		</div>

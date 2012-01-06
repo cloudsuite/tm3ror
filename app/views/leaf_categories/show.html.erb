@@ -155,24 +155,17 @@
 			<!-- MAIN CONTENT —————————————————————————————————————————————— -->
               
 			<div id="main_content">
+				 <!-- insert here the partial '/shared/menu_popups.html.erb' if that doesn't break things 
+     			Note: /shared/menu_popups, not /shared_menu_popups_home.  
+							It is a smaller menu: only the top level categories (and search button).
+							It also uses the instance variable @top_category rather than @category.  
+							The home page can use @category because it does not use it elsewhere; the 
+							categories/show and leaf_categories/show pages do use @category. 
+					-->
+				<%= render(:partial => "/shared/menu_popups") %>
               
 				<!-- Breadcrumb ———————————————————————————————————————————— -->
-				<div id="breadcrumb">
-					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
-					<div style="float:left">
-						<b><%= link_to("Home Page",{ :controller => 'home',:action =>'index'} ) %></b><span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
-							<!-- <a href="/home/index">Home Page</a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp; -->
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.name %></a></b>
-					</div>
-				</div>
+				<%= render :partial => "/shared/breadcrumb" %>
 				
 				<!-- Error Messages ———————————————————————————————————————— -->
 				<div id="error-messages" style="display:none"></div>			

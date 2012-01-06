@@ -152,32 +152,15 @@
 			<%= render :partial => 'shared/menu' %>
 			<%= render :partial => 'shared/search' %>
 
-	    <!-- main content —————————————————————————————————————————————— -->
+	    <!-- main content ————————————————————————————————————————————————————— -->
 
 			<div id="main_content">
 				
-				<!-- breadcrumb trail ———————————————————————————————————————————————————— -->
-				<div id="breadcrumb">
-					<!-- generate this: use acts_as_tree().reverse as in RailsCast 262 -->
-					<div style="float:left">
-						<b><%= link_to("Home Page",{ :controller => 'home',:action =>'index'} ) %></b><span>&nbsp;&nbsp;>&nbsp;&nbsp;</span>
-					</div>
-					<!-- Why is @category evaluating to 'nil'? because field in leaf_category_id not category_id -->
-					<div style="float:left">
-						<b><a href="#url"><%= @category.parent.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.parent.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-					<div style="float:left">
-						<b><a href="#url"><%= @category.name %></a></b>&nbsp;&nbsp;&gt;&nbsp;&nbsp;
-					</div>
-		
-					<div style="float:left">
-						<b><a href="#url"><%= sanitize(@product_type.name) %></a></b>
-					</div>
-				</div>
+				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
+				<%= render :partial => "/shared/breadcrumb" %>
+				<%= @product_type.name %>
 			
+				<!-- error messages  ———————————————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
 					<div class="messages error"></div>
 				</div>

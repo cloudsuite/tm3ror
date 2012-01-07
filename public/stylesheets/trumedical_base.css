@@ -26,11 +26,11 @@
 		}
 
 #container.home {
-	overflow: hidden;/*	noscrolbar for homepage*/
+	overflow: hidden;/*	noscrollbar for homepage*/
 	z-index: 3;
 	}
-	#subcontainer.home {
-		width: 400px;
+	#subcontainer.home { 
+		width: 245px; /* controls width of menu on left ( and how far left the slides start ) */
 		}
 			
 		

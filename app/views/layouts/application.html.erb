@@ -57,11 +57,6 @@
 		<!-- replace the following line with a Rails macro ? -->
 		<link href="../images/favicon.ico" rel="shortcut icon">
 		
-		
-		<script type="text/javascript">
-			var language ='en';
-		</script>
-		
 		<%= javascript_include_tag "mavic.js" %> <!-- this includes jquery 1.4.2 and jquery-ui 1.8.x -->
 		
 		<style type="text/css">
@@ -72,7 +67,11 @@
 			div#privacyPolicy dt { font-weight:bold;}
 			div#privacyPolicy dd { font-weight:normal; margin-left:10px;}
 			div#catelogImage { border: 1px solid gray;}
-			
+			/* for interim hack to allow manual closing of popups from level menu; */
+			/*
+			div.subcategories img.close {position:absolute; top:0px; right:-10px; opacity:0.5; }
+			div.leafCategories img.close {position:absolute; top:0px; right:-10px; opacity:0.5; }
+			*/
 		</style>
 		
 		<script type="text/javascript">
@@ -107,6 +106,7 @@
 
 			});
 		</script>
+		
 		<!--  jQuery to support popup menu for non-product categories so far -->
 			<script type="text/javascript">
 
@@ -190,7 +190,15 @@
 						$("#popup_payors").show();
 						return false;
 					})
-
+					/* Adding this seems to be interfering with modal overlay graying out base page. Why? 
+						Is the jQuery call doing it: No, or the css declarations in views/layouts/application.htm.erb 
+					*/
+		
+					$("img.close").click(function(){
+						$(".popup_base").hide() // really just need to hide the one that is currently open
+						return false;
+					})
+				
 				});
 			</script>
 

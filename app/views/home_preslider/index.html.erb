@@ -9,84 +9,104 @@ Doc: home page for the site
 
 ——————————————————————————————————————————————————————————————————————
 
-ToDo:		
-	1. extract left-nav into a partial: shared/_menu. 
-		1. one for the home page with TruMedical, patients, payers, ...; one for other pages without [DONE]
+ToDo:
+	1. Implement popup displays for 2ndary nav
+		 1.2 setup of @category variable within handlers for hovers on menu items not working properly
+		     — works if do @category = Category.where(:name => 'Modalities').first for all of them, but
+						not if put in correct where clauses on categories after Modalities.  However: Notice 	
+						black dots beyond thumbnails for Modalities subcategories in all of the subsequent
+						subcategories. (but not in Modalities). Could problem 1.2 be related to 1.3? 
+						[[ NB: The problem is that I am putting Rails macros that are expanded into HTML
+						by erb in the middle of javascript. ]]
+		 1.3 link_to in the partial /views/home/_subcategories.html.erb does not work — attempting to 
+					find a category_path(@category) for an array of categories, not a single category.  Why? 
+	2. extract left-nav into a partial: shared/_menu. 
+		1. one for the home page with TruMedical, patients, payers, ...; one for other pages without 
 		2. variants of each with and without the colored blocks 
-	2. Implement Google SEARCH retaining the graphics of the mavic site rather than the Google replacement; see Known Bugs #4 
-	3. Move include of home.css to this file, and remove it from application.html.erb
-	4. Request a Catalog in footer: popup display; if registered ..., if not ....  Get physical mailing address; now only email address
-	5. Replace Netsuite register/login with Rails-side register/login; push info back into Netsuite?  Not necessary if can defeat login-check in Netsuite Checkout [ and Add to Cart ]
+	4. extract overlays that come up for at least the product categories into a shared partial:
+		_top_level_category_popups.html.erb.  
+			— DEBUG: after doing that all calls to /categories/nn  bring up 'Wound Care'.  I have not idea why. 
+			Try putting ALL popups, not just the 8 associated with top-level product categories into the 
+			shared partial.  
+	3. extract home_right_content_container into a partial (more appropriate name, or does that risk messing up code that dynamically changes the location of this div on the page?  Leave it for now, 
+	4. Implement SEARCHd retaining the graphics of the mavic site rather than the Google replacement; use MetaSearch again? or its replacement
+	5. move include of home.css to this file, and remove it from application.html.erb
+	
+	6. Replace slide 1 collage photos with whatever Mandy comes up with 
+	7. Rename the 8 slides: in index.html.erb, in home.css — DEBUG: didn't work 1st time I tried it
+	8. Implement Request a Catalog in footer: popup display; if registered ..., if not ....
+	
+	9. Insert javascript to link register/login, cart/checkout to Netsuite — in Application.html.erb rather than home/index.html.erb
+
 
 Known Bugs:
-	1. left-nav: overlays not closing if mouse leaves menu or currently visible overlay.
-			1-1 interim partial solution: put a colse icon in upper/lower right of all overlays; add js to make it work. 
+	1. once I began replacing left_nav with partials and js/css files included in application.html.erb, clicking on any category block which was brought up in an overlay began always going to Wound Management. (category 102: the last of the top level categories.  Why? What SQL is being executed in the 
+	categories.rb controller? 
 	2. links in subcategory partial views/home/_subcategories are not working: don't compile
-	3. reference to stylesheets/images/footer_triangle.gif — Where is it referenced? Can it be cut? 	
-	4. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
+	3. attempt to set @category in the on-hover handlers defined in jQuery on-page-ready are not working
+	4. reference to 710016-000.png failing. What is it? Where is it referenced? Copied it into images/homepage but it is huge. Need it?
+	5. reference to stylesheets/images/footer_triangle.gif — Where is it referenced? Can it be cut? 
+	
+	1. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
 	solution: move search to upper right under register/login cart/checkout links  
+	3. lost footer entirely Tuesday July 5th AM.  Could fall back to last version committed in git. application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages? 
+	4. footer is back, but it is too low on the page (below the fold). Pinned in at 760px from top. 
 	5. layout of title text in box truValue products 
-	6. image scroller:
-			6-1	Not scrolling
-			6-2 previous slide arrow button is to the left of the menu, half-hidden by it; move it right ~300px
-			6-3 slide backgrounds: white/black;  slide underneath the left nav. 1200x800 rather than current 800x800?
-			6-4 cross-browser problem: not working in webkit-based browsers: Chrome, Safari. 
+	6. Popup div is not closing when hover over a different one; works on 2nd hover; works with
+	small divs that are empty. Why not ... 
 
 Unknowns:
-	1. how to get images coming in in royal slider to slide underneath the left nav 
+	1. how to control placement of figure and title in slides
 	2. how/when logo-container moves around the window. What triggers the recalculation
 		(presumably window resize); what algorithm used for the recalculation; how does the 
 		algorithm chose where to move it to. 	
-	3. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
+	3. Where are these classes with hyphens (not underscores) in the name, defined? 
+	"view view-frontpage view-id-frontpage view-display-id-page view-dom-id-1"  also "view-content"
+	4. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
 -->
-
 <%= content_for(:header) do %>
 
-	<!-- css and js files for the large background image scroller on the home page -->
-	
-	<%= stylesheet_link_tag "royalslider.css" %>
-	<%= stylesheet_link_tag "royalslider-skins/default/default.css" %>
-	<%= javascript_include_tag "jquery.easing.1.3.min.js" %>
-	<%= javascript_include_tag "royal-slider-8.0.min.js" %>
-	
-		
 	<script type="text/javascript">
-		jQuery(document).ready(function() {
-		    $("#banner-rotator").royalSlider({
-						//imageAlignCenter:true,
-						hideArrowOnLastSlide:true,
-						slideShowEnabled:true,
-						slideShowAutoStart:true,
-						controlNavEnabled:true,
-						slideSpacing:20,
-								
-		    }); 
-		 		// carryovers from Mavics code: to handle homeslide on homepage; drop?
-				checkSize(); // does what? 
-				homeCheckSize(); // does what? 
-		});
-	</script>	
 
+		$(window).bind("resize", function(){
 
-	<script type="text/javascript">
-		$(window).bind("resize", function(){		
+			checkSize();
+			//handle homeslide on homepage
+			homeCheckSize();
+			
 			repositionDescription(); /* ???? Repositioning logomark or content_right?  */ 
 		});
+
 		var initHome = function(){
 			$('HTML').css('overflow','auto');
+			$("#homeslide_"+slides[activeSlide]).ezBgResize();
+			checkSize();
+			//handle homeslide on homepage
+			homeCheckSize();
+			homeShowSlide(0);
+			setTimeout("homeAutoDefil()",6000);
 		};
+
+		var slides = new Array();
+		var activeSlide = false;
+		var homeTimer;
+		var firstSlide = true;
+		var oldSlide;
+
+		var onHomePage = true;
+
 	</script>
 
-	<style type="text/css">
-		/* #banner-rotator { height: 800px; overflow:hidden; border:none; margin-left:0px; } */
-		.tintButton { background-color:orange; color:white; padding:5px 10px 5px 10px;}
-		
-	</style>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				/*initHome(); */
+			});	
+	</script>	
 	
 
 	<!--  jQuery to support popup menu for non-product categories-->
-	<!--  Removed in debugging; document_ready declarations for all left-menu items 
-				put in application.html.erb — even those that occur only on the home pag. 
+	<!--  Removed in debugging; document_ready declarations for all left-menu items put in application.html.erb,
+				even those that occur only on the home pag. 
 	-->
 
 
@@ -111,110 +131,162 @@ Unknowns:
 			
 			<!-- menu —————————————————————————————————————————— -->
 			<%= render :partial => 'shared/menu_home' %>
-			<%= render(:partial => 'homeRightContent') %>
+			
 			<!-- right content container  —————————————————————— -->
 			<div id="home_right_content_container">
-			
+				<%= render(:partial => 'homeRightContent') %>
 			</div><!-- end div 'home-right_content_container' -->
 	
 		</div><!-- end of div 'subcontainer' -->
 		
 		
-		<!-- slides on home page  ————————————————————————————————————————————————————— -->	 
+		<!-- slides on home page  ————————————————————————————————————————————————————— -->
 
-			<div id="banner-rotator" class="royalSlider default">
-				<!-- container of slides(images) -->
-				<ul class="royalSlidesContainer">
-					<!-- slides -->
-					
-					<!-- home slide 1: photo collage —————————————————————————————————————— -->
-					<li class="royalSlide" id="slide1">
-						<img class="royalImage" src="/images/homepage/home_1_opt2_nogear2.jpg" width="800" height="800" />
-						<div class="royalCaption" style="left:40px; text-align:left; color:black; width:300px; top:310px;">
-						<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">TRU-MEDICAL</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:35px; left:12px;width:100%; font-size:14px;">partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient</div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">More</a></div>
+		<div class="view view-frontpage view-id-frontpage view-display-id-page view-dom-id-1">
 
-						</div>
-					</li>
-					
-					<!-- home slide 2: modalities (electrotheraphy, ultrasound, ...)  ————— -->
-					<li class="royalSlide" id ="slide2">
-						<img class="royalImage" src="../images/homepage/710016-000.png" width="848" height="1200" />
-						<div class="royalCaption" style="left:100px; top:100px; width:320px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">MODALITIES</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Electrotheraphy, Ultrasound, and Combination Units</div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">More</a></div>
+			<div class="view-content"> <!-- DEBUG: can't find view-content in style.css? -->
 
-						</div>
-					
-					</li>
-					
-					<!-- home slide 3: clinical supplies  ————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/720033-222.png"  height="800" />
-						<div class="royalCaption" style="left:470px; top:220px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">CLINICAL SUPPLIES</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">More</a></div>
-						</div>
-					</li>
-					
-					<!-- home slide 4: tables & traction  ————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/730026-333_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:100px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">TABLES & TRACTION</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
-						</div>
-					</li>
-					<!-- home slide 5: fitness ———————————————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/740009-000_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:100px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">FITNESS</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
-						</div>
+				<!-- home slide 1: photo collage —————————————————————————————————————— -->
+				
+				<div class="homeslide" id="homeslide_roubaix">
+        	<img class="img" id="img_roubaix" src="../images/homepage/home_1_opt2_nogear.png" width="1200" height="1200" name="img_roubaix">
+					<div class="homedescription" id="homedescription_roubaix">
+						<h1 class="helvetica title_product">
+							<img src="../images/homepage/trumedical_logoMark_310x78.jpg" style="margin-right:-16px;"><br>partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient
+						</h1>
+						<div class="helvetica"></div><a href="#" class="homemore">MORE</a>
+					</div>
+				</div> <!-- What does this End?  mistake? //////////////////////////////////// -->
+				<script type="text/javascript">
+					slides[slides.length]='roubaix';
+				</script>
+	       
 
-					</li>
-					
-					<!-- home slide 6: orthopedics ———————————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/750001-111_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:460px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">ORTHOPEDICS</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
-						</div>
+	       <!-- home slide 2: modalities (electrotheraphy, ultrasound, ...)  ————— -->
 
-					</li>
-					
-					<!-- home slide 7: ATC/Taping ————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/760050-111_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:480px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">ATC/TAPING</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
-						</div>
-					</li>
-					
-					<!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/770001-111_800x800.png" width="800" height="800" />
-								<div class="royalCaption" style="left:510px; top:210px; width:600px; text-align:left; color:black;">
-									<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">EVALUATION</div>
-		              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-		              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
-								</div>	
-					</li>	
+	       <div class="homeslide" id="homeslide_footwear">
+	           <img class="img" id="img_footwear" src="../images/homepage/710016-000.png"  name="img_footwear">
+	           <div class="homedescription" id="homedescription_footwear" style="left:68%!important;">
+	               <h1 class="helvetica title_product">
+	                   Intellec 'Legend' 
+	               </h1>
+	               <div class="helvetica">
+	                   Portable Electrotherapy and Ultrasound units
+	               </div><a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='footwear';
+	       </script>
 
-				</ul>
-			</div> <!-- end of div#slider --> 
-		
-			<div id="forScrollTop" class="clear"></div> <!-- cut? -->
+	       <!-- home slide 3: clinical supplies  ————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_wheel1">
+	           <img class="img" id="img_wheel1" src="../images/homepage/710125-222.jpg" width="1200" height="1200" name="img_wheel1">
+	           <div class="homedescription" id="homedescription_wheel1">
+	               <h1 class="helvetica title_product">
+	                   Crossmax ST Disc
+	               </h1>
+	               <div class="helvetica">
+	                   Innovative and reliable, the Crossmax<br>
+	                   ST Disc is a proven reference
+	               </div>
+	               <a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='wheel1';
+	       </script>
+
+	       <!-- home slide 4: tables & traction  ————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_pedal">
+	           <img class="img" id="img_pedal" src="../images/homepage/Compact-Dumbbell-Rack.png"  name="img_pedal">
+	           <div class="homedescription" id="homedescription_pedal">
+	               <h1 class="helvetica title_product">
+	                   Race SL Ti
+	               </h1>
+	               <div class="helvetica">
+	                   Lighweight high performance pedal<br>
+	                   that offers excellent durability,<br>
+	                   power transfer and ease of use.
+	               </div><a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='pedal';
+	       </script>
+
+	       <!-- home slide 5: fitness ———————————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_wheel2">
+	           <img class="img" id="img_wheel2" src="../images/homepage/C521u-1.png" name="img_wheel2">
+	           <div class="homedescription" id="homedescription_wheel2">
+	               <h1 class="helvetica title_product">
+	                   Cosmic Carbone SLR <img src="../images/logos/ssc_product.png">
+	               </h1>
+	               <div class="helvetica">
+	                   Technology and look of the Ultimate,<br>
+	                   into the most efficient clincher<br>
+	                   wheel-tyre system
+	               </div><a href="#" class="homemore">MORE</a>
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='wheel2';
+	       </script>
+
+	       <!-- home slide 6: orthopedics ———————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_apparel2011-1">
+	           <img class="img" id="img_apparel2011-1" src="../images/homepage/Infinity_wrist1.png" width="1200" height="1200" name="img_apparel2011-1">
+	           <div class="homedescription" id="homedescription_apparel2011-1">
+	           	 <h1 class="helvetica title_product">
+	                   <span>2011 spring-summer</span><br>
+	                   <span class="nextline">apparel range</span>
+	               </h1>
+	               <div class="helvetica">
+	                   performance and comfort
+	               </div><a href="#" class="homemore">MORE</a>
+
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='apparel2011-1';
+	       </script>
+
+	       <!-- home slide 7: ATC/Taping: blue wraps ————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_apparel2011-2">
+	           <img class="img" id="img_apparel2011-2" src="../images/homepage/710060-000.jpg" width="1200" height="1200" name="img_apparel2011-2">
+	           <div class="homedescription" id="homedescription_apparel2011-2">
+	           	<h1 class="helvetica title_product">
+	                   <span>Electrotherapy Accessories</span><br>
+	                   <span class="nextline">Nylatex Wraps</span>
+	               </h1>
+	               <div class="helvetica">
+	                   ideal for holding electrodes in place
+	               </div><a href="#" class="homemore">MORE</a>
+
+	           </div>
+	       </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='apparel2011-2';
+	       </script>
+
+	       <!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
+
+	       <div class="homeslide" id="homeslide_computer">
+				 </div>
+	       <script type="text/javascript">
+	           slides[slides.length]='computer';
+	       </script>
+
+	     </div> <!-- end div 'view-content' -->
+
+		</div> <!-- end div ~'slides on home page' -->
+
+		<div id="forScrollTop" class="clear"></div>
 			
 			<div id="popupsContainer">
 

@@ -111,7 +111,9 @@
 								It is a smaller menu: only the top level categories (and search button).
 								It also uses the instance variable @top_category rather than @category.  
 								The home page can use @category because it does not use it elsewhere; the 
-								category pages cannot; using it within 
+								categories/show pages do use @category.  
+								Where is views/categories/_subcategories_of_top_level_category.html.erb 
+								pulled into this page? 
 						-->
 					<%= render(:partial => "/shared/menu_popups") %> 
 					

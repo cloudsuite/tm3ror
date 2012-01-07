@@ -1,0 +1,22 @@
+			<div class="subcategories">
+				
+				<% @category.children.each do |subcat| %>
+					
+					<!-- render a clickable partial that displays the subcategory image and name -->
+					
+					<div class="subcategory">
+						<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left;") %>
+					
+	
+						<div class="subcategoryName">
+					
+							<%= link_to(subcat.name, { :controller => "categories", :action => "show", :id => subcat.id } ) %>
+						
+						<!-- <%# subcat.name %>  -->
+						</div>
+
+					</div> <!-- end div.subcategory --> 
+					
+				<% end %>
+
+			</div><!-- end div.subcategories --> -

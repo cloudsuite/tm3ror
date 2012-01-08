@@ -67,11 +67,12 @@
 			div#privacyPolicy dt { font-weight:bold;}
 			div#privacyPolicy dd { font-weight:normal; margin-left:10px;}
 			div#catelogImage { border: 1px solid gray;}
+			
 			/* for interim hack to allow manual closing of popups from level menu; */
-			/*
 			div.subcategories img.close {position:absolute; top:0px; right:-10px; opacity:0.5; }
 			div.leafCategories img.close {position:absolute; top:0px; right:-10px; opacity:0.5; }
-			*/
+			div.popup_base img.close {position:absolute; top:10px; right:10px; opacity:0.5; }
+		
 		</style>
 		
 		<script type="text/javascript">
@@ -408,6 +409,7 @@ google.load('search', '1');
 		
 		<div id="footer" >
 		
+		<!--
 			<script type="text/javascript">
 				var nlvalue,firstFocus=true;
 				$(document).ready(function() {
@@ -424,7 +426,7 @@ google.load('search', '1');
 				popupnewslettersubscript();
 				});
 			</script>
-			
+		-->
 			<div class="left">
 				<a href="#requestCatelog">Request a Catalog</a> <!-- restyle; its not a clickable link -->
 				

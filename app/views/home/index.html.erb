@@ -53,17 +53,17 @@ Unknowns:
 	<script type="text/javascript">
 		jQuery(document).ready(function() {
 		    $("#banner-rotator").royalSlider({
-						//imageAlignCenter:true,
 						hideArrowOnLastSlide:true,
-						slideShowEnabled:true,
-						slideShowAutoStart:true,
+						slideshowEnabled:true,
+						slideshowAutoStart:true,
+						slideTransitionSpeed:800,
 						controlNavEnabled:true,
 						slideSpacing:20,
 								
 		    }); 
 		 		// carryovers from Mavics code: to handle homeslide on homepage; drop?
-				checkSize(); // does what? 
-				homeCheckSize(); // does what? 
+				// checkSize(); // does what? 
+				// homeCheckSize(); // does what? 
 		});
 	</script>	
 
@@ -73,13 +73,14 @@ Unknowns:
 			repositionDescription(); /* ???? Repositioning logomark or content_right?  */ 
 		});
 		var initHome = function(){
-			$('HTML').css('overflow','auto');
+			$('HTML').css('overflow','auto'); /* ??? why doing this in a runtime function? */
 		};
 	</script>
 
 	<style type="text/css">
 		/* #banner-rotator { height: 800px; overflow:hidden; border:none; margin-left:0px; } */
-		.tintButton { background-color:orange; color:white; padding:5px 10px 5px 10px;}
+		.moreButton { background-color:white; color:black; padding:5px 10px 5px 10px;}
+		li.royalSlide a:hover { background-color:black; color:white;}
 		
 	</style>
 	
@@ -133,7 +134,9 @@ Unknowns:
 						<div class="royalCaption" style="left:40px; text-align:left; color:black; width:300px; top:310px;">
 						<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">TRU-MEDICAL</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:35px; left:12px;width:100%; font-size:14px;">partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient</div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">More</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;">
+							</div> 
+							<!-- <a class="moreButton non-draggable" style="background-color:black; color:white;" href="javascript:void()">More</a></div> No place to go. -->
 
 						</div>
 					</li>
@@ -144,7 +147,10 @@ Unknowns:
 						<div class="royalCaption" style="left:100px; top:100px; width:320px; text-align:left; color:black;">
 							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">MODALITIES</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Electrotheraphy, Ultrasound, and Combination Units</div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">More</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;">
+								<!-- <%# link_to("more", category_path(1), :class => "moreButton non-draggable", :style => "background-color:black; color:white;" ) %> -->
+								<a class="moreButton non-draggable" href='<%= category_path(1) %>'>More</a>
+						</div>
 
 						</div>
 					
@@ -152,11 +158,11 @@ Unknowns:
 					
 					<!-- home slide 3: clinical supplies  ————————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/720033-222.png"  height="800" />
-						<div class="royalCaption" style="left:470px; top:220px; width:600px; text-align:left; color:black;">
+						<img class="royalImage" src="../images/homepage/720033-222_1100x800.png"  height="800" />
+						<div class="royalCaption" style="left:330px; top:220px; width:600px; text-align:left; color:black;">
 							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">CLINICAL SUPPLIES</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">More</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(23) %>">More</a></div>
 						</div>
 					</li>
 					
@@ -166,7 +172,7 @@ Unknowns:
 						<div class="royalCaption" style="left:100px; top:140px; width:600px; text-align:left; color:black;">
 							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">TABLES & TRACTION</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(43) %>">more</a></div>
 						</div>
 					</li>
 					<!-- home slide 5: fitness ———————————————————————————————————————————— -->
@@ -175,7 +181,7 @@ Unknowns:
 						<div class="royalCaption" style="left:100px; top:140px; width:600px; text-align:left; color:black;">
 							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">FITNESS</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(59) %>">more</a></div>
 						</div>
 
 					</li>
@@ -186,7 +192,7 @@ Unknowns:
 						<div class="royalCaption" style="left:460px; top:140px; width:600px; text-align:left; color:black;">
 							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">ORTHOPEDICS</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(70) %>">more</a></div>
 						</div>
 
 					</li>
@@ -197,7 +203,7 @@ Unknowns:
 						<div class="royalCaption" style="left:480px; top:140px; width:600px; text-align:left; color:black;">
 							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">ATC/TAPING</div>
               <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
+              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(81) %>">more</a></div>
 						</div>
 					</li>
 					
@@ -207,7 +213,7 @@ Unknowns:
 								<div class="royalCaption" style="left:510px; top:210px; width:600px; text-align:left; color:black;">
 									<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">EVALUATION</div>
 		              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-		              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="tintButton non-draggable" href="javascript:void()">more</a></div>
+		              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(86) %>">more</a></div>
 								</div>	
 					</li>	
 
@@ -281,7 +287,8 @@ Unknowns:
 				</div>
 
 				<!-- TruMedical  popup ———————————————————————————————————————————————-->
-				<div id="popup_trumedical" class="popup_base">  
+				<div id="popup_trumedical" class="popup_base">
+					<img class="close" src="/images/utility/close16_white.png">  
 					<p><span style="font-weight:bold">Tru Medical Solutions, LLC (TMS)</span> is a manufacturer and distributor of orthopedic and rehabilitation products sold to hospitals, orthopedic and rehab clinics, nursing homes, assisted living centers, chiropractors and patients across the United States.</p> 
 					<p>Our corporate mission is to <span class="mission">partner with provider and the payer by to meet the needs of the patient.</span></p>
 					<p>We are owned and managed by 6 partners who are each actively involved in the daily operations of the business. Leadership experience ranges from former executives and managers of medical product manufacturers and distributors to executives and managers of insurance, transportation and food companies.</p>
@@ -292,7 +299,8 @@ Unknowns:
 				</div>
 
 				<!-- Patients popup ————————————————————————————————————————————————— -->
-				<div id="popup_patients" class="popup_base">	
+				<div id="popup_patients" class="popup_base">
+					<img class="close" src="/images/utility/close16_white.png">	
 					<p>TruMedical Solutions, LLC places the highest priority on patient care.  We partner with Providers (your doctors) and Payers (Insurance Companies) to achieve the best possible outcomes.</p>
 					<p>At TruMedical Solutions we have a team of professionals who understands the unique challenges that patients face in our changing healthcare system.  We strive to educate our patients on their product options allowing them to make an informed decision.  Through a wide product offering we enable the patients, caregivers and clinicians to choose the best products to treat their conditions and meet their needs.</p>
 					<p>We offer patients’ options; multiple products to meet the needs of both simple and complex patient requests.  We provide over the counter retail products for health and well being as well as prescribed products that can be billed directly to the patients insurance including Medicare and Medicaid.</p>
@@ -305,6 +313,7 @@ Unknowns:
 
 				<!-- Providers popup —————————————————————————————————————————————————-->
 				<div id="popup_providers" class="popup_base">
+					<img class="close" src="/images/utility/close16_white.png">
 					<div class="row">
 						Lorem ipsum ... 
 					</div> 
@@ -312,7 +321,7 @@ Unknowns:
 
 				<!-- Payors popup ————————————————————————————————————————————————————-->
 				<div id="popup_payors" class="popup_base">
-
+					<img class="close" src="/images/utility/close16_white.png">
 					<p>Our team of professionals is built on a foundation of 25 years of Health Plan Management Experience.  We understand the challenges that your members face when they enter the healthcare system and we’re here to help them navigate the course.  Our goal is to reduce the administrative burden placed on health plans as it relates to member specific healthcare products and services.  Through our in-depth knowledge of products and member education we believe that the end result will be healthier more individually engaged members.</p>
 
 					<h2>Patient Centered Focus</h2>

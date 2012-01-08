@@ -12,8 +12,8 @@
 */
 .royalSlider.default .arrow
 {	
-	background: rgb(50, 50, 50);
-	background: rgba(0, 0, 0, 0.5);
+	background: rgb(50, 50, 50); /* dark gray ~333333 */
+	background: rgba(0, 0, 0, 0.5); /* white, semitransparent */
 	
 	background-image:url(controls-sprite.png);
 
@@ -60,12 +60,12 @@
 /* left arrow */
 .royalSlider.default .arrow.left {
 	background-position: top left;
-	left: 5px;	
+	top:600px;left: 265px;	/* normall 5 */
 }
 /* right arrow */
 .royalSlider.default .arrow.right {
 	background-position: top right;
-	right: 5px;
+	top:600px; right: 50px; /* normally 5 */
 }
 
 

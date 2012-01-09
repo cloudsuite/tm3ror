@@ -45,7 +45,7 @@
 	#menu a.level1, 
 	#menu a.level1B,
 	#menu .menu_separator {
-		margin: 0 10px;
+		margin: 0 0px; /* was 0 10px */
 	}
 
 	#menu .menu_separator {

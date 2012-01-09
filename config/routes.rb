@@ -2,6 +2,7 @@ Tm2ror::Application.routes.draw do
    
    get "search/results"
    get "site/search"
+   get "products/search" # for the metasearch on competitor part number
 
     resources :categories
     resources :product_types

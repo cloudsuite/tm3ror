@@ -7,6 +7,7 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -17,8 +18,13 @@ gem 'sqlite3'
 # gem 'ruby-debug'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-# Bundle the extra gems:
+# Bundle the extra gems:————————————————————————
   gem 'acts_as_tree','0.1.1'
+  gem "kaminari"
+  gem "activeadmin"
+	gem "meta_where"
+	gem "meta_search"
+# ——————————————————————————————————————————————	
 # gem 'bj'
 # gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'

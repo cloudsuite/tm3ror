@@ -1,0 +1,235 @@
+
+!--  —————————————————————————————————————————————————————————————————————
+			Controller: Products
+			Action:     search — build page/display for displaying product search results
+			——————————————————————————————————————————————————————————————————————
+
+			Search process and how views/products/search.html.erb fits into it:
+				1. search products class and find products whose sammon's part number matches the part number entered on the form. accept sammon's part number in data entry field defined by the form.  Pass that to products/search controoler/action.
+				2. in controller do the search for exactly match products, and send an array of them to views/products/show.html.erb controller
+				3. if no matching products found? 
+				4. if sammons number found but match is not exact, msg to that effect, and then show what was found — or just show it with a note that it is not an exact match. 
+				5. drop the add-to-cart button this page; if user wants to buy it, have him/her follow the link to the detailed product page.  Buy it from there. 
+				
+			Formatting ... bugs 
+				1. formatting of the set of returned results could use some love 
+					 — Why is this showing up? One for every result, at the bottom of the display of results  #<Product:0x102ecd670>#<Product:0x102ec7310>
+					 — 
+				2. pagination not working: use Kaminari to avoid conflict with /Admin
+				3. add-to-cart javascript: correct? Remove from this page.  
+				4. try it with _s sized picture width=100 versus 236 for _m sized images
+
+-->
+
+
+<!-- header includes  ————————————————————————————————————————————————————  -->
+<%= content_for(:header) do %>
+
+
+	<title>Tru-Medical | Product Search </title>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			
+			jQuery("#add_to_cart_button").click(function(){
+					alert("Adding item to cart. Click OK to continue.");
+			    addtocart();
+			    return false;
+        	});
+		});
+		
+		function addtocart()
+	    {
+				var netsuite_item_id = <%= @product.netsuite_item_no %> //get netsuite id from database
+        var accountid = "3320544"; //Netsuite account id
+        var qtyadd = jQuery("#qty").val() //qty field id; missing semicolon? 
+        if(qtyadd!="")
+        	{
+	      		//add to cart url
+            var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?c='+accountid+'&qty='+qtyadd+'&buyid='+netsuite_item_id + '&n=1';
+            					                				
+						//create hidden iframe in body
+        		jQuery('body').append('<iframe id="addtocartframe" style="display:none" />'); 
+        		//change src to iframe
+        		jQuery('#addtocartframe').attr('src', myurl);
+        		return false;
+		    	}
+			}	
+	</script>
+
+
+	<style type="text/css">	
+		div#metasearch form input[type="text"] {width: 160px;}
+		button#add_to_cart_button{ 
+				width:85px;
+				padding:4px 0px 4px 0;
+				font-size:11px;
+				font-weight:bold;
+				line-height: 15px;
+				margin-top:20px;
+				margin-left:0px;
+				text-align:center;
+				font-family: inherit;
+				color: white;
+				background-color: orange; 
+				border:none;
+				border-radius: 2px;
+				-moz-border-radius: 2px;
+				-webkit-border-radius: 2px;
+			}
+			input#add_to_cart_button { margin-top:10px; }
+		
+		p.noMatchError { 
+			margin-top:10px; 
+			font-size:12px; color:orange; font-weight:bold;
+			padding-bottom:7px;
+			border-bottom: 1px solid gray;
+			}
+		p.isMatch { 
+			margin-top:10px; margin-bottom:28px; 
+			font-size:12px; color:orange; font-weight:bold;
+			padding-bottom:7px;
+			border-bottom: 1px solid gray; 
+			}
+		p#sortBy{margin:10px 0 5px 5px;} /* unused right now */
+		div#searchPagination {
+			padding-top:10px;
+			padding-bottom:20px;
+			}
+		
+		div.product_detail { 
+			padding-bottom:20px; 
+			border-bottom: 1px dotted black; 
+			margin-bottom:20px;
+			margin-top:10px;
+			color:gray;
+			}
+		div.product_detail img {}
+		div.product_detail p.name {  }
+		div.product_detail p { margin-bottom:5px;}
+		div.product_detail p.subtitle { }
+		div.product_detail p.price { }
+		div.product_detail { }
+		div.product_detail button.more { 
+				margin-top:20px; 
+				padding: 3px 5px 3px 5px; 
+				background-color:orange; 
+				color:white!important; 
+				border:none
+				}
+	</style> 
+
+<% end %>	
+
+
+<%= content_for(:body) do %>
+
+	<div id="body-background">	
+		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+	</div>
+    
+	<!-- container —————————————————————————————————————————————————————————————————— -->
+
+	<div id="container">
+		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+
+	  <!-- subcontainer —————————————————————————————————————————————————————— -->
+
+		<div id="subcontainer">
+		
+			<!-- menu —————————————————————————————————————————————————————  -->
+		
+			<%= render :partial => 'shared/menu' %>
+			<%= render :partial => 'shared/search' %>
+
+	    <!-- main content —————————————————————————————————————————————— -->
+
+			<div id="main_content">
+				
+				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
+				
+			
+				<div id="error-messages" style="display:none">
+					<div class="messages error"></div>
+				</div>
+
+	      <!-- search results ————————————————————————————————————————————————— -->
+				<div id="search_results">
+
+						<% if @products.empty? %>
+							<p class="noMatchError">No products matched your search criteria.</p>
+						<% else %>
+							<p class="isMatch">Your search returned the following product(s):</p>
+						 	<% @products.each do |p| %>
+
+								<div class="product_detail"> 
+
+									<!-- Show picture? 
+									<%# image_tag("/images/products/all_small/" + p.image_filename, { :width => 100 }) %>
+									-->
+									<p class=""><strong>Sammons part number:</strong>&nbsp;<%= p.sammons_part_no %>
+									<p class=""><strong>TMS part number:</strong>&nbsp;<%= p.tms_part_no %>
+									<p class=""><strong>Match:</strong>&nbsp;<%= p.sammons_category_match %>
+									<p class="name"><strong>Name:</strong>&nbsp;<%= raw(p.name) %></p>
+									<p class="subtitle"><strong>Description:</strong>&nbsp;<%= raw(p.description) %></p>
+									<!-- <p class="price"><strong>Price:</strong>&nbsp;<%= number_to_currency(p.price_clinic_list) %></p> -->
+									<button class="more ui-corner-all"><%= link_to "See Details", {:controller => 'products', :action => 'show', :id => p.id } %></button>
+
+									<div style="clear:both"></div>
+
+								</div><!-- end #product-detail -->
+
+							<% end %> <!-- end of do statement -->
+
+
+							<div id="searchPagination">
+									<!-- <p><%# paginate @products %></p> -->
+							</div>
+
+						<% end %> <!-- end of if ... else ... statement -->
+
+				</div><!-- end of div search_results -->
+
+			</div> <!-- end div#main_content -->
+
+		</div><!-- end div#subcontainer -->
+
+
+		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+
+		<div id="right_content_container">
+	    <%= render(:partial => 'shared/rightContent') %>	       
+		</div>
+
+	</div><!-- end div#container -->
+
+
+	<!-- logo_container ——————————————————————————————————————————————————————————————— -->
+
+	<div id="logo_container">
+		<a href="/en" id="logo" title="home page" name="logo">competitor search results page</a>
+	</div>
+
+<% end %>
+
+
+
+
+  
+   
+<!-- #middleBand   ———————————————————————————————————————————————————————————————— -->
+ 
+<%= content_for(:content_container) do %>
+
+
+	<!-- center  ———————————————————————————————————————————————————————————— -->
+	
+	<div id="center">
+		
+		
+		
+	</div><!--end div#center-->
+	
+
+<% end %>
+

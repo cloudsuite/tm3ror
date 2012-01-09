@@ -87,6 +87,10 @@ input.gsc-search-button {
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
 }
+/* TA: insert border around clear button so it balances in the left menu */
+/* Not taking effect; works if type it into the div declaration using Firebug */
+div.gsc-clear-button {border:1px solid black; padding:5px 4px 5px 4px; margin-left:2px;}
+
 /* Base tab selector styles */
 .cse .gsc-tabHeader,
 .gsc-tabHeader {

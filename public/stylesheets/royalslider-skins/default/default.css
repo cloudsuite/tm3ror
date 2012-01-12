@@ -60,12 +60,12 @@
 /* left arrow */
 .royalSlider.default .arrow.left {
 	background-position: top left;
-	top:600px;left: 265px;	/* normall 5 */
+	top:600px;left: 280px;	/* normall 5 */
 }
 /* right arrow */
 .royalSlider.default .arrow.right {
 	background-position: top right;
-	top:600px; right: 50px; /* normally 5 */
+	top:600px; right: 20px; /* normally 5 */
 }
 
 

@@ -1,0 +1,52 @@
+<!-- header includes  ——————————————————————————————————————————————————  -->
+
+<%= content_for(:header) do %>
+	<style type="text/css">
+		div#devise_generated_content form { margin-bottom:20px; } 
+		div#devise_generated_content a { color:orange; }
+	</style>
+<% end %>
+
+<!-- body includes  ————————————————————————————————————————————————————  -->
+
+<%= content_for(:body) do %>
+	<div id="body-background">	
+		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+	</div>
+	<div id="container">
+		<div id="subcontainer">
+	
+			<!-- menu —————————————————————————————————————————————————————  -->
+	
+			<%= render :partial => 'shared/menu' %>
+			<%= render :partial => 'shared/search' %>
+
+	    <!-- main content —————————————————————————————————————————————— -->
+
+			<div id="main_content">
+				<div id="devise_generated_content">
+
+					<h2>Sign in</h2>
+
+					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					  <div><%= f.label :email %><br />
+					  <%= f.email_field :email %></div>
+
+					  <div><%= f.label :password %><br />
+					  <%= f.password_field :password %></div>
+
+					  <% if devise_mapping.rememberable? -%>
+					    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+					  <% end -%>
+
+					  <div><%= f.submit "Sign in" %></div>
+					<% end %>
+
+					<%= render :partial => "devise/shared/links" %>
+					
+				</div> <!-- end div#devise_generated_content -->
+				
+			</div> <!-- end div#main_content -->
+		</div> <!-- end div#subcontainer -->
+	</div> <!-- end div#container -->
+<% end %>

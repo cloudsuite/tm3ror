@@ -6,7 +6,7 @@
 .royalSlider {	
 	position:relative;
 	/* set width and height of slider here, in px, % or em*/
-	width:1200px;
+	width:1060px;
 	height:800px;
 	/* Used to prevent content "jumping" on page load. this property is removed when javascript is loaded and slider is instanciated */
 	overflow:hidden;
@@ -79,7 +79,7 @@
 	height: 90px;
 	
 	top:50%;
-	margin-top:-45px;	
+	margin-top:-145px;	
 	
 	cursor: pointer;
 	display: block;
@@ -97,12 +97,12 @@
 /* left arrow */
 .royalSlider .arrow.left {
 	background-position: top left;
-	left: 0;	
+	left: 320px;	/* was 0 */
 }
 /* right arrow */
 .royalSlider .arrow.right {
 	background-position: top right;
-	right: 0;
+	right:20px; /* was 0 */
 }
 
 
@@ -148,16 +148,7 @@
 	margin-top:4px;	
 }
 
-
-
-
-
-
-/* 
-
-	Control navigation (bullets, thumbnails)
-	
-*/
+/* Control navigation (bullets, thumbnails)	*/
 .royalSlider .royalControlNavOverflow a{	
 	background:#0C0 none no-repeat scroll 0 0;
 	
@@ -237,10 +228,6 @@
 }
 
 
-
-
-
-
 /* Captions container */
 .royalSlider .royalCaption {
 	z-index:20;
@@ -260,7 +247,24 @@
 	padding: 0;
 }
 
-
+/* added for Tru-Medical site ————————————— */
+.royalSlider .royalCaption .title {
+	width:100%; 
+	font-size:56px;
+	font-weight:bold;
+	font-family:Helvetica, Arial;
+	}
+.royalSlider .royalCaption .subtitle {
+	top:40px; left:0px;  /* 35, 12 for first slide with line up with downstroke of T */
+	width:100%;
+	font-size:14px;
+	font-family: Helvetica, Arial;
+	}
+.royalSlider .royalCaption .more {
+	top:80px; left:0px; 
+	font-size:14px;
+	}
+/* ————————————————————————————————— */
 
 /* Loading (welcome) screen */
 .royalSlider .royalLoadingScreen {

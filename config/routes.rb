@@ -1,5 +1,11 @@
 Tm2ror::Application.routes.draw do
    
+  devise_for :users, :path_names => { :sign_up => "register" }
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
    get "search/results"
    get "site/search"
    get "products/search" # for the metasearch on competitor part number

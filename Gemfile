@@ -24,6 +24,8 @@ gem 'sqlite3'
   gem "activeadmin"
 	gem "meta_where"
 	gem "meta_search"
+   gem "devise"
+   
 # ——————————————————————————————————————————————	
 # gem 'bj'
 # gem 'nokogiri'

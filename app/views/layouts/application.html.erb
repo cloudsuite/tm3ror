@@ -12,7 +12,7 @@
 		ToDo:
 			1. get correct container divs from trumedical3
 			2. get correct set of stylesheets and javascript includes from trumedical3
-			3. get search working as in Mavic site
+			3. get search working: masking Google generated field 
 	
 		Known Bugs:	
 			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
@@ -59,6 +59,13 @@
 		
 		<%= javascript_include_tag "mavic.js" %> <!-- this includes jquery 1.4.2 and jquery-ui 1.8.x -->
 		
+		<!-- styles for stuff in header: register/login; view-cart checkout -->
+		<style type="text/css">
+			div#register_login { position:absolute; top:20px; right:30px; z-index:98; color:orange; f}
+			div#register_login a { color:orange; font-weight:bold; font-size:12px; } 
+		</style>
+		
+		<!-- styles for stuff in footer -->
 		<style type="text/css">
 			div#contactUs, div#privacyPolicy, div#requestCatelog { display:none; padding-bottom:40px; padding-top:20px; margin-right:20px;}
 			div#contactUs h2, div#privacyPolicy h2, div#requestCatelog h2 { font-size:10px; font-weight:bold; margin-bottom: -10px; }
@@ -269,15 +276,28 @@
 	</head>
 	<body id="body">
 		
+		<!-- flash messages needed by active admin -->
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
 
 		<!-- header links  ————————————————————————————————————————————————————————— -->
-
-		<div id="login_links">
+		<div id="register_login">
+			<% if user_signed_in? %>
+				<span style="color:black";>Signed in as <%= current_user.email %>. Not you? </span>
+				<%= link_to "Sign out", destroy_user_session_path %>
+			<% else %>
+				<%= link_to "Register", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+			<% end %>
+		</div>
+			
+		<div id="cart_links">
 			<ul>
+				<!--
 				<li><a href="https://checkout.netsuite.com/s.nl?c=1114349&sc=6&login=T&reset=T&newcust=T&noopt=T">register</a></li>
 				<li><a href="https://checkout.netsuite.com/s.nl/c.1114349/sc.6/.f?login=T&reset=T">login</a></li>
-				<li><a href="http://www.tru-logic.com/s.nl/sc.3/.f">cart</a></li>
-				<li><a href="https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f">checkout</a></li>
+				-->
+				<li><a href="http://www.tru-logic.com/s.nl/sc.3/.f">View Cart</a></li>
+				<li><a href="https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f">Checkout</a></li>
 			</ul>
 		</div>
 	
@@ -460,19 +480,9 @@ google.load('search', '1');
 				
 				
 				<!-- search by competitor part no ——————————————————————————————— -->
-		
-					<div id="metasearch" >
-						<!-- the following two lines prevent the metasearch code from getting an undefined model_name error.  Note that since the instance variable @product is not saved, it does not create an entry in the database; it only chews memory-->
-						<% @product = Product.find_by_id(params[:id]) %>
-					  <% @search = Product.search(params[:search]) %>
-						<%= form_for @search, :url => {:controller => "products", :action => "search"}, :html => {:method => :get} do |f| %>
-							<%= f.label :sammons_part_no_contains,"Competitor Cross Reference" %>
-							<%= f.text_field :sammons_part_no_contains %>
-							<%= f.submit("Go") %> 
-						<% end %>
-
-					</div>
-				
+				<!-- commented out because interfering with devise register/login 
+				<%# render :partial => 'metasearch' %>
+			-->
 				
 				<!-- <a href="#">Competitor Cross Reference:</a> -->
 				<!--

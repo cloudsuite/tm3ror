@@ -16,7 +16,7 @@ ToDo:
 	2. Implement Google SEARCH retaining the graphics of the mavic site rather than the Google replacement; see Known Bugs #4 
 	3. Move include of home.css to this file, and remove it from application.html.erb
 	4. Request a Catalog in footer: popup display; if registered ..., if not ....  Get physical mailing address; now only email address
-	5. Replace Netsuite register/login with Rails-side register/login; push info back into Netsuite?  Not necessary if can defeat login-check in Netsuite Checkout [ and Add to Cart ]
+	5. Replace Netsuite register/login with Rails-side register/login; push info back into Netsuite?  
 
 Known Bugs:
 	1. left-nav: overlays not closing if mouse leaves menu or currently visible overlay.
@@ -27,10 +27,10 @@ Known Bugs:
 	solution: move search to upper right under register/login cart/checkout links  
 	5. layout of title text in box truValue products 
 	6. image scroller:
-			6-1	Not scrolling
-			6-2 previous slide arrow button is to the left of the menu, half-hidden by it; move it right ~300px
-			6-3 slide backgrounds: white/black;  slide underneath the left nav. 1200x800 rather than current 800x800?
-			6-4 cross-browser problem: not working in webkit-based browsers: Chrome, Safari. 
+			6-1	previous slide arrow too far right
+			6-2 font family of title wrong
+			6-3 cross-browser problem: not working in webkit-based browsers: Chrome, Safari. 
+			6-4 understand the slider library better 
 
 Unknowns:
 	1. how to get images coming in in royal slider to slide underneath the left nav 
@@ -47,7 +47,7 @@ Unknowns:
 	<%= stylesheet_link_tag "royalslider.css" %>
 	<%= stylesheet_link_tag "royalslider-skins/default/default.css" %>
 	<%= javascript_include_tag "jquery.easing.1.3.min.js" %>
-	<%= javascript_include_tag "royal-slider-8.0.min.js" %>
+	<%= javascript_include_tag "royal-slider-8.0.js" %>
 	
 		
 	<script type="text/javascript">
@@ -62,8 +62,8 @@ Unknowns:
 								
 		    }); 
 		 		// carryovers from Mavics code: to handle homeslide on homepage; drop?
-				// checkSize(); // does what? 
-				// homeCheckSize(); // does what? 
+				checkSize(); // does what? 
+				homeCheckSize(); // does what? 
 		});
 	</script>	
 
@@ -112,10 +112,10 @@ Unknowns:
 			
 			<!-- menu —————————————————————————————————————————— -->
 			<%= render :partial => 'shared/menu_home' %>
-			<%= render(:partial => 'homeRightContent') %>
+			
 			<!-- right content container  —————————————————————— -->
 			<div id="home_right_content_container">
-			
+			<%= render(:partial => 'homeRightContent') %>
 			</div><!-- end div 'home-right_content_container' -->
 	
 		</div><!-- end of div 'subcontainer' -->
@@ -130,12 +130,14 @@ Unknowns:
 					
 					<!-- home slide 1: photo collage —————————————————————————————————————— -->
 					<li class="royalSlide" id="slide1">
-						<img class="royalImage" src="/images/homepage/home_1_opt2_nogear2.jpg" width="800" height="800" />
-						<div class="royalCaption" style="left:40px; text-align:left; color:black; width:300px; top:310px;">
-						<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">TRU-MEDICAL</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:35px; left:12px;width:100%; font-size:14px;">partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient</div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;">
+						<img class="royalImage" src="../images/homepage/collage_01_1060x800.png" width="1060"/>
+						<div class="royalCaption" style="left:300px; top:310px; width:400px; text-align:left; color:black; ">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >TRU-MEDICAL</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" style="top:35px; left:12px;">partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient</div>
+              <!--
+							<div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;">
 							</div> 
+						-->
 							<!-- <a class="moreButton non-draggable" style="background-color:black; color:white;" href="javascript:void()">More</a></div> No place to go. -->
 
 						</div>
@@ -143,13 +145,12 @@ Unknowns:
 					
 					<!-- home slide 2: modalities (electrotheraphy, ultrasound, ...)  ————— -->
 					<li class="royalSlide" id ="slide2">
-						<img class="royalImage" src="../images/homepage/710016-000.png" width="848" height="1200" />
-						<div class="royalCaption" style="left:100px; top:100px; width:320px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">MODALITIES</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Electrotheraphy, Ultrasound, and Combination Units</div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;">
-								<!-- <%# link_to("more", category_path(1), :class => "moreButton non-draggable", :style => "background-color:black; color:white;" ) %> -->
-								<a class="moreButton non-draggable" href='<%= category_path(1) %>'>More</a>
+						<img class="royalImage" src="../images/homepage/710016-000_1060x800.png" width="1060" />
+						<div class="royalCaption" style="left:660px; top:140px; width:320px; text-align:left; color:black;">
+							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >MODALITIES</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Electrotheraphy, Ultrasound, and Combination Units</div>
+						
+              <div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href='<%= category_path(1) %>'>More</a>
 						</div>
 
 						</div>
@@ -158,62 +159,63 @@ Unknowns:
 					
 					<!-- home slide 3: clinical supplies  ————————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/720033-222_1100x800.png"  height="800" />
-						<div class="royalCaption" style="left:330px; top:220px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">CLINICAL SUPPLIES</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(23) %>">More</a></div>
+						<img class="royalImage" src="../images/homepage/720033-222_1060x800.png" width="1060" />
+						<div class="royalCaption" style="left:370px; top:220px; width:600px; text-align:left; color:black;">
+							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >CLINICAL SUPPLIES</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(23) %>">More</a></div>
 						</div>
 					</li>
 					
 					<!-- home slide 4: tables & traction  ————————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/730026-333_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:100px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">TABLES & TRACTION</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(43) %>">more</a></div>
+						<img class="royalImage" src="../images/homepage/730026-333_1060x800.png" width="1060" />
+						<div class="royalCaption" style="left:320px; top:140px; width:600px; text-align:left; color:black;">
+							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >TABLES & TRACTION</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8">Lorem ipsum ... </div>
+              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(43) %>">more</a></div>
 						</div>
 					</li>
+					
 					<!-- home slide 5: fitness ———————————————————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/740009-000_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:100px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">FITNESS</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(59) %>">more</a></div>
+						<img class="royalImage" src="../images/homepage/740009-000_1060x800.png" width="1060"  />
+						<div class="royalCaption" style="left:330px; top:140px; width:600px; text-align:left; color:black;">
+							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >FITNESS</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(59) %>">more</a></div>
 						</div>
 
 					</li>
 					
 					<!-- home slide 6: orthopedics ———————————————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/750001-111_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:460px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">ORTHOPEDICS</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(70) %>">more</a></div>
+						<img class="royalImage" src="../images/homepage/750180-000_1060x800.png" width="1060"  />
+						<div class="royalCaption" style="left:620px; top:140px; width:600px; text-align:left; color:black;">
+							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >ORTHOPEDICS</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+              <div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(70) %>">more</a></div>
 						</div>
 
 					</li>
 					
 					<!-- home slide 7: ATC/Taping ————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/760050-111_800x800.png" width="800" height="800" />
-						<div class="royalCaption" style="left:480px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">ATC/TAPING</div>
-              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(81) %>">more</a></div>
+						<img class="royalImage" src="../images/homepage/760033-000_1060x800.png" width="1060"  />
+						<div class="royalCaption" style="left:360px; top:140px; width:600px; text-align:left; color:black;">
+							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >ATC/TAPING</div>
+              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(81) %>">more</a></div>
 						</div>
 					</li>
 					
 					<!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
 					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/770001-111_800x800.png" width="800" height="800" />
-								<div class="royalCaption" style="left:510px; top:210px; width:600px; text-align:left; color:black;">
-									<div class="royalCaptionItem" data-show-effect="fade movetop"  data-move-offset="15" style="width: 100%; font-size:56px; font-weight:bold; font-family: Helvetica Arial;">EVALUATION</div>
-		              <div class="royalCaptionItem sgMidText" data-show-effect="fade movetop"  data-move-offset="8" style="top:40px; left:0px;width:100%; font-size:14px;">Lorem ipsum ... </div>
-		              <div class="royalCaptionItem sgSmallText " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:80px; left:0px; font-size:16px;"><a class="moreButton non-draggable" href="<%= category_path(86) %>">more</a></div>
+						<img class="royalImage" src="../images/homepage/770001-111_1060x800.png" width="800" height="1060" />
+								<div class="royalCaption" style="left:620px; top:140px; width:600px; text-align:left; color:black;">
+									<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >EVALUATION</div>
+		              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+		              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(86) %>">more</a></div>
 								</div>	
 					</li>	
 
@@ -351,7 +353,7 @@ Unknowns:
 		<!-- row of rectangles controlling slides on home page  ———————————————————— -->
 			<!-- DEBUG: Why not group these into a single div? OK. and position that? (not OK)
 				See line 2508 in style.css: each homebutton is positioned absolutely — relative to what?
-			-->
+		
 		<div id="slide_controls">	
 			  <div onClick="clearTimeout(homeTimer);homeShowSlide(0);" id="homebutton_0" class="homebutton" style="right:106px;"></div>
 		    <div onClick="clearTimeout(homeTimer);homeShowSlide(1);" id="homebutton_1" class="homebutton" style="right:93px;"></div>
@@ -362,7 +364,7 @@ Unknowns:
 		    <div onClick="clearTimeout(homeTimer);homeShowSlide(6);" id="homebutton_6" class="homebutton" style="right:28px;"></div>
 		    <div onClick="clearTimeout(homeTimer);homeShowSlide(7);" id="homebutton_7" class="homebutton" style="right:15px;"></div>
 		</div>
-		
+	-->
 	</div> <!-- end of div 'container' -->
 
 <% end %> <!-- end of content for :body -->

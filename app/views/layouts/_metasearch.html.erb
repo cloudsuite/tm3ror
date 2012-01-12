@@ -1,0 +1,11 @@
+<div id="metasearch">	
+	<!-- the following two lines prevent the metasearch code from getting an undefined model_name error.  Note that since the instance variable @product is not saved, it does not create an entry in the database; it only chews memory -->
+	<% @product = Product.find_by_id(params[:id]) %>
+  <% @search = Product.search(params[:search]) %>
+	<%= form_for @search, :url => {:controller => "products", :action => "search"}, :html => {:method => :get} do |f| %>
+		<%= f.label :sammons_part_no_contains,"Competitor Cross Reference" %>
+		<%= f.text_field :sammons_part_no_contains %>
+		<%= f.submit("Go") %> 
+	<% end %>
+
+</div>

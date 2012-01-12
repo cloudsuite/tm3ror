@@ -13,7 +13,7 @@
 	z-index: 2;
 	overflow-y: auto;
 	overflow-x: hidden;
-	width: 100%; /* TA: freeze at 1052px? */
+	width: 100%; /* TA: freeze at 1052px to force right_column under left nav? ? */
 	margin:0px;
 	padding: 0px;
 	}
@@ -22,7 +22,7 @@
 		margin-left: 15px;
 		margin-top: 15px;
 		padding-bottom: 25px;
-		width: 977px;
+		width: 1060px; /* was 977: why?  contains stuff in main? */
 		}
 
 #container.home {
@@ -30,7 +30,11 @@
 	z-index: 3;
 	}
 	#subcontainer.home { 
-		width: 245px; /* controls width of menu on left ( and how far left the slides start ) */
+		position:absolute;
+		left:15px;
+		top:0px;
+		z-index:5; /* allow it to float above the scrolling images below it */
+		width: 265px; /* controls width of menu on left ( BUT NOT how far left the slides start — they should slide UNDER the menu in the subcontainer ) */
 		}
 			
 		
@@ -58,7 +62,7 @@
 	}
 
 	#main_content {
-		width: 711px;
+		width: 711px; /* narrower than the 800 px images in the home page scroller.  Problem? */
 		background: #ffffff;
 		float: left;
 		margin-bottom: 0px;
@@ -80,11 +84,11 @@
 		filter: alpha(opacity=50);
 	}
 		
-	#login_links {  
+	#cart_links {  
 		position:fixed;
-		top:35px;
+		top:30px;
 		right:30px; /* rightmost 15px of offset disappears when get scroll bar on window; made it 30? */
-						/* reposition it relative to #container; and/or put them horizontal above image scroll buttons on home */
+		/* reposition it relative to #container; and/or put them horizontal above image scroll buttons on home */
 		z-index:99;	/* above images scrolling in  */
 		}
 		
@@ -111,10 +115,10 @@
 	
 /* ———— within header links  ———————————————————————————————————————————— */
 
-	#login_links ul {list-style-type:none;}
-	#login_links ul li {text-align:right; margin-bottom:4px;}
-	#login_links ul li a {font-size:14px; color:orange;}
-	#login_links ul li a:hover {font-weight:bold;}
+	#cart_links ul {list-style-type:none;}
+	#cart_links ul li { margin-left:10px; text-align:right; margin-bottom:5px;  }
+	#cart_links ul li a {color:orange;font-weight:bold;font-size:11px; }
+	#cart_links ul li a:hover {color:gray;}
 
 /* ———— within footer ————————————————————————————————————————————— */
 

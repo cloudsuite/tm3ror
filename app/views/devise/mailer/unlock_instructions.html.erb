@@ -1,0 +1,40 @@
+<%= content_for(:header) do %>
+	<style type="text/css">
+		div#devise_generated_content form { margin-bottom:20px; } 
+		div#devise_generated_content a { color:orange; }
+	</style>
+<% end %>
+
+
+<!-- body includes  ————————————————————————————————————————————————————  -->
+<%= content_for(:body) do %>
+
+	<div id="body-background">	
+		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
+	</div>
+	<div id="container">
+		<div id="subcontainer">
+
+			<!-- menu —————————————————————————————————————————————————————  -->
+
+			<%= render :partial => 'shared/menu' %>
+			<%= render :partial => 'shared/search' %>
+
+	    <!-- main content —————————————————————————————————————————————— -->
+
+			<div id="main_content">
+				<div id="devise_generated_content">
+					<p>Hello <%= @resource.email %>!</p>
+
+					<p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
+
+					<p>Click the link below to unlock your account:</p>
+
+					<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+
+				</div> <!-- end div#devise_generated_content -->
+
+			</div> <!-- end div#main_content -->
+		</div> <!-- end div#subcontainer -->
+	</div> <!-- end div#container -->
+<% end %>

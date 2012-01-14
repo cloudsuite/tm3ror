@@ -57,14 +57,13 @@
 
 	#subcontainer {
 		float: left;
-		margin-left: 15px;
+		margin-left: 0px; /* was 15 px */
 		margin-top: 15px;
 		padding-bottom: 25px;
 		width: 977px;
 	}
 
 	#subcontainer.home {
-		width: 400px;
 	}
 
 	/* right content containers 行行行行行行行行行行行行行行 */	

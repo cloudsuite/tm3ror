@@ -31,9 +31,9 @@
 	}
 	#subcontainer.home { 
 		position:absolute;
-		left:15px;
+		left:0px; /* if put 15px in here it is added to the 15px on subcontainer */
 		top:0px;
-		z-index:5; /* allow it to float above the scrolling images below it */
+		z-index:11; /* allow it to float above the scrolling images at z-index 10 below it */
 		width: 265px; /* controls width of menu on left ( BUT NOT how far left the slides start — they should slide UNDER the menu in the subcontainer ) */
 		}
 			
@@ -73,7 +73,7 @@
 	/* scrolling overlay Ñ scrolling from right in home page? or up/down in LLC, Product? */ 
 	#black_screen {
 		background: black;
-		z-index: 10;
+		z-index: 99; /* just below popups-container at z-index of 100 */
 		position: absolute;
 		top: 0px;				
 		left: 0px;

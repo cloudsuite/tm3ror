@@ -2,7 +2,7 @@
 	position: absolute; 
 	top:40px; left:255px; /* was 230: was 270 in tm3ror_bad; 15 +235 + 5 */
 	width: 700px;			
-	z-index:100;
+	z-index:1000;
 }		
 .popup_base { 
 	position:absolute; /* within popupsContainer */ 
@@ -14,24 +14,24 @@
 	} 
 .popup_base h2 { font-size:12px; font-weight:bold; margin-top:10px; margin-bottom:5px;}
 .popup_base p { margin-top:5px; margin-bottom:5px;}
-#popup_modalities {top:-25px;z-index:10001; }
-#popup_clinicalSupplies {top:9px;z-index:10001; }
-#popup_tables {top:44px;z-index:10001;}
-#popup_fitness {top:79px;z-index:10001;}
-#popup_orthopedics {top:114px;z-index:10001;}
-#popup_taping {top:150px;z-index:10001; }
-#popup_evaluation {top:184px;z-index:10001; }
-#popup_dailyLiving {top:220px;z-index:10001; }
-#popup_lymphedema {top:254px;z-index:10001; } 
-#popup_woundCare {top:290px;z-index:10001; }
+#popup_modalities {top:-25px;z-index:1001; }
+#popup_clinicalSupplies {top:9px;z-index:1001; }
+#popup_tables {top:44px;z-index:1001;}
+#popup_fitness {top:79px;z-index:1001;}
+#popup_orthopedics {top:114px;z-index:1001;}
+#popup_taping {top:150px;z-index:1001; }
+#popup_evaluation {top:184px;z-index:1001; }
+#popup_dailyLiving {top:220px;z-index:1001; }
+#popup_lymphedema {top:254px;z-index:1001; } 
+#popup_woundCare {top:290px;z-index:1001; }
 
-#popup_trumedical {top:324px;z-index:10001; background-color:#0094DE; color:white;height:355px; overflow:scroll; padding-bottom:20px; }
+#popup_trumedical {top:324px;z-index:1001; background-color:#0094DE; color:white;height:355px; overflow:scroll; padding-bottom:20px; }
 
-#popup_patients {top:360px; z-index:10001; background-color:orange;
+#popup_patients {top:360px; z-index:12; background-color:orange;
 	height:330px; padding-bottom:20px; overflow:scroll;} 
-#popup_providers {top:394px; z-index:10001;background-color:orange;
+#popup_providers {top:394px; z-index:12;background-color:orange;
 	height:300px; padding-bottom:20px; overflow:scroll;}
-#popup_payors {top:430px; z-index:10001;background-color:orange;
+#popup_payors {top:430px; z-index:12;background-color:orange;
 	height:260px; padding-bottom:20px; overflow:scroll;}
 div.subcategories { }
 div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;

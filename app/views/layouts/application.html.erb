@@ -18,8 +18,8 @@
 			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
 		
 		Unknowns:
-			1. Where do the large images that scroll in from the right on the home page fit into this template? 
-			2. in Footer: How does 'Request a Catalog' work?  Does it work at all? 
+
+
 			3. unclear how/when logo div moves around the window
 			4. set of float declarations that lets right_content move over to the left below menu when 
 				the window is too small for it to appear on the right, is currently a mystery to me.
@@ -31,19 +31,15 @@
 		
     <%= stylesheet_link_tag "trumedical_base.css" %>
 		<%= stylesheet_link_tag "home.css" %>
-    <%= stylesheet_link_tag "athletes.css" %>
-    <%= stylesheet_link_tag "buttons.css" %>
-    <%= stylesheet_link_tag "news.css" %>
+    <!-- <%= stylesheet_link_tag "buttons.css" %> -->
     <%= stylesheet_link_tag "product.css" %>
-    <%= stylesheet_link_tag "product_compare.css" %>
     <%= stylesheet_link_tag "search.css" %>
     <%= stylesheet_link_tag "select.css" %>
+		<!-- <%# stylesheet_link_tag "style3.css" %> added back in to remove 15px left margin from div.subcontainer on the home page, but it removes 15px I need on other pages, and turns category links red, ... -->
     <%= stylesheet_link_tag "menu.css" %>
     <%= stylesheet_link_tag "tabs.css" %>
-    <%= stylesheet_link_tag "technology.css" %>
-    <%= stylesheet_link_tag "video.css" %>
-    <%= stylesheet_link_tag "webform.css" %>
-		<%= stylesheet_link_tag "left_nav.css" %> <!-- added by TA 1/4/2012 -->
+    <%= stylesheet_link_tag "webform.css" %> <!-- used by what? Request a Catelog? -->
+		<%= stylesheet_link_tag "left_nav_popups.css" %> <!-- added by TA 1/4/2012 -->
 
 		<!--  csrf_meta_tag %> -->
 		

@@ -1,17 +1,19 @@
 #popupsContainer { 
 	position: absolute; 
-	top:40px; left:230px; 
+	top:40px; left:255px; /* was 230: was 270 in tm3ror_bad; 15 +235 + 5 */
 	width: 700px;			
 	z-index:100;
 }		
 .popup_base { 
 	position:absolute; /* within popupsContainer */ 
-	left: 20px; width:100%; 
+	left: 0px; 
+	width:700px; 
 	background-color:white; 
-	padding:10px 20px 0px 20px; 
+	padding:20px 20px 10px 20px; 
 	min-height:34px; 
 	} 
-.popup_base h2 { font-size:12px; font-weight:bold;}
+.popup_base h2 { font-size:12px; font-weight:bold; margin-top:10px; margin-bottom:5px;}
+.popup_base p { margin-top:5px; margin-bottom:5px;}
 #popup_modalities {top:-25px;z-index:10001; }
 #popup_clinicalSupplies {top:9px;z-index:10001; }
 #popup_tables {top:44px;z-index:10001;}
@@ -23,11 +25,14 @@
 #popup_lymphedema {top:254px;z-index:10001; } 
 #popup_woundCare {top:290px;z-index:10001; }
 
-#popup_trumedical {top:324px;z-index:10001; background-color:#0094DE; color:white; }
+#popup_trumedical {top:324px;z-index:10001; background-color:#0094DE; color:white;height:355px; overflow:scroll; padding-bottom:20px; }
 
-#popup_patients {top:360px; z-index:10001; background-color:orange;} /* plus 36? */
-#popup_providers {top:394px; z-index:10001;background-color:orange;}
-#popup_payors {top:430px; z-index:10001;background-color:orange;}
+#popup_patients {top:360px; z-index:10001; background-color:orange;
+	height:330px; padding-bottom:20px; overflow:scroll;} 
+#popup_providers {top:394px; z-index:10001;background-color:orange;
+	height:300px; padding-bottom:20px; overflow:scroll;}
+#popup_payors {top:430px; z-index:10001;background-color:orange;
+	height:260px; padding-bottom:20px; overflow:scroll;}
 div.subcategories { }
 div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
 	background-color:#E6E6E6;}

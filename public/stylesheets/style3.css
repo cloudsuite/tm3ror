@@ -461,7 +461,7 @@
 	#menu .submenu {
 		position: absolute;
 		background:url('images/bg_right_content_white.gif') no-repeat; /* --- IMAGE ----------------  */
-		background-position: 0 -30px;
+		background-position: 0 -15px; /* was -30px */
 		left: 230px;
 		display: none;
 		z-index: 10000;

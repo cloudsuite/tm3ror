@@ -2254,10 +2254,11 @@ ParsedQueryString.prototype =
 			}
 		}
 };
-
+/*
 if(language != 'ja') {
 	Cufon.replace('.helvetica');
 }
+*/
 
 $(window).bind("resize", function(){
 	$("#body-background").ezBgResize();
@@ -3482,7 +3483,7 @@ function homeShowSlide(id)
 
 	$("#homeslide_"+slides[id]).ezBgResize();
 	repositionDescription();
-	homeCheckSize();
+	homeCheckSize(); 
 	$("#homeslide_"+slides[id]).css('z-index','2');
 	$('.homebutton').css('background','orange'); /*FFE%00 */
 	$("#homebutton_"+id).css('background', $("#homedescription_"+slides[id]).css('color'));
@@ -3493,6 +3494,7 @@ function homeShowSlide(id)
 
 function homeCheckSize()
 {
+	/*
 	$("#homeslide_"+slides[activeSlide]).ezBgResize();
 
 
@@ -3517,6 +3519,7 @@ function homeCheckSize()
 	{
 		$("#container").css('width',$(window).width());
 	}
+	*/
 
 }
 

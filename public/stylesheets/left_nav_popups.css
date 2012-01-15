@@ -1,13 +1,13 @@
 #popupsContainer { 
 	position: absolute; 
 	top:40px; left:255px; /* was 230: was 270 in tm3ror_bad; 15 +235 + 5 */
-	width: 700px;			
+	width: 705px;			
 	z-index:1000;
 }		
 .popup_base { 
 	position:absolute; /* within popupsContainer */ 
 	left: 0px; 
-	width:700px; 
+	width:665px; /* 20+665+20 = 705 */
 	background-color:white; 
 	padding:20px 20px 10px 20px; 
 	min-height:34px; 

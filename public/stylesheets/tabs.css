@@ -6,7 +6,7 @@
 		height: 30px;
 		background-image: url('images/bg_tabs.gif'); /* --- IMAGE ----------------  */
 		background-repeat:repeat-x;
-		background-position: 0px right;
+		background-position: top right;
 		overflow:hidden;
 	}
 

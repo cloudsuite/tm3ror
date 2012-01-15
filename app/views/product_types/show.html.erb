@@ -141,7 +141,7 @@
 	<!-- container —————————————————————————————————————————————————————————————————— -->
 
 	<div id="container">
-		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+		<div id="black_screen"></div> <!-- won't cause problems until enable left nav-->
 
 	  <!-- subcontainer —————————————————————————————————————————————————————— -->
 
@@ -158,7 +158,7 @@
 				
 				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
 				<%= render :partial => "/shared/breadcrumb" %>
-				<%= @product_type.name %>
+				<!-- Too wide to fit on breadcrumb line <%# raw(@product_type.name) %> -->
 			
 				<!-- error messages  ———————————————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
@@ -174,7 +174,7 @@
 						<%= raw(@product_type.name) %>
 					</div>
 					
-					<div id="description" style="padding-right:40px;">
+					<div id="description" style="padding-right:40px; padding-left:0px;">
 						<%= raw(@product_type.description) %> <!-- defined in schema for product_types? -->
 					</div>
 					
@@ -186,7 +186,7 @@
 		
 					<table cellspacing="10">
 						<col/>
-						<col align="left" width="300px"/>
+						<col align="left" width="390px"/> <!-- widened from 300 to fit it all on one line -->
 						<col align="right" width="70px"/>
 						<col align="left"/>
 						<th align="left">Part No</th>
@@ -215,7 +215,7 @@
 				
 				<table cellspacing="10" style="padding-left:40px;">
 					<col/>
-					<col align="left" width="300px"/>
+					<col align="left" width="390px"/> <!-- to match first table  -->
 					<col align="right" width="70px" /> <!-- line this up with Qty column in tables above -->
 					<tr>
 						<td></td>

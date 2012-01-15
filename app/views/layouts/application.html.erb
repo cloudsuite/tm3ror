@@ -27,33 +27,49 @@
 		-->
 		<meta name="google-site-verification" content="DRniLxcdbLu-qb5STdNUxZI97IojXccx5-6mijdIhjI" />
 	  <title>TruMedical Solutions</title>
+	
+		<!-- used by Mavic; not by us unless we use Mavic tabbed sibling nav  -->
+		<%= stylesheet_link_tag "jquery_tools_tabs_no_images.css" %>
+	
+	
 		<%= stylesheet_link_tag "custom-theme/jquery-ui-1.8.10.custom.css" %>
 		
     <%= stylesheet_link_tag "trumedical_base.css" %>
-		<%= stylesheet_link_tag "home.css" %>
-    <!-- <%= stylesheet_link_tag "buttons.css" %> -->
+		<!-- <%# stylesheet_link_tag "home.css" %> -->
+    <!-- <%# stylesheet_link_tag "buttons.css" %> -->
     <%= stylesheet_link_tag "product.css" %>
     <%= stylesheet_link_tag "search.css" %>
-    <%= stylesheet_link_tag "select.css" %>
-		<!-- <%# stylesheet_link_tag "style3.css" %> added back in to remove 15px left margin from div.subcontainer on the home page, but it removes 15px I need on other pages, and turns category links red, ... -->
+    <!-- <%# stylesheet_link_tag "select.css" %>  there is no longer such a stylesheet -->
+		<!-- <%# stylesheet_link_tag "style3.css" %> -->
     <%= stylesheet_link_tag "menu.css" %>
     <%= stylesheet_link_tag "tabs.css" %>
     <%= stylesheet_link_tag "webform.css" %> <!-- used by what? Request a Catelog? -->
 		<%= stylesheet_link_tag "left_nav_popups.css" %> <!-- added by TA 1/4/2012 -->
+		
+		<!-- standard js files -->
+		
+		<%= javascript_include_tag "jquery-1.4.4.min.js" %>
+		<%= javascript_include_tag "jquery-ui-1.8.10.custom.min.js" %>
+		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %>
+		
+		<!-- additional js files lumped into mavic.js -->
+		<%= javascript_include_tag "Cufon.js" %>
+		<%= javascript_include_tag "ezMark.js" %>
+		<%= javascript_include_tag "jq.ezBgResize.js" %>
+		<%= javascript_include_tag "jq_cookie.js" %>
+		<%= javascript_include_tag "parsed_query_string.js" %>
+		<%= javascript_include_tag "homepage_functions.js" %>
+		<%= javascript_include_tag "product_compare.js" %>
+		<%= javascript_include_tag "zoom_and_mega_zoom.js" %>
+		<!-- what was left in mavic.js after stripping out the above, 3rd-party developed js libraries -->
+		<%= javascript_include_tag "mavic_only.js" %> <!-- most of this may be in misc.js -->
 
 		<!--  csrf_meta_tag %> -->
 		
-		<!--[if IE]>
-			<meta http-equiv="imagetoolbar" content="no" />
-			<%= stylesheet_link_tag "style-ie.css" %>
-		<![endif]-->
-		<!--[if lte IE 7]>
-			<%= stylesheet_link_tag "style-ie67.css" %>
-		<![endif]-->
+
 		<!-- replace the following line with a Rails macro ? -->
 		<link href="../images/favicon.ico" rel="shortcut icon">
-		
-		<%= javascript_include_tag "mavic.js" %> <!-- this includes jquery 1.4.2 and jquery-ui 1.8.x -->
+
 		
 		<!-- styles for stuff in header: register/login; view-cart checkout -->
 		<style type="text/css">

@@ -62,6 +62,7 @@
 		
 		
 		<style type="text/css">
+			
 			div.leafCategories { margin-top:20px;}
 			div.leafCategory {
 				width: 120px; height:120px; 
@@ -72,6 +73,21 @@
 				}
 			div.leafCategoryName { padding:5px;margin:0;text-align:center;}
 			div.leafCategory a:hover { color:white;}
+			
+			div.products { margin-top:20px;}
+			div.product {
+				width: 120px; height:120px; 
+				margin-right:10px; margin-bottom:10px; 
+				float:left; 
+				background-color:#E6E6E6;
+				border: 1px solid gainsboro;
+				}
+			div.productName { padding:5px;margin:0;text-align:center;}
+			div.productName a:hover { color:white!important;} /* Why working in category, leaf_category, but not here?*/
+			div.pic { width:120px; height:80px; background-color:white; display: table-cell; vertical-align:middle;  }
+			div.pic img { display:block; margin: 0 auto; vertical-align:middle; }
+
+			
 		</style>
   
 	<% end %>
@@ -127,7 +143,8 @@
 					
 					<!-- Breadcrumb ———————————————————————————————————————————— -->
 					<%= render :partial => "/shared/breadcrumb" %>
-					
+					<p style="color:red; margin:10px;">DEBUGGING: in view categories/show.html.erb</p>
+			
 					<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
 					<!-- Show products for the subcategory that he selected on the home page
 						   Change to products for a different subcategory if he selects it here
@@ -155,10 +172,24 @@
 						<div class="clear"></div>
 
 						
-						<!-- (Leaf-level) SUBCATEGORIES  ———————————————————————————————————————————————— -->
-
-						<%= render "leafCategories" %>
+						<!-- SUBCATEGORIES ———————————————————————————————————— -->
 						
+						<!-- <%# render "leafCategories" %> -->
+
+	
+						<%= if @category.children.empty?  
+									if @category.category_type == "simple"
+										render "simple_products"
+									elsif @category.category_type == "matrix"
+										render "matrix_products"
+									else 
+										render "complex_products"
+									end
+						
+								else
+									render "leafCategories" # no: to handle arbitrary depth, render a new _show partial
+								end  %>
+		
                 
 						<div class="clear"></div>
                     

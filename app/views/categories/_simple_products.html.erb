@@ -1,0 +1,22 @@
+
+			<div class="products"> <!-- was products_div Should it still be? -->
+				
+				<p style="color:red; margin:10px;">DEBUGGING: in partial views/categories/_simple_products.html.erb</p> 
+				<!-- For each (simple) product in this leaf-level category, 
+						render a clickable partial that displays the product image and name.
+						If the user clicks on this partial, it should go to product/show. 
+				--> 
+				
+				<% @category.products.each do |p| %> 
+					<div class="product">
+						<a href='<%= product_path(p.id) %>'>
+							<div class='pic'>
+								<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
+							</div>
+							<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+						</a>
+					</div>
+
+				<% end %>
+
+			</div><!-- end div.products_div --> -

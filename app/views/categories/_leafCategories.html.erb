@@ -1,14 +1,16 @@
 
+			<p style="color:red; margin:10px;">DEBUGGING: in partial views/categories/_leafCategories.html.erb</p>
 			
-			<div class="leafCategories">
+			<div class="leafCategories" style="margin-top:20px;">
 				
 				<% @category.children.each do |subcat| %>
 					
 					<!-- render a clickable partial that displays the subcategory image and name -->
 					<div class="leafCategory">
-						<a href='<%= leaf_category_path(subcat.id) %>'>
-
-							<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg", :size => "120x80",:style => "float:left; border:0;") %>
+						<a href='<%= category_path(subcat.id) %>'>
+							<div class="pic">
+								<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg") %>
+							</div>
 							<div class="leafCategoryName"><%= subcat.name %></div>
 						</a>
 					</div>

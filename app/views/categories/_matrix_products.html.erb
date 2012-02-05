@@ -1,0 +1,28 @@
+
+<!-- <style type="text/css">
+	div.pic { width:120px; height:80px; background-color:white; }
+	div.pic img { display:block; margin: 0 auto; }
+</style>
+-->
+
+<div class="products"> 
+	
+	<p style="color:red; margin:10px;">DEBUGGING: in partial views/categories/_matrix_products.html.erb</p>
+	<!-- For each (matrix) product (or, in the code, 'base_product') in this leaf-level category, 
+			render a clickable partial that displays the product image and name.
+			If the user clicks on this partial, it should go to base_product/show. 
+	--> 
+
+	<% @category.base_products.each do |p| %> 
+		<div class="product">
+			<a href='<%= base_product_path(p.id) %>'>			
+				<div class="pic">
+					<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
+				</div>			
+				<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+			</a>
+		</div>
+
+	<% end %>
+
+</div><!-- end div.products_div -->

@@ -1,0 +1,20 @@
+<div class="products_div"> 
+	
+	
+	<p style="color:red; margin:10px;">DEBUGGING: in partial views/categories/_complex_products.html.erb</p>
+	<!-- For each (complex) product in this leaf-level category, 
+			render a clickable partial that displays the product image and name.
+			If the user clicks on this partial, it should go to product_type/show. 
+	--> 
+
+	<% @category.product_types.each do |p| %> 
+		<div class="product">
+			<a href='<%= product_type_path(p.id) %>'>
+				<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg", :size => "120x80",:style => "float:left; border:0;") %>
+				<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+			</a>
+		</div>
+
+	<% end %>
+
+</div><!-- end div.products_div -->

@@ -69,6 +69,7 @@
 
 	<style type="text/css">
 		div#product_image_description { margin-top:20px; padding-left:40px;}
+		div#product_image_description img { margin-bottom:15px;}
 		div#products { margin-top:10px; padding-left:40px;}
 		div#title { color:orange; font-size:14px; font-weight:bold;}
 		#products table { margin-bottom:30px; }
@@ -80,6 +81,7 @@
 		    z-index: -1;
 			}
 			*/
+		
 		#products td.price {text-align: right;}
 		#addToCart, #checkOut {
 			background-color:orange; 
@@ -132,7 +134,7 @@
 
 				<div id="product_image_description">
 					<!-- change to large picture --> 
-					<%= image_tag("/images/products/modalities_large/" + @base_product.image_filename[0,6] +"-000" + ".jpg") %>
+					<%= image_tag("/images/products/all_large/" + @base_product.image_filename[0,6] +"-000" + ".jpg") %>
 					<!--
 					<%# image_tag("/images/products/all_medium/" + @base_product.image_filename[0,6] + "-000" + ".jpg") %>
 					-->

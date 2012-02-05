@@ -71,6 +71,8 @@
 			}
 		div.productName { padding:5px;margin:0;text-align:center;}
 		div.productName a:hover { color:white!important;} /* Why working in category, leaf_category, but not here?*/
+				div.pic { width:120px; height:80px; background-color:white; }
+				div.pic img { display:block; margin: 0 auto; }
 
 	</style>
 	
@@ -165,7 +167,7 @@
 				<%= render(:partial => "/shared/menu_popups") %>
               
 				<!-- Breadcrumb ———————————————————————————————————————————— -->
-				<%= render :partial => "/shared/breadcrumb" %>
+				<%= render :partial => "/shared/breadcrumb" %> 
 				
 				<!-- Error Messages ———————————————————————————————————————— -->
 				<div id="error-messages" style="display:none"></div>			

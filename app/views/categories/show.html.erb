@@ -155,10 +155,24 @@
 						<div class="clear"></div>
 
 						
-						<!-- (Leaf-level) SUBCATEGORIES  ———————————————————————————————————————————————— -->
-
-						<%= render "leafCategories" %>
+						<!-- SUBCATEGORIES ———————————————————————————————————— -->
 						
+						<!-- <%# render "leafCategories" %> -->
+
+	
+						<%= if @category.children.empty? do 
+								if @category.category_type == "simple"
+									render "simple_products"
+								elsif @category.category_type == "matrix"
+									render "matrix_products"
+								else 
+									render "complex_products"
+								end
+							end
+							else
+								render "leafCategories"
+							end  %>
+		
                 
 						<div class="clear"></div>
                     

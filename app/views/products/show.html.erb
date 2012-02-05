@@ -70,6 +70,7 @@
 		div#product_div { margin-top:20px; margin-bottom:30px;}
 		div.left { float:left; }
 		div.right { }
+		div.picture { margin-bottom:20px;}
 
 		#addToCart, #checkOut {
 			background-color:orange; 
@@ -128,9 +129,9 @@
 
 						<div class="picture">
 							<!-- change to large picture --> 
-							<%= image_tag("/images/products/modalities_large/" + @product.image_filename[0,6] +"-000" + ".jpg") %>
+							<%= image_tag("/images/products/all_large/" + @product.image_filename + ".jpg") %>
 							<!-- 
-							<%# image_tag("/images/products/all_medium/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
+							<%# image_tag("/images/products/modalities_large/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
 						-->
 						</div>
 			

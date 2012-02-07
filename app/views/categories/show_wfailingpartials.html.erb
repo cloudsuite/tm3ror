@@ -143,7 +143,7 @@
 					
 					<!-- Breadcrumb ———————————————————————————————————————————— -->
 					<%= render :partial => "/shared/breadcrumb" %>
-					<!-- <p style="color:red; margin:10px;">DEBUGGING: in view categories/show.html.erb</p> -->
+					<p style="color:red; margin:10px;">DEBUGGING: in view categories/show.html.erb</p>
 			
 					<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
 					<!-- Show products for the subcategory that he selected on the home page
@@ -182,72 +182,19 @@
 									
 							 		@category.products.each do |p|
 										case p.type
-										when "ProductSet" %>
-											<div class="product">
-												<a href='<%= product_set_path(p.id) %>'>			
-													<div class="pic">
-														<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
-													</div>			
-													<div class="productName"><%= sanitize(p.name[0,37]) %></div>
-												</a>
-											</div>
-										
-										<% when "BaseProduct" %>
-										
-											<div class="product">
-												<a href='<%= base_product_path(p.id) %>'>	
-													<!-- may want to move the show action and its view for base_product into product --> 		
-													<div class="pic">
-														<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
-													</div>			
-													<div class="productName"><%= sanitize(p.name[0,37]) %></div>
-												</a>
-											</div>
-											
-										<% when "SimpleProduct" %>
-											<div class='product'>
-												<a href='<%= product_path(p.id) %>'>
-													<div class='pic'>
-														<%= image_tag('/images/products/all_small/' + p.image_filename + '.jpg') %>
-													</div>
-													<div class='productName'><%= sanitize(p.name[0,37]) %></div>
-												</a>
-											</div>
-										<% when "ComplexProduct" %>
-											<div class="product">
-												<a href='<%= product_type_path(p.id) %>'>
-													<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg", :size => "120x80",:style => "float:left; border:0;") %>
-													<div class="productName"><%= sanitize(p.name[0,37]) %></div>
-												</a>
-											</div>
-										<% end # end of the case statement
+										when "BaseProduct"
+											render(:partial => "base_product", :locals => { :p => p })											
+										when "SimpleProduct"
+											render(:partial => "simple_product", :locals => { :product => p })
+										else
+											render "error1"
+										end 
 						
-									end # end of the do block
-							
-						end %> 
-						<% if !@category.children.empty? %>
-							<!-- <p style="color:red; margin:10px;">DEBUGGING: at intermediate category</p> -->
-							<div class="leafCategories" style="margin-top:20px;">
-
-								<% @category.children.each do |subcat| %>
-
-									<!-- render a clickable partial that displays the subcategory image and name -->
-									<div class="leafCategory">
-										<a href='<%= category_path(subcat.id) %>'>
-											<div class="pic">
-												<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg") %>
-											</div>
-											<div class="leafCategoryName"><%= subcat.name %></div>
-										</a>
-									</div>
-
-								<% end %>
-
-								<!-- image to allow the user to close the popup manually --> 
-								<img class="close" src="/images/utility/Close16.png">
-
-							</div><!-- end div.leafCategories -->
-						<% end %> 
+									end
+								else
+									render "error2"
+								end  %>
+		
                 
 						<div class="clear"></div>
                     

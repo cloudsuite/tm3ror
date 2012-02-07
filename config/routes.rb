@@ -1,5 +1,7 @@
 Tm2ror::Application.routes.draw do
    
+  get "product_set/show"
+
   devise_for :users, :path_names => { :sign_up => "register" }
 
   ActiveAdmin.routes(self)
@@ -12,6 +14,7 @@ Tm2ror::Application.routes.draw do
 
     resources :categories
     resources :product_types
+    resources :product_sets
     resources :base_products
     resources :products
     resources :users

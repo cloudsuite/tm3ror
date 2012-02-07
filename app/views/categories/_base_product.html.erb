@@ -1,0 +1,10 @@
+
+<div class="product">
+	<a href='<%= base_product_path(p.id) %>'>	
+		<!-- may want to move the show action and its view for base_product into product --> 		
+		<div class="pic">
+			<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
+		</div>			
+		<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+	</a>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111174604) do
+ActiveRecord::Schema.define(:version => 20120206223202) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -171,6 +171,11 @@ ActiveRecord::Schema.define(:version => 20120111174604) do
     t.datetime "updated_at"
   end
 
+  create_table "product_sets", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "product_types", :force => true do |t|
     t.integer  "product_line_id"
     t.string   "category_l1"
@@ -185,9 +190,12 @@ ActiveRecord::Schema.define(:version => 20120111174604) do
   end
 
   create_table "products", :force => true do |t|
+    t.string   "type"
     t.integer  "category_id"
     t.integer  "product_type_id"
+    t.integer  "product_line_id"
     t.integer  "accessory_of_id"
+    t.integer  "product_set_id"
     t.integer  "base_product_id"
     t.string   "base_product_tms_no"
     t.string   "tms_part_no"
@@ -229,6 +237,11 @@ ActiveRecord::Schema.define(:version => 20120111174604) do
   create_table "requests", :force => true do |t|
     t.integer  "type_of_request"
     t.integer  "number_of_catelogs"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "simple_products", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

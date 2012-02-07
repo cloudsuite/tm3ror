@@ -1,17 +1,16 @@
 
 <!-- ————————————————————————————————————————————————————————————————
-		Controller: base_products
+		Controller: product_sets
 		Action: show 
 		
-		Presupposes an instance variable @base_product that has been 
+		Presupposes an instance variable @product_set that has been 
 		set up by the controller/action. Also the leaf-level category of
 		this product in the instance variable @category. 
 		
 		Shows the image and description associated
-		with this base product. Then iterates through all of the specific products 
-		(choice of <size> and <color> the base product is offered in. 
-		TruMedical did not use Netsuite's 'matrix products' to model this, instead
-		modeling each specific product as a Netsuite item.  
+		with this product set. Then for each base-product within this product-set, it prints the single-line of text that identifies this base-product (i.e. for 720001-xxx, the string "50 Yard Dispenser Box" rather than the "6 Yard Dispenser Box" for 720002-xxx), and then iterates through all of the specific products in the subset of products within this product-set that are variants of the base-product ( ie, for 720001:  720001-010, 720001-015, ... ) 
+		Put a single add-to-cart and checkout button below the last block of products associated with the last base-product.  
+	 
 ————————————————————————————————————————————————————————————————————— -->
 
 <%= content_for(:header) do %>
@@ -21,7 +20,7 @@
 	<!-- Reenable this once have the basic display of product fields working  									
 	<%# javascript_include_tag "galleria-1.2.4.min.js" %>
 	<%# javascript_include_tag "zoom_and_mega_zoom.js" %>
--->
+	-->
 
 	<script type="text/javascript" >
 
@@ -71,6 +70,7 @@
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 		div#product_image_description img { margin-bottom:15px;}
 		div#products { margin-top:10px; padding-left:40px;}
+		td.differentiator { font-size:12px; font-weight:normal; color: blue; }
 		div#title { color:orange; font-size:14px; font-weight:bold;}
 		#products table { margin-bottom:30px; }
 		/* How does this work? *
@@ -130,28 +130,25 @@
 					<div class="messages error"></div>
 				</div>
 
-	      <!-- base product ———————————————————————————————————————————————————————— -->
+	      <!-- product set———————————————————————————————————————————————————————— -->
 
 				<div id="product_image_description">
 					<!-- change to large picture --> 
-					<%= image_tag("/images/products/all_large/" + @base_product.image_filename[0,6] +"-000" + ".jpg") %>
+					<%= image_tag("/images/products/all_large/" + @product_set.image_filename[0,6] +"-000" + ".jpg") %>
 					<!--
 					<%# image_tag("/images/products/all_medium/" + @base_product.image_filename[0,6] + "-000" + ".jpg") %>
 					-->
 					<div id="title">
-						<%= raw(@base_product.name) %>
+						<%= raw(@product_set.name) %>
 					</div>
 					
 					<div id="description">
-						<%= raw(@base_product.long_description) %>
+						<%= raw(@product_set.long_description) %>
 					</div>
 					
 				</div> 
-
-				<!-- base product offered in:   ——————————————————————— -->
 				
 				<div id="products">
-		
 					<table cellspacing="10">
 						<col/>
 						<col align="left" width="300px"/>
@@ -161,16 +158,25 @@
 						<th align="left">Name</th>
 						<th align="right">Price</th>
 						<th align="left">Qty</th>
+				
+						<!-- for each base-product within this product-set -->
+						<% @product_set.base_products.each do |bp| %>
+				
+							<tr>
+								<td class="differentiator"><%= bp.description %></td>
+							</tr>
+								
+							<% bp.simple_products.each do |p| %>
+								<tr>
+									<td><%= p.tms_part_no %></td>
+									<td><%= p.description %></td>
+									<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
+									<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
+								</tr>
+							<% end %>	
+							
+						<% end %>	
 						
-					<% @base_product.simple_products.each do |p| %>
-						<tr>
-							<td><%= p.tms_part_no %></td>
-							<td><%= p.description %></td>
-							<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
-							<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
-						</tr>
-					<% end %>	
-
 						<tr>
 							<td></td>
 							<td></td>

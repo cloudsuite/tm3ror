@@ -170,13 +170,13 @@
 
 				<div id="product_image_description">
 					
-					<%= image_tag("/images/products/modalities_large/" + @product_type.image_filename + ".jpg") %>
+					<%= image_tag("/images/products/all_large/" + @product_type.image_filename + ".jpg") %>
 					<div id="title">
 						<%= raw(@product_type.name) %>
 					</div>
 					
 					<div id="description" style="padding-right:40px; padding-left:0px;">
-						<%= raw(@product_type.description) %> <!-- defined in schema for product_types? -->
+						<%= raw(@product_type.long_description) %> <!-- defined in Products table? now that we're using STI -->
 					</div>
 					
 				</div> 
@@ -209,9 +209,9 @@
 				</div> <!-- end div#products -->
 				
 				<!-- if product type that has accessories ————————————————— -->
-				<!-- %= if @part_type.accessories.size > 0  %> -->
+				<% unless @product_type.accessories.empty?  %> 
 					<%= render(:partial => "accessories") %> 
-
+				<% end %>
 				<!-- add-to-cart / checkout buttons (after accessories)  ————————————————— -->
 				
 				<table cellspacing="10" style="padding-left:40px;">
@@ -242,8 +242,9 @@
 				<!-- Ancillary Product Information ———————————————————————— -->
 				
 				<!-- DEBUG: tabs built with jquery tools 'tab' give me simpler styling
-					control that those from jquery-ui.  However only rendering the content of tab-1 correctly; tab-2 gets only the header line; tab-3 and tab-4 are empty. --> 
-				<%= render(:partial => "tabs") %>
+					control that those from jquery-ui.  However only rendering the content of tab-1 correctly; tab-2 gets only the header line; tab-3 and tab-4 are empty. 
+					rendering this partial is triggering an error; nil for product_type id or product_line id --> 
+				<!-- <%# render(:partial => "tabs") %> -->
 	
 
 

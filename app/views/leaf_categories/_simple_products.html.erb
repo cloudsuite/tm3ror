@@ -11,7 +11,7 @@
 					<div class="product">
 						<a href='<%= product_path(p.id) %>'>
 							<div class='pic'>
-								<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg",:height=>"80") %>
+								<%= image_tag("/images/products/all_small/" + p.image_filename[0,6] + "-000" + ".jpg",:height=>"80") %>
 							</div>
 							<div class="productName"><%= sanitize(p.name[0,37]) %></div>
 						</a>

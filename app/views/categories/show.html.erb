@@ -180,6 +180,10 @@
 						-->
 						<% if @category.children.empty? # ie if we are at a leaf category 
 									
+									if @category.id == 21 %>
+										<p><i>Call Today for Pricing on Whirlpools. 877-882-7844. <i></p>
+									<% end %>
+									<%	
 							 		@category.products.each do |p|
 										case p.type
 										when "ProductSet" %>
@@ -213,11 +217,13 @@
 													<div class='productName'><%= sanitize(p.name[0,37]) %></div>
 												</a>
 											</div>
-										<% when "ComplexProduct" %>
+										<% when "ProductType" %>
 											<div class="product">
 												<a href='<%= product_type_path(p.id) %>'>
-													<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg", :size => "120x80",:style => "float:left; border:0;") %>
-													<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+													<div class='pic'>
+														<%= image_tag('/images/products/all_small/' + p.image_filename + '.jpg')  %>
+													</div>
+													<div class='productName'><%= sanitize(p.name[0,37]) %></div>
 												</a>
 											</div>
 										<% end # end of the case statement

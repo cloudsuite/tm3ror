@@ -9,7 +9,7 @@
 	left: 0px; 
 	width:665px; /* 20+665+20 = 705 */
 	background-color:white; 
-	padding:20px 20px 10px 20px; 
+	padding:20px 20px 40px 20px; 
 	min-height:34px; 
 	} 
 .popup_base h2 { font-size:12px; font-weight:bold; margin-top:10px; margin-bottom:5px;}
@@ -28,11 +28,12 @@
 #popup_trumedical {top:324px;z-index:1001; background-color:#0094DE; color:white;height:355px; overflow:scroll; padding-bottom:20px; }
 
 #popup_patients {top:360px; z-index:12; background-color:orange;
-	height:330px; padding-bottom:20px; overflow:scroll;} 
+	height:330px;  overflow:scroll;} 
 #popup_providers {top:394px; z-index:12;background-color:orange;
-	height:300px; padding-bottom:20px; overflow:scroll;}
+	height:300px;  overflow:scroll;}
 #popup_payors {top:430px; z-index:12;background-color:orange;
-	height:260px; padding-bottom:20px; overflow:scroll;}
+	height:240px;  overflow:scroll;}
+#popup_bottom_pad { min-height:40px;}
 div.subcategories { }
 div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
 	background-color:#E6E6E6;}

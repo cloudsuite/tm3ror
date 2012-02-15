@@ -2,9 +2,11 @@ class ProductTypesController < ApplicationController
    
   def show
     
+     # Will this continue to work against STI using Products class? 
+     # No; must to Product.find_by ... rather than ProductType.find_by ... 
      
-     @product_type = ProductType.find_by_id(params[:id]) # replace with params[:id]
-     
+     # @product_type = Product.find_by_id(params[:id]) # replace with params[:id]
+     @product_type = Product.where(:id => params[:id]).first # this from product_sets.controller.rb
      @products = @product_type.products
      @category = @product_type.category
      @accessories = @product_type.accessories

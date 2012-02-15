@@ -9,7 +9,7 @@
 					<div class="leafCategory">
 						<a href='<%= category_path(subcat.id) %>'>
 							<div class="pic">
-								<%= image_tag("/images/categories/all/" + subcat.image_filename + ".jpg") %>
+								<%= image_tag("/images/categories/all/" + subcat.image_filename[0,6] + "-000" + ".jpg") %>
 							</div>
 							<div class="leafCategoryName"><%= subcat.name %></div>
 						</a>

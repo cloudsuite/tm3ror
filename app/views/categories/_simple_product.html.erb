@@ -2,7 +2,7 @@
 		<div class="product">
 			<a href='<%= product_path(product.id) %>'>
 				<div class='pic'>
-					<%= image_tag("/images/products/all_small/" + product.image_filename + ".jpg") %>
+					<%= image_tag("/images/products/all_small/" + product.image_filename + "-000" + ".jpg") %>
 				</div>
 				<div class="productName"><%= sanitize(product.name[0,37]) %></div>
 			</a>

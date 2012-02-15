@@ -155,7 +155,7 @@
 						<col align="right"/>
 						<col align="left"/>
 						<th align="left">Part No</th>
-						<th align="left">Name</th>
+						<th align="left">Description</th>
 						<th align="right">Price</th>
 						<th align="left">Qty</th>
 				
@@ -163,13 +163,13 @@
 						<% @product_set.base_products.each do |bp| %>
 				
 							<tr>
-								<td class="differentiator"><%= bp.description %></td>
+								<td class="differentiator" colspan="2"><%= raw(bp.web_description) %></td>
 							</tr>
 								
 							<% bp.simple_products.each do |p| %>
 								<tr>
 									<td><%= p.tms_part_no %></td>
-									<td><%= p.description %></td>
+									<td><%= p.web_description %></td>
 									<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
 									<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
 								</tr>

@@ -178,13 +178,16 @@
 								If at a leaf category then iterate through the 'products' that are members of this category, calling the appropriate partial to render each 'product' depending on whether it is a base_product, or a simple_product.  Don't worry about complex products for now.  There are none in tlc#, Clinic. 
 								Otherwise render subcategories of this category.  For now, just render a partial that prints an error. 
 						-->
-						<% if @category.children.empty? # ie if we are at a leaf category 
+						<% if @category.children.empty? # ie if we are at a leaf category %> 
+									<% if @category.products.empty? %>
+										<p style="color:red"><i>We don't currently offer products in this category on-line. Call us at 877-882-7844.</i></p>
+									<% end %>
 									
-									if @category.id == 21 %>
+									<% if @category.id == 21 %>
 										<p><i>Call Today for Pricing on Whirlpools. 877-882-7844. <i></p>
 									<% end %>
-									<%	
-							 		@category.products.each do |p|
+									
+							 	<%	@category.products.each do |p|
 										case p.type
 										when "ProductSet" %>
 											<div class="product">

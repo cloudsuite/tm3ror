@@ -17,12 +17,13 @@
 	margin:0px;
 	padding: 0px;
 	}
-	#subcontainer {
+	#subcontainer {  /* contains the left menu ( and the block called 'right-content? ) */
 		float: left;
 		margin-left: 15px;
-		margin-top: 15px;
+		margin-top: 3px; /* was 15px; seems to drop menu too low. Why? where is the other 15px coming from? */
 		padding-bottom: 25px;
 		width: 1060px; /* was 977: why?  contains stuff in main? */
+		z-index:11;
 		}
 
 #container.home {
@@ -32,19 +33,21 @@
 	#subcontainer.home { 
 		position:absolute;
 		left:0px; /* if put 15px in here it is added to the 15px on subcontainer */
-		top:0px;
-		z-index:11; /* allow it to float above the scrolling images at z-index 10 below it */
+		top:12px;
 		width: 265px; /* controls width of menu on left ( BUT NOT how far left the slides start — they should slide UNDER the menu in the subcontainer ) */
+		z-index:11; /* allow it to float above the black_screen at z-index 10, and the 
+			scrolling images at z-index 9 below that */
 		}
 			
 		
-#right_content_container,
-#home_right_content_container {
-	margin-top: 35px; /* to line up top of td within table within right_content_container with line under breadcrumb */
+#right_content_container {
+	margin-top: 35px; 
 	float: left;
+	margin-left:15px;
 	}
 #home_right_content_container {
 	margin-top: 0px;
+	float:left;
 	}
 	
 	#right_content,
@@ -72,16 +75,23 @@
 
 	/* scrolling overlay Ñ scrolling from right in home page? or up/down in LLC, Product? */ 
 	#black_screen {
-		background: black;
-		z-index: 99; /* just below popups-container at z-index of 100 */
+		background-color: black;
+		z-index: 10; /* below popups-container at z-index of 12, and left menu at z-index 11 (#container #subcontainer).
+		 					(Above scrolling images in #container at z-index 3? 
+								problem with the 'More' buttons showing above the black_screen) 
+							#popups_container is defined in home/index.html.erb 
+							and also shared/_menu_popups.html.erb'  — as well as shared/_menu_popups_home.html.erb
+						*/
 		position: absolute;
 		top: 0px;				
 		left: 0px;
 		margin: 0px;
 		padding: 0px;
 		display:none;
-		opacity: 0.5;
-		filter: alpha(opacity=50);
+		opacity: 0.45;
+		filter: alpha(opacity=45);
+		height:800px;
+		width:1200px; /* need to set this dynamically based on current width of window */
 	}
 		
 	#cart_links {  
@@ -100,6 +110,10 @@
 		z-index:1000;
 		position: fixed; bottom:0; left:0;
 		}
+		
+/* ———— home page: scrolling background images ——————————————————— */
+
+	div#banner-rotator { z-index: 9; } /* below black_screen at z-index 10 */
 
 /* ———— generic styles (may be overridden later in this file)  ———— */
 

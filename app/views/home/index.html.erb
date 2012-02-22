@@ -19,25 +19,24 @@ ToDo:
 	5. Replace Netsuite register/login with Rails-side register/login; push info back into Netsuite?  
 
 Known Bugs:
-	1. left-nav: overlays not closing if mouse leaves menu or currently visible overlay.
-			1-1 interim partial solution: put a colse icon in upper/lower right of all overlays; add js to make it work. 
+	0. left-nav: overlays not coming up 'modal' FIXED 2/23
+	1. left-nav: overlays not closing if mouse leaves menu or currently visible overlay. FIXED 2/23
+			1-1 interim partial solution: put a close icon in upper/lower right of all overlays; add js to make it work. REMOVE
 	2. links in subcategory partial views/home/_subcategories are not working: don't compile
 	3. reference to stylesheets/images/footer_triangle.gif — Where is it referenced? Can it be cut? 	
 	4. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
 	solution: move search to upper right under register/login cart/checkout links  
 	5. layout of title text in box truValue products 
 	6. image scroller:
-			6-1	previous slide arrow too far right
-			6-2 font family of title wrong
-			6-3 cross-browser problem: not working in webkit-based browsers: Chrome, Safari. 
-			6-4 understand the slider library better 
+			6-1 The text blocks are at a z-index that makes them scroll across on top of the left-menu which is at z-index 11. The 'More' button seems like it is above black_screen at z-index 10. 
+			6-2 understand the slider library better 
 
 Unknowns:
-	1. how to get images coming in in royal slider to slide underneath the left nav 
-	2. how/when logo-container moves around the window. What triggers the recalculation
+
+	1. how/when logo-container moves around the window. What triggers the recalculation
 		(presumably window resize); what algorithm used for the recalculation; how does the 
 		algorithm chose where to move it to. 	
-	3. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
+	2. views/layouts/application.html.erb is putting in footer class="home_footer". Do I need a footer styled differently for home page versus category and product template pages?
 -->
 
 <%= content_for(:header) do %>
@@ -101,7 +100,7 @@ Unknowns:
 	
 	<div id="container" class="home">
 
-		<!-- <div id="black_screen"></div> -->
+		<div id="black_screen"></div> 
 		
 		<!-- subcontainer  ———————————————————————————————————————————————————————————— -->
 		
@@ -126,239 +125,234 @@ Unknowns:
 		
 		<!-- slides on home page  ————————————————————————————————————————————————————— -->	 
 
-			<div id="banner-rotator" class="royalSlider default">
-				<!-- container of slides(images) -->
-				<ul class="royalSlidesContainer">
-					<!-- slides -->
-					
-					<!-- home slide 1: photo collage —————————————————————————————————————— -->
-					<li class="royalSlide" id="slide1">
-						<img class="royalImage" src="../images/homepage/collage_01_1060x800.png" width="1060"/>
-						<div class="royalCaption" style="left:300px; top:310px; width:400px; text-align:left; color:black; ">
-						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >TRU-MEDICAL</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" style="top:35px; left:12px;">partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient</div>
-              <!--
-							<div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;">
-							</div> 
-						-->
-							<!-- <a class="moreButton non-draggable" style="background-color:black; color:white;" href="javascript:void()">More</a></div> No place to go. -->
+		<div id="banner-rotator" class="royalSlider default">
+			<!-- container of slides(images) -->
+			<ul class="royalSlidesContainer">
+				<!-- slides -->
+				
+				<!-- home slide 1: photo collage —————————————————————————————————————— -->
+				<li class="royalSlide" id="slide1">
+					<img class="royalImage" src="../images/homepage/collage_01_1060x800.png" width="1060"/>
+					<div class="royalCaption" style="left:300px; top:310px; width:400px; text-align:left; color:black; ">
+					<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >TRU-MEDICAL</div>
+             <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" style="top:35px; left:12px;">partnering with the<br>provider and the payor<br>to meet the needs<br>of the patient</div>
+             <!--
+						<div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" style="top:120px; left: 12px; font-size:16px;">
+						</div> 
+					-->
+						<!-- <a class="moreButton non-draggable" style="background-color:black; color:white;" href="javascript:void()">More</a></div> No place to go. -->
 
-						</div>
-					</li>
-					
-					<!-- home slide 2: modalities (electrotheraphy, ultrasound, ...)  ————— -->
-					<li class="royalSlide" id ="slide2">
-						<img class="royalImage" src="../images/homepage/710016-000_1060x800.png" width="1060" />
-						<div class="royalCaption" style="left:660px; top:140px; width:320px; text-align:left; color:black;">
-							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >MODALITIES</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Electrotheraphy, Ultrasound, and Combination Units</div>
-						
-              <div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href='<%= category_path(1) %>'>More</a>
-						</div>
+					</div>
+				</li>
+				
+				<!-- home slide 2: modalities (electrotherapy, ultrasound, ...)  ————— -->
+				<li class="royalSlide" id ="slide2">
+					<img class="royalImage" src="../images/homepage/710016-000_1060x800.png" width="1060" />
+					<div class="royalCaption" style="left:660px; top:140px; width:320px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >MODALITIES</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Electrotheraphy, Ultrasound, and Combination Units</div>
+						<div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href='<%= category_path(1) %>'>More</a></div>
+					</div>
+				</li>
+				
+				<!-- home slide 3: clinical supplies  ————————————————————————————————— -->
+				<li class="royalSlide">
+					<img class="royalImage" src="../images/homepage/720033-222_1060x800.png" width="1060" />
+					<div class="royalCaption" style="left:370px; top:220px; width:600px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >CLINICAL SUPPLIES</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+						<div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(23) %>">More</a></div>
+					</div>
+				</li>
+				
+				<!-- home slide 4: tables & traction  ————————————————————————————————— -->
+				<li class="royalSlide">
+					<img class="royalImage" src="../images/homepage/730026-333_1060x800.png" width="1060" />
+					<div class="royalCaption" style="left:320px; top:140px; width:600px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >TABLES & TRACTION</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8">Lorem ipsum ... </div>
+						<div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(43) %>">more</a></div>
+					</div>
+				</li>
+				
+				<!-- home slide 5: fitness ———————————————————————————————————————————— -->
+				<li class="royalSlide">
+					<img class="royalImage" src="../images/homepage/740009-000_1060x800.png" width="1060"  />
+					<div class="royalCaption" style="left:330px; top:140px; width:600px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >FITNESS</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+						<div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(59) %>">more</a></div>
+					</div>
+				</li>
+				
+				<!-- home slide 6: orthopedics ———————————————————————————————————————— -->
+				<li class="royalSlide">
+					<img class="royalImage" src="../images/homepage/750180-000_1060x800.png" width="1060"  />
+					<div class="royalCaption" style="left:620px; top:140px; width:600px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >ORTHOPEDICS</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+						<div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(70) %>">more</a></div>
+					</div>
+				</li>
+				
+				<!-- home slide 7: ATC/Taping ————————————————————————————— -->
+				<li class="royalSlide">
+					<img class="royalImage" src="../images/homepage/760033-000_1060x800.png" width="1060"  />
+					<div class="royalCaption" style="left:360px; top:140px; width:600px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >ATC/TAPING</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+						<div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(81) %>">more</a></div>
+					</div>
+				</li>
+				
+				<!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
+				<li class="royalSlide">
+					<img class="royalImage" src="../images/homepage/770001-111_1060x800.png" width="1060"  />
+					<div class="royalCaption" style="left:620px; top:140px; width:600px; text-align:left; color:black;">
+						<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >EVALUATION</div>
+						<div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
+						<div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(86) %>">more</a></div>
+					</div>	
+				</li>	
 
-						</div>
-					
-					</li>
-					
-					<!-- home slide 3: clinical supplies  ————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/720033-222_1060x800.png" width="1060" />
-						<div class="royalCaption" style="left:370px; top:220px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >CLINICAL SUPPLIES</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(23) %>">More</a></div>
-						</div>
-					</li>
-					
-					<!-- home slide 4: tables & traction  ————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/730026-333_1060x800.png" width="1060" />
-						<div class="royalCaption" style="left:320px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >TABLES & TRACTION</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8">Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(43) %>">more</a></div>
-						</div>
-					</li>
-					
-					<!-- home slide 5: fitness ———————————————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/740009-000_1060x800.png" width="1060"  />
-						<div class="royalCaption" style="left:330px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >FITNESS</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(59) %>">more</a></div>
-						</div>
-
-					</li>
-					
-					<!-- home slide 6: orthopedics ———————————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/750180-000_1060x800.png" width="1060"  />
-						<div class="royalCaption" style="left:620px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >ORTHOPEDICS</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText more" data-show-effect="fade movetop" data-move-offset="8" data-delay="600" ><a class="moreButton non-draggable" href="<%= category_path(70) %>">more</a></div>
-						</div>
-
-					</li>
-					
-					<!-- home slide 7: ATC/Taping ————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/760033-000_1060x800.png" width="1060"  />
-						<div class="royalCaption" style="left:360px; top:140px; width:600px; text-align:left; color:black;">
-							<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >ATC/TAPING</div>
-              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
-              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(81) %>">more</a></div>
-						</div>
-					</li>
-					
-					<!-- home slide 8: Evaluation  ———————————————————————————————————————— -->
-					<li class="royalSlide">
-						<img class="royalImage" src="../images/homepage/770001-111_1060x800.png" width="1060"  />
-								<div class="royalCaption" style="left:620px; top:140px; width:600px; text-align:left; color:black;">
-									<div class="royalCaptionItem title" data-show-effect="fade movetop"  data-move-offset="15" >EVALUATION</div>
-		              <div class="royalCaptionItem subtitle" data-show-effect="fade movetop"  data-move-offset="8" >Lorem ipsum ... </div>
-		              <div class="royalCaptionItem sgSmallText more " data-show-effect="fade movetop" data-move-offset="8" data-delay="600"><a class="moreButton non-draggable" href="<%= category_path(86) %>">more</a></div>
-								</div>	
-					</li>	
-
-				</ul>
-			</div> <!-- end of div#slider --> 
+			</ul> <!-- end of ul with class 'royalSlidesContainer' -->
+		</div> <!-- end of div#bannerRotator --> 
 		
-			<div id="forScrollTop" class="clear"></div> <!-- cut? -->
+		<div id="forScrollTop" class="clear"></div> <!-- cut? -->
 			
-			<div id="popupsContainer">
+		<!-- Why not including the partial /shared/_menu_popups_home.html.erb here? --> 
+		<div id="popupsContainer">
 
-				<!-- Modalities  popup ———————————————————————————————————————————————-->
+			<!-- Modalities  popup ———————————————————————————————————————————————-->
 
-				<div id="popup_modalities" class="popup_base">
-					<% @category = Category.where(:name => "Modalities").first %>
-					<%= render "subcategories" %>		
-				</div> 
+			<div id="popup_modalities" class="popup_base">
+				<% @category = Category.where(:name => "Modalities").first %>
+				<%= render "subcategories" %>		
+			</div> 
 
-				<!-- Clinical Supplies  popup ————————————————————————————————————————-->
-				<div id="popup_clinicalSupplies" class="popup_base">
-					<% @category = Category.where(:name => "Clinic Products & Supplies").first %>
-					<%= render "subcategories" %>
-				</div>
+			<!-- Clinical Supplies  popup ————————————————————————————————————————-->
+			<div id="popup_clinicalSupplies" class="popup_base">
+				<% @category = Category.where(:name => "Clinic Products & Supplies").first %>
+				<%= render "subcategories" %>
+			</div>
 
-				<!-- Tables & Traction  popup ————————————————————————————————————————-->
-				<div id="popup_tables" class="popup_base">
-					<% @category = Category.where(:name => "Tables & Traction").first %>
-					<%= render "subcategories" %>
-				</div>
+			<!-- Tables & Traction  popup ————————————————————————————————————————-->
+			<div id="popup_tables" class="popup_base">
+				<% @category = Category.where(:name => "Tables & Traction").first %>
+				<%= render "subcategories" %>
+			</div>
 
-				<!-- Fitness  popup ——————————————————————————————————————————————————-->
-				<div id="popup_fitness" class="popup_base">
-					<% @category = Category.where(:name => "Fitness Equipment").first %>
-					<%= render "subcategories" %>
-				</div>
+			<!-- Fitness  popup ——————————————————————————————————————————————————-->
+			<div id="popup_fitness" class="popup_base">
+				<% @category = Category.where(:name => "Fitness Equipment").first %>
+				<%= render "subcategories" %>
+			</div>
 
-				<!-- Orthopedics  popup ——————————————————————————————————————————————-->
-				<div id="popup_orthopedics" class="popup_base">
-					<% @category = Category.where(:name => "Orthopedic Products & Supplies").first %>
-					<%= render "subcategories" %>  
-				</div>
+			<!-- Orthopedics  popup ——————————————————————————————————————————————-->
+			<div id="popup_orthopedics" class="popup_base">
+				<% @category = Category.where(:name => "Orthopedic Products & Supplies").first %>
+				<%= render "subcategories" %>  
+			</div>
 
-				<!-- ATC/Taping  popup ———————————————————————————————————————————————-->
-				<div id="popup_taping" class="popup_base">
-					<% @category = Category.where(:name => "ATC & Taping").first %>
-					<%= render "subcategories" %>  
-				</div>
+			<!-- ATC/Taping  popup ———————————————————————————————————————————————-->
+			<div id="popup_taping" class="popup_base">
+				<% @category = Category.where(:name => "ATC & Taping").first %>
+				<%= render "subcategories" %>  
+			</div>
 
-				<!-- Evaluation  popup ———————————————————————————————————————————————-->
-				<div id="popup_evaluation" class="popup_base">
-					<% @category = Category.where(:name => "Evaluation Products").first %>
-					<%= render "subcategories" %>  
-				</div>
+			<!-- Evaluation  popup ———————————————————————————————————————————————-->
+			<div id="popup_evaluation" class="popup_base">
+				<% @category = Category.where(:name => "Evaluation Products").first %>
+				<%= render "subcategories" %>  
+			</div>
 
-				<!-- Daily Ling Aids  popup ——————————————————————————————————————————-->
-				<div id="popup_dailyLiving" class="popup_base">
-					<% @category = Category.where(:name => "Aids to Daily Living").first %>
-					<%= render "subcategories" %>  
-				</div>
+			<!-- Daily Ling Aids  popup ——————————————————————————————————————————-->
+			<div id="popup_dailyLiving" class="popup_base">
+				<% @category = Category.where(:name => "Aids to Daily Living").first %>
+				<%= render "subcategories" %>  
+			</div>
 
-				<!-- Lymphedema  popup ———————————————————————————————————————————————-->
-				<div id="popup_lymphedema" class="popup_base">
-					<% @category = Category.where(:name => "Lymphedema").first %> 
-					<%= render "subcategories" %>  
-				</div>
+			<!-- Lymphedema  popup ———————————————————————————————————————————————-->
+			<div id="popup_lymphedema" class="popup_base">
+				<% @category = Category.where(:name => "Lymphedema").first %> 
+				<%= render "subcategories" %>  
+			</div>
 
-				<!-- Wound Care  popup ———————————————————————————————————————————————-->
-				<div id="popup_woundCare" class="popup_base">
-					<% @category = Category.where(:name => "Wound Care").first %>
-					<%= render "subcategories" %> 
-
-				</div>
-
-				<!-- TruMedical  popup ———————————————————————————————————————————————-->
-				<div id="popup_trumedical" class="popup_base">
-					<img class="close" src="/images/utility/close16_white.png">  
-					<p><span style="font-weight:bold">Tru Medical Solutions, LLC (TMS)</span> is a manufacturer and distributor of orthopedic and rehabilitation products sold to hospitals, orthopedic and rehab clinics, nursing homes, assisted living centers, chiropractors and patients across the United States.</p> 
-					<p>Our corporate mission is to <span class="mission">partner with provider and the payer by to meet the needs of the patient.</span></p>
-					<p>We are owned and managed by 6 partners who are each actively involved in the daily operations of the business. Leadership experience ranges from former executives and managers of medical product manufacturers and distributors to executives and managers of insurance, transportation and food companies.</p>
-					<p>Founded in November 2009 and located in Collegedale Tennessee, TMS currently operates out of 21,000 square feet of offices and warehouse space with expansion capabilities existing through lease arrangements with adjoining tenants.</p> 
-					<p>Sales and marketing activities are divided into two categories, clinic and patient. Clinic sales are generated direct to clinics by TMS direct sales employees and contracted sales associates. Additionally, direct sales to clinics are accomplished through catalog marketing and our 21st century web ordering vehicle. Indirect clinical sales are achieved through dealers/re-sellers strategically located throughout the U.S.</p>
-					<p>Patient sales are generated on a referral basis by clinics both on a prescription and non-prescription basis. TMS is an accredited Medicare and Medicaid provider and currently accepts assignments from Medicare and Medicaid programs on certain items in TN, GA and KY. Additionally, TMS maintains contacted in network reimbursement status with many commercial payers in TN, GA & KY.</p>
-					<p>Our management team believes there is an excellent opportunity for sustainable multi-year growth due to recent consolidations and our multi channeled go to market strategy.  We believe that many of the products we offer provide cost effective approaches to treating many conditions and that there will be a solid demand as the health care industry reforms. </p>
-					<div id="popup_bottom_pad"></div>
-				</div>
-
-				<!-- Patients popup ————————————————————————————————————————————————— -->
-				<div id="popup_patients" class="popup_base">
-					<img class="close" src="/images/utility/close16_white.png">	
-					<p>TruMedical Solutions, LLC places the highest priority on patient care.  We partner with Providers (your doctors) and Payers (Insurance Companies) to achieve the best possible outcomes.</p>
-					<p>At TruMedical Solutions we have a team of professionals who understands the unique challenges that patients face in our changing healthcare system.  We strive to educate our patients on their product options allowing them to make an informed decision.  Through a wide product offering we enable the patients, caregivers and clinicians to choose the best products to treat their conditions and meet their needs.</p>
-					<p>We offer patients’ options; multiple products to meet the needs of both simple and complex patient requests.  We provide over the counter retail products for health and well being as well as prescribed products that can be billed directly to the patients insurance including Medicare and Medicaid.</p>
-					<p>We also partner with the Payers (Insurance Companies) on behalf of the patient to maximize the patient’s opportunity for recovery.  We work side by side with the insurance companies to ensure that the products we provide are covered for patient care.  We communicate benefit coverage and authorization requirements to the patient and work with the Clinicians to meet the needs of the patient efficiently and affordably.</p>
-					<p>We have a team of customer service professionals who can assist patients, caregivers, and/or clinicians with products offerings and requirements for insurance billing.  We also provide fitting services to ensure that products fit properly giving the patient the additional support that they need.</p>  
-					<p>To learn more about our patient services please feel free to call us at, 877.882.7844 we’ll be glad to hear from you and look forward to working with you.</p>
-					<div id="popup_bottom_pad"></div>
-				</div>
-
-
-				<!-- Providers popup —————————————————————————————————————————————————-->
-				<div id="popup_providers" class="popup_base">
-					<img class="close" src="/images/utility/close16_white.png">
-					<div class="row">
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-						<p>Lorem ipsum ... </p>
-					</div> 
-					<div id="popup_bottom_pad"></div> 
-				</div>
-
-				<!-- Payors popup ————————————————————————————————————————————————————-->
-				<div id="popup_payors" class="popup_base">
-					<img class="close" src="/images/utility/close16_white.png">
-					<h2>Experience</h2>
-					<p>Our team of professionals is built on a foundation of 25 years of Health Plan Management Experience.  We understand the challenges that your members face when they enter the healthcare system and we’re here to help them navigate the course.  Our goal is to reduce the administrative burden placed on health plans as it relates to member specific healthcare products and services.  Through our in-depth knowledge of products and member education we believe that the end result will be healthier more individually engaged members.</p>
-
-					<h2>Patient Centered Focus</h2>
-					<p>We take a patient centered approach to total population health management.  We take a collaborative approach in working with all stake holders, patients, payers, and providers to coordinate the most efficient and effective patient plan of care.  We welcome the opportunity to work with your Case Managers & Disease Management to deliver the prescribed products when and where needed.  We are constantly working through patient outreach to help ensure patient compliance and therefore helping to reduce total health plan spend.</p>
-
-					<h2>Credentialing and Accreditation</h2>
-					<p>TruMedical Solutions is fully accredited as an Exemplary Provider by The Compliance Team.  We are CMS certified to deliver Durable Medical Equipment (DME) and Orthothic & Prosthetic (O&P) products and services for Medicare and Medicaid patient populations.</p>
-
-					<h2>HIPAA Compliance<h2>
-					<p>All Processes, procedures, and systems are HiPAA Compliant.  Add Link for Privacy Policy</p>
-
-					<h2>EDI</h2>
-					<p>We have full capability of interfacing with all payers through Electronic Data Interchange (EDI) claims systems.</p>
-					<!-- <div id="popup_bottom_pad"></div> -->
-				</div>  
+			<!-- Wound Care  popup ———————————————————————————————————————————————-->
+			<div id="popup_woundCare" class="popup_base">
+				<% @category = Category.where(:name => "Wound Care").first %>
+				<%= render "subcategories" %> 
 
 			</div>
+
+			<!-- TruMedical  popup ———————————————————————————————————————————————-->
+			<div id="popup_trumedical" class="popup_base">
+				<img class="close" src="/images/utility/close16_white.png">  
+				<p><span style="font-weight:bold">Tru Medical Solutions, LLC (TMS)</span> is a manufacturer and distributor of orthopedic and rehabilitation products sold to hospitals, orthopedic and rehab clinics, nursing homes, assisted living centers, chiropractors and patients across the United States.</p> 
+				<p>Our corporate mission is to <span class="mission">partner with provider and the payer by to meet the needs of the patient.</span></p>
+				<p>We are owned and managed by 6 partners who are each actively involved in the daily operations of the business. Leadership experience ranges from former executives and managers of medical product manufacturers and distributors to executives and managers of insurance, transportation and food companies.</p>
+				<p>Founded in November 2009 and located in Collegedale Tennessee, TMS currently operates out of 21,000 square feet of offices and warehouse space with expansion capabilities existing through lease arrangements with adjoining tenants.</p> 
+				<p>Sales and marketing activities are divided into two categories, clinic and patient. Clinic sales are generated direct to clinics by TMS direct sales employees and contracted sales associates. Additionally, direct sales to clinics are accomplished through catalog marketing and our 21st century web ordering vehicle. Indirect clinical sales are achieved through dealers/re-sellers strategically located throughout the U.S.</p>
+				<p>Patient sales are generated on a referral basis by clinics both on a prescription and non-prescription basis. TMS is an accredited Medicare and Medicaid provider and currently accepts assignments from Medicare and Medicaid programs on certain items in TN, GA and KY. Additionally, TMS maintains contacted in network reimbursement status with many commercial payers in TN, GA & KY.</p>
+				<p>Our management team believes there is an excellent opportunity for sustainable multi-year growth due to recent consolidations and our multi channeled go to market strategy.  We believe that many of the products we offer provide cost effective approaches to treating many conditions and that there will be a solid demand as the health care industry reforms. </p>
+				<div id="popup_bottom_pad"></div>
+			</div>
+
+			<!-- Patients popup ————————————————————————————————————————————————— -->
+			<div id="popup_patients" class="popup_base">
+				<img class="close" src="/images/utility/close16_white.png">	
+				<p>TruMedical Solutions, LLC places the highest priority on patient care.  We partner with Providers (your doctors) and Payers (Insurance Companies) to achieve the best possible outcomes.</p>
+				<p>At TruMedical Solutions we have a team of professionals who understands the unique challenges that patients face in our changing healthcare system.  We strive to educate our patients on their product options allowing them to make an informed decision.  Through a wide product offering we enable the patients, caregivers and clinicians to choose the best products to treat their conditions and meet their needs.</p>
+				<p>We offer patients’ options; multiple products to meet the needs of both simple and complex patient requests.  We provide over the counter retail products for health and well being as well as prescribed products that can be billed directly to the patients insurance including Medicare and Medicaid.</p>
+				<p>We also partner with the Payers (Insurance Companies) on behalf of the patient to maximize the patient’s opportunity for recovery.  We work side by side with the insurance companies to ensure that the products we provide are covered for patient care.  We communicate benefit coverage and authorization requirements to the patient and work with the Clinicians to meet the needs of the patient efficiently and affordably.</p>
+				<p>We have a team of customer service professionals who can assist patients, caregivers, and/or clinicians with products offerings and requirements for insurance billing.  We also provide fitting services to ensure that products fit properly giving the patient the additional support that they need.</p>  
+				<p>To learn more about our patient services please feel free to call us at, 877.882.7844 we’ll be glad to hear from you and look forward to working with you.</p>
+				<div id="popup_bottom_pad"></div>
+			</div>
+
+
+			<!-- Providers popup —————————————————————————————————————————————————-->
+			<div id="popup_providers" class="popup_base">
+				<img class="close" src="/images/utility/close16_white.png">
+				<div class="row">
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+					<p>Lorem ipsum ... </p>
+				</div> 
+				<div id="popup_bottom_pad"></div> 
+			</div>
+
+			<!-- Payors popup ————————————————————————————————————————————————————-->
+			<div id="popup_payors" class="popup_base">
+				<img class="close" src="/images/utility/close16_white.png">
+				<h2>Experience</h2>
+				<p>Our team of professionals is built on a foundation of 25 years of Health Plan Management Experience.  We understand the challenges that your members face when they enter the healthcare system and we’re here to help them navigate the course.  Our goal is to reduce the administrative burden placed on health plans as it relates to member specific healthcare products and services.  Through our in-depth knowledge of products and member education we believe that the end result will be healthier more individually engaged members.</p>
+
+				<h2>Patient Centered Focus</h2>
+				<p>We take a patient centered approach to total population health management.  We take a collaborative approach in working with all stake holders, patients, payers, and providers to coordinate the most efficient and effective patient plan of care.  We welcome the opportunity to work with your Case Managers & Disease Management to deliver the prescribed products when and where needed.  We are constantly working through patient outreach to help ensure patient compliance and therefore helping to reduce total health plan spend.</p>
+
+				<h2>Credentialing and Accreditation</h2>
+				<p>TruMedical Solutions is fully accredited as an Exemplary Provider by The Compliance Team.  We are CMS certified to deliver Durable Medical Equipment (DME) and Orthothic & Prosthetic (O&P) products and services for Medicare and Medicaid patient populations.</p>
+
+				<h2>HIPAA Compliance<h2>
+				<p>All Processes, procedures, and systems are HiPAA Compliant.  Add Link for Privacy Policy</p>
+
+				<h2>EDI</h2>
+				<p>We have full capability of interfacing with all payers through Electronic Data Interchange (EDI) claims systems.</p>
+				<!-- <div id="popup_bottom_pad"></div> -->
+			</div>  
+
+		</div>
 		
 		
 		<!-- floating logo —————————————————————————————————————————————————————————— -->
@@ -367,22 +361,6 @@ Unknowns:
 			[[ TRU-MEDICAL LOGO ]]
 		</div>
 		
-		
-		<!-- row of rectangles controlling slides on home page  ———————————————————— -->
-			<!-- DEBUG: Why not group these into a single div? OK. and position that? (not OK)
-				See line 2508 in style.css: each homebutton is positioned absolutely — relative to what?
-		
-		<div id="slide_controls">	
-			  <div onClick="clearTimeout(homeTimer);homeShowSlide(0);" id="homebutton_0" class="homebutton" style="right:106px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(1);" id="homebutton_1" class="homebutton" style="right:93px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(2);" id="homebutton_2" class="homebutton" style="right:80px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(3);" id="homebutton_3" class="homebutton" style="right:67px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(4);" id="homebutton_4" class="homebutton" style="right:54px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(5);" id="homebutton_5" class="homebutton" style="right:41px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(6);" id="homebutton_6" class="homebutton" style="right:28px;"></div>
-		    <div onClick="clearTimeout(homeTimer);homeShowSlide(7);" id="homebutton_7" class="homebutton" style="right:15px;"></div>
-		</div>
-	-->
 	</div> <!-- end of div 'container' -->
 
 <% end %> <!-- end of content for :body -->

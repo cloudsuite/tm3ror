@@ -366,18 +366,7 @@
 	}
 
 /** OVERLAY **/
-	#black_screen {
-		background: black;
-		z-index: 10;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		margin: 0px;
-		padding: 0px;
-		display:none;
-		opacity: 0.5;
-		filter: alpha(opacity=50);
-	}
+/* black_screen now declared in trumedical_base.css */
 
 
 /** MENU **/

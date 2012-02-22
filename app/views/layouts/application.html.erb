@@ -11,15 +11,16 @@
 	
 		ToDo:
 			1. get correct container divs from trumedical3
-			2. get correct set of stylesheets and javascript includes from trumedical3
+			2. get correct set of stylesheets and javascript includes from trumedical3; lots of unnecessary ones here. 
 			3. get search working: masking Google generated field 
+			4. change menu so that it hides only the currently visible overlay, not all of them.  use :visible selector
 	
 		Known Bugs:	
 			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
 		
 		Unknowns:
-
-
+			1. What is causing modal overlay to come up?  I have deleted the code to show black_screen from the jquery 
+			event handlers for mouseover on the menu buttons? 
 			3. unclear how/when logo div moves around the window
 			4. set of float declarations that lets right_content move over to the left below menu when 
 				the window is too small for it to appear on the right, is currently a mystery to me.
@@ -35,16 +36,19 @@
 		<%= stylesheet_link_tag "custom-theme/jquery-ui-1.8.10.custom.css" %>
 		
     <%= stylesheet_link_tag "trumedical_base.css" %>
+		<%= stylesheet_link_tag "search.css" %> 
+		<%= stylesheet_link_tag "menu.css" %> 
+    <%= stylesheet_link_tag "tabs.css" %>
+		<%= stylesheet_link_tag "left_nav_popups.css" %> <!-- added by TA 1/4/2012 -->
+	
+		<!-- fragments of broken out mavic.css that are not used in trumedical -->
 		<!-- <%# stylesheet_link_tag "home.css" %> -->
     <!-- <%# stylesheet_link_tag "buttons.css" %> -->
-    <%= stylesheet_link_tag "product.css" %>
-    <%= stylesheet_link_tag "search.css" %>
+    <!-- <%= stylesheet_link_tag "product.css" %> -->  
     <!-- <%# stylesheet_link_tag "select.css" %>  there is no longer such a stylesheet -->
 		<!-- <%# stylesheet_link_tag "style3.css" %> -->
-    <%= stylesheet_link_tag "menu.css" %>
-    <%= stylesheet_link_tag "tabs.css" %>
     <!-- <%# stylesheet_link_tag "webform.css" %> used by what?  -->
-		<%= stylesheet_link_tag "left_nav_popups.css" %> <!-- added by TA 1/4/2012 -->
+
 		
 		<!-- standard js files -->
 		
@@ -53,16 +57,19 @@
 		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %>
 		
 		<!-- additional js files lumped into mavic.js -->
-		<%= javascript_include_tag "Cufon.js" %>
-		<%= javascript_include_tag "ezMark.js" %>
-		<%= javascript_include_tag "jq.ezBgResize.js" %>
-		<%= javascript_include_tag "jq_cookie.js" %>
-		<%= javascript_include_tag "parsed_query_string.js" %>
-		<%= javascript_include_tag "homepage_functions.js" %>
-		<%= javascript_include_tag "product_compare.js" %>
-		<%= javascript_include_tag "zoom_and_mega_zoom.js" %>
-		<!-- what was left in mavic.js after stripping out the above, 3rd-party developed js libraries -->
-		<%= javascript_include_tag "mavic_only.js" %> <!-- most of this may be in misc.js -->
+		<!-- <%# javascript_include_tag "Cufon.js" %> -->
+		<%= javascript_include_tag "ezMark.js" %> <!-- needed on home page; why? -->
+		<!-- <%# javascript_include_tag "jq.ezBgResize.js" %> -->
+		<!-- <%# javascript_include_tag "jq_cookie.js" %> -->
+		<!-- <%# javascript_include_tag "parsed_query_string.js" %> -->
+		<!-- <%# javascript_include_tag "homepage_functions.js" %> -->
+		<!-- <%# javascript_include_tag "product_compare.js" %> -->
+		<!-- <%# javascript_include_tag "zoom_and_mega_zoom.js" %> -->
+		
+		<!-- what was left in mavic.js after stripping out the above, 3rd-party developed js libraries 
+			   most of this may be in misc.js 
+				It includes the code for showing the modal overlay black_screen -->
+		<!-- <%= javascript_include_tag "mavic_only.js" %> -->
 
 		<!--  csrf_meta_tag %> -->
 		
@@ -161,89 +168,102 @@
 				$(document).ready(function(){
 
 					$(".popup_base").hide();
+					$("#black_screen").hide();
 
 					$("#modalities").mouseover(function(){
-							$(".popup_base").hide();
-							$("#popup_modalities").show();
-							return false;
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
+						$("#popup_modalities").show();
+						return false; /* combines stopPropagation() and preventDefault()  */
 					});
 
 					$("#clinicalSupplies").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_clinicalSupplies").show();
 						return false;
 					})
 					$("#tables").hover(function(){
-						$(".popup_base").hide();					
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_tables").show();
 						return false;
 					})
 					$("#fitness").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_fitness").show();
 						return false;
 					})
 					$("#orthopedics").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_orthopedics").show();
 						return false;
 					})
 					$("#taping").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_taping").show();
 						return false;
 					})
 					$("#evaluation").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_evaluation").show();
 						return false;
 					})
 					$("#dailyLiving").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_dailyLiving").show();
 						return false;
 					})
 					$("#lymphedema").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_lymphedema").show(); /* DEBUG: Why is this one coming up with no content */
 						return false;
 					})
 					$("#woundCare").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_woundCare").show();
 						return false;
 					})
 					/* the following four are used only on the home page */
 					
 					$("#trumedical").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_trumedical").show();
 						return false;
 					})
 
 					$("#patients").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_patients").show();
 						return false;
 					})
 
 					$("#providers").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_providers").show();
 						return false;
 					})
 
 					$("#payors").hover(function(){
-						$(".popup_base").hide();
+						$(".popup_base:visible").hide();
+						$("#black_screen").show();
 						$("#popup_payors").show();
 						return false;
 					})
-					/* Adding this seems to be interfering with modal overlay graying out base page. Why? 
-						Is the jQuery call doing it: No, or the css declarations in views/layouts/application.htm.erb 
-					*/
 		
 					$("img.close").click(function(){
-						$(".popup_base").hide() // really just need to hide the one that is currently open
+						$(".popup_base:visible").hide();
+						$("#black_screen").hide();  
 						return false;
 					})
 				

@@ -4,9 +4,6 @@ Tm2ror::Application.routes.draw do
 
   devise_for :users, :path_names => { :sign_up => "register" }
 
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
 
    get "search/results"
    get "site/search"
@@ -29,7 +26,6 @@ Tm2ror::Application.routes.draw do
   
 
   get "home/index"
-  get "home0/index"
   get "home/circle"
   
   root :to => "home#index"

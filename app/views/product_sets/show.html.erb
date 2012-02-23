@@ -65,13 +65,13 @@
 		    return false;
 		}
 	</script>
-
+	
 	<style type="text/css">
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 		div#product_image_description img { margin-bottom:15px;}
 		div#products { margin-top:10px; padding-left:40px;}
 		td.differentiator { font-size:12px; font-weight:normal; color: blue; }
-		div#title { color:orange; font-size:14px; font-weight:bold;}
+		div#title { color:orange; font-size:14px; font-weight:bold; }
 		#products table { margin-bottom:30px; }
 		/* How does this work? *
 		#products td.price:before {
@@ -107,30 +107,33 @@
 	<!-- container —————————————————————————————————————————————————————————————————— -->
 
 	<div id="container">
-		<div id="black_screen"></div> <!-- used here?  drop from category#display also? -->
+		<div id="black_screen"></div> 
 
 	  <!-- subcontainer —————————————————————————————————————————————————————— -->
 
 		<div id="subcontainer">
 		
-			<!-- menu —————————————————————————————————————————————————————  -->
+			<!-- menu ———————————————————————————————————————————————————————  -->
 		
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+			<%= render(:partial => '/shared/menu') %>
+			<%= render(:partial => '/shared/search') %>
 
-	    <!-- main content ——————————————————————————————————————————————————————————————— -->
+	    <!-- main content ——————————————————————————————————————————————— -->
 
 			<div id="main_content">
 				
-				<!-- breadcrumb trail ———————————————————————————————————————————————————— -->
-				<%= render :partial => "/shared/breadcrumb" %>
+				<!-- breadcrumb trail ————————————————————————————————————————— -->
+				<%= render(:partial => "/shared/breadcrumb") %>
 			
-				<!-- error messages —————————————————————————————————————————————————————— -->
+				<!-- error messages ——————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
 					<div class="messages error"></div>
 				</div>
+				
+				<!-- menu popups: top level categories ———————————————————————— -->
+				<%= render(:partial => "/shared/menu_popups") %>
 
-	      <!-- product set———————————————————————————————————————————————————————— -->
+	      <!-- product set —————————————————————————————————————————————— -->
 
 				<div id="product_image_description">
 					<!-- change to large picture --> 
@@ -207,7 +210,7 @@
 		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
 
 		<div id="right_content_container">
-	    <%= render(:partial => 'shared/rightContent') %>	       
+	    <%= render(:partial => '/shared/rightContent') %>	       
 		</div>
 
 

@@ -8,13 +8,23 @@
 		this product in the instance variable @category. 
 		
 		Shows the image and description associated
-		with this base product. 
+		with this product type.
 		Then iterates through all of the specific models (= specific products) 
-		the base product is offered in.
+		the product_type is offered in.
+		And all of the accessories associated with this product_type. 
+		
+		Problems:
+			If include the line of code that renders the partial "/shared/menu_popups", line 177,
+			it actually draws the popup menus showing the 2nd level categories within each of the 
+			10 top level categories listed in the menu. The same shared partial works fine in 
+			products/show, base_products/show, product_sets/show,  but not here in product_types/show.  
+			Why? What's different here? Why don't all of these popups start as hidden? 
+		
+		Rev 2: 
 		Has tab set that shows other info on the product_type.
 		NOTE: No source for this information: expand the product_types schema 
 		to include it, or define a separate file_type since use of separate product_types
-		is going away with STI implementation of subtypes of Product  
+		is going away with STI implementation of subtypes of Product. 
  
 ————————————————————————————————————————————————————————————————————— -->
 
@@ -26,15 +36,19 @@
 	<%# javascript_include_tag "galleria-1.2.4.min.js" %>
 	<%# javascript_include_tag "zoom_and_mega_zoom.js" %>
 	-->
-	<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+	<!--<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script> -->
 	<!-- <script src="http://cdn.jquerytools.org/1.2.6/tiny/jquery.tools.min.js"></script> -->
 
-	<%= stylesheet_link_tag("jquery_tools_tabs_no_images.css") %>
+	<!-- <%= stylesheet_link_tag("jquery_tools_tabs_no_images.css") %> -->
 
 	
 	<script type="text/javascript" >
 
 		$(document).ready(function() {
+			/* $(".popup_base").hide(); /* workaround prevents overlays from coming up,
+			 	but menu items still do not bring up popups on demand when hover over them
+				as they should
+			*/
 			$(".css-tabs:first").tabs(".css-panes:first > div"); /* What does ':first' do?  */
 			$("#body-background").ezBgResize();
 			$("#body-background").css("background-color","#E6E6E6");				
@@ -79,8 +93,9 @@
 
 	<style type="text/css">
 		div#product_image_description { margin-top:20px; padding-left:40px;}
-		/* 
-		div#product_image_description img { float:left; margin-right:30px; }
+
+		div#product_image_description img { margin-bottom:15px; }
+		/*
 		div#product_image_description ul { margin-left:20px; }
 		*/
 		div#products { margin-top:10px; padding-left:40px;}
@@ -111,16 +126,17 @@
 			padding-top:6px; padding-bottom:6px; 
 			border:none;
 			}
-			h2 { color:orange; font-size:14px; font-weight:bold}
+			h2 { color:orange; font-size:14px; font-weight:bold; }
 			
 		/* for content of 'ancillary info' partial: testimonials go in panels 3 and 4 */
 	
 		div#ancillary_info {margin:30px 40px 30px 40px;}
-		/* for jquery-ui panels, i.e., ones with embedded divs */
+		/* for jquery-ui panels, i.e., ones with embedded divs 
 		div#ancillary_info div.testimonial { overflow:auto; width:100%; padding-bottom:20px; }
 		div#ancillary_info div.testimonial p.quotation {font-style:italic;}
 		div#ancillary_info div.testimonial img { float:left; margin-right:20px;}
-		/* for jquery tools panels, i.e., one without embeded divs */
+		*/
+		/* for jquery tools panels, i.e., one without embedded divs */
 		div#ancillary_info img.testimonial {float:left; margin-right:20px;}
 		div#ancillary_info p.quotation {font-style:italic;}
 		div.css-panes > div { overflow:auto; width:100%; padding-bottom:20px; }
@@ -142,7 +158,7 @@
 	<!-- container —————————————————————————————————————————————————————————————————— -->
 
 	<div id="container">
-		<div id="black_screen"></div> <!-- won't cause problems until enable left nav-->
+		<div id="black_screen"></div> 
 
 	  <!-- subcontainer —————————————————————————————————————————————————————— -->
 
@@ -150,22 +166,26 @@
 		
 			<!-- menu —————————————————————————————————————————————————————  -->
 		
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+			<%= render(:partial => '/shared/menu') %>
+			<%= render(:partial => '/shared/search') %>
 
 	    <!-- main content ————————————————————————————————————————————————————— -->
 
 			<div id="main_content">
 				
 				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
-				<%= render :partial => "/shared/breadcrumb" %>
+				<%= render(:partial => "/shared/breadcrumb") %>
 				<!-- Too wide to fit on breadcrumb line <%# raw(@product_type.name) %> -->
 			
 				<!-- error messages  ———————————————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
 					<div class="messages error"></div>
 				</div>
-
+			
+				<!-- menu popups: top level categories ——————————————————————————————————— -->
+				
+				<%= render(:partial => "/shared/menu_popups") %>
+		
 	      <!-- product type ———————————————————————————————————————————————————————————— -->
 
 				<div id="product_image_description">
@@ -256,7 +276,7 @@
 		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
 
 		<div id="right_content_container">		
-	    <%= render(:partial => 'shared/rightContent') %>		
+	    <%= render(:partial => '/shared/rightContent') %>		
 		</div>
 
 	</div><!-- end div#container -->

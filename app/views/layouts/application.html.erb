@@ -10,51 +10,41 @@
 		——————————————————————————————————————————————————————————————————————
 	
 		ToDo:
-			1. get correct container divs from trumedical3
-			2. get correct set of stylesheets and javascript includes from trumedical3; lots of unnecessary ones here. 
 			3. get search working: masking Google generated field 
-			4. change menu so that it hides only the currently visible overlay, not all of them.  use :visible selector
+	
 	
 		Known Bugs:	
 			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
 		
 		Unknowns:
-			1. What is causing modal overlay to come up?  I have deleted the code to show black_screen from the jquery 
-			event handlers for mouseover on the menu buttons? 
+
 			3. unclear how/when logo div moves around the window
 			4. set of float declarations that lets right_content move over to the left below menu when 
 				the window is too small for it to appear on the right, is currently a mystery to me.
 			5. Should /shared/_menu.html.erb be included in individual templates:  home, category, product, company — rather than being included in application.html.erb?  div 'subcontainer' binds the menu and content in the main-content area together. ..  
 		-->
+		
 		<meta name="google-site-verification" content="DRniLxcdbLu-qb5STdNUxZI97IojXccx5-6mijdIhjI" />
-	  <title>TruMedical Solutions</title>
-	
-		<!-- used by Mavic; not by us unless we use Mavic tabbed sibling nav  -->
-		<%= stylesheet_link_tag "jquery_tools_tabs_no_images.css" %>
+	  	<title>TruMedical Solutions</title>
+
+		
 	
 	
 		<%= stylesheet_link_tag "custom-theme/jquery-ui-1.8.10.custom.css" %>
 		
-    <%= stylesheet_link_tag "trumedical_base.css" %>
+    	<%= stylesheet_link_tag "trumedical_base.css" %>
 		<%= stylesheet_link_tag "search.css" %> 
 		<%= stylesheet_link_tag "menu.css" %> 
-    <%= stylesheet_link_tag "tabs.css" %>
+    	<%= stylesheet_link_tag "tabs.css" %>
+    	<!-- <%# stylesheet_link_tag "jquery_tools_tabs_no_images.css" %> unused; used by Mavic tabbed sibling nav; not in /public/javascripts -->
 		<%= stylesheet_link_tag "left_nav_popups.css" %> <!-- added by TA 1/4/2012 -->
 	
-		<!-- fragments of broken out mavic.css that are not used in trumedical -->
-		<!-- <%# stylesheet_link_tag "home.css" %> -->
-    <!-- <%# stylesheet_link_tag "buttons.css" %> -->
-    <!-- <%= stylesheet_link_tag "product.css" %> -->  
-    <!-- <%# stylesheet_link_tag "select.css" %>  there is no longer such a stylesheet -->
-		<!-- <%# stylesheet_link_tag "style3.css" %> -->
-    <!-- <%# stylesheet_link_tag "webform.css" %> used by what?  -->
-
 		
 		<!-- standard js files -->
 		
 		<%= javascript_include_tag "jquery-1.4.4.min.js" %>
 		<%= javascript_include_tag "jquery-ui-1.8.10.custom.min.js" %>
-		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %>
+		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %> 
 		
 		<!-- additional js files lumped into mavic.js -->
 		<!-- <%# javascript_include_tag "Cufon.js" %> -->

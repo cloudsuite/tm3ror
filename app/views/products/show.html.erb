@@ -8,6 +8,8 @@
 			2. description: sanitize so that it picks up html markup [DONE]
 			3. left/right columns on layout not working:  They do if product image is 169px wide
 			4. buttons: orange as in product_types.html.erb [DONE]
+		error	
+			5. products/473 (from metasearch when type in sammons # 4454) is getting an 'undefined method 'ancestors' for nil:NilClass — it does not have an @category value. Why not? products/show seems to be setting it up.  The problem is that the category_id field is set only for products of type SimpleProduct that are not related to a BaseProduct or ProductType so that only these products will show up when you go from a leaf-category to the list of producttypes/productsets/baseproducts/products in that leaf-category. The left-menu based search will never generate a call to products/show for a simple-product that is part of the product-set associated with a base-product.  But the sammons search can. Could I go from the simple product that the sammons search returns to the base-product or product-type it is related to? and then call base_products/show rather than products/show? e.g., if base_product_id is non-null.    
 			
 ————————————————————————————————————————————————————————————————————— -->
 
@@ -113,8 +115,9 @@
 			<div id="main_content">
 				
 				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
-
-				<%= render :partial => "/shared/breadcrumb" %>
+				<!-- removed for now because product pages being shown from sammons search may not have a category_id
+				<%# render :partial => "/shared/breadcrumb" %>
+			-->
 			
 				<!-- error messages —————————————————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
@@ -165,7 +168,8 @@
 							</tr>
 							<tr>
 								<td>category:</td>
-								<td><%= @product.category.name %></td>
+								<!-- products returned by sammon search might not have category_id if they are part of a base-product -->
+								<td><%= @product.category.name unless @product.base_product_id %></td>
 							</tr>
 							<tr>
 								<td valign="top">description:</td>

@@ -188,6 +188,7 @@
 									<% end %>
 									
 							 	<%	@category.products.each do |p|
+										if p.show_in_llc == 1
 										case p.type
 										when "ProductSet" %>
 											<div class="product">
@@ -232,6 +233,7 @@
 										<% end # end of the case statement
 						
 									end # end of the do block
+								end # end of the if statement
 							
 						end %> 
 						<% if !@category.children.empty? %>

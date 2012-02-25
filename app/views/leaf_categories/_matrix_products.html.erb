@@ -8,6 +8,7 @@
 	--> 
 
 	<% @category.base_products.each do |p| %> 
+ 
 		<div class="product">
 			<a href='<%= base_product_path(p.id) %>'>
 				<div class="pic">

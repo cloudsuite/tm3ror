@@ -18,7 +18,8 @@ class LeafCategoriesController < ApplicationController
        
        # use 7 for simple products, 3 for matrix products, 9 for complex products 
        
-       @category = Category.find_by_id(params[:id])
+       @category = Category.find_by_id(params[:id]) # and show_in_llc = 1 ( implying true) 
+
       
   end
 

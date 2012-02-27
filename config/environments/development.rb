@@ -1,5 +1,22 @@
 Tm2ror::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  # This will remap ALL asset references:  images, stylesheets, javascripts, ... 
+  # Unless I put them all up on the amazon s3 bucket, the application will not find its stylesheets and javascript files
+  #ActionController::Base.asset_host = "s3.amazonaws.com/trumedical" 
+  
+  #Attempting to redirect references to just image assets per example in: 
+  # http://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html 
+  # isn't working. Why? 
+  
+  ActionController::Base.asset_host = Proc.new { |source|
+     if source.starts_with?('/images')
+        "http://s3.amazonaws.com/trumedical"
+     else
+        "http://localhost:3000"
+     end
+  }
+  # Seems to be never getting a true return from the test in the if statement
 
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development

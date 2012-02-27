@@ -502,7 +502,10 @@ google.load('search', '1');
 				
 				
 				<!-- search by competitor part no ——————————————————————————————— -->
-				<!-- commented out because interfering with devise register/login -->
+				<!-- commented out because when used with devise register/login users/registration gets an error
+					when it attempts to generate a link to { :controller => 'devise/products', :action => 'search' } 
+					rather than { :controller => 'products', :action => 'search'} 
+				-->
 				<%= render :partial => '/shared/metasearch' %>
 		
 				

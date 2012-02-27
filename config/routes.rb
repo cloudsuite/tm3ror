@@ -2,9 +2,15 @@ Tm2ror::Application.routes.draw do
    
   get "product_set/show"
 
-  devise_for :users, :path_names => { :sign_up => "register" }
-
-
+  devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login" }
+  # devise_for :products, :controllers => { "search" => "search" }
+  # The following eliminates the undefined route which was causing the register page to not come up, but 
+  # since there is no products controller in devise, it will cause an error if anyone attempts to use the Sammons search
+  # in the footer.  
+  devise_scope :products do
+     get "search", :to => "devise/products#search"
+  end
+  
    get "search/results"
    get "site/search"
    get "products/search" # for the metasearch on competitor part number
@@ -15,8 +21,10 @@ Tm2ror::Application.routes.draw do
     resources :base_products
     resources :products
     resources :users
-
+    
   get "site/search"
+  
+  # Doesn't work:  match 'devise/products#search' => 'products#search'
 
    # replace display with show and use standard resources declaration
    

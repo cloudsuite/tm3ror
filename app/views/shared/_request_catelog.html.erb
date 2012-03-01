@@ -1,0 +1,25 @@
+<div id='requestCatelog'>
+	<div id="catelogImage" style="float:left">
+		<%= image_tag("footer/catelog_cover.jpg") %> <!-- 125x162 -->
+	</div>
+	<!-- <img scr="/images/shared/catelog.jpg" alt="TruMedical Product Catelog" style="float:left;"  > -->
+	<div id="request" style="margin-left: 160px;">
+		<p>If you would like us to mail you a printed copy of our 2011 Product Catelog, please fill in your mailing address below, and indicate how many copies you would like. </p>
+
+		<% @user = User.new() %> <!-- form_for takes an instance of the model class, not the class itself: awkward for object creation -->
+		<%= form_for @user do |f| %>
+			<%= f.label :first_name %>
+			<%= f.text_field :first_name %><br/>
+			<%= f.label :last_name %>
+			<%= f.text_field :last_name %><br />
+			<%= f.label :email_address %>
+			<%= f.email_field :email_address %><br/>
+			<%= f.label :wants_n_catelogs, "How many would you like?" %>
+			<%= f.number_field :wants_n_catelogs, :size => "3", :in => 1...10 %><br/>
+			
+			<%= f.submit "Submit" %>
+		<% end %>
+			
+	</div>
+
+</div>

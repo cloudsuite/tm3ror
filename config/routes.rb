@@ -1,40 +1,57 @@
 Tm2ror::Application.routes.draw do
    
-  get "product_set/show"
+  # get "product_set/show"  # Why the singular version? controller is product_sets
 
   devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login" }
-  # devise_for :products, :controllers => { "search" => "search" }
+  # sign_out doesn't seem to getting set up properly. Why? needs :method => :delete ? stack overflow:
+  #    ttp://stackoverflow.com/questions/6557311/no-route-matches-users-sign-out-devise-rails-3
+  # I'm still getting the problem.
+  
   # The following eliminates the undefined route which was causing the register page to not come up, but 
-  # since there is no products controller in devise, it will cause an error if anyone attempts to use the Sammons search
-  # in the footer.  
-  devise_scope :products do
-     get "search", :to => "devise/products#search"
-  end
+  # since there is no products controller in devise, it will cause an error if anyone attempts to use the         
+  # Sammons search in the footer of the register page.  
+    #devise_scope :products do
+    #get "search", :to => "devise/products#search"
+    #end
+  
+  # This attempts to route /devise/products/search to the search action defined in the 
+  # ProductsController (without the Devise::module prefix).  
+  # But Devise is an Engine not a Module. So this may not work 
+  # I can't test it because devise is always showing me as signedin and the sign_out link is 
+  # getting an unknown route error — regardless of whether I used the sign_out_path or 
+  # explicitly specify the controller, the action, and the method.  
+    scope "/devise" do
+        get "products/search"
+    end 
+  # If this doesn't work try the following:  
+  # devise_scope :products do
+  #   get "search", :to => "/products#search"
+  # end
   
    get "search/results"
    get "site/search"
    get "products/search" # for the metasearch on competitor part number
+   # Why isn't this handled by adding a line to the resources :products declaration, to wit:
+   #     resources :products do
+   #        get 'search', : on => :collection
+   #     end 
+   #  Which should define the route helper search_products_path.  
+   #  But I want to pass an :id to it:  the sammons part number 
+   # Should it be? 
 
     resources :categories
     resources :product_types
     resources :product_sets
     resources :base_products
     resources :products
-    resources :users
-    
-  get "site/search"
-  
-  # Doesn't work:  match 'devise/products#search' => 'products#search'
-
-   # replace display with show and use standard resources declaration
-   
+    #resources :users # site is using this for request a catalog form;  conflicting with devise?    
+      
   resources :leaf_categories do  # can handle URLs of the form localhost:3000/leaf_categories/1/display
     get :display, :on => :member
   end
   
-
   get "home/index"
-  get "home/circle"
+  get "home/circle" # used for version of the site that has colored circles in left nav
   
   root :to => "home#index"
 

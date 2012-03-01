@@ -178,7 +178,25 @@
 						
 							<tr>
 								<td>price:</td>
-								<td><%= number_to_currency(@product.price_clinic_list) %></td>
+								<td>
+									<%= case current_user.price_schedule
+										when "tru-blue"
+											number_to_currency(@product.price_tru_blue)
+										when "corporate-2"
+											number_to_currency(@product.price_corporate_2)
+										when "corporate-3"
+											number_to_currency(@product.price_corporate_3)
+										when "dealer-1"
+											number_to_currency(@product.price_dealer_1)
+										when "dealer-2"
+											number_to_currency(@product.price_dealer_2)
+										when "dealer-3"
+											number_to_currency(@product.price_dealer_3)
+										else 
+											number_to_currency(@product.price_clinic_list)
+									end %>
+				
+								</td>
 							</tr>
 							<tr>
 								<td>quantity:</td>

@@ -17,7 +17,24 @@
 			<tr>
 				<td><%= p.tms_part_no %></td>
 				<td><%= raw(p.description) %></td>
-				<td class="price"><%= number_to_currency(p.price_clinic_list) %></td>
+				<td class="price">
+					<%= case current_user.price_schedule
+						when "tru-blue"
+							number_to_currency(p.price_tru_blue)
+						when "corporate-2"
+							number_to_currency(p.price_corporate_2)
+						when "corporate-3"
+							number_to_currency(p.price_corporate_3)
+						when "dealer-1"
+							number_to_currency(p.price_dealer_1)
+						when "dealer-2"
+							number_to_currency(p.price_dealer_2)
+						when "dealer-3"
+							number_to_currency(p.price_dealer_3)
+						else 
+							number_to_currency(p.price_clinic_list)
+					end %>
+				</td>
 				<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= p.netsuite_item_no %>" style="width:30px;" type="text"></td>
 			</tr>
 		<% end %>

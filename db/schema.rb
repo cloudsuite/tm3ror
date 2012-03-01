@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225001602) do
+ActiveRecord::Schema.define(:version => 20120301165256) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -244,14 +244,26 @@ ActiveRecord::Schema.define(:version => 20120225001602) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "type"
+    t.string   "title"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email_address"
-    t.string   "phone_number"
-    t.integer  "wants_n_catelogs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "email",                                 :default => "", :null => false
+    t.string   "phone"
+    t.string   "extension"
+    t.string   "password"
+    t.boolean  "clinician"
+    t.string   "clinic_name"
+    t.integer  "clinic_id"
+    t.string   "role"
+    t.string   "authorization_code"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "wants_n_catelogs"
+    t.string   "price_schedule"
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -261,6 +273,8 @@ ActiveRecord::Schema.define(:version => 20120225001602) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

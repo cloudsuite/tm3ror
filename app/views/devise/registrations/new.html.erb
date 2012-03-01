@@ -28,11 +28,19 @@
 				<!-- menu popups: top level categories ——————————————————————————————————— -->
 				<%= render(:partial => "/shared/menu_popups") %>
 				
+				<p class="notice"><%= notice %></p> <!-- needed by devise -->
+				<p class="alert"><%= alert %></p> <!-- needed by devise -->
 				<div id="devise_generated_content">
 					<h2>Register</h2>
 
 					<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 					  <%= devise_error_messages! %>
+					
+						<div><%= f.label :first_name %><br />
+					  <%= f.text_field :first_name %></div>
+					
+						<div><%= f.label :last_name %><br />
+					  <%= f.text_field :last_name %></div>
 
 					  <div><%= f.label :email %><br />
 					  <%= f.email_field :email %></div>
@@ -42,7 +50,19 @@
 
 					  <div><%= f.label :password_confirmation %><br />
 					  <%= f.password_field :password_confirmation %></div>
-
+					
+						<div><%= f.label "Are you a clinician?" %><br />
+					  <%= f.check_box :clinician %></div>
+					
+						<div><%= f.label "Clinic name" %><br />
+					  <%= f.text_field :clinic_name %></div>
+					
+						<div><%= f.label "Work phone" %><br />
+					  <%= f.telephone_field :phone %></div>
+					
+					  <div><%= f.label "Extension (if any)" %><br />
+					  <%= f.text_field :extension %></div>
+										
 					  <div><%= f.submit "Register" %></div>
 					<% end %>
 

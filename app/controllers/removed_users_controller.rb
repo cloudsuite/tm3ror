@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class RemovedUsersController < ApplicationController
    def create
       if @user = User.create(params[:user])
          # success

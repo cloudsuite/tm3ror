@@ -174,8 +174,14 @@
 									<p class=""><strong>Match:</strong>&nbsp;<%= p.sammons_category_match %>
 									<p class="name"><strong>Name:</strong>&nbsp;<%= raw(p.name) %></p>
 									<p class="subtitle"><strong>Description:</strong>&nbsp;<%= raw(p.description) %></p>
-									<!-- <p class="price"><strong>Price:</strong>&nbsp;<%= number_to_currency(p.price_clinic_list) %></p> -->
-									<button class="more ui-corner-all"><%= link_to "See Details", {:controller => 'products', :action => 'show', :id => p.id } %></button>
+									<!-- <p class="price"><strong>Price:</strong>&nbsp;<%# number_to_currency(p.price_clinic_list) %></p> -->
+									<% if p.type == "ProductSet" %>
+										<button class="more ui-corner-all"><%= link_to "See Details", {:controller => 'product_sets', :action => 'show', :id => p.product_set.id } %></button>
+									<% elsif p.type == "BaseProduct" %>
+										<button class="more ui-corner-all"><%= link_to "See Details", {:controller => 'base_products', :action => 'show', :id => p.base_product.id } %></button>
+									<% else %>
+										<button class="more ui-corner-all"><%= link_to "See Details", {:controller => 'products', :action => 'show', :id => p.id } %></button>
+									<% end %>
 
 									<div style="clear:both"></div>
 

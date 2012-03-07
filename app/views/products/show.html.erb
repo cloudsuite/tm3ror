@@ -160,7 +160,7 @@
 							<th></th>
 							<tr>
 								<td>name:</td>			
-								<td><%= sanitize(@product.name) %></td>
+								<td><%= sanitize(@product.description) %></td>
 							</tr>
 							<tr>
 								<td>tms part number:</td>			
@@ -168,8 +168,12 @@
 							</tr>
 							<tr>
 								<td>category:</td>
-								<!-- products returned by sammon search might not have category_id if they are part of a base-product -->
-								<td><%= @product.category.name unless @product.base_product_id %></td>
+								<!-- products returned by sammons search might not have category_id if they are part of a base-product. No longer true; call parts now have a lowest category  -->
+								<td>
+									<!-- <%# @product.category.name unless @product.base_product_id %> -->
+									<!-- <%#  @product.category.parent.name + " / " + @product.category.name %> -->
+									<%= @product.category_l1 + " / " + @product.category_l2 + " / " + @product.category_l3 %> 
+								</td>
 							</tr>
 							<tr>
 								<td valign="top">description:</td>

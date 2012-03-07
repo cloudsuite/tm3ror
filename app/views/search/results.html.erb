@@ -66,35 +66,41 @@
 				</div>
 
 	      <!-- results from Google CSE ———————————————————————————————————————————————————————————— -->
+				
 				<div id="cse" style="width: 100%;">Loading</div>
 				<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 				<script type="text/javascript"> 
-				  function parseQueryFromUrl () {
-				    var queryParamName = "q";
-				    var search = window.location.search.substr(1);
-				    var parts = search.split('&');
-				    for (var i = 0; i < parts.length; i++) {
-				      var keyvaluepair = parts[i].split('=');
-				      if (decodeURIComponent(keyvaluepair[0]) == queryParamName) {
-				        return decodeURIComponent(keyvaluepair[1].replace(/\+/g, ' '));
-				      }
-				    }
-				    return '';
-				  }
-
 				  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
 				  google.setOnLoadCallback(function() {
-				    var customSearchControl = new google.search.CustomSearchControl(
-				      '000064363312609554513:jmpucuppl78');
-
+				    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+				      '000064363312609554513:jmpucuppl78', customSearchOptions);
 				    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 				    customSearchControl.draw('cse');
-				    var queryFromUrl = parseQueryFromUrl();
-				    if (queryFromUrl) {
-				      customSearchControl.execute(queryFromUrl);
+				    function parseParamsFromUrl() {
+				      var params = {};
+				      var parts = window.location.search.substr(1).split('&');
+				      for (var i = 0; i < parts.length; i++) {
+				        var keyValuePair = parts[i].split('=');
+				        var key = decodeURIComponent(keyValuePair[0]);
+				        params[key] = keyValuePair[1] ?
+				            decodeURIComponent(keyValuePair[1].replace(/\+/g, ' ')) :
+				            keyValuePair[1];
+				      }
+				      return params;
+				    }
+
+				    var urlParams = parseParamsFromUrl();
+				    var queryParamName = "q";
+				    if (urlParams[queryParamName]) {
+				      customSearchControl.execute(urlParams[queryParamName], null,
+				          {'oq': urlParams['oq'], 'aq': urlParams['aq'],
+				           'aqi': urlParams['aqi'], 'aql': urlParams['aql'],
+				           'gs_sm': urlParams['gs_sm'], 'gs_upl': urlParams['gs_upl']});
 				    }
 				  }, true);
 				</script>
+				
+
 				
 			
 

@@ -1,2509 +1,668 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>http://tm3ror.heroku.com/</loc>
-  <changefreq>weekly</changefreq>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/1</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/23</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/43</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/59</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/70</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/81</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/86</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/2</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/10</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/13</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/19</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/22</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/24</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/25</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/26</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/27</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/28</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/29</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/32</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/33</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/36</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/42</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/45</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/49</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/50</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/54</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/58</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/60</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/61</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/62</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/65</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/66</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/71</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/72</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/73</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/74</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/75</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/76</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/77</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/78</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/82</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/83</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/87</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/88</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/89</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/90</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/91</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/92</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/94</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/95</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/96</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/98</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/103</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/home/index</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/3</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/4</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/5</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/6</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/7</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/8</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/9</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/11</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/12</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/14</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/15</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/16</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/17</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/18</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/20</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/21</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/394</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/395</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/396</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/403</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/407</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/408</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/414</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/426</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/427</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/428</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/429</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/434</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/435</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/438</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/442</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/443</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/450</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/451</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/452</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/460</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/461</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/772</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/598</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/601</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/607</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/613</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/614</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/619</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/624</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/622</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/623</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/627</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/628</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/632</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/636</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/640</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/648</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/660</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/661</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/662</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/663</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/693</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/773</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/705</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/740</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/741</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/742</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/743</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/744</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/745</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/746</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/747</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/748</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/749</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/750</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/751</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/752</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/753</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/754</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/755</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/756</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/761</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/767</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/768</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/464</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/474</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/479</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/491</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/529</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/30</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/31</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/543</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/546</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/547</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/552</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/557</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/558</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/561</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/562</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/563</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/566</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/571</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/582</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/769</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/34</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/35</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/37</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/38</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/39</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/40</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/41</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/675</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/46</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/47</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1036</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1037</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1045</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1053</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1096</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1115</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/51</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/52</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/53</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/55</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/56</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/57</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/991</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/992</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/993</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/994</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/995</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/996</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/997</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1202</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1203</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1206</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1208</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1212</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1216</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1192</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1193</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1194</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1195</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1196</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1197</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1198</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1199</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1200</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1201</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/63</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/64</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1158</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1161</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1162</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1163</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1166</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1169</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1172</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1173</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/67</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/68</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1789</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1794</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1798</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1804</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1808</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1815</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1821</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1828</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1834</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1835</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1844</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1847</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1853</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1859</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1862</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1865</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1868</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1871</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1874</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1878</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1884</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1909</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1913</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1918</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1923</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1928</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1933</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1938</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1943</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1946</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1949</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1956</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1662</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1677</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1686</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1690</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1695</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1699</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1702</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1706</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1711</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1715</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1650</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1651</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1656</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1657</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1658</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1659</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1660</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1661</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1589</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1598</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1609</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1618</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1622</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1623</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1629</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1634</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1639</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1720</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1726</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1732</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1738</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1744</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1750</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1758</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1766</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1773</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1780</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1786</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1787</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1788</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/79</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/80</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2078</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2079</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2080</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2124</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2126</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/84</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/85</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2185</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2186</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2187</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2188</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/2147</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2152</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2153</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2154</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2155</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2156</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2157</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/2158</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2165</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2167</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2169</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2170</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2171</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2175</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2176</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2177</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2178</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2179</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2180</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2181</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2182</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2127</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2128</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2129</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2132</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2133</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2134</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2137</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2140</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2141</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2183</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2184</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2230</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2234</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2237</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2240</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2241</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2242</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2243</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2250</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2255</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2256</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2257</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2258</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2267</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2189</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2192</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2195</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2196</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2199</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2200</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2201</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2202</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2203</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2206</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2207</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2208</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2209</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2210</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2211</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2215</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2218</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2221</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2224</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2227</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2244</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/2261</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/2266</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/99</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/100</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/101</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/104</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/105</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/106</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/107</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/categories/108</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/44</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/61</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/4</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/32</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/221</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/49</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/2511</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/2525</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/74</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/75</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/78</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/79</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/80</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/1</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/25</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/38</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/218</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/27</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/40</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/214</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/198</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/154</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/165</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/177</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/183</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/184</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_types/185</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/189</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/192</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/91</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/97</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/101</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/110</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/117</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/126</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/133</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/81</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/82</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/83</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/140</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/141</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/142</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/146</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/150</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/193</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/201</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/202</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/685</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/691</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/692</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/696</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/699</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/757</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/760</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/229</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/248</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/255</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/261</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/267</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/275</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/283</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/290</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/299</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/302</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/303</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/333</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/345</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/357</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/362</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/375</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/388</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/389</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/390</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/391</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/392</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/393</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/332</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/321</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/322</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/323</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/324</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/325</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/326</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/330</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/331</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/927</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/946</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/984</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/965</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/999</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1000</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1023</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/998</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/798</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/799</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/800</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/801</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/802</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/803</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/804</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/805</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/806</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/807</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/808</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/774</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/787</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/809</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/822</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/847</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/860</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/866</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/902</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1175</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1177</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1179</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1184</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1174</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1176</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1178</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/product_sets/1180</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/products/1191</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1397</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1403</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1221</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1226</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1231</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://tm3ror.heroku.com/base_products/1236</loc>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url><loc>http://tm3ror.heroku.com/</loc><changefreq>weekly</changefreq><priority>1.00</priority></url>
+<url><loc>http://tm3ror.heroku.com/users/login</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/users/register</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/23</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/1</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/59</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/43</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/70</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/2</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/81</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/13</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/10</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/86</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/24</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/19</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/22</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/26</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/25</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/27</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/29</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/28</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/32</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/33</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/42</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/36</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/45</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/50</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/49</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/54</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/60</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/58</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/61</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/65</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/62</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/72</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/66</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/71</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/74</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/73</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/75</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/76</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/77</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/78</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/82</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/83</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/87</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/89</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/88</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/90</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/91</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/92</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/94</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/95</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/96</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/98</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/103</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://tm3ror.heroku.com/users/password/new</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/home/index</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/5</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/3</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/4</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/6</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/7</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/9</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/8</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/11</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/15</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/14</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/12</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/16</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/18</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/17</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/394</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/403</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/395</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/396</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/407</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/408</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/414</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/426</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/427</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/428</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/429</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/435</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/434</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/443</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/438</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/442</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/451</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/452</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/450</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/460</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/20</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/772</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/461</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/21</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/601</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/598</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/607</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/614</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/613</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/619</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/623</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/622</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/627</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/632</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/628</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/636</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/640</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/648</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/660</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/662</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/661</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/663</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/693</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/773</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/705</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/741</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/740</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/743</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/742</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/745</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/744</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/746</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/747</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/749</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/748</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/751</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/750</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/752</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/753</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/755</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/756</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/761</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/767</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/768</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/30</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/31</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/464</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/474</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/479</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/491</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/529</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/543</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/546</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/547</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/552</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/557</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/558</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/561</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/562</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/563</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/566</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/571</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/582</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/769</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/34</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/35</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/675</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/37</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/38</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/39</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/40</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/41</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/46</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/47</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/51</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/52</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/53</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1036</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1037</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/624</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1045</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1053</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1096</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1115</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/56</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/55</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/57</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1202</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1206</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1208</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1212</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1216</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/991</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/992</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/993</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1203</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/754</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/994</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/995</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/997</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1192</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/996</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1193</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1195</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1194</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1197</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1196</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1198</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1199</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1201</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1200</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1158</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1161</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1162</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1166</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1163</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1169</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1172</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1173</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/63</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1662</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1677</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/64</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1690</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1686</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1695</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1699</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1702</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/68</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/67</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1706</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1798</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1789</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1794</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1804</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1808</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1815</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1828</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1834</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1821</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1835</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1844</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1847</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1862</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1859</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1853</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1871</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1868</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1865</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1878</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1884</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1874</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1913</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1918</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1909</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1928</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1933</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1923</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1943</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1938</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1946</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1956</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1949</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1650</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1657</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1651</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1656</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1659</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1658</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1660</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1661</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1711</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1715</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1720</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1732</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1726</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1738</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1750</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1744</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1758</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1766</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1773</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1780</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1787</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1786</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1788</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1598</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1589</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1618</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1609</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1622</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1623</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1634</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1629</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1639</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/80</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/79</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2078</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2079</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2080</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2126</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2124</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/84</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2186</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/85</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2185</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2187</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2188</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2169</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2171</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2175</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2170</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2153</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2152</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/2147</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2156</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2154</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2155</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2157</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2158</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2165</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2167</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2177</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2176</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2178</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2180</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2179</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2181</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2127</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2182</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2132</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2129</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2128</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2137</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2134</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2133</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2183</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2140</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2141</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2234</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2230</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2184</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2241</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2237</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2240</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2243</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2242</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2250</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2255</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2256</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2257</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2267</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2258</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2189</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2195</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2192</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2196</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2199</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2200</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2201</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2203</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2206</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2202</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2207</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2209</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2208</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2210</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2215</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2211</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2218</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2224</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2221</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2244</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2227</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2261</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2266</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/99</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/100</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/101</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/104</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/105</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/106</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/108</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/categories/107</loc><changefreq>weekly</changefreq><priority>0.69</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/49</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2511</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/44</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2525</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/4</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/61</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/32</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/75</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/74</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/221</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/80</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/78</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/79</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/27</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/40</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/214</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/25</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/1</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/38</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/154</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/218</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/198</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/183</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/177</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/165</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/184</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_types/185</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/189</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/97</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/91</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/192</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/101</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/110</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/117</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/126</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/133</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/142</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/141</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/140</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/193</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/150</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/146</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/82</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/83</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/81</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/201</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/202</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/685</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/692</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/696</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/691</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/760</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/757</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/699</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/248</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/255</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/229</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/267</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/261</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/275</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/283</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/299</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/290</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/303</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/333</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/302</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/357</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/345</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/362</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/389</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/375</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/388</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/390</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/391</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/392</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/393</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/332</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/321</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/322</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/323</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/325</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/326</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/324</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/330</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/331</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/927</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/984</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/946</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/965</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1000</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/999</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1023</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/998</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/774</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/787</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/799</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/798</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/800</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/801</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/803</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/802</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/805</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/804</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/806</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/807</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/808</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/809</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/822</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/847</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/860</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/866</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1175</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/902</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1177</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1179</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1176</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1174</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1184</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1178</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1191</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1180</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1221</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1226</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1231</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1236</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1246</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1241</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1256</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1261</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1266</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1251</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1271</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1276</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1397</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1281</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1291</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1286</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1403</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1296</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1301</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1306</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1311</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1321</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1316</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1336</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1326</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1331</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1346</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1341</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1351</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1361</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1366</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1356</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1376</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1371</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1381</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1386</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1391</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1414</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1407</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1434</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1441</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1445</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1449</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1453</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1457</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1461</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1463</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1464</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1465</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1477</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1466</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1479</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1480</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1478</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1484</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1481</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1485</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1488</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1486</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1487</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1491</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1489</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1490</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1493</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1494</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1492</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1495</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1497</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1496</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1498</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1544</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/1507</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1561</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1555</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1549</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1567</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1584</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1573</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/1578</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/1588</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2031</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2013</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2053</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2052</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2051</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2083</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2054</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2065</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2089</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2092</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2088</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2100</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2096</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2029</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2030</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2099</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2048</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2103</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2101</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2102</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2106</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2105</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2104</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2108</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2107</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2117</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2125</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2277</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2270</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2286</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2437</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2283</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2298</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2294</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2290</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2312</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2320</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2302</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2329</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2330</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2325</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2334</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2348</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2341</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2355</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2368</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2362</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2380</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2374</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2386</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2390</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2398</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2394</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2402</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2407</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2412</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2417</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2422</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2427</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2432</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2504</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2499</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2446</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2440</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2443</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2458</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2447</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/product_sets/2451</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2462</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2471</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2466</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2469</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2472</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2473</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2492</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2498</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2474</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2477</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2480</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2481</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2495</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2484</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2482</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2485</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/base_products/2488</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<url><loc>http://tm3ror.heroku.com/products/2483</loc><changefreq>weekly</changefreq><priority>0.56</priority></url>
+<!-- Generated by www.web-site-map.com -->
 </urlset>
+ 

@@ -159,15 +159,15 @@
 							<th></th>
 							<th></th>
 							<tr>
-								<td>name:</td>			
+								<td>Name:</td>			
 								<td><%= sanitize(@product.description) %></td>
 							</tr>
 							<tr>
-								<td>tms part number:</td>			
+								<td>Part No.:</td>			
 								<td><%= @product.tms_part_no %></td>
 							</tr>
 							<tr>
-								<td>category:</td>
+								<td>Category:</td>
 								<!-- products returned by sammons search might not have category_id if they are part of a base-product. No longer true; call parts now have a lowest category  -->
 								<td>
 									<!-- <%# @product.category.name unless @product.base_product_id %> -->
@@ -176,12 +176,12 @@
 								</td>
 							</tr>
 							<tr>
-								<td valign="top">description:</td>
+								<td valign="top">Description:</td>
 								<td><%= sanitize(@product.long_description) %></td>
 							</tr>
 						
 							<tr>
-								<td>price:</td>
+								<td>Price:</td>
 								<td>
 									<%= if current_user 
 								  	case current_user.price_schedule
@@ -208,7 +208,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>quantity:</td>
+								<td>Quantity:</td>
 								<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= @product.netsuite_item_no %>" style="width:30px;" type="text"></td>
 							</tr>
 							<tr>

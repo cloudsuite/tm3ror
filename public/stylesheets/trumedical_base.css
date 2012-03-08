@@ -71,9 +71,10 @@
 		margin-bottom: 0px;
 		padding-left: 15px;
 		padding-right: 15px;
+		overflow:auto; /* should be unnecessary; #container has overflow-y:auto */
 	}	
 
-	/* scrolling overlay Ñ scrolling from right in home page? or up/down in LLC, Product? */ 
+
 	#black_screen {
 		background-color: black;
 		z-index: 10; /* below popups-container at z-index of 12, and left menu at z-index 11 (#container #subcontainer).

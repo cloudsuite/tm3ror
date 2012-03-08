@@ -124,6 +124,7 @@
 	</style>
 	
 	<style type="text/css">
+		div#product_goodies {max-height:625px; overflow-y:auto; padding-right:20px; margin-top:5px;}
 		div.products_div { margin-top:20px;}
 		div.product_div {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
 			background-color:#E6E6E6; border:1px solid #E6E6E6;}
@@ -219,7 +220,7 @@
 						end
 					%>
 				-->
-      		
+      	<div id="product_goodies">	
 					<!-- <%# render "complex_products" %> -->
 					<!-- or, using an if then else ... -->
 					<%=
@@ -231,7 +232,7 @@
 							render "complex_products"
 						end
 					%>
-				
+				</div><!-- end of div#product_goodies -->
     
 				</div> <!-- end div 'tabs' -->
                   

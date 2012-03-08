@@ -68,6 +68,7 @@
 	</script>
 
 	<style type="text/css">
+		div#product_goodies {max-height:625px; overflow-y:auto;padding-right:20px;margin-top:5px;}
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 		div#product_image_description img { margin-bottom:15px;}
 		div#products { margin-top:10px; padding-left:40px;}
@@ -116,8 +117,9 @@
 			<!-- menu —————————————————————————————————————————————————————  -->
 		
 			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
-
+			<!-- Google search results now below menu on left
+				<# render :partial => 'shared/search' #> 
+			-->
 	    <!-- main content ——————————————————————————————————————————————————————————————— -->
 
 			<div id="main_content">
@@ -133,6 +135,7 @@
 				<!-- menu popups: top level categories ——————————————————————————————————— -->
 				<%= render(:partial => "/shared/menu_popups") %>
 
+				<div id="product_goodies">
 	      <!-- base product ———————————————————————————————————————————————————————— -->
 
 				<div id="product_image_description">
@@ -217,7 +220,7 @@
 					</table>
 				
 				</div> <!-- end div#products -->
-
+			</div>   <!-- end div#product_goodies -->
 			</div> <!-- end div#main_content -->
 
 		</div><!-- end div#subcontainer -->

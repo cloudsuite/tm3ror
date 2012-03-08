@@ -92,6 +92,7 @@
 	</script>
 
 	<style type="text/css">
+		div#product_goodies {max-height:625px; overflow-y:auto; padding-right:20px; margin-top:5px;}
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 
 		div#product_image_description img { margin-bottom:15px; }
@@ -167,7 +168,9 @@
 			<!-- menu —————————————————————————————————————————————————————  -->
 		
 			<%= render(:partial => '/shared/menu') %>
-			<%= render(:partial => '/shared/search') %>
+			<!-- Cut: Google cse search results now returned in left column below search button in menu  
+			<#= render(:partial => '/shared/search') #>
+			-->
 
 	    <!-- main content ————————————————————————————————————————————————————— -->
 
@@ -187,7 +190,7 @@
 				<%= render(:partial => "/shared/menu_popups") %>
 		
 	      <!-- product type ———————————————————————————————————————————————————————————— -->
-
+				<div id="product_goodies">
 				<div id="product_image_description">
 					
 					<%= image_tag("/images/products/all_large/" + @product_type.image_filename + ".jpg") %>
@@ -288,7 +291,7 @@
 					rendering this partial is triggering an error; nil for product_type id or product_line id --> 
 				<!-- <%# render(:partial => "tabs") %> -->
 	
-
+			</div> <!-- end div#product_goodies -->
 
 			</div> <!-- end div#main_content -->
 

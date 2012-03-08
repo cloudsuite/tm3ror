@@ -63,6 +63,7 @@
 		
 		<style type="text/css">
 			div#tabs_buttons_gamme { margin-bottom:20px!important; }
+			div#subcategories { max-height:570px; overflow-y:auto; padding-right:20px; margin-top:5px;}
 			div.leafCategories { margin-top:20px;}
 			div.leafCategory {
 				width: 120px; height:120px; 
@@ -163,17 +164,14 @@
 							-->
 							<!-- <div id="all_exercisers" onMouseOut="outTab(this)" onMouseOver="overTab(this)" class="tab active"> -->
 							<div class="tab active">
-								<%= @category.name %>
-								
-							</div>
-							
-							
+								<%= @category.name %>								
+							</div>														
 						</div> <!-- end tabs_buttons_gamme -->
 						<div class="clear"></div>
 
 						
 						<!-- SUBCATEGORIES ———————————————————————————————————— -->
-
+						<div id="subcategories">
 						<!--
 								If at a leaf category then iterate through the 'products' that are members of this category, calling the appropriate partial to render each 'product' depending on whether it is a base_product, or a simple_product.  Don't worry about complex products for now.  There are none in tlc#, Clinic. 
 								Otherwise render subcategories of this category.  For now, just render a partial that prints an error. 
@@ -261,6 +259,7 @@
 						<% end %> 
                 
 						<div class="clear"></div>
+					</div> <!-- end div#subcategories -->
                     
 					</div> <!-- end div 'tabs' -->
                     

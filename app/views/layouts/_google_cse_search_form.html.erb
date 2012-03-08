@@ -7,12 +7,16 @@
       '000064363312609554513:jmpucuppl78', customSearchOptions);
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
     var options = new google.search.DrawOptions();
-    options.enableSearchboxOnly("http://tm3ror.heroku.com/search/results.html");
-    customSearchControl.draw('cse-search-form', options);
+    options.setSearchFormRoot('cse-search-form');
+    customSearchControl.draw('cse', options);
   }, true);
 </script>
 
+
 <link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
+<link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
+
+
 
 <style type="text/css">
 	

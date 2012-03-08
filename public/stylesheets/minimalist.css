@@ -41,7 +41,7 @@
 /* Search form */
 .cse form.gsc-search-box,
 form.gsc-search-box {
-  padding: 8px 4px 2px 2px; /* TA: changed from 8 4 2 6 to center search within menu */
+  padding: 8px 4px 2px 6px;
   margin-bottom: 6px;
 }
 .cse .gsc-branding-text,
@@ -50,11 +50,11 @@ form.gsc-search-box {
 }
 /**
  * Table cell containing the search input.
- * 6 pixels added to account for the horizontal padding on the input.
+ * 12 pixels added to account for the horizontal padding on the input.
  */
 .cse table.gsc-search-box td.gsc-input,
 table.gsc-search-box td.gsc-input {
-  padding-right: 6px;
+  padding-right: 12px;
 }
 .cse .gsc-search-box,
 .gsc-search-box {
@@ -64,10 +64,8 @@ table.gsc-search-box td.gsc-input {
 .cse input.gsc-input,
 input.gsc-input {
   font-family: inherit;
-  border: 1px solid;
-  border-color: #777777;
-  padding: 3px;
-  margin-left:10px; /* TA added */
+  border: 1px solid #BBB;
+  padding: 3px 6px;
   width: 99%;
   font-size: 16px;
 }
@@ -75,27 +73,24 @@ input.gsc-input {
 .cse input.gsc-search-button,
 input.gsc-search-button {
   font-family: inherit;
-  font-size: 15px;
-  color: #ffffff;
+  font-size: 11px;
+  color: #fff;
   font-weight: bold;
-  text-shadow: 0 1px 2px #000000;
-  padding: 3px 8px 4px 8px;
+  padding: 0 8px;
+  height: 27px;
+  min-width: 54px;
   background-color: #333333;
-  border: 1px solid;
-  border-color: #333333;
+  border: 1px solid #000;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
 }
-/* TA: insert border around clear button so it balances in the left menu */
-div.gsc-clear-button {border:1px solid gray; padding:5px 4px 5px 4px; margin-left:2px;}
-
 /* Base tab selector styles */
 .cse .gsc-tabHeader,
 .gsc-tabHeader {
   font-weight: bold;
+  font-size: 11px;
   text-transform: uppercase;
-  text-shadow: 0 1px 2px #000000;
   padding: 2px 8px 0 8px;
 }
 /* Inactive tab */
@@ -149,15 +144,15 @@ div.gs-title,
 .cse .gs-spelling,
 .gs-spelling {
   padding: 0;
-  font-size:11px; /* affects size of the bold link below listing */
 }
-/* Font size — of the snippet text; does not control the title */
+/* Font size */
 .cse .gs-result .gs-snippet,
 .gs-result .gs-snippet,
 .cse .gs-spelling-original,
 .gs-spelling-original {
-  font-size: 11px; /* modified: was 14px */
-  line-height: 14px; /* modified: was 18px; */
+  font-size: 11px;
+  line-height: 14px;
+  color:red;
 }
 /* Inner wrapper for a result */
 .cse .gsc-webResult.gsc-result,
@@ -173,6 +168,7 @@ div.gs-title,
 /* Result hover event styling */
 .cse .gsc-webResult.gsc-result:hover,
 .gsc-webResult.gsc-result:hover,
+.gsc-webResult.gsc-result.gsc-promotion:hover,
 .gsc-results .gsc-imageResult-classic:hover,
 .gsc-results .gsc-imageResult-column:hover {
   border-left: 1px solid;
@@ -204,8 +200,7 @@ div.gs-title,
 .gsc-trailing-more-results:link,
 .cse .gs-spelling a,
 .gs-spelling a {
-  color: orange; /* was 444444. Changed to match orange color of other links in the site */
-  font-size:12px!important; /* TA: added to reduce size of the title */
+  color: #444444;
 }
 .cse .gs-webResult.gs-result a.gs-title:active,
 .gs-webResult.gs-result a.gs-title:active,
@@ -213,14 +208,14 @@ div.gs-title,
 .gs-webResult.gs-result a.gs-title:active b,
 .gs-imageResult a.gs-title:active,
 .gs-imageResult a.gs-title:active b {
-  color: #777777; /* was #777777 */
+  color: #777777;
 }
 /* Snippet text color */
 .cse .gs-webResult .gs-snippet,
 .gs-webResult .gs-snippet,
 .gs-fileFormatType,
 .gs-imageResult .gs-snippet {
-  color: #333333; /* was #333333 */
+  color: #333333;
 }
 
 /* Size text color */
@@ -257,16 +252,10 @@ div.gs-title,
 }
 /*Promotion Settings*/
 /* The entire promo */
-.cse .gs-promotion,
-.gs-promotion {
+.cse .gsc-webResult.gsc-result.gsc-promotion,
+.gsc-webResult.gsc-result.gsc-promotion {
   background-color: #E6E6E6;
-  border: 1px solid;
   border-color: #CCCCCC;
-}
-/* Promotion image */
-.cse .gs-promotion .gs-promotion-image,
-.gs-promotion .gs-promotion-image {
-  padding-left: 6px;
 }
 /* Promotion links */
 .cse .gs-promotion a.gs-title:link,
@@ -276,10 +265,6 @@ div.gs-title,
 .cse .gs-promotion .gs-snippet a:link,
 .gs-promotion .gs-snippet a:link {
   color: #0000CC;
-}
-/* Promotion image box */
-.gs-promotion-image-box {
-  width: 74px;
 }
 .cse .gs-promotion a.gs-title:visited,
 .gs-promotion a.gs-title:visited,
@@ -324,25 +309,31 @@ div.gs-title,
  * .gsc-completion-container : styling for the table which contains the completions
  */
 .gsc-completion-selected {
-  background: #CCCCCC;
+  background: #eee;
 }
 .gsc-completion-container {
   font-family: Arial, sans-serif;
-  font-size: 15px;
-  position: absolute;
+  font-size: 16px;
   background: white;
-  border: 1px solid #777777;
-  padding: 3px;
+  border: 1px solid #BBB;
   margin-left: 0;
   margin-right: 0;
   /* The top, left, and width are set in JavaScript. */
 }
+.gsc-completion-title {
+  color: #0000CC;
+}
+.gsc-completion-snippet {
+  color: #333333;
+}
 
 /* Full URL */
-.gs-webResult div.gs-visibleUrl-short {
+.gs-webResult div.gs-visibleUrl-short,
+.gs-promotion div.gs-visibleUrl-short {
   display: none;
 }
-.gs-webResult div.gs-visibleUrl-long {
+.gs-webResult div.gs-visibleUrl-long,
+.gs-promotion div.gs-visibleUrl-long {
   display: block;
 }
 
@@ -369,6 +360,7 @@ div.gs-title,
   color: #222;
 }
 
-.gsc-table-cell-thumbnail {
+.gsc-table-cell-thumbnail,
+.gs-promotion-image-cell {
   padding: 0 0 0 6px;
 }

@@ -41,10 +41,12 @@
 		<div class="menu_separator"></div>
 
 		<!-- menu item: Search Box ————————————————— -->
+		
 		<div id="cse-search-form" style="width: 100%;">Loading</div>
 		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript"> 
-		  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+		  /*google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST}); */
+		  google.load('search', '1', {language : 'en', style : src="http://tm3ror/heroku.com/stylesheets/google_cse_minimalist.css"}); 
 			/* attempts to override the minimalist theme here don't work.
 			   How do I get it to use my local copy of the css file minimalist.css? 
 			$("div.gsc-clear-button").css("border","1px solid gray");
@@ -52,16 +54,14 @@
 			$("div.gsc-clear-button").css("margin-left","2px");
 			*/
 		  google.setOnLoadCallback(function() {
-		    var customSearchControl = new google.search.CustomSearchControl(
-		      '000064363312609554513:jmpucuppl78');
-
+		    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+		      '000064363312609554513:jmpucuppl78', customSearchOptions);
 		    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 		    var options = new google.search.DrawOptions();
-		    options.enableSearchboxOnly("http://");
-		    customSearchControl.draw('cse-search-form', options);
+		    options.setSearchFormRoot('cse-search-form');
+		    customSearchControl.draw('cse', options);
 		  }, true);
 		</script>
-
 
 		<!-- original mavics code:
 		<form id="search_form" action="/en/search/google_cse_adv" method="post" name="search_form">
@@ -84,6 +84,15 @@
   
 		</form>
 		-->
+		<!-- Google site search results ——————————————————————————————————————— -->
+		<!-- styles set in /public/stylesheets/google_cse_minimalist.css? No. firebug shows minimalist.css. Where is this coming from?  -->
+		<div id="cse" style="width:100%;">
+			<style type="text/css">
+					a.gs-title { font-size: 11px!important; color: red!important;}
+					div.gs-snippet { font-size: 11px!important; color: red!important;}
+					.gs-spelling-original { font-size: 11px!important; color: red!important;}
+			</style>
+		</div>
 		
 	</div> <!-- end div 'menu_main' -->
 		

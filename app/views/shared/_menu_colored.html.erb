@@ -63,13 +63,12 @@
 			$("div.gsc-clear-button").css("margin-left","2px");
 			*/
 		  google.setOnLoadCallback(function() {
-		    var customSearchControl = new google.search.CustomSearchControl(
-		      '000064363312609554513:jmpucuppl78');
-
+		    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+		      '000064363312609554513:jmpucuppl78', customSearchOptions);
 		    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 		    var options = new google.search.DrawOptions();
-		    options.enableSearchboxOnly("http://");
-		    customSearchControl.draw('cse-search-form', options);
+		    options.setSearchFormRoot('cse-search-form');
+		    customSearchControl.draw('cse', options);
 		  }, true);
 		</script>
 
@@ -83,30 +82,8 @@
 			background-color: #ff9900;
 		  }
 		</style>
-		<!-- original mavics code:
-		<form id="search_form" action="/en/search/google_cse_adv" method="post" name="search_form">
-		  <script type="text/javascript" src="http://www.google.com/jsapi"></script> 
-		  <script type="text/javascript">
-		      google.load('search', '1');
-		      google.setOnLoadCallback(function() {
-		          google.search.CustomSearchControl.attachAutoCompletion(
-		          '014338948727438158850:bsnpnwdxyvo',
-		          document.getElementById('search_input'),
-		          'search_form');
-		      });
-		  </script>
-		  <div id="search_wrapper">
-		      <h1 id="search_hint" class="helvetica">
-		          search ...
-		      </h1><input class="" id="search_input" type="text" name="keys" value="" maxlength="30" autocomplete="off">
-		  </div><a class="submit" href="javascript:%20document.getElementById('search_form').submit();">OK</a> <input type="hidden" value="47064f86a9eb92a56d412fb061ca44a4" name="form_token"> <input type="hidden" value="search_form" id="edit-search-form" name="form_id">
-		  <div class="clear" style=""></div>  
-  
-		</form>
-		-->
 		
-	</div> <!-- end div 'menu_main' -->
-		
+	</div> <!-- end div 'menu_main' -->	
 </div> <!-- end div 'menu' -->
 
 

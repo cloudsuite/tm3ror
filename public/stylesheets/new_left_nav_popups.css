@@ -29,9 +29,9 @@
 
 /* to align the following popups with the top of their button in the left nav use:
 	#popup_trumedical top:342  height: 355 overflow:scroll
-	#popup_patients	top:330 	height: 330 overflow:scroll
-	#popup_providers	top:394	height: 300 overflow;scroll
-	#popup_payors		top:430  height: 240 overflow:scroll
+	#popup_patients	top:330 	height: 310
+	#popup_providers	top:394	height: 300
+	#popup_payors		top:430  height: 240
 */
 /* consider lining them up with the bottom of their corresponding button */
 

@@ -3,7 +3,7 @@ Tm2ror::Application.configure do
   
   # This will remap ALL asset references:  images, stylesheets, javascripts, ... 
   
-  ActionController::Base.asset_host = "http://s3.amazonaws.com/trumedical"
+  # ActionController::Base.asset_host = "http://s3.amazonaws.com/trumedical"
   
   # Unless I put them all up on the amazon s3 bucket, the application will not find its stylesheets and javascript files
   #ActionController::Base.asset_host = "s3.amazonaws.com/trumedical" 

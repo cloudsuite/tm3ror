@@ -4,52 +4,63 @@
 	<style type="text/css">
 		div#devise_generated_content form { margin-bottom:20px; } 
 		div#devise_generated_content a { color:orange; }
-			div#devise_generated_content input {margin-bottom:10px;}
+		div#devise_generated_content input {margin-bottom:10px;}
+		div#center_column { /* override default layout */
+			padding-left:40px; 
+			padding-top:0px;
+			}
+		div#center_column div#devise_generated_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#devise_generated_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
 	</style>
 <% end %>
 
 
-<!-- body includes  ————————————————————————————————————————————————————  -->
-<%= content_for(:body) do %>
+<!-- middleBand includes  ———————————————————————————————————————————————  -->
 
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-	<div id="container">
-		<div id="subcontainer">
+<%= content_for(:middleBand) do %>
+	
+	<div id="left_column" >
 
-			<!-- menu —————————————————————————————————————————————————————  -->
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
 
-	    <!-- main content —————————————————————————————————————————————— -->
+	<div id="center_column">
 
-			<div id="main_content">
+		<!-- menu popups: top level categories ——————————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
+		
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		<div id="devise_generated_content">
+
+			<h2>Resend confirmation instructions</h2>
+
+			<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email %></div>
+
+			  <div><%= f.submit "Resend confirmation instructions" %></div>
+			<% end %>
+
+			<%= render :partial => "devise/shared/links" %>
+		</div> <!-- end div#devise_generated_content -->
 				
-				<!-- menu popups: top level categories ——————————————————————————————————— -->
-				<%= render(:partial => "/shared/menu_popups") %>
-				
-				<p class="notice"><%= notice %></p> <!-- needed by devise -->
-				<p class="alert"><%= alert %></p> <!-- needed by devise -->
-				<div id="devise_generated_content">
+	</div> <!-- end div#center_column -->
 
-					<h2>Resend confirmation instructions</h2>
-
-					<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-					  <%= devise_error_messages! %>
-
-					  <div><%= f.label :email %><br />
-					  <%= f.email_field :email %></div>
-
-					  <div><%= f.submit "Resend confirmation instructions" %></div>
-					<% end %>
-
-					<%= render :partial => "devise/shared/links" %>
-
-				</div> <!-- end div#devise_generated_content -->
-
-			</div> <!-- end div#main_content -->
-		</div> <!-- end div#subcontainer -->
-	</div> <!-- end div#container -->
-<% end %>
+<% end %> <!-- end :content_for middleBand -->

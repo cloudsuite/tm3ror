@@ -1,0 +1,147 @@
+<div id="popupsContainer">
+
+	<!-- Modalities  popup ———————————————————————————————————————————————-->
+
+	<div id="popup_modalities" class="popup_base">
+		<% @category = Category.where(:name => "Modalities").first %>
+		<%= render "subcategories" %>		
+	</div> 
+
+	<!-- Clinical Supplies  popup ————————————————————————————————————————-->
+	<div id="popup_clinicalSupplies" class="popup_base">
+		<% @category = Category.where(:name => "Clinic Products & Supplies").first %>
+		<%= render "subcategories" %>
+	</div>
+
+	<!-- Tables & Traction  popup ————————————————————————————————————————-->
+	<div id="popup_tables" class="popup_base">
+		<% @category = Category.where(:name => "Tables & Traction").first %>
+		<%= render "subcategories" %>
+	</div>
+
+	<!-- Fitness  popup ——————————————————————————————————————————————————-->
+	<div id="popup_fitness" class="popup_base">
+		<% @category = Category.where(:name => "Fitness Equipment").first %>
+		<%= render "subcategories" %>
+	</div>
+
+	<!-- Orthopedics  popup ——————————————————————————————————————————————-->
+	<div id="popup_orthopedics" class="popup_base">
+		<% @category = Category.where(:name => "Orthopedic Products & Supplies").first %>
+		<%= render "subcategories" %>  
+	</div>
+
+	<!-- ATC/Taping  popup ———————————————————————————————————————————————-->
+	<div id="popup_taping" class="popup_base">
+		<% @category = Category.where(:name => "ATC & Taping").first %>
+		<%= render "subcategories" %>  
+	</div>
+
+	<!-- Evaluation  popup ———————————————————————————————————————————————-->
+	<div id="popup_evaluation" class="popup_base">
+		<% @category = Category.where(:name => "Evaluation Products").first %>
+		<%= render "subcategories" %>  
+	</div>
+
+	<!-- Daily Ling Aids  popup ——————————————————————————————————————————-->
+	<div id="popup_dailyLiving" class="popup_base">
+		<% @category = Category.where(:name => "Aids to Daily Living").first %>
+		<%= render "subcategories" %>  
+	</div>
+
+	<!-- Lymphedema  popup ———————————————————————————————————————————————-->
+	<div id="popup_lymphedema" class="popup_base">
+		<% @category = Category.where(:name => "Lymphedema").first %> 
+		<%= render "subcategories" %>  
+	</div>
+
+	<!-- Wound Care  popup ———————————————————————————————————————————————-->
+	<div id="popup_woundCare" class="popup_base">
+		<% @category = Category.where(:name => "Wound Care").first %>
+		<%= render "subcategories" %> 
+
+	</div>
+
+	<!-- TruMedical  popup ———————————————————————————————————————————————-->
+	<div id="popup_trumedical" class="popup_base">
+		<img class="close" src="/images/utility/close16_white.png">  
+		<p><span style="font-weight:bold">Tru Medical Solutions, LLC (TMS)</span> is a manufacturer and distributor of orthopedic and rehabilitation products sold to hospitals, orthopedic and rehab clinics, nursing homes, assisted living centers, chiropractors and patients across the United States.</p> 
+		<p>Our corporate mission is to <span class="mission">partner with provider and the payer by to meet the needs of the patient.</span></p>
+		<p>We are owned and managed by 6 partners who are each actively involved in the daily operations of the business. Leadership experience ranges from former executives and managers of medical product manufacturers and distributors to executives and managers of insurance, transportation and food companies.</p>
+		<p>Founded in November 2009 and located in Collegedale Tennessee, TMS currently operates out of 21,000 square feet of offices and warehouse space with expansion capabilities existing through lease arrangements with adjoining tenants.</p> 
+		<p>Sales and marketing activities are divided into two categories, clinic and patient. Clinic sales are generated direct to clinics by TMS direct sales employees and contracted sales associates. Additionally, direct sales to clinics are accomplished through catalog marketing and our 21st century web ordering vehicle. Indirect clinical sales are achieved through dealers/re-sellers strategically located throughout the U.S.</p>
+		<p>Patient sales are generated on a referral basis by clinics both on a prescription and non-prescription basis. TMS is an accredited Medicare and Medicaid provider and currently accepts assignments from Medicare and Medicaid programs on certain items in TN, GA and KY. Additionally, TMS maintains contacted in network reimbursement status with many commercial payers in TN, GA & KY.</p>
+		<p>Our management team believes there is an excellent opportunity for sustainable multi-year growth due to recent consolidations and our multi channeled go to market strategy.  We believe that many of the products we offer provide cost effective approaches to treating many conditions and that there will be a solid demand as the health care industry reforms. </p>
+
+	</div>
+
+	<!-- Patients popup ————————————————————————————————————————————————— -->
+	<div id="popup_patients" class="popup_base">
+		<img class="close" src="/images/utility/close16_white.png">	
+		<p>TruMedical Solutions, LLC places the highest priority on patient care.  We partner with Providers (your doctors) and Payers (Insurance Companies) to achieve the best possible outcomes.</p>
+		<p>At TruMedical Solutions we have a team of professionals who understands the unique challenges that patients face in our changing healthcare system.  We strive to educate our patients on their product options allowing them to make an informed decision.  Through a wide product offering we enable the patients, caregivers and clinicians to choose the best products to treat their conditions and meet their needs.</p>
+		<p>We offer patients’ options; multiple products to meet the needs of both simple and complex patient requests.  We provide over the counter retail products for health and well being as well as prescribed products that can be billed directly to the patients insurance including Medicare and Medicaid.</p>
+		<p>We also partner with the Payers (Insurance Companies) on behalf of the patient to maximize the patient’s opportunity for recovery.  We work side by side with the insurance companies to ensure that the products we provide are covered for patient care.  We communicate benefit coverage and authorization requirements to the patient and work with the Clinicians to meet the needs of the patient efficiently and affordably.</p>
+		<p>We have a team of customer service professionals who can assist patients, caregivers, and/or clinicians with products offerings and requirements for insurance billing.  We also provide fitting services to ensure that products fit properly giving the patient the additional support that they need.</p>  
+		<p>To learn more about our patient services please feel free to call us at, 877.882.7844 we’ll be glad to hear from you and look forward to working with you.</p>
+
+	</div>
+
+
+	<!-- Providers popup —————————————————————————————————————————————————-->
+	<div id="popup_providers" class="popup_base">
+		<img class="close" src="/images/utility/close16_white.png">
+		<div class="row">
+			<p>TruMedical Solutions, LLC, is dedicated to meeting the needs of the patient.</p> 
+			<p>We offer the <span class="bold">Provider</span>:
+				<ul>
+					<li>Physical Therapist</li> 
+					<li>Occupational Therapist</li> 
+					<li>Certified Athletic Trainer</li> 
+					<li>Medical Doctor</li> 
+					<li>Chiropractor</li> 
+					<li>...  
+				</ul>
+			the products they need to help the patient.</p> 
+			<p>We offer <span class="bold">ten different categories of products</span> to meet all of your clinic needs.</p>
+			<p><span class="bold">Our website</span> offers many great <span class="bold">tools for the clinician.</span></p>
+			<ul>
+				<li>View an On-Line Catelog of Products — some available only through Clinicians</li>
+				<li>Request a Quote</li>
+				<li>Place and Track orders</li>
+				<!-- <li>Print a Statement</li> -->
+				<li>Request a Catalog</li>
+				<li>Request Support</li>
+				<li>View Custom Pricing</li>
+				<li>View Material Safety Data Sheets (MSDS)</li>
+				<li>Part Number Cross Reference Tool</li>
+				<!-- <li>Write a Product Review</li> -->
+				<li>View Promotions</li>
+				<li>Link to TruMedical Solutions on Twitter & Facebook</li>
+			</ul>
+			<p>We look forward and are thankful to partner with the Provider to meet the needs of the Patient.</p>
+			<p>If you have any questions or comments please feel free to <span class="bold">contact us.</span></p>
+		</div> 
+	</div>
+
+	<!-- Payors popup ————————————————————————————————————————————————————-->
+	<div id="popup_payors" class="popup_base">
+		<img class="close" src="/images/utility/close16_white.png">
+		<h2>Experience</h2>
+		<p>Our team of professionals is built on a foundation of 25 years of Health Plan Management Experience.  We understand the challenges that your members face when they enter the healthcare system and we’re here to help them navigate the course.  Our goal is to reduce the administrative burden placed on health plans as it relates to member specific healthcare products and services.  Through our in-depth knowledge of products and member education we believe that the end result will be healthier more individually engaged members.</p>
+
+		<h2>Patient Centered Focus</h2>
+		<p>We take a patient centered approach to total population health management.  We take a collaborative approach in working with all stake holders, patients, payers, and providers to coordinate the most efficient and effective patient plan of care.  We welcome the opportunity to work with your Case Managers & Disease Management to deliver the prescribed products when and where needed.  We are constantly working through patient outreach to help ensure patient compliance and therefore helping to reduce total health plan spend.</p>
+
+		<h2>Credentialing and Accreditation</h2>
+		<p>TruMedical Solutions is fully accredited as an Exemplary Provider by The Compliance Team.  We are CMS certified to deliver Durable Medical Equipment (DME) and Orthothic & Prosthetic (O&P) products and services for Medicare and Medicaid patient populations.</p>
+
+		<h2>HIPAA Compliance</h2>
+		<p>All Processes, procedures, and systems are HiPAA Compliant.  Add Link for Privacy Policy</p>
+
+		<h2>EDI</h2>
+		<p>We have full capability of interfacing with all payers through Electronic Data Interchange (EDI) claims systems.</p>
+		<!-- <div id="popup_bottom_pad"></div> -->
+	</div>  
+
+</div>

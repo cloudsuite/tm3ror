@@ -1,14 +1,15 @@
 
-/* ÑÑÑÑ menu styles  ÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑÑ */
+/* ————— menu styles  ————————————————————————————————————*/
 
+	/* how much of this can be dropped?  */ 
+	
 	#menu .submenucontent2 .level2 a.menu_red {
 		color: #ff0000;
 		display: none;
 	}
 	
 	#menu {
-		width: 233px;
-		margin-right: 2px;
+		width: 235px;
 		float: left;
 		z-index: 99;
 		position: relative;
@@ -23,7 +24,7 @@
 		height: 22px;
 		text-decoration: none;
 		font-size: 22px;
-		padding: 8px 0 4px 3px;
+		padding: 8px 0 4px 10px;
 		display: block;
 		color: #000000;
 	}
@@ -32,7 +33,7 @@
 		height: 22px;
 		text-decoration: none;
 		font-size: 22px;
-		padding: 8px 0 4px 3px;
+		padding: 8px 0 4px 10px;
 		display: block;
 		color: gray; /* to differentiate patients/clinicians/payors from product categories */
 	}
@@ -58,13 +59,13 @@
 	#menu div.active,
 	#menu div.current,
 	#menu a.level1.active,
-	#menu a.level1.current 
+	#menu a.level1.current, 
 	#menu a.level1B:hover,
 	#menu a.level1B.active,
 	#menu a.level1B.current
 	
 	{
-		background: orange; /* 0094DE */
+		background: yellow; /* 0094DE */
 		margin-left: 0px;
 		margin-right: 0px;
 		padding-left: 13px;

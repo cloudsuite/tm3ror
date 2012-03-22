@@ -4,48 +4,60 @@
 	<style type="text/css">
 		div#devise_generated_content form { margin-bottom:20px; } 
 		div#devise_generated_content a { color:orange; }
-			div#devise_generated_content input {margin-bottom:10px;}
+		div#devise_generated_content input {margin-bottom:10px;}
+		div#center_column { /* override default layout; push right away from left navigation a little */
+			padding-left:40px; 
+			padding-top:0px;
+			}
+		div#center_column div#devise_generated_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 250px;
+		}
+		div#center_column div#devise_generated_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
 	</style>
 <% end %>
 
 <!-- body includes  ————————————————————————————————————————————————————  -->
 
-<%= content_for(:body) do %>
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-	<div id="container">
-		<div id="subcontainer">
-	
-			<!-- menu —————————————————————————————————————————————————————  -->
-	
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
 
-	    <!-- main content —————————————————————————————————————————————— -->
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-			<div id="main_content">
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
+
+	<div id="center_column">
 				
-				<p class="notice"><%= notice %></p> <!-- needed by devise -->
-				<p class="alert"><%= alert %></p> <!-- needed by devise -->
-				<div id="devise_generated_content">
-				
-					<h2>Resend unlock instructions</h2>
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		<div id="devise_generated_content">
+		
+			<h2>Resend unlock instructions</h2>
+			<hr></hr></br>
 
-					<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
-					  <%= devise_error_messages! %>
+			<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+			  <%= devise_error_messages! %>
 
-					  <div><%= f.label :email %><br />
-					  <%= f.email_field :email %></div>
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email %></div>
 
-					  <div><%= f.submit "Resend unlock instructions" %></div>
-					<% end %>
+			  <div><%= f.submit "Resend unlock instructions" %></div>
+			<% end %>
 
-					<%= render :partial => "devise/shared/links" %>
+			<%= render :partial => "devise/shared/links" %>
 
-				</div> <!-- end div#devise_generated_content -->
+		</div> <!-- end div#devise_generated_content -->
 
-			</div> <!-- end div#main_content -->
-		</div> <!-- end div#subcontainer -->
-	</div> <!-- end div#container -->
+	</div> <!-- end div#center_column -->
+
 <% end %>

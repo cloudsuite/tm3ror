@@ -26,49 +26,50 @@
 	<script type="text/javascript" >
 
 		$(document).ready(function() {	
-			$("#body-background").ezBgResize();
-			$("#body-background").css("background-color","#E6E6E6");				
-			checkSize();
-			$("#addToCart").click(function(){
-				addtocart();
-				return false;
-			});
-		});
-		function addtocart()
-		{
-			alert("Adding items to cart. Click OK to continue.")
+				//	$("#body-background").ezBgResize();
+					$("#body-background").css("background-color","#E6E6E6");				
+				//	checkSize();
+					$("#addToCart").click(function(){
+						addtocart();
+						return false;
+					});
+				});
 
-			var multi = '';
-			$("input[id*=qty_]").each(function()
-			{
-				if($(this).val()!="")
-				{
-					if(parseInt($(this).val())>0)
-					{
-						var itemid = $(this).attr('id').replace('qty_','');
-						var itemqty = $(this).val();
-						multi+=itemid+','+itemqty+';';
-					}
-				}
-			});
-			$("input[id*=qty_]").each(function()
-			{
-				$(this).val('');
-			});
+				function addtocart()
+						{
+							alert("Adding items to cart. Click OK to continue.")
+							var accountid = "1114349"; //Netsuite account id
 
-			var accountid = "1114349"; //Netsuite account id
-		    //add to cart url
-			var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?multi='+multi+'&c='+accountid+'&qtyadd=1&buyid=multi';		     
-		    //create hidden iframe in body
-		    $('body').append('<iframe id="addtocartframe" style="display:none" />'); 
-		    //change src to iframe
-		    $('#addtocartframe').attr('src', myurl);
-		    return false;
-		}
+							$("input[id*=qty_]").each(function()
+							{
+								if($(this).val()!="")
+								{
+									if(parseInt($(this).val())>0)
+									{
+										var itemid = $(this).attr('id').replace('qty_','');
+										var itemprice = $("#price_"+itemid).html().replace('$','');
+
+										var itemqty = $(this).val();
+										//add to cart url
+										var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?&c='+accountid+'&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
+									    //create hidden iframe in body
+									    $('body').append('<iframe id="addtocartframe'+itemid+'" style="display:none" />'); 
+									    //change src to iframe
+									    $('#addtocartframe'+itemid).attr('src', myurl);
+									}
+								}
+							});
+							$("input[id*=qty_]").each(function()
+							{
+								$(this).val('');
+							});
+
+							return false;
+						}
 	</script>
 
 	<style type="text/css">
-		div#product_goodies {max-height:625px; overflow-y:auto;padding-right:20px;margin-top:5px;}
+		/* div#product_goodies {max-height:625px; overflow-y:auto;padding-right:20px;margin-top:5px;} */
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 		div#product_image_description img { margin-bottom:15px;}
 		div#products { margin-top:10px; padding-left:40px;}
@@ -99,30 +100,19 @@
 <% end %>
 
 
-<%= content_for(:body) do %>
+<%= content_for(:middleBand) do %>
+	
+	<div id="left_column" >
 
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-    
-	<!-- container —————————————————————————————————————————————————————————————————— -->
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-	<div id="container">
-		<div id="black_screen"></div> 
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
 
-	  <!-- subcontainer —————————————————————————————————————————————————————— -->
+	</div><!-- end of div 'left_column' -->
 
-		<div id="subcontainer">
-		
-			<!-- menu —————————————————————————————————————————————————————  -->
-		
-			<%= render :partial => 'shared/menu' %>
-			<!-- Google search results now below menu on left
-				<# render :partial => 'shared/search' #> 
-			-->
-	    <!-- main content ——————————————————————————————————————————————————————————————— -->
-
-			<div id="main_content">
+	<div id="center_column">
 				
 				<!-- breadcrumb trail ———————————————————————————————————————————————————— -->
 				<%= render :partial => "/shared/breadcrumb" %>
@@ -172,7 +162,7 @@
 						<tr>
 							<td><%= p.tms_part_no %></td>
 							<td><%= p.description %></td>
-							<td class="price">
+							<td class="price" id="price_<%= p.netsuite_item_no %>">
 								<%= if current_user 
 							  	case current_user.price_schedule
 										when "tru-blue"
@@ -220,20 +210,10 @@
 					</table>
 				
 				</div> <!-- end div#products -->
+				
 			</div>   <!-- end div#product_goodies -->
-			</div> <!-- end div#main_content -->
-
-		</div><!-- end div#subcontainer -->
-
-
-		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
-
-		<div id="right_content_container">
-	    <%= render(:partial => 'shared/rightContent') %>	       
-		</div>
-
-
-	</div><!-- end div#container -->
+			
+		</div> <!-- end div#center_column  -->
 
 
 	<!-- logo_container ——————————————————————————————————————————————————————————————— -->

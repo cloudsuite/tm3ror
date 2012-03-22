@@ -63,7 +63,8 @@
 		
 		<style type="text/css">
 			div#tabs_buttons_gamme { margin-bottom:20px!important; }
-			div#subcategories { max-height:570px; overflow-y:auto; padding-right:20px; margin-top:5px;}
+			/* div#subcategories { max-height:570px; overflow-y:auto; padding-right:20px; margin-top:5px;} */
+			div#subcategories { margin-top:5px; } 
 			div.leafCategories { margin-top:20px;}
 			div.leafCategory {
 				width: 120px; height:120px; 
@@ -94,70 +95,48 @@
 	<% end %>
 
     
-	<%= content_for(:body) do %>
+	<%= content_for(:middleBand) do %>
 		
-		<div id="body-background">
-			<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-		</div>
-        
-		<!-- container —————————————————————————————————————————————————————————————————— -->
-        
-		<div id="container">
-        
-			<div id="black_screen"></div> 
 			
-			<!-- subcontainer —————————————————————————————————————————————————————— -->
-            
-			<div id="subcontainer"> <!-- Why are menu and main content grouped into a combination div 'subcontainer' ? -->
-				<!-- MENU —————————————————————————————————————————————————————  -->
-				
-				<%= render :partial => 'shared/menu' %>
-				
-				<!-- popup overlays that contain 1st level of navigation for category tree ———————————————— -->
-				<!-- 
-				Where should they go on this page?  inside what div?  subcontainer or main_content?  
-				Try in main_content first. Does it matter?
-				-->
-					
-				<!-- MAIN CONTENT —————————————————————————————————————————————— -->
-                
-				<div id="main_content">
+			<div id="left_column" >
+
+				<!-- menu —————————————————————————————————————————— -->
+				<%= render(:partial => 'shared/menu') %>
+
+				<!-- featured products  —————————————————————— -->
+				<%= render(:partial => 'shared/featuredProducts') %>
+			</div><!-- end of div 'left_column' -->
+
+			<div id="center_column">
 					
            <!-- insert here the partial '/shared/menu_popups.html.erb' if that doesn't break things 
 	     			Note: /shared/menu_popups, not /shared_menu_popups_home.  
 								It is a smaller menu: only the top level categories (and search button).
 								It also uses the instance variable @top_category rather than @category.  
 								The home page can use @category because it does not use it elsewhere; the 
-								categories/show pages do use @category.  
-								Where is views/categories/_subcategories_of_top_level_category.html.erb 
-								pulled into this page? 
+								categories/show pages do use @category.   
 						-->
 					<%= render(:partial => "/shared/menu_popups") %> 
 					
 					<!-- Error Messages ———————————————————————————————————————— -->
 					<div id="error-messages" style="display:none"></div>
-				
-					<!-- remove the breadcrumb from intermediate category pages; leave in for testing 
-						(as a way of getting back to the home page)  until have left-nav working 
-						from pages other than the home page
-					-->
 					
 					<!-- Breadcrumb ———————————————————————————————————————————— -->
 					<%= render :partial => "/shared/breadcrumb" %>
-					<!-- <p style="color:red; margin:10px;">DEBUGGING: in view categories/show.html.erb</p> -->
+
 			
-					<!-- TABS: repeat subcategories within this category  ——————————————————————————————— -->
+					<!-- TABS: repeat subcategories within this category  ————————————————————— -->
 					<!-- Show products for the subcategory that he selected on the home page
 						   Change to products for a different subcategory if he selects it here
 							 How does/should this work if there is another level of categories?
 							 Never is in Mavics?  Does occur in TruMedical?
 						-->
 							
-					<!-- Sibling Nav  ——————————————————————————————————————————————————————————————————— -->
+					<!-- Sibling Nav  ——————————————————————————————————————————————————————— -->
                     
 					<div id="tabs">
 						
-						<!-- horizontal line of tabs/buttons: one per subcategory ————————————————————————— -->
+						<!-- horizontal line of tabs/buttons: one per subcategory ———————————————— -->
 						<!-- problem: subcategory names are too long to allow all subcategories to fit in a single horizontal row as this design assumes; in Modalities there is room for 3 of 5 subcategories --> 
 						<div id="tabs_buttons_gamme">
 							<!-- stripped out; see show_siblinghNav.html.erb
@@ -167,9 +146,7 @@
 								<%= @category.name %>								
 							</div>														
 						</div> <!-- end tabs_buttons_gamme -->
-						<div class="clear"></div>
-
-						
+				
 						<!-- SUBCATEGORIES ———————————————————————————————————— -->
 						<div id="subcategories">
 						<!--
@@ -257,24 +234,13 @@
 
 							</div><!-- end div.leafCategories -->
 						<% end %> 
-                
-						<div class="clear"></div>
+						
 					</div> <!-- end div#subcategories -->
                     
-					</div> <!-- end div 'tabs' -->
+				</div> <!-- end div 'tabs' -->
                     
-				</div> <!-- end div 'main content' -->
-                
-			</div><!-- end div 'subcontainer'  -->
-			
-			<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
-			<div id="right_content_container">
-	      <%= render(:partial => 'shared/rightContent') %>	       
-			</div>
-        
-			<div id="forScrollTop" class="clear"></div> <!-- what does this clearing div do?  -->
-            
-		</div><!-- end div 'container' -->
+			</div> <!-- end div 'center_column' -->
+  
         
 		<!-- logo_container ——————————————————————————————————————————————————————————————— -->
         
@@ -282,6 +248,6 @@
 			<a href="index.html" id="logo" title="home page" name="logo">home page</a>
 		</div>
 		
-	<% end %>
+	<% end %> <!-- end content_for(:middleBand) -->
 
 

@@ -4,38 +4,49 @@
 	<style type="text/css">
 		div#devise_generated_content form { margin-bottom:20px; } 
 		div#devise_generated_content a { color:orange; }
-			div#devise_generated_content input {margin-bottom:10px;}
+		div#devise_generated_content input {margin-bottom:10px;}
+		div#center_column { /* override default layout */
+			padding-left:40px; 
+			padding-top:0px;
+			}
+		div#center_column div#devise_generated_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#devise_generated_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
 	</style>
 <% end %>
 
+<!-- middleBand includes  ———————————————————————————————————————————————  -->
 
-<!-- body includes  ————————————————————————————————————————————————————  -->
-<%= content_for(:body) do %>
+<%= content_for(:middleBand) do %>
 
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-	<div id="container">
-		<div id="subcontainer">
+	<div id="left_column" >
 
-			<!-- menu —————————————————————————————————————————————————————  -->
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+		<!-- featured products  ———————————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+		
+	</div><!-- end of div 'left_column' -->
 
-	    <!-- main content —————————————————————————————————————————————— -->
+	<div id="center_column">
+		<div id="devise_generated_content">
+			<p>Welcome <%= @resource.email %>!</p>
 
-			<div id="main_content">
-				<div id="devise_generated_content">
-					<p>Welcome <%= @resource.email %>!</p>
+			<p>You can confirm your account through the link below:</p>
 
-					<p>You can confirm your account through the link below:</p>
+			<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
 
-					<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+		</div> <!-- end div#devise_generated_content -->
+	</div> <!-- end div#center_column -->
 
-				</div> <!-- end div#devise_generated_content -->
-
-			</div> <!-- end div#main_content -->
-		</div> <!-- end div#subcontainer -->
-	</div> <!-- end div#container -->
-<% end %>
+<% end %> <!-- end :content_for middleBand -->

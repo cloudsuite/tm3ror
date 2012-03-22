@@ -25,47 +25,45 @@
 	<script type="text/javascript" >
 
 		$(document).ready(function() {	
-		//	$("#body-background").ezBgResize();
+			$("#body-background").ezBgResize();
 			$("#body-background").css("background-color","#E6E6E6");				
-		//	checkSize();
+			checkSize();
 			$("#addToCart").click(function(){
 				addtocart();
 				return false;
 			});
 		});
-		
 		function addtocart()
+		{
+			alert("Adding items to cart. Click OK to continue.")
+
+			var multi = '';
+			$("input[id*=qty_]").each(function()
+			{
+				if($(this).val()!="")
 				{
-					alert("Adding items to cart. Click OK to continue.")
-					var accountid = "1114349"; //Netsuite account id
-
-					$("input[id*=qty_]").each(function()
+					if(parseInt($(this).val())>0)
 					{
-						if($(this).val()!="")
-						{
-							if(parseInt($(this).val())>0)
-							{
-								var itemid = $(this).attr('id').replace('qty_','');
-								var itemprice = $("#price_"+itemid).html().replace('$','');
-
-								var itemqty = $(this).val();
-								//add to cart url
-								var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?&c='+accountid+'&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
-							    //create hidden iframe in body
-							    $('body').append('<iframe id="addtocartframe'+itemid+'" style="display:none" />'); 
-							    //change src to iframe
-							    $('#addtocartframe'+itemid).attr('src', myurl);
-							}
-						}
-					});
-					$("input[id*=qty_]").each(function()
-					{
-						$(this).val('');
-					});
-
-					return false;
+						var itemid = $(this).attr('id').replace('qty_','');
+						var itemqty = $(this).val();
+						multi+=itemid+','+itemqty+';';
+					}
 				}
-				
+			});
+			$("input[id*=qty_]").each(function()
+			{
+				$(this).val('');
+			});
+
+			var accountid = "1114349"; //Netsuite account id
+		    //add to cart url
+			var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?multi='+multi+'&c='+accountid+'&qtyadd=1&buyid=multi';		     
+		    //create hidden iframe in body
+		    $('body').append('<iframe id="addtocartframe" style="display:none" />'); 
+		    //change src to iframe
+		    $('#addtocartframe').attr('src', myurl);
+		    return false;
+		}
 	</script>
 	
 	<style type="text/css">
@@ -173,7 +171,7 @@
 								<tr>
 									<td><%= p.tms_part_no %></td>
 									<td><%= p.web_description %></td>
-									<td class="price" id="price_<%= p.netsuite_item_no %>">
+									<td class="price">
 											<%= if current_user 
 										  	case current_user.price_schedule
 													when "tru-blue"

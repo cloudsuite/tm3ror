@@ -8,55 +8,65 @@
 		div#checkbox label {block: inline; color:black;}
 		div#devise_generated_content input#user_remember_me { margin-bottom: 0px;} 
 		div#devise_generated_content input#user_submit { margin-top:20px;}
+		div#center_column { /* override default layout; push right away from left navigation a little */
+			padding-left:40px; 
+			padding-top:0px;
+			}
+		div#center_column div#devise_generated_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#devise_generated_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
 	</style>
 <% end %>
 
 <!-- body includes  ————————————————————————————————————————————————————  -->
 
-<%= content_for(:body) do %>
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-	<div id="container">
-		<div id="subcontainer">
-	
-			<!-- menu —————————————————————————————————————————————————————  -->
-	
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
 
-	    <!-- main content —————————————————————————————————————————————— -->
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-			<div id="main_content">
-				
-				<!-- menu popups: top level categories ——————————————————————————————————— -->
-				<%= render(:partial => "/shared/menu_popups") %>
-				
-				<p class="notice"><%= notice %></p> <!-- needed by devise -->
-				<p class="alert"><%= alert %></p> <!-- needed by devise -->
-				<div id="devise_generated_content">
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
 
-					<h2>Sign in</h2>
+	<div id="center_column">
+		<!-- menu popups: top level categories ——————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
+		
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		<div id="devise_generated_content">
 
-					<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-					  <div><%= f.label :email %><br />
-					  <%= f.email_field :email %></div>
+			<h2>Sign in</h2>
+			<hr></hr></br>
 
-					  <div><%= f.label :password %><br />
-					  <%= f.password_field :password %></div>
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email %></div>
 
-					  <% if devise_mapping.rememberable? -%>
-					    <div id="checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-					  <% end -%>
+			  <div><%= f.label :password %><br />
+			  <%= f.password_field :password %></div>
 
-					  <div><%= f.submit "Sign in" %></div>
-					<% end %>
+			  <% if devise_mapping.rememberable? -%>
+			    <div id="checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+			  <% end -%>
 
-					<%= render :partial => "devise/shared/links" %>
-					
-				</div> <!-- end div#devise_generated_content -->
-				
-			</div> <!-- end div#main_content -->
-		</div> <!-- end div#subcontainer -->
-	</div> <!-- end div#container -->
-<% end %>
+			  <div><%= f.submit "Sign in" %></div>
+			<% end %>
+
+			<%= render :partial => "devise/shared/links" %>
+			
+		</div> <!-- end div#devise_generated_content -->
+	</div> <!-- end div#center_column -->
+
+<% end %> <!-- end :content_for middleBand -->

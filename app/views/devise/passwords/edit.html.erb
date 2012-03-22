@@ -4,54 +4,60 @@
 	<style type="text/css">
 		div#devise_generated_content form { margin-bottom:20px; } 
 		div#devise_generated_content a { color:orange; }
-			div#devise_generated_content input {margin-bottom:10px;}
+		div#devise_generated_content input {margin-bottom:10px;}
+		div#center_column div#devise_generated_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#devise_generated_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
 	</style>
 <% end %>
 
 
-<!-- body includes  ————————————————————————————————————————————————————  -->
-<%= content_for(:body) do %>
+<!-- middleBand includes  ———————————————————————————————————————————————  -->
 
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-	<div id="container">
-		<div id="subcontainer">
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
 
-			<!-- menu —————————————————————————————————————————————————————  -->
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
 
-	    <!-- main content —————————————————————————————————————————————— -->
-
-			<div id="main_content">
+	<div id="center_column">
 				
-				<!-- menu popups: top level categories ——————————————————————————————————— -->
-				<%= render(:partial => "/shared/menu_popups") %>
+		<!-- menu popups: top level categories ——————————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
 				
-				<div id="devise_generated_content">
+		<div id="devise_generated_content">
 
-					<h2>Change your password</h2>
+			<h2>Change your password</h2>
 
-					<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-					  <%= devise_error_messages! %>
-					  <%= f.hidden_field :reset_password_token %>
+			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+			  <%= devise_error_messages! %>
+			  <%= f.hidden_field :reset_password_token %>
 
-					  <div><%= f.label :password, "New password" %><br />
-					  <%= f.password_field :password %></div>
+			  <div><%= f.label :password, "New password" %><br />
+			  <%= f.password_field :password %></div>
 
-					  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-					  <%= f.password_field :password_confirmation %></div>
+			  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
+			  <%= f.password_field :password_confirmation %></div>
 
-					  <div><%= f.submit "Change my password" %></div>
-					<% end %>
+			  <div><%= f.submit "Change my password" %></div>
+			<% end %>
 
-					<%= render :partial => "devise/shared/links" %>
+			<%= render :partial => "devise/shared/links" %>
 
-				</div> <!-- end div#devise_generated_content -->
+		</div> <!-- end div#devise_generated_content -->
+	</div> <!-- end div#center_column -->
 
-			</div> <!-- end div#main_content -->
-		</div> <!-- end div#subcontainer -->
-	</div> <!-- end div#container -->
-<% end %>
+<% end %> <!-- end :content_for middleBand -->

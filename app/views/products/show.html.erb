@@ -22,13 +22,12 @@
 	<%# javascript_include_tag "zoom_and_mega_zoom.js" %>
 -->
 
-
 	<script type="text/javascript" >
 
 		$(document).ready(function() {	
-			$("#body-background").ezBgResize();
+		//	$("#body-background").ezBgResize();
 			$("#body-background").css("background-color","#E6E6E6");				
-			checkSize();
+		//	checkSize();
 			$("#addToCart").click(function(){
 				addtocart();
 				return false;
@@ -36,41 +35,43 @@
 		});
 		
 		function addtocart()
-		{
-			alert("Adding items to cart. Click OK to continue.")
-
-			var multi = '';
-			$("input[id*=qty_]").each(function()
-			{
-				if($(this).val()!="")
 				{
-					if(parseInt($(this).val())>0)
-					{
-						var itemid = $(this).attr('id').replace('qty_','');
-						var itemqty = $(this).val();
-						multi+=itemid+','+itemqty+';';
-					}
-				}
-			});
-			$("input[id*=qty_]").each(function()
-			{
-				$(this).val('');
-			});
+					alert("Adding items to cart. Click OK to continue.")
+					var accountid = "1114349"; //Netsuite account id
 
-			var accountid = "1114349"; //Netsuite account id
-		    //add to cart url
-			var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?multi='+multi+'&c='+accountid+'&qtyadd=1&buyid=multi';		     
-		    //create hidden iframe in body
-		    $('body').append('<iframe id="addtocartframe" style="display:none" />'); 
-		    //change src to iframe
-		    $('#addtocartframe').attr('src', myurl);
-		    return false;
-		}
+					$("input[id*=qty_]").each(function()
+					{
+						if($(this).val()!="")
+						{
+							if(parseInt($(this).val())>0)
+							{
+								var itemid = $(this).attr('id').replace('qty_','');
+								var itemprice = $("#price_"+itemid).html().replace('$','');
+
+								var itemqty = $(this).val();
+								//add to cart url
+								var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?&c='+accountid+'&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
+							    //create hidden iframe in body
+							    $('body').append('<iframe id="addtocartframe'+itemid+'" style="display:none" />'); 
+							    //change src to iframe
+							    $('#addtocartframe'+itemid).attr('src', myurl);
+							}
+						}
+					});
+					$("input[id*=qty_]").each(function()
+					{
+						$(this).val('');
+					});
+
+					return false;
+				}
 	</script>
+		
 
 	<style type="text/css">
 		div#product_div { margin-top:20px; margin-bottom:15px;}
 		div.left { float:left; padding:20px;}
+		div.left div.picture { width:780px; overflow-x:hidden; }
 		div.right {}
 		/* div.picture { margin-bottom:15px;}*/
 
@@ -89,36 +90,32 @@
 
 <% end %>
 
+<%= content_for(:middleBand) do %>
 
-<%= content_for(:body) do %>
-
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
+		<div id="body-background">	
+			<!-- <# image_tag(...) %> -->
+		</div>
     
-	<!-- container —————————————————————————————————————————————————————————————————— -->
+		<div id="left_column">
 
-	<div id="container">
-		<div id="black_screen"></div> 
+			<!-- menu —————————————————————————————————————————— -->
+			<%= render(:partial => 'shared/menu') %>
 
-	  <!-- subcontainer —————————————————————————————————————————————————————— -->
+			<!-- featured products  —————————————————————— -->
+			<%= render(:partial => 'shared/featuredProducts') %>
 
-		<div id="subcontainer">
-		
-			<!-- menu —————————————————————————————————————————————————————  -->
-		
-			<%= render :partial => 'shared/menu' %>
-			<!-- Commented out: Google search results moved to 'cse' div below left menu (in shared/_menu.html.erb) <#= render :partial => 'shared/search' #>
-			-->
+		</div><!-- end of div 'left_column' -->
 
-	    <!-- main content —————————————————————————————————————————————— -->
+		<div id="center_column">
+				
+				<!-- breadcrumb trail ————————————————————————————————————————— -->
+				<%= render(:partial => "/shared/breadcrumb") %>
 
-			<div id="main_content">
 				
 				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
 				<!-- removed for now because product pages being shown from sammons search may not have a category_id
 				<%# render :partial => "/shared/breadcrumb" %>
-			-->
+				-->
 			
 				<!-- error messages —————————————————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
@@ -183,7 +180,7 @@
 						
 							<tr>
 								<td>Price:</td>
-								<td>
+								<td class="price" id="price_<%= @product.netsuite_item_no %>">
 									<%= if current_user 
 								  	case current_user.price_schedule
 											when "tru-blue"
@@ -231,20 +228,11 @@
 				
 				</div> <!-- end div#product_div -->
 
-			</div> <!-- end div#main_content -->
-
-		</div><!-- end div#subcontainer -->
+			</div> <!-- end div#center_column -->
 
 
-		<!-- RIGHT CONTENT ————————————————————————————————————————————————————— -->
+		<!-- <div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
 
-		<div id="right_content_container">
-	    <%= render(:partial => 'shared/rightContent') %>	       
-		</div>
-
-		<div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
-
-	</div><!-- end div#container -->
 
 
 	<!-- logo_container ——————————————————————————————————————————————————————————————— -->

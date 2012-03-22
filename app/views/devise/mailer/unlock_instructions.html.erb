@@ -2,44 +2,56 @@
 	<style type="text/css">
 		div#devise_generated_content form { margin-bottom:20px; } 
 		div#devise_generated_content a { color:orange; }
-			div#devise_generated_content input {margin-bottom:10px;}
+		div#devise_generated_content input {margin-bottom:10px;}
+		div#center_column { /* override default layout */
+			padding-left:40px; 
+			padding-top:0px;
+			}
+		div#center_column div#devise_generated_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#devise_generated_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
 	</style>
 <% end %>
 
 
-<!-- body includes  ————————————————————————————————————————————————————  -->
-<%= content_for(:body) do %>
+<!-- middleBand includes  ———————————————————————————————————————————————  -->
 
-	<div id="body-background">	
-		<!-- <img src="../images/landscapes/road_aero.jpg" width="1354" height="900" alt="Bg"> -->
-	</div>
-	<div id="container">
-		<div id="subcontainer">
+<%= content_for(:middleBand) do %>
 
-			<!-- menu —————————————————————————————————————————————————————  -->
+	<div id="left_column" >
 
-			<%= render :partial => 'shared/menu' %>
-			<%= render :partial => 'shared/search' %>
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
 
-	    <!-- main content —————————————————————————————————————————————— -->
+		<!-- featured products  ———————————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+		
+	</div><!-- end of div 'left_column' -->
 
-			<div id="main_content">
+	<div id="center_column">
 				
-				<!-- menu popups: top level categories ——————————————————————————————————— -->
-				<%= render(:partial => "/shared/menu_popups") %>
-				
-				<div id="devise_generated_content">
-					<p>Hello <%= @resource.email %>!</p>
+		<!-- menu popups: top level categories ——————————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
+		
+		<div id="devise_generated_content">
+			<p>Hello <%= @resource.email %>!</p>
 
-					<p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
+			<p>Your account has been locked due to an excessive amount of unsuccessful sign in attempts.</p>
 
-					<p>Click the link below to unlock your account:</p>
+			<p>Click the link below to unlock your account:</p>
 
-					<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+			<p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
 
-				</div> <!-- end div#devise_generated_content -->
+		</div> <!-- end div#devise_generated_content -->
 
-			</div> <!-- end div#main_content -->
-		</div> <!-- end div#subcontainer -->
-	</div> <!-- end div#container -->
+	</div> <!-- end div#center_columnm -->
 <% end %>

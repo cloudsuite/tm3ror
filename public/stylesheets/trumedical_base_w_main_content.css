@@ -190,17 +190,96 @@
 
 	/*  see separate css file:  menu.css  */ 
 	
-	
-	
-/* ———— within featuredProducts —————————————————————————————————————— */
 
-	#featuredProducts p,
-	#home_featuredProducts p {
+/* ———— within main-content ——————————————————————————————————————— */
+	
+	/* ———— How much of this can be dropped? ——————————————————— */
+	#main_content h1{font-size: 21px;}
+	/* #main_content a:hover {text-decoration: none;color: #ff0000; border: none;} */
+	#main_content .color0 { background: none;}
+	#main_content .color1 { background: #fafafa;}
+	#main_content .italic { font-style: italic;}
+	#main_content .bold { font-weight: bold;}
+
+	/* used for? puce.gif? -- */
+	#main_content span.bold {
+		background: url('images/puce.gif') no-repeat; /* --- IMAGE ----------------  */
+		background-position: 0px 6px;
+		padding-left: 8px;
+	}
+	
+	/* ———— #main_content .box —————————————— */
+
+	#main_content .box { clear: left;}
+	#main_content .box h2 { display: none;}
+	#main_content .box dt { margin: 0; padding: 0;}
+	#main_content .box dd { margin-left: 0; margin-bottom: 16px;}
+	#main_content .box dd p { margin: 2px 0 0 0;}
+	#main_content .box dd p.url { margin: 0;font-size:80%;}
+	#main_content .box dl.search-results dt.title { font-weight: bold;}
+
+	#main_content .box div.item-list {
+		background-image: url("images/bg_tabs.gif"); /* --- IMAGE ----------------  */
+		background-position: 0px -29px;
+	}
+
+	/* ———— #main_content ul.pager —————————————— */
+	
+	#main_content .box ul.pager {
+		text-align: center;
+		padding: 0;
+		margin-top: 0;
+		margin-left:0px;
+	}
+
+	#main_content .box ul.pager li {display: inline;padding: 0 3px;}
+	#main_content .box ul.pager li.pager-previous {display: block;float: left;padding-left: 0;margin-left: 0px;}
+	#main_content .box ul.pager li.pager-current {font-weight: bold;}
+	#main_content .box ul.pager li.pager-next {display: block;float: right;padding-right: 0;}
+	#main_content .box ul.pager li.pager-first,
+	#main_content .box ul.pager li.pager-last {display: none;}
+	#main_content .box .search-results {padding-bottom: 20px;}
+	#main_content .box .content {padding-bottom: 25px;}
+	#main_content .search-form-test .container-inline {font-weight: bold;}
+	#main_content .search-form-test #edit-keys {
+		border: 1px solid #7d7d7d;
+		width: 215px;
+		font-family: tahoma;
+		padding: 4px;
+		font-weight: bold;
+		font-size: 12px;
+	}
+
+	#main_content .search-form-test #edit-submit {
+		border: none;
+		background: #000000;
+		color: #ffffff;
+		font-weight: bold;
+		font-size: 10px;
+		font-family: tahoma;
+		margin:0px 5px 0px 0px;
+		padding: 3px 3px 3px 3px;
+
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+	#main_content .search-form-test #edit-submit:hover {
+		background: #ffe500;
+		color: #000000;
+	}
+	
+	
+	
+/* ———— within content_right —————————————————————————————————————— */
+
+	#right_content p,
+	#home_right_content p {
 		line-height: 13px;
 	}
 
-	#featuredProducts p.title,
-	#home_featuredProducts p.title {
+	#right_content p.title,
+	#home_right_content p.title {
 		padding:0px;
 		margin:0px;
 		font-weight: bold;
@@ -208,15 +287,30 @@
 		text-transform: lowercase;
 	}
 
-	#featuredProducts p.content
-	#home_featuredProducts p.content {
+	#right_content p.content
+	#home_right_content p.content {
 		font-size: 11px;
 		line-height: 13px;
 	}
 
+	#right_content .flash_content {
+		margin-left: 5px;
+	}
 
-	#featuredProducts .link,
-	#home_featuredProducts .link {
+	#right_content.small_size #player {
+		margin-left: 0px;
+	}
+
+	#right_content #player {
+		margin-left: 5px;
+	}
+
+	#home_right_content .flash_content {
+		height: 132px;
+	}
+
+	#right_content .link,
+	#home_right_content .link {
 		background: url('images/bg_right_content_yellow.gif')  no-repeat;  /* --- IMAGE ----------------  */
 		height: 83px;
 		margin: 2px 0;
@@ -225,37 +319,37 @@
 		display: block;
 		text-decoration: none;
 	}
-	#featuredProducts.small_size .link,
-	#home_featured_Products.small_size .link {
+	#right_content.small_size .link,
+	#home_right_content.small_size .link {
 		padding: 0;
 	}
 
-	#home_featuredProducts .link {
+	#home_right_content .link {
 		background: none;
 		padding-left: 0px;
 	}
 
-	#featuredProducts .link img,
-	#home_featuredProducts .link img {
+	#right_content .link img,
+	#home_right_content .link img {
 		text-decoration: none;
 		border: none;
 		float:left;
 	}
 
-	#featuredProducts a.link:hover,
-	#home_featuredProducts a.link:hover {
+	#right_content a.link:hover,
+	#home_right_content a.link:hover {
 		background: url('images/bg_right_content_white.gif')  no-repeat !important; /* --- IMAGE ----------------  */
 		cursor: pointer;
 	}
 
-	#featuredProducts a.link:hover .text,
-	#home_featuredProducts a.link:hover .text
+	#right_content a.link:hover .text,
+	#home_right_content a.link:hover .text
 	{
 		background: #fff !important;
 	}
 
-	#featuredProducts .link .text,
-	#home_featuredProducts .link .text {
+	#right_content .link .text,
+	#home_right_content .link .text {
 		padding: 8px;
 		margin: 0;
 		width: 100px;
@@ -264,21 +358,26 @@
 		height: 67px;
 		
 	}
-	#featuredProducts p.content,
-	#home_featuredProducts p.content {
+	#right_content p.content,
+	#home_right_content p.content {
 		overflow:hidden;
 	}
+	html>body #right_content .link .text {
+		margin-left: 0; /* ie6 floating double margin bug !! */
+	}
 
-
-	#featuredProducts.small_size {
+	#right_content.small_size {
 		width: 233px !important;
 		float: none !important;
 		top: 0px;
 		margin-top: 20px !important;
 	}
 
+	#right_content.small_size .flash_content {
+		margin-left: 0px;
+	}
 
-	#featuredProducts.small_size .link .text {
+	#right_content.small_size .link .text {
 	  width: 100px !important;
 	  margin-left: 0px !important;
 	}

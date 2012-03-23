@@ -97,6 +97,36 @@
 	</div> <!-- end div 'tabs' -->	
 </div> <!-- end div 'privacyPolicy' -->
 
-<!-- comment out to attempt to avoid conflict with devise on Users
-<%# render :partial => '/shared/request_catelog' %>
--->
+<!-- Request Catelog ——————————————————————————————— -->
+<!-- was comment out to attempt to avoid conflict with devise on Users -->
+
+<div id='requestCatelog'>
+	
+	<div id="catelogImage" style="float:left">
+		<%= image_tag("footer/catelog_cover.jpg", :style => "padding-left:15px;") %> <!-- 125x162 -->
+	</div>
+	<div id="request" style="margin-left: 160px;">
+		<p>If you would like us to mail you a printed copy of our 2011 Product Catelog, please fill in your mailing address below, and indicate how</br>many copies you would like. </p>
+				<% @request = Request.new() %> <!-- form_for takes an instance of the model class, not the class itself: awkward for object creation -->
+				<!-- eventually replace with AJAX-based cascaded form that fills in address information if user is logged in; and asks him to log in if he is not; that done, it asks only how many he would like, perhaps printing out the address we have for him (or for his clinic) and asking for a confirmation that this is the mailing
+		address we are to use. -->
+				<%= simple_form_for(@request) do |f| %>
+					<%= f.error_notification %>
+					<%= f.input :first_name %>
+					<%= f.input :last_name %>
+					<%= f.input :email, :placeholder => "user@domain.com" %>
+					<%= f.input :phone, :required => false %>
+					<%= f.input :extension, :input_html => { :maxlength => 4 }  %>
+					<%= f.input :clinic_name, :hint => "if clinician ordering through a clinic" %>
+					<%= f.input :address  %>
+					<%= f.input :address2 %>
+					<%= f.input :city  %>
+					<%= f.input :state, :hint => "2 letter abbreviation", :input_html => { :maxlength => 2 }   %>
+					<%= f.input :zip, :input_html => { :maxlength => 5 }  %>
+					<%= f.input :number_of_catelogs_requested, :label => "# of Copies", :collection => 1..10 %>
+					<%= f.submit 'Submit Request' %>
+				<% end %>
+	
+	</div> <!-- end div#request -->
+
+</div> <!-- end div#requestCatelog -->

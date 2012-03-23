@@ -21,9 +21,10 @@ gem 'sqlite3'
 # Bundle the extra gems:————————————————————————
   gem 'acts_as_tree','0.1.1'
   gem "kaminari"
-    gem "meta_where"
+  gem "meta_where"
 	gem "meta_search"
-   gem "devise"
+  gem "devise"
+  gem "simple_form"
    
 # ——————————————————————————————————————————————	
 # gem 'bj'

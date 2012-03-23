@@ -1,0 +1,105 @@
+<!-- 
+      —————————————————————————————————————————————————————————————————————————————————————————
+
+				Request#index
+				
+			—————————————————————————————————————————————————————————————————————————————————————————	
+      to do:
+				1.     
+     
+          
+      —————————————————————————————————————————————————————————————————————————————————————————
+  -->
+      
+
+<%= content_for(:header) do %>
+
+	<title>TruMedical Solutions / Request for Catelog </title>  
+	     									
+	<script type="text/javascript" >
+
+		$(document).ready(function() {	
+
+				$(".product").mouseenter(function(){
+					$(this).css("background-color","orange");
+				});
+				$(".product").mouseleave(function(){
+					$(this).css("background-color","#E6E6E6");
+				});
+				$("#body-background").css('background-color','#E6E6E6'); /* doing anything? */
+			});
+	
+	</script>
+
+	
+	<style type="text/css">
+	</style>
+	
+<% end %>
+
+  
+<%= content_for(:middleBand) do %>
+	
+
+			<!-- MENU —————————————————————————————————————————————————————  -->
+			
+			<%= render :partial => 'shared/menu' %>
+
+				
+			<!-- MAIN CONTENT —————————————————————————————————————————————— -->
+              
+			<div id="main_content">
+
+
+				<h1>Listing Requests</h1>
+
+				<table>
+				  <tr>
+				    <th>First Name</th>
+				    <th>Last Name</th>
+				    <th>Email</th>
+				    <th>Phone</th>
+						<th>Extension</th>
+						<th>Clinic</th>
+				    <th>Address</th>
+						<th>Address2</th>
+				    <th>City</th>
+				    <th>State</th>
+				    <th>Zip</th>
+						<th>Catelogs Requested</th>
+						<!--
+				    <th></th>
+				    <th></th>
+				    <th></th>
+				-->
+				  </tr>
+
+				<% @requests.each do |r| %>
+				  <tr>
+				    <td><%= r.first_name %></td>
+				    <td><%= r.last_name %></td>
+				    <td><%= r.email %></td>
+				    <td><%= r.phone %></td>
+						<td><%= r.extension %></td>
+				    <td><%= r.address %></td>
+						<td><%= r.address2 %></td>
+				    <td><%= r.city %></td>
+				    <td><%= r.state %></td>
+				    <td><%= r.zip %></td>
+						<td><%= r.number_of_catelogs_requested %></td>
+						<!--
+				    <td><%# link_to 'Show', request %></td>
+				    <td><%# link_to 'Edit', edit_request_path(request) %></td>
+				    <td><%# link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete %></td>
+					-->
+				  </tr>
+				<% end %>
+				</table>
+
+				<br />
+
+				<%= link_to 'New Request', new_request_path %>
+			</div> <!-- end div main_content -->
+
+	
+<% end %> <!-- end content-for 'middleBand' -->

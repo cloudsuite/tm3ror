@@ -37,8 +37,9 @@
     <%= stylesheet_link_tag "tabs.css" %>
     	<!-- <%# stylesheet_link_tag "jquery_tools_tabs_no_images.css" %> unused; used by Mavic tabbed sibling nav; not in /public/javascripts -->
 		<%= stylesheet_link_tag "left_nav_popups_test.css" %> <!-- added by TA 1/4/2012; controls top alignment of popups for menu items -->
-		<!-- standard js files -->
+		<%= stylesheet_link_tag "simple_form.css" %>
 		
+		<!-- standard js files -->
 		<%= javascript_include_tag "jquery-1.4.4.min.js" %>
 		<!-- <%# javascript_include_tag "jquery-ui-1.8.10.custom.min.js" %> -->
 		<%= javascript_include_tag "jquery-ui-1.8.18.custom.min.js" %>
@@ -108,9 +109,9 @@
 				
 				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Contact Us" });
 				$("div#privacyPolicy").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title: "Privacy Policy" });
-				/*
+				
 				$("div#requestCatelog").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Request a Catelog" })
-				*/
+			
 				$("a[href='#contactUs']").click(function(){
 					$("div#contactUs").dialog('open');
 					return false;
@@ -119,12 +120,12 @@
 					$("div#privacyPolicy").dialog('open');
 					return false;
 				});
-				/*
+			
 				$("a[href='#requestCatelog']").click(function(){
 					$("div#requestCatelog").dialog('open');
 					return false;
 				});
-				*/
+			
 				$("div#tabs").tabs(); /* initialize tabs within privacyPolicy. NOT WORKING?  */
 				
 				$("a[href='#url']").click(function(){
@@ -200,7 +201,7 @@
 					$("#lymphedema").hover(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
-						$("#popup_lymphedema").show(); /* DEBUG: Why is this one coming up with no content */
+						$("#popup_lymphedema").show(); 
 						return false;
 					})
 					$("#woundCare").hover(function(){
@@ -330,7 +331,7 @@
 			<div id="footer" >
 
 				<div id="footer_left"> <!-- div used only to center contents within footer -->
-					<a href="#requestCatelog">Request a Catalog</a> <!-- restyle; its not a clickable link -->
+					<a href="#requestCatelog">Request a Catalog</a> 
 				
 					<!-- search by competitor part no ——————————————————————————————— -->
 					<!-- commented out because when used with devise register/login users/registration gets an error

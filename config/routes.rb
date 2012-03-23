@@ -1,5 +1,6 @@
 Tm3rorslider::Application.routes.draw do
-   
+   resources :requests
+   resources :users
   # get "product_set/show"  # Why the singular version? controller is product_sets
 
   devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login" }

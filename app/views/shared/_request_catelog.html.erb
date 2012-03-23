@@ -1,4 +1,5 @@
 <div id='requestCatelog'>
+	
 	<div id="catelogImage" style="float:left">
 		<%= image_tag("footer/catelog_cover.jpg") %> <!-- 125x162 -->
 	</div>
@@ -6,20 +7,26 @@
 	<div id="request" style="margin-left: 160px;">
 		<p>If you would like us to mail you a printed copy of our 2011 Product Catelog, please fill in your mailing address below, and indicate how many copies you would like. </p>
 
-		<% @user = User.new() %> <!-- form_for takes an instance of the model class, not the class itself: awkward for object creation -->
-		<%= form_for @user do |f| %>
-			<%= f.label :first_name %>
-			<%= f.text_field :first_name %><br/>
-			<%= f.label :last_name %>
-			<%= f.text_field :last_name %><br />
-			<%= f.label :email_address %>
-			<%= f.email_field :email_address %><br/>
-			<%= f.label :wants_n_catelogs, "How many would you like?" %>
-			<%= f.number_field :wants_n_catelogs, :size => "3", :in => 1...10 %><br/>
-			
-			<%= f.submit "Submit" %>
+		<% @request = User.new() %> <!-- form_for takes an instance of the model class, not the class itself: awkward for object creation -->
+		<!-- eventually replace with AJAX-based cascaded form that fills in address information if user is logged in; and asks him to log in if he is not; that done, it asks only how many he would like, perhaps printing out the address we have for him (or for his clinic) and asking for a confirmation that this is the mailing
+address we are to use. -->
+		<%= simple_form_for(@request) do |f| %>
+			<%= f.error_notification %>
+			<%= f.input :first_name %>
+			<%= f.input :last_name %>
+			<%= f.input :email %>
+			<%= f.input :phone, :required => false %>
+			<%= f.input :address  %>
+			<%= f.input :city  %>
+			<%= f.input :state  %>
+			<%= f.input :zip  %>
+			<%= f.input :number_of_catelogs_requested %>
+			<%= f.button :submit %>
 		<% end %>
-			
-	</div>
+		<!--
+			<%# f.label :wants_n_catelogs, "How many would you like?" %>
+			<%# f.number_field :wants_n_catelogs, :size => "3", :in => 1...10 %><br/>
+		-->		
+	</div> <!-- end div#request -->
 
-</div>
+</div> <!-- end div#requestCatelog -->

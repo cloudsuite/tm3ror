@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-Tm2ror::Application.config.session_store :cookie_store, :key => '_tm2ror_session'
+Tm3rorslider::Application.config.session_store :cookie_store, :key => '_tm2ror_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

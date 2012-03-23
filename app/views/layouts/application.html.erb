@@ -43,39 +43,25 @@
 		<!-- <%# javascript_include_tag "jquery-ui-1.8.10.custom.min.js" %> -->
 		<%= javascript_include_tag "jquery-ui-1.8.18.custom.min.js" %>
 		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %> 
-		<!-- <%# javascript_include_tag :defaults %> <!-- included because StackOverflow responce to sign_out delete problem; causing other problems: attempts to link prototype libraries -->
-		
-		<!-- additional js files lumped into mavic.js -->
-		<!-- <%# javascript_include_tag "Cufon.js" %> -->
+		<!-- <%# javascript_include_tag :defaults %> <!-- included because StackOverflow response to sign_out delete problem; causing other problems: attempts to link prototype libraries -->		
 		<%= javascript_include_tag "ezMark.js" %> <!-- needed on home page; why? -->
-		<!-- <%# javascript_include_tag "jq.ezBgResize.js" %> -->
-		<!-- <%# javascript_include_tag "jq_cookie.js" %> -->
-		<!-- <%# javascript_include_tag "parsed_query_string.js" %> -->
-		<!-- <%# javascript_include_tag "homepage_functions.js" %> -->
-		<!-- <%# javascript_include_tag "product_compare.js" %> -->
-		<!-- <%# javascript_include_tag "zoom_and_mega_zoom.js" %> -->
-		
-		<!-- what was left in mavic.js after stripping out the above, 3rd-party developed js libraries 
-			   most of this may be in misc.js 
-				It includes the code for showing the modal overlay black_screen -->
-		<!-- <%# javascript_include_tag "mavic_only.js" %> -->
 
 		<!--  csrf_meta_tag %> -->
 		
 
 		<!-- replace the following line with a Rails macro ? -->
 		<link href="../images/favicon.ico" rel="shortcut icon">
-
-		
+	
 		<!-- styles for stuff in header -->
 
 		
 		<!-- styles for stuff in footer -->
 		<style type="text/css">
-			div#contactUs, div#privacyPolicy, div#requestCatelog { display:none; padding-bottom:40px; padding-top:20px; margin-right:20px;}
-			div#contactUs h2, div#privacyPolicy h2, div#requestCatelog h2 { font-size:10px; font-weight:bold; margin-bottom: -10px; }
-			div#contactUs p, div#privacyPolicy p, div#requestCatelog p {font-size:10px; line-height:13px;}
-			div#privacyPolicy dl { margin-left:10px; font-size:9px; line-height:12px;}
+			div#contactUs, div#privacyPolicy, div#requestCatelog { display:none; padding-bottom:40px; padding-top:20px; }
+			div#contactUs h2, div#privacyPolicy h2, div#requestCatelog h2 { font-size:12px; font-weight:bold; margin-bottom:10px; margin-top:20px; }
+			div#contactUs p, div#privacyPolicy p, div#requestCatelog p {font-size:11px; line-height:14px; margin-bottom:10px;}
+			div#contactUs p { font-size:12px;} /* Bill wanted it larger */
+			div#privacyPolicy dl { margin-left:11px; font-size:11px; line-height:13px;}
 			div#privacyPolicy dt { font-weight:bold;}
 			div#privacyPolicy dd { font-weight:normal; margin-left:10px;}
 			div#catelogImage { border: 1px solid gray;}			
@@ -120,10 +106,10 @@
 
 			$(document).ready(function(){
 				
-				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[360,60], width:560, minHeight:200, title:"Contact Us" });
-				$("div#privacyPolicy").dialog( { autoOpen:false, modal:true, position:[360,60], width:800, minHeight:200, title: "Privacy Policy" });
+				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Contact Us" });
+				$("div#privacyPolicy").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title: "Privacy Policy" });
 				/*
-				$("div#requestCatelog").dialog( { autoOpen:false, modal:true, position:[360,60], width:560, minHeight:200, title:"Request a Catelog" })
+				$("div#requestCatelog").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Request a Catelog" })
 				*/
 				$("a[href='#contactUs']").click(function(){
 					$("div#contactUs").dialog('open');
@@ -139,7 +125,7 @@
 					return false;
 				});
 				*/
-				$("div#tabs").tabs(); /* initialize tabs within privacyPolicy */
+				$("div#tabs").tabs(); /* initialize tabs within privacyPolicy. NOT WORKING?  */
 				
 				$("a[href='#url']").click(function(){
 					alert("As-yet-unimplemented link.");
@@ -154,7 +140,7 @@
 			});
 		</script>
 		
-		<!--  jQuery to support popup menu for non-product categories so far -->
+		<!--  jQuery to support popup menu for product categories  -->
 			<script type="text/javascript">
 
 				$(document).ready(function(){

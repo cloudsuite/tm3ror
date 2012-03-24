@@ -163,7 +163,7 @@
 		padding-top: 7px;
 		font-size: 12px;
 		margin-left:auto; margin-right:auto; /* Should center this div horizontally within #footer. Not doing so. Why? */
-		margin-left: 240px; /* line up to right of left column */
+		margin-left: 140px; /* hand centered */
 		}
 		#footer_left img {
 		  vertical-align: middle;

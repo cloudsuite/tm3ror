@@ -10,18 +10,14 @@
 		——————————————————————————————————————————————————————————————————————
 	
 		ToDo:
-			3. get search working: masking Google generated field 
-	
-	
-		Known Bugs:	
-			1. in style.css footer is position:relative,  footer class="home_footer" is position:absolute (but without any top or bottom properties). Either make footer content a partial and put it into separate views for home#index, category#display and product#display that have the correct position declarations built into them, or make it position:relative in this template, and change it to position:absolute for home page within jQuery document-ready. 
+			1. get search by competitors part number working. Remove metasearch and use simple SQL call in products#index:
+			   @product = Product.where("sammons-part-no LIKE?", "%#{params[:search]}%")
+			Would this avoid doing a database call on each load of the home page?
+			2. Reinstate a logdiv for TruMedical? unclear how/when logo div moves around the window
 		
-		Unknowns:
-
-			3. unclear how/when logo div moves around the window
-			4. set of float declarations that lets right_content move over to the left below menu when 
-				the window is too small for it to appear on the right, is currently a mystery to me.
-			5. Should /shared/_menu.html.erb be included in individual templates:  home, category, product, company — rather than being included in application.html.erb?  div 'subcontainer' binds the menu and content in the main-content area together. ..  
+		Known Bugs:	
+			1. metawhere/metasearch causing a problem
+		  ..  
 		-->
 		
 		<meta name="google-site-verification"
@@ -65,7 +61,8 @@
 			div#privacyPolicy dl { margin-left:11px; font-size:11px; line-height:13px;}
 			div#privacyPolicy dt { font-weight:bold;}
 			div#privacyPolicy dd { font-weight:normal; margin-left:10px;}
-			div#catelogImage { border: 1px solid gray;}			
+			div#catelogImage { border: 1px solid gray;}	
+					
 			/* ---- metasearch related ---------------------  */
 			div#metasearch { display:inline; margin-right:20px;}	
 			div#metasearch form { display:inline;}
@@ -338,7 +335,7 @@
 						when it attempts to generate a link to { :controller => 'devise/products', :action => 'search' } 
 						rather than { :controller => 'products', :action => 'search'} 
 					-->
-					<!-- <%# render :partial => '/shared/metasearch' %> -->
+					<%= render :partial => '/shared/metasearch' %>
 
 					<a href="#contactUs">Contact Us</a> 
 					<a href="#privacyPolicy">Privacy Policy</a> 

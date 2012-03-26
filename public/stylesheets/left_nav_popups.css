@@ -31,9 +31,9 @@
 
 
 #popup_trumedical {top:70px; background-color:#0094DE; color:white; padding-bottom:20px; }
-#popup_patients {top:70px; background-color:orange; padding-bottom:20px;} 
-#popup_providers {top:70px; background-color:orange; padding-bottom:20px;}
-#popup_payors {top:70px; background-color:orange;}
+#popup_patients {top:70px; background-color:white; padding-bottom:20px;} 
+#popup_providers {top:70px; background-color:white; padding-bottom:20px;}
+#popup_payors {top:70px; background-color:orange!important;}
 #popup_bottom_pad {min-height:40px; padding-bottom:20px;}
 
 div.subcategories { }

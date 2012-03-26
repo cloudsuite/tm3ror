@@ -43,7 +43,7 @@
 			top:0px;
 			left:0px;
 			z-index: 11; /* above scrolling images on home page in div#banner_rotator */
-			background-color:yellow;
+			background-color:orange;
 			}
 		#center_column {
 			width: 800px; /* 1060-235-20 */

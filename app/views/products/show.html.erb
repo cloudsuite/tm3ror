@@ -69,9 +69,9 @@
 		
 	<style type="text/css">
 		div#product_div { margin-top:20px; margin-bottom:15px;}
-		div.left { float:left; padding:20px;}
-		div.left div.picture { width:260px; overflow-x:hidden; } /* was 780: hiding description on right */
-		div.right {}
+		div.left { padding:20px;}
+		div.left div.picture { width:780px; overflow-x:hidden; } /* was 260 if want left/right side by side: */
+		div.right { padding:20px; }
 		/* div.picture { margin-bottom:15px;}*/
 
 		#addToCart, #checkOut {
@@ -138,14 +138,12 @@
 							<%# image_tag("/images/products/modalities_large/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
 						-->
 						</div>
-			
-						<div class="clear"></div>
+
 					</div> <!-- end of div.left --> 
-				
-				
+								
 					<!-- right column: description of this product  ——————————————————————— -->
 				
-					<div class="right">
+					<div class="right"> <!-- See style tag at top of this file for layout: now below #left; -->
 
 						<table cellspacing="10">
 							<col />

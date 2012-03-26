@@ -13,6 +13,15 @@
 			<th align="right">Price</th>
 			<th align="left">Qty</th>
 			
+		<!-- turn accessories into a relationship back to the products table, 
+			specifically to products of type 'accessory' within that table.
+			Work out how to distinguish between accessories for product-types, 
+			product-sets, and simple-products.  Current product file has examples of
+			the first and third of these: accessories of product-types and 
+			accessories of simple-products.  It does not yet have accessories of 
+			product-sets
+		--> 
+			
 		<% @product_type.accessories.each do |p| %>
 			<tr>
 				<td><%= p.tms_part_no %></td>

@@ -129,6 +129,13 @@
 							<!-- <p class="price"><strong>Price:</strong>&nbsp;<%# number_to_currency(p.price_clinic_list) %></p> -->
 							
 							<% case   %>
+								<% when p.type="Accessory" then %>
+									<% if p.accessory_for %> <!-- this will work for now, but not once I put the accessories associated with product-types into this file; right now the only ones with an entry in the accesories_for field are those that are accessories for simple products -->
+										<button class="more ui-corner-all"><%= link_to "See Product", product_path(p.accessory_for) %></button>
+									<% else %>
+										<p><i>It is not currently possible to order accessories for this product-type through the competitor part search.</br>Please click on the 'Modalities' menu item to the left, and work down through its subcategories to find it.</i></p>
+									<% end %>
+									
 								<% when p.product_type then %>
 										<button class="more ui-corner-all"><%= link_to "See Product", product_type_path(p.product_type.id) %></button>
 								<!-- <# when p.product_set then %>

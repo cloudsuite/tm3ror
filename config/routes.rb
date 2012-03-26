@@ -1,4 +1,4 @@
-Tm3rorslider::Application.routes.draw do
+Tm3ror::Application.routes.draw do
    resources :requests
    resources :users
   # get "product_set/show"  # Why the singular version? controller is product_sets

@@ -13,7 +13,9 @@ class ProductsController < ApplicationController
       @search = Product.search(params[:search]) # search function defined by Metasearch 
       @products = @search.all # .page(params[:page]).per(7)
       
-      # Rewrite this so that it calls view/products/show.html.erb only for simple products that match the sammons part#, and calls base0-product, product-set, or product-type for those that are members of product-sets or product-types  ( or directly of the implicit product-set in base-products ) .  Maybe use the search_controller instead of the the products_controller?  The products controller is implicitly for simple products. There are other controllers for base_products, product_sets and product_types.  It would be asymmetrical to put the logic for returning results from a competitive part number search into the products controller and not into any of the others. 
+      # Rewrite this so that it calls view/products/show.html.erb only for simple products that match the sammons part#, and calls base-product, product-set, or product-type for those that are members of product-sets or product-types  ( or directly of the implicit product-set in base-products ) .  Maybe use the search_controller instead of the the products_controller?  The products controller is implicitly for simple products. There are other controllers for base_products, product_sets and product_types.  It would be asymmetrical to put the logic for returning results from a competitive part number search into the products controller and not into any of the others.
+      # Currently this is being handled in views/products/search.html.erb: 
+      # It determines whether it is being asked to display a simple-product, base-product, product-set, or product-type and invokes the correct controller/action.  
       
       # filter @search to the single base-product as follows: 
       # If the base-product is an immediate member of a category, call base_products/show passing in the base-product-id ( = the rails id of the object representing this base-product)

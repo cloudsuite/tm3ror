@@ -1,4 +1,4 @@
-Tm3rorslider::Application.configure do
+Tm3ror::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   
   # This will remap ALL asset references:  images, stylesheets, javascripts, ... 

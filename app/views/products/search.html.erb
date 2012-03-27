@@ -15,6 +15,7 @@
 				1. 'See Detail' button working for Simple Products; need to test other product types
 				2. Need more complex logic to get from a tms_part_no to the base-product, product-set, or product-type of which it is a variant/member/instance. 
 				3. mapping from sammons part number to tms number?  It seems that I am sometimes getting to a simple product page for a product that does not have a picture — even a -000.jpg one. Why/How? 
+				4. case statement falling through 'Accessories' when it should not 
 
 			ToDo:
 				1. Cut the use of MetaSearch (and MetaWhere?) gems. Just use an SQL LIKE statement in the controller to do the search, and use a form_tag macro in the footer, not a form_for tag.  The latter requires an object instance, and we don't logically have one here; we're searching for one. Commit the metasearch branch, and then start another called 'removemetasearch'. 
@@ -127,15 +128,14 @@
 							<p class="name"><strong>Name:</strong>&nbsp;<%= raw(p.name) %></p>
 							<p class="subtitle"><strong>Description:</strong>&nbsp;<%= raw(p.description) %></p>
 							<!-- <p class="price"><strong>Price:</strong>&nbsp;<%# number_to_currency(p.price_clinic_list) %></p> -->
-							
 							<% case   %>
-								<% when p.type="Accessory" then %>
-									<% if p.accessory_for %> <!-- this will work for now, but not once I put the accessories associated with product-types into this file; right now the only ones with an entry in the accesories_for field are those that are accessories for simple products -->
+								<% when p.is_accessory_p then %>
+										<% if p.accessory_for %> <!-- this will work for now, but not once I put the accessories associated with product-types into this file; right now the only ones with an entry in the accesories_for field are those that are accessories for simple products;  -->
 										<button class="more ui-corner-all"><%= link_to "See Product", product_path(p.accessory_for) %></button>
 									<% else %>
 										<p><i>It is not currently possible to order accessories for this product-type through the competitor part search.</br>Please click on the 'Modalities' menu item to the left, and work down through its subcategories to find it.</i></p>
 									<% end %>
-									
+								<!-- falling through to here and getting undefined-method product_type for #<Accessory> -->
 								<% when p.product_type then %>
 										<button class="more ui-corner-all"><%= link_to "See Product", product_type_path(p.product_type.id) %></button>
 								<!-- <# when p.product_set then %>
@@ -152,8 +152,9 @@
 								<% else %>
 											<!-- raise error;  accessories? -->
 											<button class="more ui-corner-all"><%= link_to "ERROR", {:controller => 'products', :action => 'show', :id => p.id } %></button>
-									
+
 							<% end %>
+							
 								
 							<!-- original code: that did not handle product types, and could not 
 								be expanded to add another elsif clause 

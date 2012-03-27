@@ -214,6 +214,13 @@
 									<button id="checkOut" class="ui-corner-all"><a href="https://checkout.netsuite.com/s.nl?c=1114349&sc=4&n=1" style="color:white; text-decoration:n;one">CHECK OUT</a>
 									</button>
 								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= if @product.method_of_shipment == 'LTL' then image_tag("utility/truck_24.jpg") end %>
+									
+									</td>
+								</tr>
 				
 			
 						</table>

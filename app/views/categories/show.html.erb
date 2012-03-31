@@ -62,7 +62,7 @@
 			
 			div.products { margin-top:20px;}
 			div.product {
-				width: 120px; height:120px; 
+				width: 120px; height:145px; 
 				margin-right:10px; margin-bottom:10px; 
 				float:left; 
 				background-color:#E6E6E6;
@@ -155,7 +155,7 @@
 													<div class="pic">
 														<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
 													</div>			
-													<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+													<div class="productName"><%= sanitize(p.name[0,40]) %></div>
 												</a>
 											</div>
 										
@@ -167,7 +167,7 @@
 													<div class="pic">
 														<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
 													</div>			
-													<div class="productName"><%= sanitize(p.name[0,37]) %></div>
+													<div class="productName"><%= sanitize(p.name[0,40]) %></div>
 												</a>
 											</div>
 											
@@ -177,7 +177,7 @@
 													<div class='pic'>
 														<%= image_tag('/images/products/all_small/' + p.image_filename + '.jpg') %>
 													</div>
-													<div class='productName'><%= sanitize(p.name[0,37]) %></div>
+													<div class='productName'><%= sanitize(p.name[0,40]) %></div>
 												</a>
 											</div>
 										<% when "ProductType" %>
@@ -186,7 +186,7 @@
 													<div class='pic'>
 														<%= image_tag('/images/products/all_small/' + p.image_filename + '.jpg')  %>
 													</div>
-													<div class='productName'><%= sanitize(p.name[0,37]) %></div>
+													<div class='productName'><%= sanitize(p.name[0,40]) %></div>
 												</a>
 											</div>
 										<% end # end of the case statement

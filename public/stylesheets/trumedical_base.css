@@ -55,7 +55,7 @@
 	#footer { position:relative; 
 		width: 100%;
 		height: 36px; /* div was showing as 514px high if used min-height: don't know why */
-		background: SlateGray;
+		background: black; /* was SlateGray */
 		z-index:1000;
 		clear: both; /* force footer below things in middleBand. Necessary?  */
 		display:block;  /* what for? part of the standard 'clearfix'  */

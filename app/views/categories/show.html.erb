@@ -155,7 +155,7 @@
 													<div class="pic">
 														<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
 													</div>			
-													<div class="productName"><%= sanitize(p.name[0,40]) %></div>
+													<div class="productName"><%= sanitize(p.name[0,44]) %></div>
 												</a>
 											</div>
 										
@@ -167,7 +167,7 @@
 													<div class="pic">
 														<%= image_tag("/images/products/all_small/" + p.image_filename + ".jpg") %>
 													</div>			
-													<div class="productName"><%= sanitize(p.name[0,40]) %></div>
+													<div class="productName"><%= sanitize(p.name[0,44]) %></div>
 												</a>
 											</div>
 											
@@ -177,7 +177,7 @@
 													<div class='pic'>
 														<%= image_tag('/images/products/all_small/' + p.image_filename + '.jpg') %>
 													</div>
-													<div class='productName'><%= sanitize(p.name[0,40]) %></div>
+													<div class='productName'><%= sanitize(p.name[0,44]) %></div>
 												</a>
 											</div>
 										<% when "ProductType" %>
@@ -186,7 +186,7 @@
 													<div class='pic'>
 														<%= image_tag('/images/products/all_small/' + p.image_filename + '.jpg')  %>
 													</div>
-													<div class='productName'><%= sanitize(p.name[0,40]) %></div>
+													<div class='productName'><%= sanitize(p.name[0,44]) %></div>
 												</a>
 											</div>
 										<% end # end of the case statement

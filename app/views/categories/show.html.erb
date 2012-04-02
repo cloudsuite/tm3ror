@@ -29,11 +29,6 @@
 		<title>TruMedical Solutions / Products / [category] / [subcategory ] / [leaf category] </title>       									
 		<script type="text/javascript" >
 			$(document).ready(function() {	
-					/* 
-					$("#body-background").ezBgResize();				
-					getSessionProductCompare();
-					checkSize();
-					*/
 					$(".leafCategory").mouseenter(function(){
 						$(this).css("background-color","orange");
 					});
@@ -44,8 +39,26 @@
 				});		
 		</script>
 		
+		<!-- jQuery to support animated TruMedical LogoMark -->
+		<script type="text/javascript">
+			$(document).ready(function(){	
+				/* $("#logo").fadeIn(3000);	*/
+			});
+		</script>
 		
 		<style type="text/css">
+			#logo {
+				position: relative; /* within #center_column; overrides trumedical_base.css */
+				margin-left:490px; 
+				top: 0px; /* to override values set in trumedical_base.css line 289ff */
+				right:0px;
+				height:80px;
+				width:380px;
+				z-index: 3; /* so it will be below black-screen */
+				background-image: url("/images/logos/logo_on_white_315.png");
+				background-repeat: no-repeat;
+			}
+			div#tabs { margin-top:-20px; } /* Firebug shows it as 78px high. Why? */
 			div#tabs_buttons_gamme { margin-bottom:20px!important; }
 			/* div#subcategories { max-height:570px; overflow-y:auto; padding-right:20px; margin-top:5px;} */
 			div#subcategories { margin-top:5px; } 
@@ -81,7 +94,7 @@
     
 	<%= content_for(:middleBand) do %>
 		
-			
+		
 			<div id="left_column" >
 
 				<!-- menu —————————————————————————————————————————— -->
@@ -108,6 +121,8 @@
 					<!-- Breadcrumb ———————————————————————————————————————————— -->
 					<%= render :partial => "/shared/breadcrumb" %>
 
+					<!-- logo_container ————————————————————————————————————————— -->
+					<div id="logo"></div>
 			
 					<!-- TABS: repeat subcategories within this category  ————————————————————— -->
 					<!-- Show products for the subcategory that he selected on the home page
@@ -213,9 +228,6 @@
 
 								<% end %>
 
-								<!-- image to allow the user to close the popup manually --> 
-								<img class="close" src="/images/utility/Close16.png">
-
 							</div><!-- end div.leafCategories -->
 						<% end %> 
 						
@@ -226,11 +238,7 @@
 			</div> <!-- end div 'center_column' -->
   
         
-		<!-- logo_container ——————————————————————————————————————————————————————————————— -->
-        
-		<div id="logo_container">
-			<a href="index.html" id="logo" title="home page" name="logo">home page</a>
-		</div>
+
 		
 	<% end %> <!-- end content_for(:middleBand) -->
 

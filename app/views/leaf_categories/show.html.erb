@@ -61,6 +61,18 @@
 	
 	</script>
 	<style type="text/css">
+		#logo {
+			position: relative; /* within #center_column; overrides trumedical_base.css */
+			margin-left:490px; 
+			top: 0px; /* to override values set in trumedical_base.css line 289ff */
+			right:0px;
+			height:80px;
+			width:380px;
+			z-index: 3; /* so it will be below black-screen */
+			background-image: url("/images/logos/logo_on_white_315.png");
+			background-repeat: no-repeat;
+		}
+		div#tabs { margin-top:-20px; } /* Firebug shows it as 78px high. Why? */
 		div.products { margin-top:20px;}
 		div.product {
 			width: 120px; height:120px; 
@@ -169,6 +181,9 @@
               
 				<!-- Breadcrumb ———————————————————————————————————————————— -->
 				<%= render :partial => "/shared/breadcrumb" %> 
+				
+				<!-- logo_container ————————————————————————————————————————— -->
+				<div id="logo"></div>
 				
 				<!-- Error Messages ———————————————————————————————————————— -->
 				<div id="error-messages" style="display:none"></div>			

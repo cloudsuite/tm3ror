@@ -74,13 +74,6 @@
 		div.right { padding:20px; }
 		/* div.picture { margin-bottom:15px;}*/
 		
-		div.right table td.description { 
-			background-image: url("../images/utility/dot.gif");
-			background-repeat: repeat-x;
-			background-position:0% 70%; 
-			}	
-		.for_text{background-color:white; z-index:99; display:inline;padding-right:8px;}
-
 		#addToCart, #checkOut {
 			background-color:orange; 
 			color:white; 
@@ -114,13 +107,12 @@
 				
 				<!-- breadcrumb trail ————————————————————————————————————————— -->
 				<%= render(:partial => "/shared/breadcrumb") %>
-
 				
-				<!-- breadcrumb trail ——————————————————————————————————————————————— -->
-				<!-- removed for now because product pages being shown from sammons search may not have a category_id
-				<%# render :partial => "/shared/breadcrumb" %>
-				-->
-			
+				<!-- logo_container ————————————————————————————————————————— -->
+				<div id="logo">
+					<%= link_to( image_tag("/logos/logo_on_gray_315.png"),{ :controller => 'home',:action =>'index'}) %>
+				</div>
+				
 				<!-- error messages —————————————————————————————————————————————————————— -->
 				<div id="error-messages" style="display:none">
 					<div class="messages error"></div>
@@ -178,11 +170,6 @@
 							<tr>
 								<td valign="top">Description:</td>
 								<td><%= sanitize(@product.long_description) %></td>
-								<!-- if want description padded out with dots to price: 
-								<td class="description">
-									<div class="for_text"><%= p.web_description %></div> <
-								</td>
-								-->
 							</tr>
 						
 							<tr>
@@ -244,16 +231,6 @@
 
 			</div> <!-- end div#center_column -->
 
-
-		<!-- <div id="forScrollTop" class="clear"></div>  <!-- debug: purpose?? -->
-
-
-
-	<!-- logo_container ——————————————————————————————————————————————————————————————— -->
-
-	<div id="logo_container">
-		<a href="/en" id="logo" title="home page" name="logo">home page</a>
-	</div>
 
 <% end %>
 

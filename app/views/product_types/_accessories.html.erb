@@ -1,3 +1,12 @@
+<style type="text/css">	
+	#accessories table td.description { 
+		background-image: url("../images/utility/dot.gif");
+		background-repeat: repeat-x;
+		background-position:0% 70%; 
+		}	
+	.for_text{background-color:white; z-index:99; display:inline;padding-right:8px;}
+</style>
+
 <div id="accessories">
 	<h2>Accessories</h2>
 
@@ -25,7 +34,9 @@
 		<% @product_type.accessories.each do |p| %>
 			<tr>
 				<td><%= p.tms_part_no %></td>
-				<td><%= raw(p.description) %></td>
+				<td class="description">
+					<div class="for_text"><%= raw(p.description) %></div> <!-- currently no separate web_description defined for accessories -->
+				</td>
 				<td class="price">
 					<%= if current_user 
 				  	case current_user.price_schedule

@@ -73,6 +73,13 @@
 		div.left div.picture { width:780px; overflow-x:hidden; } /* was 260 if want left/right side by side: */
 		div.right { padding:20px; }
 		/* div.picture { margin-bottom:15px;}*/
+		
+		div.right table td.description { 
+			background-image: url("../images/utility/dot.gif");
+			background-repeat: repeat-x;
+			background-position:0% 70%; 
+			}	
+		.for_text{background-color:white; z-index:99; display:inline;padding-right:8px;}
 
 		#addToCart, #checkOut {
 			background-color:orange; 
@@ -171,6 +178,11 @@
 							<tr>
 								<td valign="top">Description:</td>
 								<td><%= sanitize(@product.long_description) %></td>
+								<!-- if want description padded out with dots to price: 
+								<td class="description">
+									<div class="for_text"><%= p.web_description %></div> <
+								</td>
+								-->
 							</tr>
 						
 							<tr>

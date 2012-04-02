@@ -99,16 +99,14 @@
 		div#products { margin-top:10px; padding-left:40px;}
 		div#title { color:orange; font-size:14px; font-weight:bold;}
 		#products table { margin-bottom:30px; }
-		/* How does this work? 
-		#products td.price:before {
-		    clip: rect(0px, 190px, 20px, 0px);
-		    content: " ............................................................ ";
-		    position: absolute;
-		    z-index: -1;
-			}
-			*/
-		
+		#products table td.description { 
+			background-image: url("../images/utility/dot.gif");
+			background-repeat: repeat-x;
+			background-position:0% 70%; 
+			}	
+		.for_text{background-color:white; z-index:99; display:inline;padding-right:8px;}
 		div#products table td.price { text-align:right;}
+		
 		div#accessories { padding-left: 40px;}
 		div#accessories table td.price { text-align:right;}
 		/*
@@ -212,7 +210,9 @@
 					<% @product_type.products.each do |p| %>
 						<tr>
 							<td><%= p.tms_part_no %></td>
-							<td><%= p.description %></td>
+							<td class="description">
+								<div class="for_text"><%= p.web_description %></div> <!-- need raw(..)? -->
+							</td>
 							<td class="price" id="price_<%= p.netsuite_item_no %>">
 								<%= if current_user 
 							  	case current_user.price_schedule

@@ -284,30 +284,20 @@
 	}
 	
 
-/* ———— within logo_container  —————————————————————— */
+/* ———— #logo  —————————————————————— */
 
-	#logo_container,
-	#home_logo_container {
-		position: relative;
-		left:20px; /* see js */
+	#logo {
+		position: absolute; /* within #center_column on 4 product page templates */
+		top:40px;
+		right:-45px;
+		height:80px;
+		width:380px;
 		z-index: 3;
-		top:10px; /* see js */
-		display:none;	/* hack to defeat the dynamic placement of logomark using this div 
-								until I figure it out */
-	}
-	
-	#logo_container{
-		z-index:10; /* pour passer en dessous du footer et au dessus du background */
-		width: 400px; /* vs 168 */
+		background-image: url("/images/logos/logo_on_white_315.png");
+		background-repeat: no-repeat;
 	}
 
-	#logo,
-	#home_logo {
-		width: 400px; 
-		height: 102px;
-		background: url('./images/logo.png');   /* --- IMAGE:  Odd pathname? relative to /stylesheets ?  ---------  */
-		display: block;
-	}
+ 
 
 /* ———— misc clearing styles  ————————————————————————————————————— */	
 			

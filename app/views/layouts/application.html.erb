@@ -89,8 +89,10 @@
 					-webkit-border-radius: 2px;
 					width:20px;
 				}
-		
-		
+		</style>
+		<!-- for animated TruMedical LogoMark --> 
+		<style type="text/css"> 
+			#middleBand { min-height:680px; } /* for logo animation; no longer used */
 		</style>
 		
 		<!-- interim hack to allow manual closing of popup top level category windows -->
@@ -137,6 +139,8 @@
 
 			});
 		</script>
+		
+
 		
 		<!--  jQuery to support popup menu for product categories  -->
 			<script type="text/javascript">
@@ -315,9 +319,17 @@
 						-->
 			</div> <!-- end of div 'header' -->
 			
-			<div id="middleBand"> 
+			<div id="middleBand">
+				
+				<!-- place on individual page templates instead ( don't want it on home page ) 
+				<div id="logo">
+					<#= image_tag("logos/logo_on_white_315.png") %>
+				</div>
+				--> 
+					
 				<!-- divs for popup dialogs     ———————————————————————————————————— -->		
 				<%= render(:partial => '/shared/popup_footer_dialogs') %>
+				
 			
 				<!-- divs within middleBand unique to particular page templates ———— -->		
 				<%= yield :middleBand %>

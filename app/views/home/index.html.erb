@@ -104,6 +104,10 @@ Unknowns:
 
 
 <%= content_for(:middleBand) do %> 
+
+	<!-- redundant on home page; and causing performance problem
+	<div id="logo"><#= image_tag("logos/logo_on_white_315.png") %></div>
+	-->
 	
 		<!-- left_column  ———————————————————————————————————————————————————————————— -->
 		
@@ -135,10 +139,12 @@ Unknowns:
 			<%= render(:partial => 'popups_home') %> 
 
 			<!-- floating logo —————————————————————————————————————————————————————————— -->
-
+			
+			<!--
 			<div id="logo_container">
 				[[ TRU-MEDICAL LOGO ]]
 			</div>
+			-->
 	</div> <!-- end div 'center_column" -->
 		
 

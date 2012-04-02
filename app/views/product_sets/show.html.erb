@@ -74,6 +74,7 @@
 		*/	
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 		div#product_image_description img { margin-bottom:15px;}
+		div#shipping_etc_icons img { display: block-inline; }
 		div#products { margin-top:10px; padding-left:40px;}
 		td.differentiator { font-size:12px; font-weight:normal; color: blue; }
 		div#title { color:orange; font-size:14px; font-weight:bold; }
@@ -149,6 +150,12 @@
 					
 					<div id="description">
 						<%= raw(@product_set.long_description) %>
+					</div>
+					
+					<div id="shipping_etc_icons">
+							<%= if @product_set.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
+							<%= if @product_set.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+							<%= if @product_set.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 					</div>
 					
 				</div> 

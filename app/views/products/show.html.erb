@@ -73,7 +73,7 @@
 		div.left div.picture { width:780px; overflow-x:hidden; } /* was 260 if want left/right side by side: */
 		div.right { padding:20px; }
 		/* div.picture { margin-bottom:15px;}*/
-		
+		table tr td img { display: block-inline; }
 		#addToCart, #checkOut {
 			background-color:orange; 
 			color:white; 
@@ -110,7 +110,9 @@
 				
 				<!-- logo_container ————————————————————————————————————————— -->
 				<div id="logo">
-					<%= link_to( image_tag("/logos/logo_on_gray_315.png"),{ :controller => 'home',:action =>'index'}) %>
+					<!-- 
+					<%# link_to( image_tag("/logos/logo_on_gray_315.png"),{ :controller => 'home',:action =>'index'}) %>
+					-->
 				</div>
 				
 				<!-- error messages —————————————————————————————————————————————————————— -->
@@ -171,7 +173,15 @@
 								<td valign="top">Description:</td>
 								<td><%= sanitize(@product.long_description) %></td>
 							</tr>
-						
+							<tr>
+								<td></td>
+								<td>
+									<%= if @product.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
+									<%= if @product.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+									<%= if @product.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
+								</td>
+								<td></td>
+							</tr>
 							<tr>
 								<td>Price:</td>
 								<td class="price" id="price_<%= @product.netsuite_item_no %>">
@@ -203,6 +213,7 @@
 								<td>Quantity:</td>
 								<td style="padding-top:0px;"><input class="ui-corner-all" id="qty_<%= @product.netsuite_item_no %>" style="width:30px;" type="text"></td>
 							</tr>
+
 							<tr>
 								<td></td>
 								<td><button id="addToCart" class="ui-corner-all">ADD TO CART</button></td>
@@ -214,12 +225,7 @@
 									</button>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<%= if @product.method_of_shipment == 'LTL' then image_tag("utility/truck_24.jpg") end %>
-									
-									</td>
-								</tr>
+
 				
 			
 						</table>

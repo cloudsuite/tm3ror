@@ -72,6 +72,7 @@
 		/* div#product_goodies {max-height:625px; overflow-y:auto;padding-right:20px;margin-top:5px;} */
 		div#product_image_description { margin-top:20px; padding-left:40px;}
 		div#product_image_description img { margin-bottom:15px;}
+		div#shipping_etc_icons img { display: block-inline; }
 		div#products { margin-top:10px; padding-left:40px;}
 		div#title { color:orange; font-size:14px; font-weight:bold;}
 		#products table { margin-bottom:30px; }
@@ -141,6 +142,11 @@
 					
 					<div id="description">
 						<%= raw(@base_product.long_description) %>
+					</div>
+					<div id="shipping_etc_icons">
+							<%= if @base_product.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
+							<%= if @base_product.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+							<%= if @base_product.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 					</div>
 					
 				</div> 

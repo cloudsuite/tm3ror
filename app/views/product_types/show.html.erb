@@ -97,6 +97,7 @@
 		/*
 		div#product_image_description ul { margin-left:20px; }
 		*/
+		div#shipping_etc_icons img { display: block-inline; }
 		div#products { margin-top:10px; padding-left:40px;}
 		div#title { color:orange; font-size:14px; font-weight:bold;}
 		#products table { margin-bottom:30px; }
@@ -191,6 +192,12 @@
 					
 					<div id="description" style="padding-right:40px; padding-left:0px;">
 						<%= raw(@product_type.long_description) %> <!-- defined in Products table? now that we're using STI -->
+					</div>
+					
+					<div id="shipping_etc_icons">
+							<%= if @product_type.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
+							<%= if @product_type.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+							<%= if @product_type.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 					</div>
 					
 				</div> 

@@ -110,9 +110,8 @@
 				
 				<!-- logo_container ————————————————————————————————————————— -->
 				<div id="logo">
-					<!-- 
-					<%# link_to( image_tag("/logos/logo_on_gray_315.png"),{ :controller => 'home',:action =>'index'}) %>
-					-->
+					<% logomark = image_tag("logos/logo_on_white_315.jpg") %>
+					<%= link_to(logomark,root_path()) %>
 				</div>
 				
 				<!-- error messages —————————————————————————————————————————————————————— -->

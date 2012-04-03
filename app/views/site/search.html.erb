@@ -117,7 +117,7 @@
 
 			<div id="main_content">
 
-				<!-- Breadcrumb ————————————————————————— -->
+				<!-- Breadcrumb ——————————————————————————— -->
 				<div id="breadcrumb">
 					<b><a href="/en">home page</a></b>
 					&gt; <b>search</b>
@@ -128,6 +128,12 @@
 							checkSize();
 						});
 					</script>
+				</div>
+
+				<!-- logo_container ——————————————————————— -->
+				<div id="logo">
+					<% logomark = image_tag("logos/logo_on_white_315.jpg") %>
+					<%= link_to(logomark,root_path()) %>
 				</div>
 
 				<!-- Error Msgs ——————————————————————————— -->
@@ -493,15 +499,11 @@
 			<div id="right_content">
 			</div>
 		</div><!-- /encart -->
-		
-		<div id="forScrollTop" class="clear"></div>
+
 		
 	</div><!-- end of div 'container' -->
 
-	<!-- logo container ————————————————————————————————————————————— -->
-	<div id="logo_container">
-		<a href="/en" id="logo" title="home page">home page</a>	
-	</div>
+
 	
 <% end %>	<!-- end of content_for(:body) -->	
 	

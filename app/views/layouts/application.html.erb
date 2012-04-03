@@ -259,6 +259,12 @@
 						$("#black_screen").hide();  
 						return false;
 					})
+					
+					$(".popup_base").mouseleave(function(){
+						$(".popup_base:visible").hide();
+						$("#black_screen").fadeOut();
+						return false;
+					})
 				
 				});
 			</script>

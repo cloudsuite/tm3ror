@@ -62,6 +62,12 @@
 			#tiptip_content { background-color: gainsboro; color:white; }
 		</style>	
 	
+			<!-- avoid flash of unstyled content when browser paints popup overlays for top level categories
+				and then closes them -->
+			<script type="text/css">
+				.popup_base { display:none;} /* or do I have to set visibility? */
+			</script>
+			
 		<!-- styles for stuff in header -->
 
 		

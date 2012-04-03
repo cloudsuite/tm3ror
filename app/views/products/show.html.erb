@@ -175,8 +175,8 @@
 							<tr>
 								<td></td>
 								<td>
-									<%= if @product.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
-									<%= if @product.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+									<%= if @product.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif",:class => "withToolTip", :title => "shipped by truck") end %>
+									<%= if @product.assembly_p == 1 then image_tag("utility/wrench_24x24.gif",:class=>"withToolTip",:title => "some assembly required") end %>
 									<%= if @product.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 								</td>
 								<td></td>

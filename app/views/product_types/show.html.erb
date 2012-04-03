@@ -198,10 +198,11 @@
 					</div>
 					
 					<div id="shipping_etc_icons">
-							<%= if @product_type.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
-							<%= if @product_type.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+							<%= if @product_type.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif",:class => "withToolTip", :title => "shipped by truck") end %>
+							<%= if @product_type.assembly_p == 1 then image_tag("utility/wrench_24x24.gif",:class=>"withToolTip",:title => "some assembly required") end %>
 							<%= if @product_type.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 					</div>
+
 					
 				</div> 
 

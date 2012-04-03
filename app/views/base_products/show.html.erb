@@ -68,6 +68,7 @@
 						}
 	</script>
 
+
 	<style type="text/css">
 		/* div#product_goodies {max-height:625px; overflow-y:auto;padding-right:20px;margin-top:5px;} */
 		div#product_image_description { margin-top:20px; padding-left:40px;}
@@ -146,8 +147,8 @@
 						<%= raw(@base_product.long_description) %>
 					</div>
 					<div id="shipping_etc_icons">
-							<%= if @base_product.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
-							<%= if @base_product.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
+							<%= if @base_product.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif",:class => "withToolTip", :title => "shipped by truck") end %>
+							<%= if @base_product.assembly_p == 1 then image_tag("utility/wrench_24x24.gif",:class=>"withToolTip",:title => "some assembly required") end %>
 							<%= if @base_product.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 					</div>
 					

@@ -25,8 +25,7 @@
 	  	<title>TruMedical Solutions</title>
 	
 		<%= stylesheet_link_tag "custom-theme/jquery-ui-1.8.10.custom.css" %>
-		<!-- <%# stylesheet_link_tag "ui-lightness/jquery-ui-1.8.18.custom.css" %> -->
-		
+		<!-- <%# stylesheet_link_tag "ui-lightness/jquery-ui-1.8.18.custom.css" %> -->	
     <%= stylesheet_link_tag "trumedical_base.css" %>
 		<%= stylesheet_link_tag "search.css" %> 
 		<%= stylesheet_link_tag "menu.css" %> 
@@ -34,20 +33,34 @@
     	<!-- <%# stylesheet_link_tag "jquery_tools_tabs_no_images.css" %> unused; used by Mavic tabbed sibling nav; not in /public/javascripts -->
 		<%= stylesheet_link_tag "left_nav_popups_test.css" %> <!-- added by TA 1/4/2012; controls top alignment of popups for menu items -->
 		<%= stylesheet_link_tag "simple_form.css" %>
+		<%= stylesheet_link_tag "tipTip.css" %>
 		
 		<!-- standard js files -->
 		<%= javascript_include_tag "jquery-1.4.4.min.js" %>
 		<!-- <%# javascript_include_tag "jquery-ui-1.8.10.custom.min.js" %> -->
 		<%= javascript_include_tag "jquery-ui-1.8.18.custom.min.js" %>
 		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %> 
-		<!-- <%# javascript_include_tag :defaults %> <!-- included because StackOverflow response to sign_out delete problem; causing other problems: attempts to link prototype libraries -->		
+		<!-- <%# javascript_include_tag :defaults %> <!-- included because StackOverflow response to sign_out delete problem; causing other problems: attempts to link prototype libraries -->	
+		<%= javascript_include_tag "jquery.tipTip.js" %>	
 		<%= javascript_include_tag "ezMark.js" %> <!-- needed on home page; why? -->
+		
 
 		<!--  csrf_meta_tag %> -->
 		
 
 		<!-- replace the following line with a Rails macro ? -->
 		<link href="../images/favicon.ico" rel="shortcut icon">
+	
+		<!-- for tool tips used to explain shipped-by and assembly-required icons -->
+		<script type="text/javascript" >
+			$(document).ready(function() {
+				$(".withToolTip").tipTip(
+					{maxWidth: "auto", defaultPosition: "top",delay: 400});	
+				});
+		</script>
+		<style type="text/css">
+			#tiptip_content { background-color: gainsboro; color:white; }
+		</style>	
 	
 		<!-- styles for stuff in header -->
 

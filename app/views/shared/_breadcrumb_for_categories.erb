@@ -4,10 +4,13 @@
 			a#homelink:hover { color:orange } 
 		</style>
 		<div id="breadcrumb">
+			
 			<%= link_to("Home Page",{ :controller => 'home',:action =>'index'}, :id =>"homeLink" ) %><span>&nbsp;&nbsp;&gt;&nbsp;</span>
+			
 			<% for category in @category.ancestors.reverse %>
-				<%= link_to(category.name,{:controller => 'categories', :action => 'show',:id=>category.id}) %>&nbsp;&nbsp;&gt;&nbsp; <!-- these will be the intermediate categories -->
+				<%= link_to(category.name,{:controller => 'categories', :action => 'show',:id=>category.id}) %>&nbsp;&nbsp;&gt;&nbsp; <!-- these will be the intermediate categories between home and this category -->
 			<% end %>	
-			<%= link_to(@category.name,{:controller=>'categories',:action=>'show', :id=>@category.id}) %> <!-- if you're on a product page this will be the immediately containing leaf-level category -->
+			
+			<%= @category.name %> <!-- this category -->
 
 		</div>

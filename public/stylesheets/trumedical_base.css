@@ -183,7 +183,7 @@
 		}
 
 		
-		#metasearch input#search_submit { color:orange; text-align:center; padding-right:10px; width:25px; font-size:9px; line-height:11px;} /* pad out Go */
+		#metasearch input#search_submit { color:orange;font-weight:bold; text-align:center; padding-right:10px; width:25px; font-size:9px; line-height:11px;} /* pad out Go */
 
 
 /* ———— within left ————————————————————————————————————————————————*/

@@ -140,7 +140,7 @@
 					<%# image_tag("/images/products/all_medium/" + @base_product.image_filename[0,6] + "-000" + ".jpg") %>
 					-->
 					<div id="title">
-						<%= raw(@base_product.name) %>
+						<%= raw(@base_product.name) %> <!-- or use web_description once edit data file -->
 					</div>
 					
 					<div id="description">
@@ -164,7 +164,7 @@
 						<col align="right"/>
 						<col align="left"/>
 						<th align="left">Part No</th>
-						<th align="left">Name</th>
+						<th align="left">Description</th>
 						<th align="right">Price</th>
 						<th align="left">Qty</th>
 						

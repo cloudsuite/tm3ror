@@ -39,7 +39,7 @@
 div.subcategories { }
 div.subcategory {width: 120px; margin-right:10px; margin-bottom:10px; float:left; height:120px;
 	background-color:#E6E6E6;}
-div.subcategoryName { padding:5px;margin:0;text-align:center;}
+div.subcategoryName { padding:8px 2px 4px 2px; margin:0; text-align:center;} /* no affect */
 div.subcategory { border: 1px solid gainsboro; }
 div.subcategory a:hover { color:white;}
 

@@ -69,7 +69,6 @@
 			</script>
 			
 		<!-- styles for stuff in header -->
-
 		
 		<!-- styles for stuff in footer -->
 		<style type="text/css">
@@ -124,6 +123,13 @@
 		<script type="text/javascript">
 
 			$(document).ready(function(){
+				
+				$("div#footer").css( { "left": $("div#container").offset().left, "width": $("div#container").css("width") });
+				/* reset footer left on window resize events */
+				$(window).resize(function(){
+					$("#footer").css({"left": $("#container").offset().left}); /* reset footer left  */
+					$("#container").css({"height": $("window").height()}); /* make container as deep as the window */
+				});
 				
 				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Contact Us" });
 				$("div#privacyPolicy").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title: "Privacy Policy" });

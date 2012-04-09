@@ -52,7 +52,7 @@
 		#banner_rotator { /* for scrolling background images on home page */
 	 		z-index: 9; } /* below black_screen at z-index 10 and left_column at z-index 11; */
 	
-	#footer { position:relative; 
+	#footer { position:fixed; bottom:0px; left:0px;  /* was 'relative' wo bottom or left */ 
 		width: 100%;
 		height: 36px; /* div was showing as 514px high if used min-height: don't know why */
 		background: black; /* was SlateGray */
@@ -114,11 +114,11 @@
 			float:right; 
 			padding:5px 30px 5px 0px;
 			z-index:98; 
-			color:orange;font-size:12px;
+			color:#0094DE;font-size:12px;
 			}
 			#register_login ul { list-style-type:none;}
 			#register_login ul li { display:inline; margin-left:10px;}
-			#register_login a { color:orange; font-weight:bold; font-size:12px; }
+			#register_login a { color:#0094DE; font-weight:bold; font-size:12px; }
 			
 		div#cart_links { position:relative; 
 			float:right;
@@ -183,7 +183,7 @@
 		}
 
 		
-		#metasearch input#search_submit { color:orange;font-weight:bold; text-align:center; padding-right:10px; width:25px; font-size:9px; line-height:11px;} /* pad out Go */
+		#metasearch input#search_submit { color:#0094DE;font-weight:bold; text-align:center; padding-right:10px; width:25px; font-size:9px; line-height:11px;} /* pad out Go */
 
 
 /* ———— within left ————————————————————————————————————————————————*/

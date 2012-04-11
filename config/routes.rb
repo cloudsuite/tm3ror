@@ -1,7 +1,4 @@
 Tm3ror::Application.routes.draw do
-   resources :requests
-   resources :users
-  # get "product_set/show"  # Why the singular version? controller is product_sets
 
   devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login" }
   # sign_out doesn't seem to getting set up properly. Why? needs :method => :delete ? stack overflow:
@@ -45,8 +42,11 @@ Tm3ror::Application.routes.draw do
     resources :product_sets
     resources :base_products
     resources :products
-    #resources :users # site is using this for request a catalog form;  conflicting with devise?    
-      
+    resources :users # inserted because it was in tm2ror, and register works there
+  
+    resources :requests # moved down from above
+   
+   # can drop leaf_categories:   
   resources :leaf_categories do  # can handle URLs of the form localhost:3000/leaf_categories/1/display
     get :display, :on => :member
   end

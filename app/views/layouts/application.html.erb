@@ -41,7 +41,9 @@
 		<%= javascript_include_tag "jquery-ui-1.8.18.custom.min.js" %>
 		<%= javascript_include_tag "jQuery_Tools.1.2.3.scrollable.js" %> 
 		<!-- <%# javascript_include_tag :defaults %> <!-- included because StackOverflow response to sign_out delete problem; causing other problems: attempts to link prototype libraries -->	
-		<%= javascript_include_tag "jquery.tipTip.js" %>	
+		<%= javascript_include_tag "jquery.tipTip.js" %>
+		<%= javascript_include_tag "jquery.intent.6.js" %> 
+			
 		<%= javascript_include_tag "ezMark.js" %> <!-- needed on home page; why? -->
 		
 
@@ -128,7 +130,8 @@
 				/* reset footer left on window resize events */
 				$(window).resize(function(){
 					$("#footer").css({"left": $("#container").offset().left}); /* reset footer left  */
-					$("#container").css({"height": $("window").height()}); /* make container as deep as the window */
+					var newDepth = $("window").height();
+					$("#container").css({"height": newDepth}); /* make container as deep as the window;  */
 				});
 				
 				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Contact Us" });
@@ -175,96 +178,96 @@
 					$(".popup_base").hide();
 					$("#black_screen").hide();
 
-					$("#modalities").mouseover(function(){
+					$("#modalities").hover(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_modalities").show();
 						return false; /* combines stopPropagation() and preventDefault()  */
-					});
+					},function(){});
 
 					$("#clinicalSupplies").hover(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_clinicalSupplies").show();
 						return false;
-					})
+					},function(){})
 					$("#tables").hover(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_tables").show();
 						return false;
-					})
-					$("#fitness").hover(function(){
+					},function(){})
+					$("#fitness").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_fitness").show();
 						return false;
-					})
-					$("#orthopedics").hover(function(){
+					},function(){})
+					$("#orthopedics").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_orthopedics").show();
 						return false;
-					})
-					$("#taping").hover(function(){
+					},function(){})
+					$("#taping").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_taping").show();
 						return false;
-					})
-					$("#evaluation").hover(function(){
+					},function(){})
+					$("#evaluation").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_evaluation").show();
 						return false;
-					})
-					$("#dailyLiving").hover(function(){
+					},function(){})
+					$("#dailyLiving").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_dailyLiving").show();
 						return false;
-					})
-					$("#lymphedema").hover(function(){
+					},function(){})
+					$("#lymphedema").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_lymphedema").show(); 
 						return false;
-					})
-					$("#woundCare").hover(function(){
+					},function(){})
+					$("#woundCare").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_woundCare").show();
 						return false;
-					})
+					},function(){})
 					/* the following four are used only on the home page */
 					
-					$("#trumedical").hover(function(){
+					$("#trumedical").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_trumedical").show();
 						return false;
-					})
+					},function(){})
 
-					$("#patients").hover(function(){
+					$("#patients").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_patients").show();
 						return false;
-					})
+					},function(){})
 
-					$("#providers").hover(function(){
+					$("#providers").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_providers").show();
 						return false;
-					})
+					},function(){})
 
-					$("#payors").hover(function(){
+					$("#payors").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_payors").show();
 						return false;
-					})
+					},function(){})
 		
 					$("img.close").click(function(){
 						$(".popup_base:visible").hide();

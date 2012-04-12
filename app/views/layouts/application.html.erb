@@ -178,20 +178,20 @@
 					$(".popup_base").hide();
 					$("#black_screen").hide();
 
-					$("#modalities").hover(function(){
+					$("#modalities").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_modalities").show();
 						return false; /* combines stopPropagation() and preventDefault()  */
 					},function(){});
 
-					$("#clinicalSupplies").hover(function(){
+					$("#clinicalSupplies").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_clinicalSupplies").show();
 						return false;
 					},function(){})
-					$("#tables").hover(function(){
+					$("#tables").hoverIntent(function(){
 						$(".popup_base:visible").hide();
 						$("#black_screen").show();
 						$("#popup_tables").show();

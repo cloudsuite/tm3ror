@@ -175,8 +175,8 @@
 								<div class="for_text"><%= p.web_description %></div> <!-- need raw(..)? -->
 							</td>
 							<td class="price" id="price_<%= p.netsuite_item_no %>">
-								<%= if current_user 
-							  	case current_user.price_schedule
+								<%= if current_user.clinician									
+							  	case current_user.clinic.price_schedule
 										when "tru-blue"
 											number_to_currency(p.price_tru_blue)
 										when "corporate-2"
@@ -192,7 +192,7 @@
 										else 
 											number_to_currency(p.price_clinic_list)
 									end
-
+									
 								else
 									number_to_currency(p.price_clinic_list);
 								end %>

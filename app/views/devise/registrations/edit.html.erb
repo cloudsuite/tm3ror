@@ -75,6 +75,9 @@
 					
 						<div><%= f.label "Clinic name" %><br />
 					  <%= f.text_field :clinic_name %></div>
+
+						<div><%= f.label "Clinic id (for testing)" %><br />
+					  <%= f.text_field :clinic_id %></div>					
 					
 						<div><%= f.label "Work phone" %><br />
 					  <%= f.telephone_field :phone %></div>
@@ -87,6 +90,7 @@
 					  <%= f.text_field :price_schedule %></div>
 
 					  <div><%= f.submit "Update" %></div>
+						<i><span style="color:orange;">(Remember: You need to enter your current password above to confirm your changes.)</span></i>
 
 					<% end %>
 

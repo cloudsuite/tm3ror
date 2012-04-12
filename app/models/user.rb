@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation,:phone, :extension, :clinician, :clinic_name, :address, :address2, :city, :state, :zip, :price_schedule, :remember_me
   
   # for handling catelog requests
-  # has_many :requests
+  
+  # clinician<<->clinic relationship, but here for all users? 
+  belongs_to :clinic
   
 
 

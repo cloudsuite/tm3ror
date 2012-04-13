@@ -133,7 +133,7 @@
 
 						<div class="picture">
 							<!-- change to large picture --> 
-							<%= image_tag("/images/products/all_large/" + @product.image_filename[0,6] + "-000" + ".jpg",:style => "height:250px;") %>
+							<%= image_tag("/images/products/all_large/" + @product.image_filename + ".jpg",:style => "height:250px;") %>
 							<!-- 
 							<%# image_tag("/images/products/modalities_large/" + @product.image_filename[0,6] + "-000" + ".jpg", :size => "169x179") %>
 						-->
@@ -184,24 +184,28 @@
 							<tr>
 								<td>Price:</td>
 								<td class="price" id="price_<%= @product.netsuite_item_no %>">
-									<%= if current_user.clinician 
-								  	case current_user.clinic.price_schedule
-											when "tru-blue"
-												number_to_currency(@product.price_tru_blue)
-											when "corporate-2"
-												number_to_currency(@product.price_corporate_2)
-											when "corporate-3"
-												number_to_currency(@product.price_corporate_3)
-											when "dealer-1"
-												number_to_currency(@product.price_dealer_1)
-											when "dealer-2"
-												number_to_currency(@product.price_dealer_2)
-											when "dealer-3"
-												number_to_currency(@product.price_dealer_3)
-											else 
-												number_to_currency(@product.price_clinic_list)
+									<%= 
+									if current_user then
+										if current_user.clinician 
+								  		case current_user.clinic.price_schedule
+												when "tru-blue"
+													number_to_currency(@product.price_tru_blue)
+												when "corporate-2"
+													number_to_currency(@product.price_corporate_2)
+												when "corporate-3"
+													number_to_currency(@product.price_corporate_3)
+												when "dealer-1"
+													number_to_currency(@product.price_dealer_1)
+												when "dealer-2"
+													number_to_currency(@product.price_dealer_2)
+												when "dealer-3"
+													number_to_currency(@product.price_dealer_3)
+												else 
+													number_to_currency(@product.price_clinic_list)
+											end
+										else
+											number_to_currency(@product.price_clinic_list);
 										end
-
 									else
 										number_to_currency(@product.price_clinic_list);
 									end %>

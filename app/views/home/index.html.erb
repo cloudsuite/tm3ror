@@ -2,35 +2,23 @@
 
 Layout: index.html.erb
 
-Doc: home page for the site
-		 Note: right_container does not move on the home page (unlike on llC and
-			Product page ); here it is anchored on left under menu.
-			Both divs (menu and right-content) are 235px wide. 
-
 ——————————————————————————————————————————————————————————————————————
 
 ToDo:		
 
-	1. Implement Google SEARCH retaining the graphics of the mavic site rather than the Google replacement; see Known Bugs #4 
+	1. Add Google SEARCH button hidden behind menu tab; see Known Bugs #4 
 	2. Move include of home.css to this file, and remove it from application.html.erb
+	3. Remove style declarations for background color, text color of popups that have been
+		 inserted here so that they will override corresponding declarations in the asset 
+		 left_nav_popups.css — which is on Amazon S3 with a far-forward expires header. Fix
+		 corresponding declarations in left_nav_popups.css to match these, first though.
+	4. Experiment with the slider library better — alternating white and black backgrounds?
    
-
-Known Bugs:
-	
-	3. reference to stylesheets/images/footer_triangle.gif — Where is it referenced? Can it be cut? 	
-	4. not enough vertical space for product menu, search, TruMedical, ppp; 2 boxes; 
-	solution: move search to upper right under register/login cart/checkout links  
-	5. layout of title text in box truValue products 
-	6. image scroller:
-			6-1 The text blocks are at a z-index that makes them scroll across on top of the left-menu which is at z-index 11. The 'More' button seems like it is above black_screen at z-index 10. 
-			6-2 understand the slider library better 
-
-Unknowns:
-
-	1. how/when logo-container moves around the window. What triggers the recalculation
-		(presumably window resize); what algorithm used for the recalculation; how does the 
-		algorithm chose where to move it to. 	
-
+Known Bugs:	
+	1. reference to stylesheets/images/footer_triangle.gif — Where is it referenced? Can it be cut? 	  
+	2. auto-scroll bar appearing here ( and on other pages: presumably something in 
+		 application.html.erb ) after window.resize event. Same problem in tm4ror? 
+	3. behavior of footer bar on iPhone using Safari. Remove footer pinnned to bottom of browser window and repositioned left-right when window resizes, in favor of a standard footer bar relatively positioned below middleBand?   
 
 <%= content_for(:header) do %>
 
@@ -64,15 +52,6 @@ Unknowns:
 	</script>	
 
 
-	<script type="text/javascript">
-		$(window).bind("resize", function(){		
-			repositionDescription(); /* ???? Repositioning logomark or content_right?  */ 
-		});
-		var initHome = function(){
-			$('HTML').css('overflow','auto'); /* ??? why doing this in a runtime function? */
-		};
-	</script>
-
 	<style type="text/css">
 		/* #banner-rotator { height: 800px; overflow:hidden; border:none; margin-left:0px; } */
 		.moreButton { background-color:#0094DE; color:white; padding:5px 10px 5px 10px;} /* or orange: #FFA500 */
@@ -84,7 +63,7 @@ Unknowns:
 	<!--  Removed in debugging; document_ready declarations for all left-menu items 
 				put in application.html.erb — even those that occur only on the home pag. 
 	-->
-	<!-- override the declarations in stylesheets/left_nav_popups.css now on Amazon S3 with a far forward expires header; may have to defeat overflow, and height-->
+	<!-- override the declarations in stylesheets/left_nav_popups.css — which is now on Amazon S3 with a far forward expires header; may have to defeat overflow, and height-->
 	<style type="text/css">
 		.bold { font-weight: bold; }
 		/* tm-blue: #0094DE; orange:#FFA500 */

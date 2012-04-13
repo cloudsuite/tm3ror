@@ -12,18 +12,18 @@
 			Removed 
 				1. footer pinnned to bottom of browser window ('fixed') and 
 				2. repositioning left-right when window resizes, 
-				3, resizing container based on new window size 
+				3. resizing container based on new window size 
+				4. 40px of padding-bottom on #container
 			in favor of a standard footer bar relatively positioned below middleBand.
+			
 		ToDo:
 			1. get search by competitors part number working. Remove metasearch and use simple SQL call in products#index:
 			   @product = Product.where("sammons-part-no LIKE?", "%#{params[:search]}%")
 			Would this avoid doing a database call on each load of the home page?
 		
 		Known Bugs:	
-			1. metawhere/metasearch causing a problem
- 
-			
-		   
+			1. metawhere/metasearch causing a problem. Fixed? Recheck. 
+
 		-->
 		
 		<meta name="google-site-verification"
@@ -164,6 +164,10 @@
 				});
 			
 				$("div#tabs").tabs(); /* initialize tabs within privacyPolicy. NOT WORKING?  */
+				$("a[href='#AdminClinic']").click(function(){
+					alert("As-yet-unimplemented link to Netsuite my-account.");
+					return false;
+				});
 				
 				$("a[href='#url']").click(function(){
 					alert("As-yet-unimplemented link.");
@@ -339,7 +343,7 @@
 			<div id="header">
 				<div id="register_login">
 					<ul>
-							<!-- <li><#= link_to "Home   ", home_index_path %> </li> -->
+						<li><a href="https://checkout.netsuite.com/app/center/nlvisitor.nl/c.1114349/sc.6/.f">Administer</a></li>
 						<% if user_signed_in? %>
 							<li>
 								<span style="color:orange";>Signed in as <%= current_user.email %>. Not you?&nbsp; </span>

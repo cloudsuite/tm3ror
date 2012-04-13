@@ -222,7 +222,7 @@
 						<% @product_type.products.each do |p| %>
 							<tr>
 								<td><%= p.tms_part_no %></td>
-								<td><%= p.description %></td>
+								<td><%= p.web_description %></td>
 								<td class="price" id="price_<%= p.netsuite_item_no %>">
 									<%= if user_signed_in? then
 										if current_user.clinician 

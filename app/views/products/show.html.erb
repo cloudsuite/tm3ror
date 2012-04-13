@@ -185,7 +185,7 @@
 								<td>Price:</td>
 								<td class="price" id="price_<%= @product.netsuite_item_no %>">
 									<%= 
-									if current_user then
+									if user_signed_in? then
 										if current_user.clinician 
 								  		case current_user.clinic.price_schedule
 												when "tru-blue"

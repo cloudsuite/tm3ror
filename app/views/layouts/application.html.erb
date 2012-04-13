@@ -8,16 +8,22 @@
 		Doc: layout template applied to all files in the site
 	
 		——————————————————————————————————————————————————————————————————————
-	
+		Versus tm3rorFF ( 'fixed footer') 
+			Removed 
+				1. footer pinnned to bottom of browser window ('fixed') and 
+				2. repositioning left-right when window resizes, 
+				3, resizing container based on new window size 
+			in favor of a standard footer bar relatively positioned below middleBand.
 		ToDo:
 			1. get search by competitors part number working. Remove metasearch and use simple SQL call in products#index:
 			   @product = Product.where("sammons-part-no LIKE?", "%#{params[:search]}%")
 			Would this avoid doing a database call on each load of the home page?
-			2. Reinstate a logdiv for TruMedical? unclear how/when logo div moves around the window
 		
 		Known Bugs:	
 			1. metawhere/metasearch causing a problem
-		  ..  
+ 
+			
+		   
 		-->
 		
 		<meta name="google-site-verification"
@@ -110,10 +116,14 @@
 					width:20px;
 				}
 		</style>
-		<!-- for animated TruMedical LogoMark --> 
+		<!-- Supposed to avoid scrollers overflowing middleBand on home page and having 
+			scroll to cut off because of overflow: hidden declaration in window.resize 
+			event handler. Doesn't work 
 		<style type="text/css"> 
-			#middleBand { min-height:680px; } /* for logo animation; no longer used */
+			#middleBand { min-height:690px; } 
 		</style>
+		-->
+
 		
 		<!-- interim hack to allow manual closing of popup top level category windows -->
 		<style type="text/css">
@@ -125,14 +135,15 @@
 		<script type="text/javascript">
 
 			$(document).ready(function(){
-				
+				/* cut in favor of relative footer bar
 				$("div#footer").css( { "left": $("div#container").offset().left, "width": $("div#container").css("width") });
-				/* reset footer left on window resize events */
+			
 				$(window).resize(function(){
-					$("#footer").css({"left": $("#container").offset().left}); /* reset footer left  */
-					$("#container").css({"height": $(window).height() }); /* make container as deep as the window;  */
+					$("#footer").css({"left": $("#container").offset().left}); 
+					$("#container").css({"height": $(window).height(), 
+					 	"overflow": "visible"}); 
 				});
-				
+			*/	
 				$("div#contactUs").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title:"Contact Us" });
 				$("div#privacyPolicy").dialog( { autoOpen:false, modal:true, position:[360,60], width:610, minHeight:200, title: "Privacy Policy" });
 				

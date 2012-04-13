@@ -14,10 +14,10 @@
 	z-index: 2;
 	overflow-y: auto; 
 	overflow-x: hidden;
-	width: 1085px; /* TA: freeze at 1052px to force right_column under left nav? ? */
+	width: 1085px; /* 20 pix narrower to match home page sliders? would mean resizing large images to max width of 420px vs current 440px to avoid running into TruMedical logomark */
 	margin:0px;
-	padding: 0px 0px 40px 0px; /* for pages deeper than window height; bottom 30px covered by footer */
-	background-color: white;/* DEBUGGING */
+	padding: 0; /* 0 0 40px 0 if go back to fixed footer pinned to bottom of window: for pages deeper than window height; bottom 30px covered by footer */
+	background-color: white;
 	margin-left:auto; margin-right:auto;
 	}
 	#header { 
@@ -36,14 +36,14 @@
 			padding-bottom: 25px;
 			width: 235px; 
 			z-index:11; /* above scrolling images on home page in banner-rotator */
-			background-color:white; /* DEBUGGING */
+			background-color:white; 
 			}
 		#left_column.home {
 			position:absolute; /* so doesn't drop below middleBand */
 			top:0px;
 			left:0px;
 			z-index: 11; /* above scrolling images on home page in div#banner_rotator */
-			background-color:orange;
+			background-color:orange; /* puts little orange bar below menu */
 			}
 		#center_column {
 			width: 800px; /* 1060-235-20 */
@@ -52,7 +52,8 @@
 		#banner_rotator { /* for scrolling background images on home page */
 	 		z-index: 9; } /* below black_screen at z-index 10 and left_column at z-index 11; */
 	
-	#footer { position:fixed; bottom:0px; left:0px;  /* was 'relative' wo bottom or left */ 
+	#footer { 
+		position:relative; /*fixed; bottom:0px; left:0px; */ 
 		width: 100%;
 		height: 36px; /* div was showing as 514px high if used min-height: don't know why */
 		background: black; /* was SlateGray */

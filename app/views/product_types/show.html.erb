@@ -67,10 +67,10 @@
 							{
 								var itemid = $(this).attr('id').replace('qty_','');
 								var itemprice = $("#price_"+itemid).html().replace('$','');
-
+								itemprice = $.trim(itemprice);
 								var itemqty = $(this).val();
 								//add to cart url
-								var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?&c='+accountid+'&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
+								var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?c='+accountid+'&n=1&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
 							    //create hidden iframe in body
 							    $('body').append('<iframe id="addtocartframe'+itemid+'" style="display:none" />'); 
 							    //change src to iframe

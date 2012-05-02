@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411204901) do
+ActiveRecord::Schema.define(:version => 20120502165534) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -153,11 +153,14 @@ ActiveRecord::Schema.define(:version => 20120411204901) do
     t.string   "zip"
     t.string   "url"
     t.string   "billing_email"
-    t.string   "phone"
     t.string   "price_schedule"
-    t.integer  "administrator"
-    t.string   "administrator_phone"
+    t.string   "payment_terms"
+    t.integer  "administrator_name"
+    t.string   "main_phone"
     t.string   "administrator_extension"
+    t.string   "administrator_direct_number"
+    t.string   "administrator_cell_phone"
+    t.string   "administrator_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :validatable, :trackable, :rememberable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation,:phone, :extension, :clinician, :clinic_name, :address, :address2, :city, :state, :zip, :price_schedule, :remember_me
+  attr_accessible :type, :salutation, :first_name, :last_name, :title, :email, :phone, :extension, :password, :password_confirmation, :clinician, :clinic_id, :clinic_name,:customer_id, :internal_customer_id, :address, :address2, :city, :state, :zip, :price_schedule,:wants_n_catelogs, :remember_me
   
   # for handling catelog requests
   

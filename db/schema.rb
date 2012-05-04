@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502165534) do
+ActiveRecord::Schema.define(:version => 20120504000817) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -155,7 +155,8 @@ ActiveRecord::Schema.define(:version => 20120502165534) do
     t.string   "billing_email"
     t.string   "price_schedule"
     t.string   "payment_terms"
-    t.integer  "administrator_name"
+    t.string   "administrator_name"
+    t.integer  "administrator_id"
     t.string   "main_phone"
     t.string   "administrator_extension"
     t.string   "administrator_direct_number"
@@ -272,10 +273,13 @@ ActiveRecord::Schema.define(:version => 20120502165534) do
     t.string   "email",                                 :default => "", :null => false
     t.string   "phone"
     t.string   "extension"
+    t.string   "username"
+    t.string   "password"
     t.boolean  "clinician"
     t.integer  "clinic_id"
     t.string   "clinic_name"
-    t.integer  "clinic_trumedical_id"
+    t.integer  "customer_id"
+    t.integer  "internal_customer_id"
     t.string   "role"
     t.string   "authorization_code"
     t.string   "address"
@@ -299,6 +303,6 @@ ActiveRecord::Schema.define(:version => 20120502165534) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
 end

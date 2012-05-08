@@ -1,0 +1,88 @@
+<!-- ————————————————————————————————————————————————————
+	Clinicians#new 
+	_______________________________________________________
+	
+	BUGS:
+		1. New clinician is not getting password encrypted and stored in database; result: 'invalid password' error when he attempts to sign in . 
+		2. Formatting problem: the form submit button is too far to the right. Seems to be something to its left, since if set left-margin: -20px the left side of the button disappears. 
+	
+	-->
+<!-- header includes  ——————————————————————————————————————————————————  -->
+<%= content_for(:header) do %>
+	<style type="text/css">
+		div#clinician_content form { margin-bottom:20px; margin-top:40px; } 
+		div#clinician_content a { color:orange; }
+
+		div#clinician_content input {margin-bottom:0px; width:150px;}
+		div#clinician_content label {text-align:right; padding:0px 10px 8px 0px; width: 165px; }
+		div#clinician_content p.inline-hints { font-style:italic; color:red; padding-left:0px;padding-top:0px; font-size:10px; margin-top:0px;}
+		div#clinician_content input#clinic_submit { margin-left:0px; width: 90px;}
+		div#clinician_content input#clinician_submit { margin-left:0px; width:110px;}
+
+		div#center_column { /* override default layout */
+			}
+		div#center_column div#clinician_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#clinician_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
+	</style>
+<% end %>
+
+<!-- body includes  ————————————————————————————————————————————————————  -->
+
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
+
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
+
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
+
+	<div id="center_column">
+		<!-- menu popups: top level categories ——————————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
+		
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+	
+		<div id="clinician_content">
+			<h2>New Clinician</h2>
+			<hr/>
+			<% semantic_form_for @clinician do |f| %>
+				<% f.inputs do %>
+					<%= f.input :first_name %>
+					<%= f.input :last_name %>
+					<%= f.input :email %>
+					<%= f.input :password %>
+					<%= f.input :clinic_id,:hint => "for testing; hide in production" %>	
+					<%= f.input :clinic_id, :wrapper_html => { :style => "display:none;" } %> <!-- typing a '1' into this field links the clinician to clinic with id=1 --> 			
+					<!--
+					How give fields predefined value in formtastic?  
+					Or better: make a field invisible, and set its value programmatically. 
+					<#= f.input :clinic_name %>
+					<#= f.input :clinic_id %>  current_user.clinic
+					-->
+					<%= f.input :phone %>
+				<% end %>
+			
+				<%= f.buttons %>
+
+			<% end %>
+		</div>
+	<!-- New clinician is not getting password properly encrypted and stored in database
+			<#= render :partial => "devise/shared/links" %>
+	-->		
+
+	</div> <!-- end div#center_column -->
+
+<% end %> <!-- end :content_for middleBand -->

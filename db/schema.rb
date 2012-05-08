@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504000817) do
+ActiveRecord::Schema.define(:version => 20120506014636) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -144,24 +144,29 @@ ActiveRecord::Schema.define(:version => 20120504000817) do
   end
 
   create_table "clinics", :force => true do |t|
-    t.integer  "customer_number"
+    t.integer  "netsuite_customer_id"
+    t.integer  "tm_customer_id"
     t.string   "name"
-    t.string   "street"
-    t.string   "street2"
+    t.string   "category"
+    t.boolean  "is_individual"
+    t.string   "sales_rep"
+    t.string   "primary_contact"
+    t.string   "phone"
+    t.string   "extension"
+    t.string   "email"
+    t.string   "fax"
+    t.string   "alternate_contact"
+    t.string   "office_phone"
+    t.string   "address"
+    t.string   "address2"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.string   "url"
-    t.string   "billing_email"
+    t.string   "country"
+    t.string   "shipping_address_composite"
+    t.string   "billing_address_composite"
+    t.string   "terms"
     t.string   "price_schedule"
-    t.string   "payment_terms"
-    t.string   "administrator_name"
-    t.integer  "administrator_id"
-    t.string   "main_phone"
-    t.string   "administrator_extension"
-    t.string   "administrator_direct_number"
-    t.string   "administrator_cell_phone"
-    t.string   "administrator_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -265,7 +270,8 @@ ActiveRecord::Schema.define(:version => 20120504000817) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "type"
+    t.integer  "tm_customer_id"
+    t.integer  "netsuite_customer_id"
     t.string   "salutation"
     t.string   "first_name"
     t.string   "last_name"
@@ -273,15 +279,13 @@ ActiveRecord::Schema.define(:version => 20120504000817) do
     t.string   "email",                                 :default => "", :null => false
     t.string   "phone"
     t.string   "extension"
-    t.string   "username"
-    t.string   "password"
+    t.string   "role"
+    t.boolean  "owner"
+    t.boolean  "administrator"
     t.boolean  "clinician"
     t.integer  "clinic_id"
+    t.integer  "clinic_tm_id"
     t.string   "clinic_name"
-    t.integer  "customer_id"
-    t.integer  "internal_customer_id"
-    t.string   "role"
-    t.string   "authorization_code"
     t.string   "address"
     t.string   "address2"
     t.string   "city"
@@ -289,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20120504000817) do
     t.string   "zip"
     t.string   "price_schedule"
     t.integer  "wants_n_catelogs"
+    t.string   "password"
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -303,6 +308,5 @@ ActiveRecord::Schema.define(:version => 20120504000817) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
 end

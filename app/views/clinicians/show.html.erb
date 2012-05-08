@@ -1,0 +1,83 @@
+<!-- ————————————————————————————————————————————————————
+	Clinicians#show
+	_______________________________________________________
+	-->
+<!-- header includes  ——————————————————————————————————————————————————  -->
+<%= content_for(:header) do %>
+	<style type="text/css">
+		div#clinician_content form { margin-bottom:20px; } 
+		div#clinician_content a { color:orange; }
+		div#clinician_content input {margin-bottom:10px;}
+		div#center_column { /* override default layout */
+			padding-left:40px; 
+			padding-top:0px;
+			}
+		div#center_column div#clinician_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#clinician_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
+	</style>
+<% end %>
+
+<!-- body includes  ————————————————————————————————————————————————————  -->
+
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
+
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
+
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
+
+	<div id="center_column">
+		<!-- menu popups: top level categories ——————————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
+		
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		<h3>Got to Clinicians#show from Clinician#destroy; wanted to go back to Clinic#edit</h3>
+		<p style="color:red;">( For some reason not reaching Clinician#destroy in the first place — not seeing :method => :delete )</p>
+		<div id="clinician_content">
+			<p>clinic: <%= @clinician.clinic.name %></p>
+			<% semantic_form_for @clinician do |f| %>
+				<%= f.inputs  do %>
+
+					<%= f.input :salutation %>
+					<%= f.input :first_name %>
+					<%= f.input :last_name %>
+					<%= f.input :title %>
+					<%= f.input :role, :hint => "clinician, administrator, owner" %>
+					<%= f.input :email %>
+					<%= f.input :password %>
+					<%= f.input :phone %>
+					<!--
+					<#= f.input :clinic_name %>
+		 			<#= f.input :password_confirmation %> 
+					<#= f.input :clinic_name %>
+					<#= f.input :clinic_id %>
+					<#= f.input :customer_id, :label => "Netsuite Customer Id (for testing)" %>
+					<#= f.input :internal_customer_id, :label => "Netsuite Internal Customer id (for testing)" %>
+					<#= f.input :phone %>
+					<#= f.input :extension %>
+					-->
+				<% end %>
+				<%= f.buttons %>
+			<% end %>
+		</div><!-- end div 'clinician_content' -->
+	<!--
+			<#= render :partial => "devise/shared/links" %>
+	-->		
+
+	</div> <!-- end div#center_column -->
+
+<% end %> <!-- end :content_for middleBand -->

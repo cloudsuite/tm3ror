@@ -24,6 +24,7 @@ gem 'sqlite3'
   gem "meta_where"
 	gem "meta_search"
   gem "devise"
+  gem 'formtastic',"~> 2.1.1"
   gem "simple_form"
    
 # ——————————————————————————————————————————————	

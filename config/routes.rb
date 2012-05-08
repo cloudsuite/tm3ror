@@ -43,6 +43,8 @@ Tm3ror::Application.routes.draw do
     resources :base_products
     resources :products
     resources :users # inserted because it was in tm2ror, and register works there
+    resources :clinicians
+    resources :clinics 
   
     resources :requests # moved down from above
    

@@ -1,4 +1,8 @@
-<!-- header includes  ——————————————————————————————————————————————————  -->
+<!-- ————————————————————————————————————————————————————
+	Clinician#new 
+	_______________________________________________________
+	-->
+	<!-- header includes  ——————————————————————————————————————————————————  -->
 <%= content_for(:header) do %>
 	<style type="text/css">
 		div#devise_generated_content form { margin-bottom:20px; } 
@@ -73,10 +77,10 @@
 			  <%= f.text_field :clinic_id %></div>
 			
 				<div><%= f.label "Customer Id (for testing)" %><br />
-			  <%= f.text_field :customer_id %></div>
+			  <%= f.text_field :tm_customer_id %></div>
 			
 				<div><%= f.label "Internal Customer Id (for testing)" %><br />
-			  <%= f.text_field :internal_customer_id %></div>
+			  <%= f.text_field :netsuite_customer_id %></div>
 			
 				<div><%= f.label "Street Address" %><br />
 			  <%= f.text_field :address %></div>

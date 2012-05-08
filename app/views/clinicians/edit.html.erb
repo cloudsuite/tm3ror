@@ -1,0 +1,89 @@
+<!-- ————————————————————————————————————————————————————
+	Clinicians#edit 
+	_______________________________________________________
+	-->
+<!-- header includes  ——————————————————————————————————————————————————  -->
+<%= content_for(:header) do %>
+	<style type="text/css">
+		div#clinician_content p {margin-top:20px;}
+		div#clinician_content form { margin-bottom:20px; margin-top:20px; } 
+		div#clinician_content a { color:orange; }
+
+		div#clinician_content input {margin-bottom:0px; width:150px;}
+		div#clinician_content label {text-align:right; padding:0px 10px 8px 0px; width: 165px; }
+		div#clinician_content p.inline-hints { font-style:italic; color:red; padding-left:0px;padding-top:0px; font-size:10px; margin-top:0px;}
+		div#clinician_content input#clinic_submit { margin-left:0px; width: 90px;}
+		div#clinician_content input#clinician_submit { margin-left:0px; width:110px;}
+
+		div#center_column { /* override default layout */
+			}
+		div#center_column div#clinician_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+		div#center_column div#clinician_content hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
+	</style>
+	
+<% end %>
+
+<!-- body includes  ————————————————————————————————————————————————————  -->
+
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
+
+		<!-- menu —————————————————————————————————————————— -->
+		<%= render(:partial => 'shared/menu') %>
+
+		<!-- featured products  —————————————————————— -->
+		<%= render(:partial => 'shared/featuredProducts') %>
+	</div><!-- end of div 'left_column' -->
+
+	<div id="center_column">
+		<!-- menu popups: top level categories ——————————————————————————————————— -->
+		<%= render(:partial => "/shared/menu_popups") %>
+		
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		<div id="clinician_content">
+			<h2>Edit Clinician</h2>
+			<hr/>
+			<p>Member of clinic: <%= @clinician.clinic.name %></p>
+			<% semantic_form_for @clinician do |f| %>
+				<%= f.inputs  do %>
+
+					<%= f.input :salutation %>
+					<%= f.input :first_name %>
+					<%= f.input :last_name %>
+					<%= f.input :title %>
+					<%= f.input :role, :hint => "clinician, administrator, owner" %>
+					<%= f.input :email %>
+					<%= f.input :password %>
+					<%= f.input :phone %>
+					<!--
+					<#= f.input :clinic_name %>
+		 			<#= f.input :password_confirmation %> 
+					<#= f.input :clinic_name %>
+					<#= f.input :clinic_id %>
+					<#= f.input :customer_id, :label => "Netsuite Customer Id (for testing)" %>
+					<#= f.input :internal_customer_id, :label => "Netsuite Internal Customer id (for testing)" %>
+					<#= f.input :phone %>
+					<#= f.input :extension %>
+					-->
+				<% end %>
+				<%= f.buttons %>
+			<% end %>
+		</div><!-- end div 'clinician_content' -->
+	<!--
+			<#= render :partial => "devise/shared/links" %>
+	-->		
+
+	</div> <!-- end div#center_column -->
+
+<% end %> <!-- end :content_for middleBand -->

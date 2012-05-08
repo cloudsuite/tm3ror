@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506014636) do
+ActiveRecord::Schema.define(:version => 20120508214724) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -148,7 +148,6 @@ ActiveRecord::Schema.define(:version => 20120506014636) do
     t.integer  "tm_customer_id"
     t.string   "name"
     t.string   "category"
-    t.boolean  "is_individual"
     t.string   "sales_rep"
     t.string   "primary_contact"
     t.string   "phone"

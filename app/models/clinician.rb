@@ -1,3 +1,3 @@
-class Clinician < ActiveRecord::Base
+class Clinician < User
    belongs_to :clinic
 end

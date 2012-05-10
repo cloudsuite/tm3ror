@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :tm_customer_id, :netsuite_customer_id, :salutation, :first_name, :last_name, :title, :email, :phone, :extension, :role, :owner, :administrator, :clinician, :clinic_id, :clinic_tm_id, :clinic_name, :address, :address2, :city, :state, :zip, :price_schedule,:wants_n_catelogs,:password, :encrypted_password, :remember_me
-  # Note: Rails update_attributes method takes a hash of attributes and their values and automatically updates them and saves the result. However if one of the attributes in the hash is not marked attr_accessible, no value for that attribute is stored to disk.  
+  # Note: Rails' update_attributes method takes a hash of attributes and their values and automatically updates them and saves the result. However if one of the attributes in the hash is not marked attr_accessible, no value for that attribute is stored to disk.  
   # Thus encrypted_password here? Does devise use update_attributes? 
   # Should pasword be an actual field? Should it be stored on the disk? 
   
@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
   belongs_to :clinic
   
   def valid_password?(password)
-     return true if password == "apple777" 
+     #return true if password == "apple777" 
+     return true if password == self.password # not working as I expected it to
      super
   end
 

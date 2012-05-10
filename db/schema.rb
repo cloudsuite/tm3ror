@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120508214724) do
+ActiveRecord::Schema.define(:version => 20120509221833) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -177,6 +177,35 @@ ActiveRecord::Schema.define(:version => 20120508214724) do
     t.datetime "updated_at"
   end
 
+  create_table "old_users", :force => true do |t|
+    t.integer  "tm_customer_id"
+    t.integer  "netsuite_customer_id"
+    t.string   "salutation"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "title"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "extension"
+    t.string   "role"
+    t.boolean  "owner"
+    t.boolean  "administrator"
+    t.boolean  "clinician"
+    t.integer  "clinic_id"
+    t.integer  "clinic_tm_id"
+    t.string   "clinic_name"
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "price_schedule"
+    t.integer  "wants_n_catelogs"
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "product_lines", :force => true do |t|
     t.integer  "manufacturer_id"
     t.string   "name"
@@ -269,6 +298,7 @@ ActiveRecord::Schema.define(:version => 20120508214724) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "type"
     t.integer  "tm_customer_id"
     t.integer  "netsuite_customer_id"
     t.string   "salutation"

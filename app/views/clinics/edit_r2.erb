@@ -74,7 +74,24 @@
 		<div id="clinic_content">
 			<h2>Edit Clinic</h2>
 			<hr/>			
-
+			<h3>Information on the Clinic ( Practice/Hospital/Facility/...) itself</h3>
+			<% semantic_form_for @clinic do |f| %>
+				<% f.inputs do %>
+					<%= f.input :name %>
+					<!--
+					<#= f.input :id, :hint => "for testing" %>
+					<#= f.input :tm_customer_id, :label => "Customer Id", :hint => "for testing" %>
+					<#= f.input :netsuite_customer_id, :label => "Netsuite Customer id", :hint => "for testing" %>
+				-->
+					<%= f.input :address %>
+					<%= f.input :city %>
+					<%= f.input :state %>
+					<%= f.input :zip %>
+					<%= f.input :phone %>
+					<%= f.input :extension, :label => "Extension" %>			
+				<% end %>
+				<%= f.buttons %>
+			<% end %>
 			
 			<h3>Clinicians associated with this 'Clinic'</h3>
 			<div id="clinicians_table">

@@ -19,7 +19,7 @@ gem 'sqlite3'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:————————————————————————
-  gem 'netsuite_client','1.1'
+  #gem 'netsuite_client','1.1'
   gem 'acts_as_tree','0.1.1'
   gem "kaminari"
   gem "meta_where"

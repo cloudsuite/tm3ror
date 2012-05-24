@@ -67,20 +67,22 @@
 			  <div><%= f.label :password_confirmation %><br />
 			  <%= f.password_field :password_confirmation %></div>
 			
-				<div><%= f.label "Are you a clinician?" %><br />
-			  <%= f.check_box :clinician %></div>
+			<!-- Remove fields that should not be there in the Beta test system 
+				<div><#= f.label "Are you a clinician?" %><br />
+			  <#= f.check_box :clinician %></div>
 			
-				<div><%= f.label "Clinic name" %><br />
-			  <%= f.text_field :clinic_name %></div>
+				<div><#= f.label "Clinic name" %><br />
+			  <#= f.text_field :clinic_name %></div>
 			
-				<div><%= f.label "Clinic id (for testing)" %><br />
-			  <%= f.text_field :clinic_id %></div>
+				<div><#= f.label "Clinic id (for testing)" %><br />
+			  <#= f.text_field :clinic_id %></div>
 			
-				<div><%= f.label "Customer Id (for testing)" %><br />
-			  <%= f.text_field :tm_customer_id %></div>
+				<div><#= f.label "Customer Id (for testing)" %><br />
+			  <#= f.text_field :tm_customer_id %></div>
 			
-				<div><%= f.label "Internal Customer Id (for testing)" %><br />
-			  <%= f.text_field :netsuite_customer_id %></div>
+				<div><#= f.label "Internal Customer Id (for testing)" %><br />
+			  <#= f.text_field :netsuite_customer_id %></div>
+			-->
 			
 				<div><%= f.label "Street Address" %><br />
 			  <%= f.text_field :address %></div>

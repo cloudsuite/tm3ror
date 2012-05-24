@@ -23,7 +23,7 @@ gem 'sqlite3'
   gem 'acts_as_tree','0.1.1'
   gem "kaminari"
   gem "meta_where"
-	gem "meta_search"
+  gem "meta_search"
   gem "devise"
   gem 'formtastic',"~> 2.1.1"
   gem "simple_form"

@@ -1,13 +1,11 @@
 <!-- ————————————————————————————————————————————————————
-	Clinics#edit — for R2 system that includes (i) Rails-based support for Clinic Administrators
-	 and authorization limits on purchases by clinicians (and clinic administrators) 
+	Clinics#edit 
 	________________________________________________________
 	
 	BUGS:
 		1. f.buttons to update clinic data goes to Clinic controller action
 			that tried to redirect to Clinic#View — a template that does not exist.
-			Either create that template, or override the redirect in the controller.
-		2. content for individual panes not showing up: jquery tools problem? in css file, the tabs are initially set to display:none; presumably contents show up on clicking a tab, and there if some initialization option that lets you say which tab to display when first put tab set up. 
+			Either create that template, or override the redirect in the controller
 	-->
 <!-- header includes  ——————————————————————————————————————————————————  -->
 <%= content_for(:header) do %>
@@ -20,7 +18,7 @@
 			padding: 5px 10px 10px 10px;
 			width: 155px;
 		}
-	hr { 
+		div#clinic_content hr { 
 			width:94%;
 			float:left;
 			margin-top:-11px;
@@ -36,24 +34,18 @@
 		div#clinic_content input#clinic_submit { margin-left:10px; width: 90px;}
 		div#clinic_content input#clinician_submit { margin-left:10px; width:110px;}
 		div#clinicians_table { margin-left:20px; }
-		div#clinicians_table table th.actions, div#clinicians_table td.actions { color:black; padding-left:20px;}
+		div#clinicians_table table th.actions, div#clinicians_table td.actions { color:blue; padding-left:20px;}
 		fieldset.buttons {margin-left:-36px!important;} /* overrides formtastic 25%. */
 		fieldset.buttons ol {margin-left:0px; padding-left:0px;}
 		fieldset.buttons ol li {margin-left:0px; padding-left:0px;}
 		input#clinic_submit { margin-left:0px; padding-left: 0px; color:orange;}
 		form.button_to { max-width:40px; display: inline-block; }
-		div#disclaimer { margin-top:40px; font-style:italic; color:orange;}
 	</style>
 
 	<script type ="text/javascript">
 		$(document).ready(function(){
-			/* set up tab panes */
-			/* $("ul.css-tabs").tabs("div.css-panes > div"); */
-			$("#tabs").tabs();
-			/* links within tab that sets up new clinicians for this clinic */
 			$("a.mylinks").hover(function(){
 				$(this).css("color","blue");
-			});
 
 		});
 
@@ -79,149 +71,49 @@
 		
 		<p class="notice"><%= notice %></p> <!-- needed by devise -->
 		<p class="alert"><%= alert %></p> <!-- needed by devise -->
-		<h2>Clinic<span style="color:orange;font-weight:normal;font-style:italic;">(*)</span> Administration</h3>
-		</hr>
-		
 		<div id="clinic_content">
-				<!-- this implementation of tabs is based on jquery-ui -->
-				<div id="tabs" style="overflow:hidden;">	<!-- fixes a jQuery-ui problem when tabs is in right column with something in column to its left ( in this case the menu) -->
-				<ul>					
-					<li><a href="#tabs-1">Clinicians</a></li>
-					<li><a href="#tabs-2">Clinic</a></li>
-					<li><a href="#tabs-3">Shipping</a></li>
-					<li><a href="#tabs-4">Billing</a></li>
-					<li><a href="#tabs-5">Purchase Limits</a></li>
-				</ul>
-				
-				<!-- Clinicians ————————————————————————— -->
-				<div id="tabs-1">
-					<h3>Clinicians associated with this Clinic</h3>
-					<div id="clinicians_table">
-						<table cellspacing="10">
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th align="left">Email</th>
-							<th>Password</th>
-							<th class="actions" align="left">Action</th>
+			<h2>Edit Clinic</h2>
+			<hr/>						
+			<h3>Clinicians associated with this 'Clinic'</h3>
+			<div id="clinicians_table">
+				<table cellspacing="10">
 
-							<% @clinic.clinicians.each do | clinician | %>
-								<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th align="left">Email</th>
+						<th>Password</th>
+						<th class="actions" align="left">Action</th>
+
+
+						<% @clinic.clinicians.each do | clinician | %>
+							<tr>
+			
+
 									<td><%= clinician.first_name %></td>
 									<td><%= clinician.last_name %></td>
 									<td><%= clinician.email %></td>
-									<td><%= clinician.password %></td>
-									<td class="actions"><%= link_to("Edit", edit_clinician_path(clinician.id),:class=>"mylinks") %>&nbsp;|&nbsp;<%= link_to("Delete", clinician, :confirm => "Are you sure?",:method => "delete",:class=>"mylinks") %></td>	
-								</tr>
-							<% end %>
-						</table>
+									<td><%= clinician.password %></td> <!-- change to plaintext_password once field is in user model -->
 						
-						<button style="line-height:15px; font-size:11px;"><%= link_to("New Clinician", new_clinician_path()) %></button>
-					</div>
-					<div id="disclaimer">
-						<p>(*) Please note that we are using the term 'clinic' in a generic sense.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As used here it refers to clinics, practices, managed health care facilities, hospital units, gyms/spas, ... </p> 
-					</div>
-				</div>
-				<!-- Basic Clinic Data  ————————————————————————— -->
-				<div id="tabs-2">
-						<h3>Basic Information on the Clinic ( Practice/Hospital/Facility/...) itself</h3>
-						<% semantic_form_for @clinic do |f| %>
-							<% f.inputs do %>
-								<%= f.input :name %>
-								<!--
-								<#= f.input :id, :hint => "for testing" %>
-								<#= f.input :tm_customer_id, :label => "Customer Id", :hint => "for testing" %>
-								<#= f.input :netsuite_customer_id, :label => "Netsuite Customer id", :hint => "for testing" %>
-								type of clinic: oneof Clinic, Hospital Unit, Managed Care Facility, Chiropractic Practice, Physician, ...  
-								owner: name, [contact info]
-								administrator: 
-									name
-									contact information: office phone, extension, mobile phone, email
-								Tru-Medical account rep: name, [phone], [email] 
-							-->
-								<%= f.input :address %>
-								<%= f.input :city %>
-								<%= f.input :state %>
-								<%= f.input :zip %>
-								<%= f.input :phone %>
-								<%= f.input :extension, :label => "Extension" %>
-								<!-- 
-									clinic administrator
-									her work phone/[extenion]
-									her mobile phone
-									her email address
-								-->			
-							<% end %>
-							<%= f.buttons %>
+				
+								<td class="actions"><%= link_to("Edit", edit_clinician_path(clinician.id),:class=>"mylinks") %>&nbsp;|&nbsp;<%= link_to("Delete", clinician, :confirm => "Are you sure?",:method => "delete",:class=>"mylinks") %></td>	
+									
+							</tr>
 						<% end %>
-						
-						<span class="size">Purchase History Information: </span><a target="_blank" href="#">Click Here</a> 
-				
-				</div> <!-- end of div tabs-1 -->
 
-				<!-- Shipping  ———————————————————— -->
-				<div id="tabs-3">
-					<h3>Ship-To Address</h3>
-					<% semantic_form_for @clinic do |f| %>
-						<% f.inputs do %>
-							<%= f.input :name %>
-							<%= f.input :address %>
-							<%= f.input :city %>
-							<%= f.input :state %>
-							<%= f.input :zip %>	
-						<% end %>
-						<%= f.buttons %>
-					<% end %>
-					<h3>Default Shipping Method</h3>
-					<p>[UPS ground]</p>
-				</div>
-
-				<!-- Billing——————————————————————————— -->
-				<div id="tabs-4">
-					<h3>Bill-To Address</h3>
-					<% semantic_form_for @clinic do |f| %>
-						<% f.inputs do %>
-							<%= f.input :name %>
-							<%= f.input :address %>
-							<%= f.input :city %>
-							<%= f.input :state %>
-							<%= f.input :zip %>
-							<!-- Billing contact: name -->
-							<%= f.input :phone, :label=>"billing contact phone" %>
-							<%= f.input :extension, :label => "extension (if any)" %>			
-						<% end %>
-						<%= f.buttons %>
-					<% end %>
-					<h3>Default Billing Method</h3>
-					<p>Invoice Net-30</p>
-				</div>
-				
-				<!-- Purchase Authorization ————————————————————————— -->
-				<div id="tabs-5">
-					<h3>Purchase Limits</h3>
-					<table cellspacing="10">
-						<tr>
-							<td>Orders from Clinicians over this amount require authorization:</td>
-							<td>$1,000</td>
-						</tr>
-						<tr>
-							<td>Notify if aggregate orders within a month from a single Clinician exceed:</td>
-							<td>$3,000</td>
-						</tr>
-						<tr>
-							<td>Orders from Clinic Administrators over this amount require authorization:</td>
-							<td>$5,000</td>
-						</tr>
-						<tr>
-							<td>Route authorization requests to:</td>
-							<td>[CFO of Clinic Group]</td>
-						</tr>
-					</table>				
-				</div>
-				
-			</div><!-- end of div#tabs -->
-				
-		</div><!-- end of div#clinic_content -->
-
+				</table>
+				<button style="line-height:15px; font-size:11px;"><%= link_to("New Clinician", new_clinician_path()) %></button>
+			</div>
+			<div id="gotoNetsuite">
+				<h2>Go to Account Control Center for Your Clinic</h2>
+				<p>
+						<a href="">Click here</a>
+				</p>
+			</div>
+			
+		</div>
+	<!--
+			<#= render :partial => "devise/shared/links" %>
+	-->		
 
 	</div> <!-- end div#center_column -->
 

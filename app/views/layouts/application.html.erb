@@ -358,7 +358,7 @@
 							<li>
 								<%= link_to "My Account", edit_user_registration_path %>
 							</li>
-							<% if current_user.role = "administrator" %>				
+							<% if current_user.administrator? %>				
 									<li>
 										<%= link_to "Administer Clinic", edit_clinic_path(current_user.clinic.id) %>
 										<!--<a href="https://checkout.netsuite.com/app/center/nlvisitor.nl/c.1114349/sc.6/.f">Administer</a> -->

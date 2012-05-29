@@ -185,11 +185,10 @@
 								<td>Price:</td>
 								<td class="price" id="price_<%= @product.netsuite_item_no %>">
 									<%= 
-								
 									if user_signed_in? then
-										if current_user.role == "clinician" or current_user.role == "administrator"
+										if current_user.clinician 
 								  		case current_user.clinic.price_schedule
-												when "tru-blu"
+												when "tru-blue"
 													number_to_currency(@product.price_tru_blue)
 												when "corporate-2"
 													number_to_currency(@product.price_corporate_2)

@@ -24,5 +24,11 @@ class User < ActiveRecord::Base
      return true if password == self.password # not working as I expected it to
      super
   end
+  
+  #before_save :setRole
+  #def setRole
+  #   debugger
+  #end
+        
 
 end

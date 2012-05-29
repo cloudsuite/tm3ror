@@ -25,6 +25,52 @@
 			padding-top:0px;
 		}
 	</style>
+	<style type="text/css">
+		/* move all of these to public/stylesheets/formtastic_changes.css */ 
+		label {
+		    display: block;
+		    float: left;
+		    padding-top: 0.2em;
+		    width: 21%;
+		}
+		form.formtastic input, form.formtastic textarea, form.formtastic select {
+		    font-size: 100%;
+		    margin-bottom: 10px;
+		}
+		form.formtastic fieldset ol li { padding:5px 10px 3px; }
+		form.formtastic fieldset > ol > li.check_boxes fieldset ol li, form fieldset > ol > li.radio fieldset ol li { display:inline; float:left; } /* this lines up checkboxes on a single line */
+		ol li label { font-weight:normal!important; color:gray!important; text-align:right;padding-right:10px; }
+		ol li.choice label { text-align:left; float:left; margin-left:10px; }
+
+		ol.fragments-group { margin-left:10px;}
+
+		/* hack to line up label for date/time fields with others */
+
+		
+		form.formtastic fieldset > ol > li {
+		    margin-bottom: 0;
+		    margin-top: -0.5em;
+		    padding: 0.5em 0;
+		}
+
+		form.formtastic input[type="text"],
+		form.formtastic input[type="password"],
+		form.formtastic input[type="email"],
+		form.formtastic input[type="url"],
+		form.formtastic input[type="tel"],
+		form.formtastic textarea {
+			border: 1px solid #C9D0D6d;
+			border-radius: 3px 3px 3px 3px;
+			font-family: Helvetica, Arial, sans-serif;
+			font-size:0.95em;
+			
+			padding: 3px 10px; /* was 8px 10px 7px but labels didn't line up*/
+			
+			}
+		p.ifoption { margin-top:10px!important; margin-bottom:5px!important; color:#0094DE; font-size:11px; font-weight:bold; padding-left:10px;}
+		p.ifoption2 { padding-left:10px;}
+		.registerButton {background-color:orange; color:white; border-radius: 3px 3px; border: none; height:24px;width:60px;} 
+	</style>
 <% end %>
 
 <!-- body includes  ————————————————————————————————————————————————————  -->
@@ -49,67 +95,37 @@
 			<h2>Register</h2>
 			<hr></hr></br>
 
-			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
-			
-				<div><%= f.label :first_name %><br />
-			  <%= f.text_field :first_name %></div>
-			
-				<div><%= f.label :last_name %><br />
-			  <%= f.text_field :last_name %></div>
+				<% f.inputs do %>
+					<%= f.input :first_name, :input_html => {:size => '15'} %>
+					<%= f.input :last_name, :input_html => {:size => '15'} %>
+					<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
+					<%= f.input :password, :as => :password, :input_html => {:size => '15'} %> 
+					<%= f.input :password_confirmation,:as => :password, :input_html => {:size => '15'} %>
+					<%= f.input :role, :as => :radio, :label => "Are you a:", :collection => [["Patient/Caregiver", "patient"], ["Clinician", "clinician"], ["Clinic Administrator", "administrator"]] %>
 
-			  <div><%= f.label :email %><br />
-			  <%= f.email_field :email %></div>
+					<p class="ifoption">If Patient or Non-Clinician Caregiver:</p>
+					<%= f.input :address, :input_html => {:size => '30'}  %>
+					<%= f.input :address2, :input_html => {:size => '30'}  %>
+					<%= f.input :city, :input_html => {:size => '30'}  %>
+					<%= f.input :state, :input_html => {:size => '5'}  %>
+					<%= f.input :zip, :input_html => {:size => '5'}  %>
+					<%= f.input :phone, :as => :phone, :input_html => {:size => '30'}  %>
+					
+					<p class="ifoption ifoption2 label">If Clinician, or Clinic Administrator:</p> 
+					<%= f.input :clinic, :collection => Clinic.order("name ASC").all %>
+				<% end %>
+				<%= f.actions do %>
+					<%= f.action :submit, :label => 'Register', :button_html => { :class => 'registerButton'} %>
+				<% end %>
+				
+			<% end %> 
 
-			  <div><%= f.label :password %><br />
-			  <%= f.password_field :password %></div>
-
-			  <div><%= f.label :password_confirmation %><br />
-			  <%= f.password_field :password_confirmation %></div>
-			
-			<!-- Remove fields that should not be there in the Beta test system 
-				<div><#= f.label "Are you a clinician?" %><br />
-			  <#= f.check_box :clinician %></div>
-			
-				<div><#= f.label "Clinic name" %><br />
-			  <#= f.text_field :clinic_name %></div>
-			
-				<div><#= f.label "Clinic id (for testing)" %><br />
-			  <#= f.text_field :clinic_id %></div>
-			
-				<div><#= f.label "Customer Id (for testing)" %><br />
-			  <#= f.text_field :tm_customer_id %></div>
-			
-				<div><#= f.label "Internal Customer Id (for testing)" %><br />
-			  <#= f.text_field :netsuite_customer_id %></div>
-			-->
-			
-				<div><%= f.label "Street Address" %><br />
-			  <%= f.text_field :address %></div>
-			
-				<div><%= f.label "Street Address(2)" %><br />
-			  <%= f.text_field :address2 %></div>
-			
-				<div><%= f.label "City" %><br />
-			  <%= f.text_field :city %></div>
-			
-				<div><%= f.label "State" %><br />
-			  <%= f.text_field :state%></div>
-			
-				<div><%= f.label "Zip Code (5-digit)" %><br />
-			  <%= f.text_field :zip %></div>
-			
-				<div><%= f.label "Work phone" %><br />
-			  <%= f.telephone_field :phone %></div>
-			
-			  <div><%= f.label "Extension (if any)" %><br />
-			  <%= f.text_field :extension %></div>
-								
-			  <div><%= f.submit "Register" %></div>
-				<i><span style="color:orange;">(Remember: You need to enter your current password above to confirm your changes.)</span></i>
-			<% end %>
 
 			<%= render :partial => "devise/shared/links" %>
+			<p>&nbsp;</p>
+			<p>&nbsp;</p>
 			
 		</div> <!-- end div#devise_generated_content -->
 	</div> <!-- end div#center_column -->

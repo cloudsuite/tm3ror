@@ -24,5 +24,16 @@ class User < ActiveRecord::Base
      return true if password == self.password # not working as I expected it to
      super
   end
+  
+  before_create :define_roles
+  private
+  def define_roles
+     if self.role == "administrator" then 
+        self.administrator = 1 
+        self.clinician = 1
+     end
+
+     if self.role == "clinician" then self.clinician = 1 end
+   end
 
 end

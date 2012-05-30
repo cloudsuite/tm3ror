@@ -3,6 +3,7 @@
 		Action: Show 
 		
 		to fix:
+			0. Make labels in the left column bold?  Value of 'Name' field bold orange, to parallel base-product and product-set pages? 
 			1. table:  text: align top; fix by inserting an intro line into 
 					long descriptions in product_1229.xls that begin with a <ul>
 			2. description: sanitize so that it picks up html markup [DONE]
@@ -153,7 +154,7 @@
 							<th></th>
 							<tr>
 								<td>Name:</td>			
-								<td><%= sanitize(@product.description) %></td>
+								<td><%= sanitize(@product.web_description) %></td>
 							</tr>
 							<tr>
 								<td>Part No.:</td>			

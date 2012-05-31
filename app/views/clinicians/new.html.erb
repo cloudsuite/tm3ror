@@ -96,27 +96,4 @@
 	-->		
 
 	</div> <!-- end div#center_column -->
-	<% if current_user!=nil %>				
-		<script language="javascript">
-				var mainurl = "https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f?user=<%= current_user.email %>&pwd=<%= current_user.plain_text_password %>"; //"https://checkout.netsuite.com/s.nl?c=1114349&sc=4&login=T&reset=T&whence=&redirect_count=1&did_javascript_redirect=T&user="+"<%=  current_user.email %>&pwd=<%= current_user.plain_text_password %>";
-				var urlcheckout = mainurl + "&nextpage=checkout";
-							//create hidden iframe in body to login
-						    $('body').append('<iframe id="loginframe" style="display:none" />'); 
-						    //change src to iframe
-						    $('#loginframe').attr('src', urlcheckout);
-							//var myurl = "https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f?user=<%= current_user.email %>&pwd=<%= current_user.plain_text_password %>";
-						/*	$.ajax({
-									type: "POST",
-								    url: myurl,
-									datatype:"jsonp",
-									crossDomain:true,
-									cache: false,
-									processData: false,
-									success: function(msg)
-									{
-										
-									}
-								});*/
-		</script>
-	<% end %>
 <% end %> <!-- end :content_for middleBand -->

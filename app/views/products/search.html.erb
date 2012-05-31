@@ -186,7 +186,8 @@
 	<!-- logo_container ——————————————————————————————————————————————————————————————— -->
 
 	<div id="logo_container">
-		<a href="/en" id="logo" title="home page" name="logo"></a>
+		<% logomark = image_tag("logos/logo_on_white_315.jpg") %>
+		<%= link_to(logomark,root_path()) %>
 	</div>
 
 <% end %> <!-- end of content-for middleBand-->

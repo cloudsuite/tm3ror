@@ -116,7 +116,7 @@
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th align="left">Email</th>
-							<th>Password</th>
+							<!-- <th>Password</th> -->
 							<th class="actions" align="left">Action</th>
 
 							<% @clinic.clinicians.each do | clinician | %>
@@ -169,10 +169,12 @@
 							<%= f.buttons %>
 						<% end %>
 						
+						<!-- commented out until can register/login with Netsuite
 						<div>
 							<span class="size">Purchase History Information:</span>
-								<button class="newClinician"><a target="_blank" href="#" style="color:white;">Click Here</a></button>
+								<button class="newClinician"><a target="_blank" href="https://checkout.netsuite.com/app/center/nlvisitor.nl/c.1114349/sc.6/n.1/.f" style="color:white;">Click Here</a></button>
 						</div>
+						-->
 					 
 						<div id="disclaimer">
 							<p>(*) Please note that we are using the term 'clinic' in a generic sense.  As used here it refers to</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clinics, practices, managed health care facilities, hospital units, sports medicine facilities, gyms/spas, ... </p> 

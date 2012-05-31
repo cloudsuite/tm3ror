@@ -3,7 +3,10 @@
 	_______________________________________________________
 	
 	BUGS:
-		1. New clinician is not getting password encrypted and stored in database; result: 'invalid password' error when he attempts to sign in. WORSE: it seems that he now IS getting stored in the database as a user, I just don't know how.  
+		1. Mystery:  This code (and Clinician#create) seem to be creating a new instance of the Clinician class. But in order for this clinician to log in, there has to be a corresponding instance in the User class that the devise-based registration/login system sees.  I can't see where that it being created ( is it? ). But the application seems to work: once the clinic administrator creates a new clinician, it is possible to log into the system as that clinician, using the password put in by the clinic administrator.  Why?  Because Clinician is defined as a subtype of User. And AR is using an STI implementation of inheritance, 
+		so creating a clinician actually creates a tuple in the 'users' table. 
+		This means we could drop the 'role' field in User and use the 'type' field instead. It also means we could
+		easily support multiple administrators for a single clinic. 
 		2. I'm not storing the (plain text) password for the clinician in the clinician record,
 		so the clinic administrator cannot tell him what it is when he forgets. Would have to delete him and recreate him, but this would lose the history of his orders ( at least in R4, once we have moved the shopping cart to the front-end and are tracking orders submitted by individual clinicians.)  
 		3. Formatting problem: the form submit button is too far to the right. Seems to be something to its left, since if set left-margin: -20px the left side of the button disappears. 
@@ -68,8 +71,13 @@
 					<%= f.input :email %>
 					<%= f.input :password, :as => :password %>
 					<%= f.input :password_confirmation, :as => :password %>
+<<<<<<< HEAD
 					<%= f.input :role, :hint => "for testing; prefill with 'clinician' in production" %>
 					<%= f.input :clinic_id,:hint => "for testing; show clinic name in production" %>	
+=======
+					<%= f.input :role, :hint => "for Alpha release; prefill with 'clinician' in production" %>
+					<%= f.input :clinic_id,:hint => "for Alpha release; show clinic name in production" %>	
+>>>>>>> 680bbb487e8431b2c8a73c892e06a604623f97f9
 					<%= f.input :clinic_id, :wrapper_html => { :style => "display:none;" } %> <!-- somehow this is presetting the value of the field to 344 (but showing the field). Always 344 or the whatever clinic id it should be?   --> 			
 					<!--
 					How give fields predefined value in formtastic?  

@@ -5,14 +5,17 @@
 # Bugs:
 #     1. The create/edit/delete functions are invoked from the clinic-administrator's
 #        module.  They need to redirect to current_user.clinic.id [DONE]
-#        NO: #create is redirectly properly. #delete is not — always going to clinics/1/edit; #edit: untested
+#        NO: #create is redirectly properly. #delete is not — always going to clinics/1/edit; 
+#            #edit: is causing a crash: @clinician is nil 
 #     2. need to encrypt user password before writing it to disk in a way that devise can work with it
 #        ( Or invoke the devise register_new_user function rather than clinician#new ) 
 #        => Has this been solved, or is it still open? It seems, in testing, like clinicians 
 #        created by the clinic administrator can subsequently log in using the password she defined 
 #        for them.  Test to see that they can then change their password
-#     3. Need to set 'role' field to 'clinician' so that when the clinician subsequently logs in, he/she 
-#        will see the price schedule for his/her clinic.  
+#     3. Need to set 'role' field to 'clinician' in #create so that when the clinician subsequently logs in, he/she 
+#        will see the price schedule for his/her clinic.  Currently it is an input filed in #new, and we expect 
+#        the clinic administrator to type in "clinician" ( or "administrator"). Either prefill it. Or make it a 
+#        checkbox that returns "clinician" or "administrator"  
 
 class CliniciansController < ApplicationController
    # GET /clinicians
@@ -51,7 +54,7 @@ class CliniciansController < ApplicationController
 
    # GET /clinicians/1/edit
    def edit
-     @clinician = Clinician.find(params[:id])
+     @clinician = Clinician.find(params[:id]) # this is returning nil — no argument passed from call in clinic#edit? 
      respond_to do |format|
           format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'Clinician was successfully updated.') } # supply clinic id as argument on call not clinic id=344; always goes to id=1; why?
          format.xml  { head :ok }

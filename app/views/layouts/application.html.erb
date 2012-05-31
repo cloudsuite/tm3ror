@@ -371,8 +371,17 @@
 								<%= link_to "Register", new_user_registration_path %> or <%= link_to "Sign in",  new_user_session_path %>
 							</li>		
 						<% end %>
-						<li><a href="http://www.tru-logic.com/s.nl/sc.3/.f">View Cart</a></li>
-						<li><a href="https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f">Checkout</a></li>
+						<% if current_user!=nil %>				
+							<li><a id="lnkcart" href=""> View Cart</a></li>
+							<li><a id="lnkcheckout" href="">Checkout</a></li>
+							<script language="javascript">
+									var mainurl = "https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f?user=<%= current_user.email %>&pwd=<%= current_user.plain_text_password %>"; //"https://checkout.netsuite.com/s.nl?c=1114349&sc=4&login=T&reset=T&whence=&redirect_count=1&did_javascript_redirect=T&user="+"<%=  current_user.email %>&pwd=<%= current_user.plain_text_password %>";
+									var urlcart = "http://www.tru-logic.com/s.nl/sc.3/.f?co=T";
+									var urlcheckout = mainurl + "&nextpage=checkout";
+										$("#lnkcart").attr('href',urlcart);
+										$("#lnkcheckout").attr('href',urlcheckout);
+							</script>
+						<% end %>
 					</ul>
 				</div>
 						<!--

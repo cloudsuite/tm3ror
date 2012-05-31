@@ -51,8 +51,9 @@
 								itemprice = $.trim(itemprice);
 								var itemqty = $(this).val();
 								//add to cart url
-								var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?c='+accountid+'&n=1&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
-							    //create hidden iframe in body
+								//var myurl = 'http://shopping.netsuite.com/app/site/backend/additemtocart.nl?c='+accountid+'&n=1&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;		     
+							  var myurl ='http://shopping.netsuite.com/c.1114349/addtocart.html&qty='+itemqty+'&buyid='+itemid+'&amount='+itemprice;    
+							//create hidden iframe in body
 							    $('body').append('<iframe id="addtocartframe'+itemid+'" style="display:none" />'); 
 							    //change src to iframe
 							    $('#addtocartframe'+itemid).attr('src', myurl);
@@ -226,8 +227,16 @@
 							<tr>
 								<td></td>
 								<td>
-									<button id="checkOut" class="ui-corner-all"><a href="https://checkout.netsuite.com/s.nl?c=1114349&sc=4&n=1" style="color:white; text-decoration:n;one">CHECK OUT</a>
-									</button>
+									<% if current_user!=nil %>	
+										<button id="checkOut" class="ui-corner-all">
+											<a href="#" id="lnkchk" style="color:white; text-decoration:none">CHECK OUT</a>
+										</button>			
+										<script language="javascript">
+												var mainurl = "https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f?user=<%= current_user.email %>&pwd=<%= current_user.plain_text_password %>"; 											var urlcart = mainurl + "&nextpage=cart";
+												var urlcheckout = mainurl + "&nextpage=checkout";
+													$("#lnkchk").attr('href',urlcheckout);
+										</script>
+									<% end %>
 								</td>
 							</tr>
 

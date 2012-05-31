@@ -38,6 +38,27 @@ class User < ActiveRecord::Base
   #    end
   #end
   
+  after_create :send_NS
+
+  private
+  def send_NS
+    customerid = self.tm_customer_id
+    email = self.email
+    pwd = self.password
+    firstName = self.first_name
+    lastName = self.last_name
+    puts 'test'
+    puts pwd
+    puts email
+    puts customerid
+    customercategory = 8 #clinic = 8, physician = 6
+    self.plain_text_password = pwd
+    self.save
+    
+    @nsconnect = Nssoap.new()
+    @nsconnect.update_customer(customerid, pwd, email, customercategory, firstName, lastName)
+    puts 'test finish'
+  end
      
 
 end

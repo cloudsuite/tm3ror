@@ -68,8 +68,9 @@
 					<%= f.input :email %>
 					<%= f.input :password, :as => :password %>
 					<%= f.input :password_confirmation, :as => :password %>
+					<%= f.input :role, :hint => "for testing; prefill with 'clinician' in production" %>
 					<%= f.input :clinic_id,:hint => "for testing; show clinic name in production" %>	
-					<%= f.input :clinic_id, :wrapper_html => { :style => "display:none;" } %> <!-- typing a '1' into this field links the clinician to clinic with id=1 --> 			
+					<%= f.input :clinic_id, :wrapper_html => { :style => "display:none;" } %> <!-- somehow this is presetting the value of the field to 344 (but showing the field). Always 344 or the whatever clinic id it should be?   --> 			
 					<!--
 					How give fields predefined value in formtastic?  
 					Or better: make a field invisible, and set its value programmatically. 

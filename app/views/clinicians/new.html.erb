@@ -1,10 +1,12 @@
 <!-- ————————————————————————————————————————————————————
-	Clinicians#new 
+	Clinician#new 
 	_______________________________________________________
 	
 	BUGS:
-		1. New clinician is not getting password encrypted and stored in database; result: 'invalid password' error when he attempts to sign in . 
-		2. Formatting problem: the form submit button is too far to the right. Seems to be something to its left, since if set left-margin: -20px the left side of the button disappears. 
+		1. New clinician is not getting password encrypted and stored in database; result: 'invalid password' error when he attempts to sign in. WORSE: it seems that he now IS getting stored in the database as a user, I just don't know how.  
+		2. I'm not storing the (plain text) password for the clinician in the clinician record,
+		so the clinic administrator cannot tell him what it is when he forgets. Would have to delete him and recreate him, but this would lose the history of his orders ( at least in R4, once we have moved the shopping cart to the front-end and are tracking orders submitted by individual clinicians.)  
+		3. Formatting problem: the form submit button is too far to the right. Seems to be something to its left, since if set left-margin: -20px the left side of the button disappears. 
 	
 	-->
 <!-- header includes  ——————————————————————————————————————————————————  -->
@@ -58,13 +60,15 @@
 		<div id="clinician_content">
 			<h2>New Clinician</h2>
 			<hr/>
+
 			<% semantic_form_for @clinician do |f| %>
 				<% f.inputs do %>
 					<%= f.input :first_name %>
 					<%= f.input :last_name %>
 					<%= f.input :email %>
-					<%= f.input :password %>
-					<%= f.input :clinic_id,:hint => "for testing; hide in production" %>	
+					<%= f.input :password, :as => :password %>
+					<%= f.input :password_confirmation, :as => :password %>
+					<%= f.input :clinic_id,:hint => "for testing; show clinic name in production" %>	
 					<%= f.input :clinic_id, :wrapper_html => { :style => "display:none;" } %> <!-- typing a '1' into this field links the clinician to clinic with id=1 --> 			
 					<!--
 					How give fields predefined value in formtastic?  
@@ -80,7 +84,11 @@
 			<% end %>
 		</div>
 	<!-- New clinician is not getting password properly encrypted and stored in database
+		 Why? Well, the devise database works on Users not Clinicians.  
+		 Have to make a User record out of this Clinician record and let devise 'register' 
+		 that user. 
 			<#= render :partial => "devise/shared/links" %>
+		 But it seems to be working.  I CAN, as an administrator hit to New Clinician button, fill it in, and get a new User created that I can log in as.  How is it that this works? 
 	-->		
 
 	</div> <!-- end div#center_column -->

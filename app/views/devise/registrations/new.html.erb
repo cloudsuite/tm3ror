@@ -1,5 +1,5 @@
 <!-- ————————————————————————————————————————————————————
-	Clinician#new 
+	User#new 
 	_______________________________________________________
 	-->
 	<!-- header includes  ——————————————————————————————————————————————————  -->
@@ -94,7 +94,7 @@
 		<div id="devise_generated_content">
 			<h2>Register</h2>
 			<hr></hr></br>
-
+			<!-- where is resource_name defined?  when is it set?  --> 
 			<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
 				<% f.inputs do %>

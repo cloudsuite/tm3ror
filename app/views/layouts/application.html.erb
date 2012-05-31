@@ -355,14 +355,16 @@
 								<span style="color:orange";>Signed in as <%= current_user.email %>.&nbsp;&nbsp; </span>
 								<%= link_to "Sign out", destroy_user_session_path %>
 							</li>
+							
 							<li>
 								<%= link_to "My Account", edit_user_registration_path %>
 							</li>
+							
 							<% if current_user.role == "administrator" %>				
-									<li>
-										<%= link_to "Administer Clinic", edit_clinic_path(current_user.clinic.id) %>
-										<!--<a href="https://checkout.netsuite.com/app/center/nlvisitor.nl/c.1114349/sc.6/.f">Administer</a> -->
-									</li>
+								<li>
+									<%= link_to "Administer Clinic", edit_clinic_path(current_user.clinic.id) %>
+									<!--<a href="https://checkout.netsuite.com/app/center/nlvisitor.nl/c.1114349/sc.6/.f">Administer</a> -->
+								</li>
 							<% end %>
 						<% else %>
 							<li>
@@ -414,9 +416,9 @@
 					<a href="#privacyPolicy">Privacy Policy</a> 
 					<!-- <a href="#">FAQs</a> -->
 				
-					<span style="color:white;">Find us on:</span> 
-					<a target="_blank" href="http://www.facebook.com/trumedical"><img src="../images/footer/facebook.png" width="16" height="16" alt="">&nbsp;Facebook</a> 
-					<a target="_blank" href="http://twitter.com/trumedical"><img src="../images/footer/twitter.png" width="16" height="16" alt="">&nbsp;Twitter</a>
+					<span style="color:white;">Find us on:&nbsp;&nbsp;</span> 
+					<a target="_blank" href="http://www.facebook.com/trumedical"><img src="/images/footer/facebook.png" width="16" height="16" alt="">&nbsp;Facebook</a> 
+					<a target="_blank" href="http://twitter.com/trumedical"><img src="/images/footer/twitter.png" width="16" height="16" alt="">&nbsp;Twitter</a>
 					<!-- <a>&copy;TruMedical Solutions LLC, 2011</a> -->
 				</div>	
 			

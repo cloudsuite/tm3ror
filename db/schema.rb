@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529184332) do
+ActiveRecord::Schema.define(:version => 20120530211452) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -176,7 +176,12 @@ ActiveRecord::Schema.define(:version => 20120529184332) do
     t.string   "title"
     t.string   "role"
     t.string   "password"
+    t.string   "plain_text_password"
+    t.string   "encrypted_password"
     t.string   "email"
+    t.string   "work_phone_main"
+    t.string   "work_phone_extension"
+    t.string   "work_phone_direct"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -53,7 +53,7 @@
 		/* this style also used by button linking to Netsuite myAccount for clinic */
 		.newClinician { line-height:18px; border-radius:3px;}
 		.newClinician a { font-size:11px;color:white!important; }
-		.tabText { font-weight:bold; color:white!important;}
+		.tabText { font-weight:bold; color:black!important;}
 	</style>
 
 	<script type ="text/javascript">
@@ -97,13 +97,43 @@
 				<!-- this implementation of tabs is based on jquery-ui -->
 				<div id="tabs" style="overflow:hidden;">	<!-- fixes a jQuery-ui problem when tabs is in right column with something in column to its left ( in this case the menu) -->
 				<ul>
-					<li><a href="#tabs-2" class="tabText">Clinic</a></li>
+					
 					<li><a href="#tabs-1" class="tabText">Clinicians</a></li>
+					<li><a href="#tabs-2" class="tabText">Clinic</a></li>
 					<li><a href="#tabs-3" class="tabText">Shipping</a></li>
 					<li><a href="#tabs-4" class="tabText">Billing</a></li>
 					<!-- <li><a href="#tabs-5">Purchase Limits</a></li> -->
 				</ul>
 				
+				
+				
+				
+				<!-- Clinicians ————————————————————————— -->
+				<div id="tabs-1">
+					<h3>Clinicians associated with this Clinic</h3>
+					<div id="clinicians_table">
+						<table cellspacing="10">
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th align="left">Email</th>
+							<th>Password</th>
+							<th class="actions" align="left">Action</th>
+
+							<% @clinic.clinicians.each do | clinician | %>
+								<tr>
+									<td><%= clinician.first_name %></td>
+									<td><%= clinician.last_name %></td>
+									<td><%= clinician.email %></td>
+									<!-- <td><#= clinician.password %></td> -->
+									<td class="actions"><%= link_to("Edit", edit_clinician_path(clinician.id),:class=>"mylinks") %>&nbsp;|&nbsp;<%= link_to("Delete", clinician, :confirm => "Are you sure?",:method => "delete",:class=>"mylinks") %></td>	
+								</tr>
+							<% end %>
+						</table>
+						
+						<button class="newClinician"><%= link_to("New Clinician", new_clinician_path()) %></button>
+					</div>
+
+				</div>
 				
 				<!-- Basic Clinic Data  ————————————————————————— -->
 				<div id="tabs-2">
@@ -148,33 +178,6 @@
 							<p>(*) Please note that we are using the term 'clinic' in a generic sense.  As used here it refers to</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clinics, practices, managed health care facilities, hospital units, sports medicine facilities, gyms/spas, ... </p> 
 						</div>
 				</div> <!-- end of div tabs-2 -->
-				
-				<!-- Clinicians ————————————————————————— -->
-				<div id="tabs-1">
-					<h3>Clinicians associated with this Clinic</h3>
-					<div id="clinicians_table">
-						<table cellspacing="10">
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th align="left">Email</th>
-							<th>Password</th>
-							<th class="actions" align="left">Action</th>
-
-							<% @clinic.clinicians.each do | clinician | %>
-								<tr>
-									<td><%= clinician.first_name %></td>
-									<td><%= clinician.last_name %></td>
-									<td><%= clinician.email %></td>
-									<td><%= clinician.password %></td>
-									<td class="actions"><%= link_to("Edit", edit_clinician_path(clinician.id),:class=>"mylinks") %>&nbsp;|&nbsp;<%= link_to("Delete", clinician, :confirm => "Are you sure?",:method => "delete",:class=>"mylinks") %></td>	
-								</tr>
-							<% end %>
-						</table>
-						
-						<button class="newClinician"><%= link_to("New Clinician", new_clinician_path()) %></button>
-					</div>
-
-				</div>
 				
 				<!-- Shipping  ———————————————————— -->
 				<div id="tabs-3">

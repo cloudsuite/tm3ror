@@ -3,8 +3,13 @@
 # ———————————————————————————————————————————————————————————
 #
 # Bugs:
-#     1. need to encrypt user password before writing it to disk in a way that devise can work with it
+#     1. The create/edit/delete functions are invoked from the clinic-administrator's
+#        module.  They need to redirect to current_user.clinic.id [DONE]
+#     2. need to encrypt user password before writing it to disk in a way that devise can work with it
 #        ( Or invoke the devise register_new_user function rather than clinician#new ) 
+#        => Has this been solved, or is it still open? It seems, in testing, like clinicians 
+#        created by the clinic administrator can subsequently log in using the password she defined 
+#        for them.  Test to see that they can then change their password
 
 class CliniciansController < ApplicationController
    # GET /clinicians
@@ -56,7 +61,7 @@ class CliniciansController < ApplicationController
      respond_to do |format|
        if @clinician.save
          # again need id of clinic not id-=1
-         format.html { redirect_to(edit_clinic_path(1), :notice => 'New Clinician successfully created') }
+         format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'New Clinician successfully created') }
          format.xml  { render :xml => @clinician, :status => :created, :location => @clinician }
        else
          format.html { render :action => "new" }
@@ -73,7 +78,7 @@ class CliniciansController < ApplicationController
      respond_to do |format|
        if @clinician.update_attributes(params[:clinician])
          # change this so that it goes to the clinic came from, not always clinic id=1
-         format.html { redirect_to(edit_clinic_path(1), :notice => 'Clinician was successfully updated.') }
+         format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'Clinician was successfully updated.') }
          format.xml  { head :ok }
        else
          format.html { render :action => "edit" }
@@ -92,7 +97,7 @@ class CliniciansController < ApplicationController
      @clinician.destroy
 
      respond_to do |format|
-       format.html { redirect_to(edit_clinic_path(1), :notice => 'Clinician was successfully deleted.') } # supply clinic id as argument on call not clinic id=1
+       format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'Clinician was successfully deleted.') } # supply clinic id as argument on call not clinic id=1
        format.xml  { head :ok }
      end
    end

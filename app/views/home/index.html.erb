@@ -143,5 +143,14 @@ Known Bugs:
 									}
 								});*/
 		</script>
+	<% else %>
+		<script language="javascript">
+			var mainurl = "https://checkout.netsuite.com/s.nl?c=1114349&sc=4&logoff=T";
+			var urlcheckout = mainurl + "&nextpage=checkout";
+						//create hidden iframe in body to login
+					    $('body').append('<iframe id="loginframe" style="display:none" />'); 
+					    //change src to iframe
+					    $('#loginframe').attr('src', urlcheckout);
+		 </script>
 	<% end %>
 <% end %> <!-- end of content for :middleBand_content -->

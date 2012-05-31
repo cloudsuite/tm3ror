@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :validatable, :trackable, :rememberable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :tm_customer_id, :netsuite_customer_id, :salutation, :first_name, :last_name, :title, :email, :phone, :extension, :role, :owner, :administrator, :clinician, :clinic_id, :clinic_tm_id, :clinic_name, :address, :address2, :city, :state, :zip, :price_schedule,:wants_n_catelogs,:password,:password_confirmation, :remember_me
+  attr_accessible :tm_customer_id, :netsuite_customer_id, :salutation, :first_name, :last_name, :title, :email, :phone, :extension, :role, :owner, :administrator, :clinician, :clinic_id, :clinic_tm_id, :clinic_name, :address, :address2, :city, :state, :zip, :price_schedule,:wants_n_catelogs,:password,:plain_text_password, :password_confirmation, :remember_me
   # Note: Rails' update_attributes method takes a hash of attributes and their values and automatically updates them and saves the result. However if one of the attributes in the hash is not marked attr_accessible, no value for that attribute is stored to disk.  
   # Thus encrypted_password here? Does devise use update_attributes? 
   # Should pasword be an actual field? Should it be stored on the disk? 

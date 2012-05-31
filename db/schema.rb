@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530211452) do
+ActiveRecord::Schema.define(:version => 20120531191658) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -367,6 +367,7 @@ ActiveRecord::Schema.define(:version => 20120530211452) do
     t.string   "price_schedule"
     t.integer  "wants_n_catelogs"
     t.string   "password"
+    t.string   "plain_text_password"
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -41,7 +41,7 @@ class Nssoap
       customer[0].password2 = pwd 
       @client.update(customer[0])
 	  else
-	      ## NEW CUSTOMER, CLINICIAN OR PHYSICIAN ##
+	      ## NEW CUSTOMER, CLINICIAN OR PATIENT ##
 	      ref = Customer.new
         ref.email = email
         ref.giveAccess = true
@@ -67,7 +67,7 @@ class Nssoap
             @custfieldlist[0] = @customclinicid
             ref.customFieldList = @custfieldlist
             
-            #payment terms
+            #payment terms NET 30
             ref.terms = 2
         end
         

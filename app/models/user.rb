@@ -54,14 +54,14 @@ class User < ActiveRecord::Base
     puts email
     puts customerid
     
-    #clinic = 8, physician = 6, clinician = 24
+    #clinic = 8, physician = 6, clinician = 24, patient = 
     case userrole
 				when "administrator"
           customercategory = 8 
 				when "clinician"
           customercategory = 24
-				when "physician"
-          customercategory = 6
+				when "patient"
+          customercategory = 7
 				else 
 	        customercategory = 6
   	  end

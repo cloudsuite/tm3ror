@@ -1,0 +1,51 @@
+<style type="text/css">
+	fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group { list-style-type: none; }
+	fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice { display:inline; }
+	fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice label {  }
+	fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice label input {  }
+<style>
+
+<fieldset class="inputs">
+	<ol>					
+		<li class="check_boxes input optional" id="clinician_salutation_input">
+			<fieldset class="choices">
+				
+				<legend class="label">
+					<label>Salutation</label>
+				</legend>
+				
+				<input id="clinician_salutation_none" name="clinician[salutation][]" type="hidden" value="" />
+				<ol class="choices-group">
+				
+					<li class="choice">
+						<label for="clinician_salutation_dr">
+							<input id="clinician_salutation_dr" name="clinician[salutation][]" type="checkbox" value="Dr." />Dr.
+						</label>
+					</li>
+					<li class="choice">
+						<label for="clinician_salutation_mr">
+							<input id="clinician_salutation_mr" name="clinician[salutation][]" type="checkbox" value="Mr." />Mr.
+						</label>
+					</li>
+				
+					<li class="choice">
+						<label for="clinician_salutation_mrs">
+							<input id="clinician_salutation_mrs" name="clinician[salutation][]" type="checkbox" value="Mrs." />Mrs.
+						</label>
+					</li>
+				
+					<li class="choice">
+						<label for="clinician_salutation_ms">
+							<input id="clinician_salutation_ms" name="clinician[salutation][]" type="checkbox" value="Ms." />Ms.
+						</label>
+					</li>
+				</ol>
+				
+			</fieldset>
+
+		</li>
+		<li class="string input optional stringish" id="clinician_first_name_input">
+			<label class=" label" for="clinician_first_name">First name</label>
+			<input id="clinician_first_name" maxlength="255" name="clinician[first_name]" type="text" />
+
+</li>

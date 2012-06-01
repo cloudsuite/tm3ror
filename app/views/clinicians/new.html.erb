@@ -14,11 +14,12 @@
 	-->
 <!-- header includes  ——————————————————————————————————————————————————  -->
 <%= content_for(:header) do %>
+
 	<style type="text/css">
 		div#clinician_content form { margin-bottom:20px; margin-top:40px; } 
 		div#clinician_content a { color:orange; }
 
-		div#clinician_content input {margin-bottom:0px; width:150px;}
+		div#clinician_content input {margin-bottom:0px; width:200px;}
 		div#clinician_content label {text-align:right; padding:0px 10px 8px 0px; width: 165px; }
 		div#clinician_content p.inline-hints { font-style:italic; color:red; padding-left:0px;padding-top:0px; font-size:10px; margin-top:0px;}
 		div#clinician_content input#clinic_submit { margin-left:0px; width: 90px;}
@@ -39,6 +40,43 @@
 			padding-top:0px;
 		}
 	</style>
+	<!-- an attempt to line up radio buttons for Dr. Mr. Mrs. Ms on one line: didn't work 
+	<style type="text/css">
+		fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group { 
+			list-style-type: none; 
+			margin-left:80px;
+			padding-left:0;
+			}
+			fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice { 
+				display:inline; width:40px; float:left;
+				margin-left:0;
+				padding-left:0;
+				}
+				fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice label {
+					  }
+					fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice label input {
+						width:20px;
+						vertical-align: baseline;
+						float:left;
+						text-align:left;
+						  }
+						fieldset ol li#clinician_salutation_input fieldset.choices ol.choices-group li.choice label input value {
+							width:30px;
+							text-align:left;
+							float:left;
+						
+							  }
+	<style>
+	-->
+	<%= javascript_include_tag "jquery.maskedInput.js" %> 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/*
+	   		$("#clinician_phone_input").mask("(999) 999-9999");
+			*/
+		});
+	</script>
+	
 <% end %>
 
 <!-- body includes  ————————————————————————————————————————————————————  -->
@@ -66,20 +104,20 @@
 
 			<% semantic_form_for @clinician do |f| %>
 				<% f.inputs do %>
+					<!-- can't get them to line up on one line 
+					<#= f.input :salutation, :as => :radio, :collection => [ "Dr.","Mr.", "Mrs.", "Ms." ] %>
+					-->
 					<%= f.input :first_name %>
 					<%= f.input :last_name %>
-					<%= f.input :email %>
+					<%= f.input :email, :as => :email%>
 					<%= f.input :password, :as => :password %>
 					<%= f.input :password_confirmation, :as => :password %>
-					<%= f.input :role, :hint => "for Alpha release; prefill with 'clinician' in production" %>
-					<%= f.input :clinic_id,:hint => "for Alpha release; show clinic name in production" %>	
-					<%= f.input :clinic_id, :wrapper_html => { :style => "display:none;" } %> <!-- somehow this is presetting the value of the field to 344 (but showing the field). Always 344 or the whatever clinic id it should be?   --> 			
-					<!--
-					How give fields predefined value in formtastic?  
-					Or better: make a field invisible, and set its value programmatically. 
-					<#= f.input :clinic_name %>
-					<#= f.input :clinic_id %>  current_user.clinic
-					-->
+					<%= f.input :role, :input_html => {:value => "clinician", :readonly => true} %>
+					<!-- Will have to add the field clinic_name to User (or clinician: subtype of User
+					<#= f.input :clinic_name, :label => "Clinic", :input_html => { :value => current_user.clinic.name, :size => '50' } %>	
+				-->
+					<%= f.input :clinic_id, :wrapper_html => { :hidden => true }  %>	
+			
 					<%= f.input :phone %>
 				<% end %>
 			

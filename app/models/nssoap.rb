@@ -6,7 +6,7 @@ class Nssoap
   
 
   
-  def update_customer(customerid, pwd, email, customercategory, firstName, lastName)
+  def update_customer(pwd, email, customercategory, firstName, lastName, clinic_netsuite_id)
     ENV['NS_ENDPOINT_URL'] ||= 'https://webservices.netsuite.com/services/NetSuitePort_2011_2'
     ENV['NS_ACCOUNT_ID'] ||= '1114349'
     ENV['NS_EMAIL'] ||= 'info@cloudsuitemedia.com'
@@ -17,8 +17,6 @@ class Nssoap
   	
   	
     companyName = "Pablo Tester"
-  	puts 'customerid'
-  	puts customerid
   	puts 'pwd'
   	puts pwd
   	puts 'email'
@@ -28,10 +26,12 @@ class Nssoap
     
   	cliid = ""
   	
-  	if(customerid!=nil && customerid!='')
-  	  ## UPDATE EXISTING CUSTOMER ##
+  	#if(customerid!=nil && customerid!='')
+  	if(customercategory==8)   
+  	  ## CLINIC ADMINISTRATOR, UPDATE EXISTING CUSTOMER RECORD IN NETSUITE ##
       customerid = customerid.to_s
-      customer = @client.find_by_contains('CustomerSearchBasic', 'entityId', customerid)
+      #customer = @client.find_by_contains('CustomerSearchBasic', 'entityId', customerid)
+      customer = @client.find_by_internal_id('CustomerSearchBasic', clinic_netsuite_id)
       puts customer.size
     	cliid = customer[0].xmlattr_internalId;
     	puts cliid
@@ -41,7 +41,7 @@ class Nssoap
       customer[0].password2 = pwd 
       @client.update(customer[0])
 	  else
-	      ## NEW CUSTOMER ##
+	      ## NEW CUSTOMER, CLINICIAN OR PHYSICIAN ##
 	      ref = Customer.new
         ref.email = email
         ref.giveAccess = true
@@ -50,6 +50,27 @@ class Nssoap
         ref.firstName = firstName
         ref.lastName = lastName
         ref.isPerson = true
+        if(clinic_netsuite_id!=nil && clinic_netsuite_id!="")
+            puts "clinic netsuite id"
+            puts clinic_netsuite_id
+            @customclinicid = SelectCustomFieldRef.new()
+            @customclinicid.xmlattr_internalId = "custentity_clinic_id"
+            
+            @customerlist =  ListOrRecordRef.new()
+            @customerlist.xmlattr_internalId = clinic_netsuite_id
+            
+            @customclinicid.value = @customerlist
+            
+            puts @customclinicid
+            
+            @custfieldlist  = CustomFieldList.new(1)
+            @custfieldlist[0] = @customclinicid
+            ref.customFieldList = @custfieldlist
+            
+            #payment terms
+            ref.terms = 2
+        end
+        
         #ref.companyName = companyName
         custt = RecordRef.new
         custt.xmlattr_internalId = customercategory

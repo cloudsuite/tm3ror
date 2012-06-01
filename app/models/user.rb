@@ -47,16 +47,34 @@ class User < ActiveRecord::Base
     pwd = self.password
     firstName = self.first_name
     lastName = self.last_name
+    userrole = self.role
+    
     puts 'test'
     puts pwd
     puts email
     puts customerid
-    customercategory = 8 #clinic = 8, physician = 6
+    
+    #clinic = 8, physician = 6, clinician = 24
+    case userrole
+				when "administrator"
+          customercategory = 8 
+				when "clinician"
+          customercategory = 24
+				when "physician"
+          customercategory = 6
+				else 
+	        customercategory = 6
+  	  end
+			
+    
+    @clinic = Clinic.find_by_id(self.clinic_id)
+    clinic_netsuite_id = @clinic.netsuite_customer_id
+    
     self.plain_text_password = pwd
     self.save
     
     @nsconnect = Nssoap.new()
-    @nsconnect.update_customer(customerid, pwd, email, customercategory, firstName, lastName)
+    @nsconnect.update_customer(pwd, email, customercategory, firstName, lastName, clinic_netsuite_id)
     puts 'test finish'
   end
      

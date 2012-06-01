@@ -65,11 +65,11 @@ class User < ActiveRecord::Base
 				else 
 	        customercategory = 6
   	  end
-			
-    
-    @clinic = Clinic.find_by_id(self.clinic_id)
-    clinic_netsuite_id = @clinic.netsuite_customer_id
-    
+		clinic_netsuite_id = ""	
+    if(clinic_id!=nil)
+      @clinic = Clinic.find_by_id(self.clinic_id)
+      clinic_netsuite_id = @clinic.netsuite_customer_id
+    end
     self.plain_text_password = pwd
     self.save
     

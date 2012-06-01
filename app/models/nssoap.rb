@@ -27,7 +27,7 @@ class Nssoap
   	cliid = ""
   	
   	#if(customerid!=nil && customerid!='')
-  	if(customercategory==8)   
+  	if(customercategory==8 && clinic_netsuite_id!="")   
   	  ## CLINIC ADMINISTRATOR, UPDATE EXISTING CUSTOMER RECORD IN NETSUITE ##
       customerid = customerid.to_s
       #customer = @client.find_by_contains('CustomerSearchBasic', 'entityId', customerid)

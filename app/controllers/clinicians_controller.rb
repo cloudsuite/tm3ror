@@ -33,9 +33,9 @@ class CliniciansController < ApplicationController
    # GET /clinicians/1.xml
    def show
      @clinician = Clinician.find(params[:id])
-     @clinician.destroy # since getting here instead of clinicial#destroy
+     @clinician.destroy # ERROR WORKAROUND: since getting here instead of clinicial#destroy
      respond_to do |format|
-       format.html { redirect_to(edit_clinic_path(1), :notice => 'Clinician was successfully deleted.') } # abusing this
+       format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'Clinician was successfully deleted.') } # abusing this
        format.xml  { render :xml => @clinician }
      end
    end
@@ -56,7 +56,9 @@ class CliniciansController < ApplicationController
    def edit
      @clinician = Clinician.find(params[:id]) # this is returning nil — no argument passed from call in clinic#edit? 
      respond_to do |format|
-          format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'Clinician was successfully updated.') } # supply clinic id as argument on call not clinic id=344; always goes to id=1; why?
+          # ERROR: this is just redirecting without rendering the clinician edit screen 
+          #format.html { redirect_to(edit_clinic_path(current_user.clinic.id), :notice => 'Clinician was successfully updated.') }
+          format.html #edit.html.erb
          format.xml  { head :ok }
 
        end

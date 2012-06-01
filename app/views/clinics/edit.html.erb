@@ -54,6 +54,15 @@
 		.newClinician { line-height:18px; border-radius:3px;}
 		.newClinician a { font-size:11px;color:white!important; }
 		.tabText { font-weight:bold; color:black!important;}
+		div#newClinicianButton {
+			margin-top:10px; margin-bottom:20px;
+			background-color:orange;
+			border-color:orange;
+		}
+		div#newClinicianButton a {
+			color:white;
+			font-weight:bold
+		}
 	</style>
 
 	<script type ="text/javascript">
@@ -65,6 +74,7 @@
 			$("a.mylinks").hover(function(){
 				$(this).css("color","blue");
 			});
+			$("#newClinicianButton").button();
 
 		});
 
@@ -125,12 +135,13 @@
 									<td><%= clinician.last_name %></td>
 									<td><%= clinician.email %></td>
 									<!-- <td><#= clinician.password %></td> -->
-									<td class="actions"><%= link_to("Edit", edit_clinician_path(clinician.id),:class=>"mylinks") %>&nbsp;|&nbsp;<%= link_to("Delete", clinician, :confirm => "Are you sure?",:method => "delete",:class=>"mylinks") %></td>	
+									<td class="actions"><%= link_to("Edit", edit_clinician_path(clinician),:class=>"mylinks") %>&nbsp;|&nbsp;<%= link_to("Delete", clinician, :confirm => "Are you sure?",:method => "delete",:class=>"mylinks") %></td>	
 								</tr>
 							<% end %>
 						</table>
-						
-						<button class="newClinician"><%= link_to("New Clinician", new_clinician_path()) %></button>
+						<div id="newClinicianButton">
+							<%= link_to("New Clinician", new_clinician_path()) %>
+						</div>
 						<p></p>
 						<p></p>
 						<p></p>

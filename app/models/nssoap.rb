@@ -60,7 +60,7 @@ class Nssoap
             @customerlist.xmlattr_internalId = clinic_netsuite_id
             
             @customclinicid.value = @customerlist
-            
+            puts "clinic"
             puts @customclinicid
             
             @custfieldlist  = CustomFieldList.new(1)

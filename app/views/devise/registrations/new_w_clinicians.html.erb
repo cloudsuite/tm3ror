@@ -103,22 +103,18 @@
 					<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
 					<%= f.input :password, :as => :password, :input_html => {:size => '15'} %> 
 					<%= f.input :password_confirmation,:as => :password, :input_html => {:size => '15'} %>
-					<%= f.input :role, :as => :hidden, :input_html => { :value => "patient" } %>
-				<!--
-					<#= f.input :role, :as => :radio, :label => "Are you a:", :collection => [["Patient/Caregiver", "patient"], ["Clinician", "clinician"], ["Clinic Administrator", "administrator"]] #>
+					<%= f.input :role, :as => :radio, :label => "Are you a:", :collection => [["Patient/Caregiver", "patient"], ["Clinician", "clinician"], ["Clinic Administrator", "administrator"]] %>
 
 					<p class="ifoption">If Patient or Non-Clinician Caregiver:</p>
-				-->
 					<%= f.input :address, :input_html => {:size => '30'}  %>
 					<%= f.input :address2, :input_html => {:size => '30'}  %>
 					<%= f.input :city, :input_html => {:size => '30'}  %>
 					<%= f.input :state, :input_html => {:size => '5'}  %>
 					<%= f.input :zip, :input_html => {:size => '5'}  %>
 					<%= f.input :phone, :as => :phone, :input_html => {:size => '30'}  %>
-				<!--	
+					
 					<p class="ifoption ifoption2 label">If Clinician, or Clinic Administrator:</p> 
-					<#= f.input :clinic, :collection => Clinic.order("name ASC").all #>
-				-->
+					<%= f.input :clinic, :collection => Clinic.order("name ASC").all %>
 				<% end %>
 				<%= f.actions do %>
 					<%= f.action :submit, :label => 'Register', :button_html => { :class => 'registerButton'} %>

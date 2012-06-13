@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531191658) do
+ActiveRecord::Schema.define(:version => 20120613174547) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(:version => 20120531191658) do
     t.integer  "tru_p"
     t.integer  "assembly_p"
     t.integer  "clinician_only_p"
+    t.integer  "available_to_dealers_p"
     t.integer  "msds_p"
     t.string   "mds_filename"
     t.integer  "more_info_p"

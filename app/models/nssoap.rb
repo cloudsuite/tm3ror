@@ -6,7 +6,7 @@ class Nssoap
   
 
   
-  def update_customer(pwd, email, customercategory, firstName, lastName, clinic_netsuite_id)
+  def update_customer(pwd, email, customercategory, firstName, lastName, clinic_netsuite_id, add1, add2, city, state, zip, phone)
     ENV['NS_ENDPOINT_URL'] ||= 'https://webservices.netsuite.com/services/NetSuitePort_2011_2'
     ENV['NS_ACCOUNT_ID'] ||= '1114349'
     ENV['NS_EMAIL'] ||= 'info@cloudsuitemedia.com'
@@ -68,7 +68,7 @@ class Nssoap
             ref.customFieldList = @custfieldlist
             
             #payment terms NET 30
-            ref.terms = 2
+            ref.terms = 2          
         end
         
         #ref.companyName = companyName
@@ -76,6 +76,27 @@ class Nssoap
         custt.xmlattr_internalId = customercategory
         custt.name = 'custtype'
         ref.category = custt
+        
+        #patient address
+        if(customercategory == 7)
+          puts 'patient'
+          @addrbook = CustomerAddressbook.new()
+          @addrbook.phone = phone
+          @addrbook.zip = zip
+          @addrbook.state = state
+          @addrbook.addr1 = add1
+          @addrbook.addr2 = add2
+          @addrbook.city = city
+          #@addrbook.defaultshipping = true
+          #@addrbook.defaultbilling = true
+          
+          ad = Array.new(1)
+          ad[0] = @addrbook
+          @addrbooklist = CustomerAddressbookList.new(ad)
+                    
+          ref.addressbookList = @addrbooklist
+        end
+        
         res = @client.add(ref)
         puts res.success?
     end

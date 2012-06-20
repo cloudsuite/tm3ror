@@ -223,8 +223,17 @@
 											<button id="checkOut" class="ui-corner-all">CHECK OUT</button>
 										</a>
 										<script language="javascript">
-												var urlcheckout = "http://shopping.netsuite.com/s.nl/c.1114349/sc.3/.f";
-											    $("#lnkchk").attr('href',urlcheckout);
+											function gotocart()
+											{
+													var urlcheckout = "http://shopping.netsuite.com/s.nl/c.1114349/sc.3/.f";
+												
+												location.href = urlcheckout;
+												
+											}
+												var func = "javascript:setTimeout('gotocart()',2000)"
+												
+											    //$("#lnkchk").attr('href',urlcheckout);
+												$("#lnkchk").attr('href',func);
 										</script>
 									<% end %>
 							</td>

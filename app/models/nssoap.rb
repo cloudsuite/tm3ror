@@ -68,7 +68,10 @@ class Nssoap
             ref.customFieldList = @custfieldlist
             
             #payment terms NET 30
-            ref.terms = 2          
+            payterms = RecordRef.new
+            payterms.xmlattr_internalId = 2
+            payterms.name = 'terms'
+            #ref.terms = payterms   
         end
         
         #ref.companyName = companyName

@@ -236,14 +236,22 @@
 						<tr>
 							<td>
 									<% if current_user!=nil %>	
-										<button id="checkOut" class="ui-corner-all">
-											<a href="#" id="lnkchk" style="color:white; text-decoration:none">CHECK OUT</a>
-										</button>			
-										<script language="javascript">
-												var mainurl = "https://checkout.netsuite.com/s.nl/c.1114349/sc.4/.f?user=<%= current_user.email %>&pwd=<%= current_user.plain_text_password %>"; 											var urlcart = mainurl + "&nextpage=cart";
-												var urlcheckout = mainurl + "&nextpage=checkout";
-													$("#lnkchk").attr('href',urlcheckout);
-										</script>
+										<a href="#" id="lnkchk" style="color:white; text-decoration:none">
+											<button id="checkOut" class="ui-corner-all">CHECK OUT</button>
+										</a>	
+											<script language="javascript">
+												function gotocart()
+												{
+														var urlcheckout = "http://shopping.netsuite.com/s.nl/c.1114349/sc.3/.f";
+
+													location.href = urlcheckout;
+
+												}
+													var func = "javascript:setTimeout('gotocart()',2000)"
+
+												    //$("#lnkchk").attr('href',urlcheckout);
+													$("#lnkchk").attr('href',func);
+											</script>
 									<% end %>
 								</button>
 							</td>

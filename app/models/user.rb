@@ -48,6 +48,12 @@ class User < ActiveRecord::Base
     firstName = self.first_name
     lastName = self.last_name
     userrole = self.role
+    add1 = self.address
+    add2 = self.address2
+    city = self.city
+    state = self.state
+    zip = self.zip
+    phone = self.phone
     
     puts 'test'
     puts pwd
@@ -74,7 +80,7 @@ class User < ActiveRecord::Base
     self.save
     
     @nsconnect = Nssoap.new()
-    @nsconnect.update_customer(pwd, email, customercategory, firstName, lastName, clinic_netsuite_id)
+    @nsconnect.update_customer(pwd, email, customercategory, firstName, lastName, clinic_netsuite_id, add1, add2, city, state, zip, phone )
     puts 'test finish'
   end
      

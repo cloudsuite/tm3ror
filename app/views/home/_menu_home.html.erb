@@ -56,6 +56,35 @@
 		<!-- menu item: PAYORS ————————————————— -->
 		<a class="level1B helvetica" href="#" id="payors">Payors</a>
 		
+		<!-- menu item: Search Box ————————————————— -->
+		
+		<div id="cse-search-form" style="width: 100%;">Loading</div>
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<script type="text/javascript"> 
+		  /*google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST}); */
+		  google.load('search', '1', {language : 'en', style : src="http://tm3ror.heroku.com/stylesheets/google_cse_minimalist.css"}); 
+			/* attempts to override the minimalist theme using jQuery don't work.
+			   How do I get it to use my local copy of the css file minimalist.css? 
+			$("div.gsc-clear-button").css("border","1px solid gray");
+			$("div.gsc-clear-button").css("padding","5px 4px 5px 4px");
+			$("div.gsc-clear-button").css("margin-left","2px");
+			*/
+		  google.setOnLoadCallback(function() {
+		    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+		      '000064363312609554513:jmpucuppl78', customSearchOptions);
+		    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+		    var options = new google.search.DrawOptions();
+		    options.setSearchFormRoot('cse-search-form');
+		    customSearchControl.draw('cse', options);
+		  }, true);
+		</script>
+
+
+		<!-- Google site search results ——————————————————————————————————————— -->
+		<!-- styles set in http://tm3ror.heroku.com/stylesheets/google_cse_minimalist.css   -->
+		<div id="cse" style="width:100%;">
+		</div>
+		
 	</div> <!-- end div 'menu_main' -->
 		
 </div> <!-- end div 'menu' -->

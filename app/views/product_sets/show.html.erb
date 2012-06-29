@@ -160,13 +160,10 @@
 							<%= if @product_set.assembly_p == 1 then image_tag("utility/wrench_24x24.gif",:class=>"withToolTip",:title => "some assembly required") end %>
 							<%= if @product_set.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
 					</div>
-					<!-- 
-					<div id="shipping_etc_icons">
-							<#= if @product_set.method_of_shipment == 'LTL' then image_tag("utility/truck_46x24.gif") end %>
-							<#= if @product_set.assembly_p == 1 then image_tag("utility/wrench_24x24.gif") end %>
-							<#= if @product_set.latex_p == 1 then image_tag("utility/latex_free_49x49.gif") end %>
+					<div id="clinician_only_warning">
+						<%= if @product_set.clinician_only_p == 1 then content_tag(:p, "These products are available only to clinicians. Please contact us for a referral to someone in your area:- 423-910-0121 or toll-free: 877-882-7844") end %>
 					</div>
-				-->
+		
 				</div> 
 				
 				<div id="products">

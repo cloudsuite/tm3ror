@@ -34,6 +34,6 @@ gem 'rails', '3.0.7'
 	gem 'sitemap_generator'
   end
 
-  group :production, :staging do
-    gem 'pg'
-  end
+ # group :production, :staging do
+ #   gem 'pg'
+ # end

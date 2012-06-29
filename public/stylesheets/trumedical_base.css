@@ -138,9 +138,9 @@
 		#callTollFree {
 			position: absolute; /* within ???? on all pages  */
 			top:50px; /* just above line above logo */
-			left:822px; /* 760 to line up with logomark below it; 825 to line up with T of Tru-Medical in logomark; 760 looks better but some breadcrumbs overrun it */
+			right:25px; /* 760 to line up with logomark below it; 822 to line up with T of Tru-Medical in logomark; 760 looks better but some breadcrumbs overrun it */
 			height:20px;
-			width:380px;
+			/* width: 380px; only use if align left */
 			z-index: 99;
 			color:#0094DE;font-size:12px;
 		}

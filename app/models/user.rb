@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   # going through register/new and to set this there.  
   # Is there someway to make that happen — ie to invoke the register.new method without showing the registrations/new.html.erb view?  
   #Seems like I ought to be able to pass the same set of params that is being collected in registrations/new.html.erb to the url defined in the register_new path 
+  
   belongs_to :clinic
   
   def valid_password?(password)
@@ -25,7 +26,8 @@ class User < ActiveRecord::Base
      super
   end
   
-  # Do we need the class Clinician, or are these just Users where type="clinician"?    
+  # Do we need the class Clinician, or are these just Users where type="clinician"? 
+  # Or, as it is now, where role="clinician"; there is no 'type' field.  
   #def saveAsClinician
   #end
   

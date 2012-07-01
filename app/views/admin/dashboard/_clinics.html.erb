@@ -1,0 +1,20 @@
+<!-- —————————————————————————————————————————
+		partial: _clinics
+		——————————————————————————————————————————
+-->
+<div class="spacer"></div>
+
+<ul class="functions">
+	<li><button><a href="/admin/clinics/new">Go</a></button>&nbsp;&nbsp;<%= link_to "List Clinics", { :controller => 'clinics', :action => 'index'} %></li>
+	<li><button><a href="/admin/clinics/new">Go</a></button>&nbsp;&nbsp;<%= link_to "Add Clinic", { :controller => 'clinics', :action => 'new'} %></li>
+	<li><button><a href="/users/register">Go</a></button>&nbsp;&nbsp;<%= link_to "Add Clinic Administrator", { :controller => 'devise/registrations', :action => 'new' } %></li>
+	<li><button>Go</button>&nbsp;&nbsp;<span style="color:black;">Delete Clinic</span></li>
+	<li><button>Go</button>&nbsp;&nbsp;<span style="color:black;">Add Clinic Group</span></li>
+	<li><button>Go</button>&nbsp;&nbsp;<span style="color:black;">Edit Clinic Group</span></li>
+	<li><button>Go</button>&nbsp;&nbsp;<span style="color:black;">Delete Clinic Group</span></li>
+</ul>
+<ul class="info">
+	<li>Number of Clinics in the system: <%= Clinic.count %></li>
+	<li>Number of Clinics added since the beginning of the year: <%= Clinic.count %></li> <!-- change before first of next year -->
+
+</ul>

@@ -1,0 +1,214 @@
+<!-- ————————————————————————————————————————————————————
+	Clinics#new — 
+		for R1.1 to allow Rails-side migration of existing clinics
+		for R2: to support Rails-side administration of clinics — 
+	 and to add authorization limits on purchases by clinicians 
+	________________________________________________________
+	
+	BUGS:
+		0. Trying to use :country input.  Where?? Why?? 
+		1. f.buttons to update clinic data goes to Clinic controller action
+			that tried to redirect to Clinic#View — a template that does not exist.
+			Either create that template, or override the redirect in the controller.
+		2. content for individual panes not showing up: jquery tools problem? in css file, the tabs are initially set to display:none; presumably contents show up on clicking a tab, and there if some initialization option that lets you say which tab to display when first put tab set up. 
+	-->
+<!-- header includes  ——————————————————————————————————————————————————  -->
+<%= content_for(:header) do %>
+	<style type="text/css">
+		
+		div#center_column { }
+	  div#clinic_content h2 { 
+			background-color: orange;
+			color:white;
+			padding: 5px 10px 10px 10px;
+			width: 155px;
+		}
+	hr { 
+			width:94%;
+			float:left;
+			margin-top:-11px;
+			padding-top:0px;
+		}
+		div#clinic_content hr {margin-bottom:30px;}
+		div#clinic_content h3 {margin-top:20px;}
+		div#clinic_content form { margin-bottom:20px; } 
+		div#clinic_content a { color:orange; }
+		div#clinic_content input {margin-bottom:0px; width:150px;}
+		div#clinic_content label {text-align:right; padding:0px 10px 8px 0px; width: 165px; }
+		div#clinic_content p.inline-hints { font-style:italic; color:red; padding-left:10px;padding-top:0px; font-size:10px; margin-top:0px;}
+		div#clinic_content input#clinic_submit { margin-left:10px; width: 90px;}
+		div#clinic_content input#clinician_submit { margin-left:10px; width:110px;}
+		div#clinicians_table { margin-left:20px; }
+		div#clinicians_table table th.actions, div#clinicians_table td.actions { color:black; padding-left:20px;}
+		fieldset.buttons {margin-left:-36px!important;} /* overrides formtastic 25%. */
+		fieldset.buttons ol {margin-left:0px; padding-left:0px;}
+		fieldset.buttons ol li {margin-left:0px; padding-left:0px;}
+		input#clinic_submit { margin-left:0px; padding-left: 0px; color:orange;}
+		form.button_to { max-width:40px; display: inline-block; }
+		div#disclaimer { margin-top:40px; font-style:italic; color:orange;}
+	</style>
+
+	<script type ="text/javascript">
+		$(document).ready(function(){
+			/* set up tab panes */
+			/* $("ul.css-tabs").tabs("div.css-panes > div"); */
+			$("#tabs").tabs();
+			/* links within tab that sets up new clinicians for this clinic */
+			$("a.mylinks").hover(function(){
+				$(this).css("color","blue");
+			});
+
+		});
+
+	</script>
+
+<% end %>
+
+<!-- body includes  ————————————————————————————————————————————————————  -->
+
+<%= content_for(:middleBand) do %>
+	<div id="left_column" >
+	</div><!-- end of div 'left_column' -->
+
+	<div id="center_column">		
+		<p class="notice"><%= notice %></p> <!-- needed by devise -->
+		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		<h2>Clinic<span style="color:orange;font-weight:normal;font-style:italic;">(*)</span> Setup</h3>
+		</hr>
+		
+		<div id="clinic_content">
+				<!-- this implementation of tabs is based on jquery-ui -->
+				<div id="tabs" style="overflow:hidden;">	<!-- fixes a jQuery-ui problem when tabs is in right column with something in column to its left ( in this case the menu) -->
+				<ul>					
+					<li><a href="#tabs-1">Administrator</a></li>
+					<li><a href="#tabs-2">Price Schedule</a></li>
+					<li><a href="#tabs-3">Address/Contacts</a></li>
+					<li><a href="#tabs-4">Shipping</a></li>
+					<li><a href="#tabs-5">Billing</a></li>
+				</ul>
+				
+				<!-- [Clinic] Administrator ————————————————————————— -->
+				<div id="tabs-1">
+					<h3>Clinic Administrator</h3>
+					<% semantic_form_for @clinic do |f| %>
+						<% f.inputs do %>
+							<%= f.input :type, :label="Type of Clinic", :as => :checklist, :collection=> ['Clinic','Hospital Unit', 'Managed Care Facility'. 'Chiropractor', 'Physician', 'Sports/Gym', 'School', '...'] %>
+						
+							<%= f.input :tm_customer_id, :label => "Customer Id", :hint => "for existing clinics" %>
+							<%= f.input :netsuite_customer_id, :label => "Netsuite Customer id", :hint => "for existing clinics" %>
+
+							<%= f.input :salutation %>
+							<%= f.input :first_name %>
+							<%= f.input :last_name %>
+							<%= f.input :title %>
+							<%= f.input :email %>
+							<%= f.input :phone %>
+							<%= f.input :extension, :label => "Extension" %>
+							<%= f.input :role %> <!-- preset to 'Administrator' -->
+							<%= f.input :owner %>
+							<%= f.input :administrator %> 
+							<%= f.input :price_schedule %> <!-- on of -->
+							
+		
+						<% end %>
+						<%= f.buttons %>
+					<% end %>									
+				</div> <!-- end of div tabs-1 -->
+				
+				<!-- Price Schedule / Sales Rep ————————————————————————— -->
+				<div id="tabs-2">
+					<h3>Clinic Address</h3>
+					<% semantic_form_for @clinic do |f| %>
+						<% f.inputs do %>
+							<%= f.input :price_schedule %>
+							<!-- 
+							<#= f.input :tms_sales_rep %>
+							-->
+						<% end %>
+						<%= f.buttons %>
+					<% end %>				
+				</div> <!-- end of div tabs-2 -->
+				
+				<!-- Address ————————————————————————— -->
+				<div id="tabs-3">
+					<h3>Clinic Address</h3>
+					<% semantic_form_for @clinic do |f| %>
+						<% f.inputs do %>
+							<%= f.input :name %>
+							<%= f.input :address %>
+							<%= f.input :city %>
+							<%= f.input :state %>
+							<%= f.input :zip %>		
+						<% end %>
+						<%= f.buttons %>
+					<% end %>				
+				</div> <!-- end of div tabs-3 -->
+				
+				<!-- Shipping  ———————————————————— -->
+				<div id="tabs-4">
+					<h3>Ship-To Address</h3>
+					<% semantic_form_for @clinic do |f| %>
+						<% f.inputs do %>
+							<%= f.input :name %>
+							<%= f.input :address %>
+							<%= f.input :city %>
+							<%= f.input :state %>
+							<%= f.input :zip %>	
+						<% end %>
+						<%= f.buttons %>
+					<% end %>
+					<h3>Default Shipping Method</h3>
+					<p>[UPS ground]</p>
+				</div>
+
+				<!-- Billing——————————————————————————— -->
+				<div id="tabs-5">
+					<h3>Bill-To Address</h3>
+					<% semantic_form_for @clinic do |f| %>
+						<% f.inputs do %>
+							<%= f.input :name %>
+							<%= f.input :address %>
+							<%= f.input :city %>
+							<%= f.input :state %>
+							<%= f.input :zip %>
+							<!-- Billing contact: name -->
+							<%= f.input :phone, :label=>"billing contact phone" %>
+							<%= f.input :extension, :label => "extension (if any)" %>			
+						<% end %>
+						<%= f.buttons %>
+					<% end %>
+					<h3>Default Billing Method</h3>
+					<p>Invoice Net-30</p>
+				</div>
+				
+				<!-- Purchase Authorization ————————————————————————— -->
+				<div id="tabs-6">
+					<h3>Purchase Limits</h3>
+					<table cellspacing="10">
+						<tr>
+							<td>Orders from Clinicians over this amount require authorization:</td>
+							<td>$1,000</td>
+						</tr>
+						<tr>
+							<td>Notify if aggregate orders within a month from a single Clinician exceed:</td>
+							<td>$3,000</td>
+						</tr>
+						<tr>
+							<td>Orders from Clinic Administrators over this amount require authorization:</td>
+							<td>$5,000</td>
+						</tr>
+						<tr>
+							<td>Route authorization requests to:</td>
+							<td>[CFO of Clinic Group]</td>
+						</tr>
+					</table>				
+				</div>
+				
+			</div><!-- end of div#tabs -->
+				
+		</div><!-- end of div#clinic_content -->
+
+
+	</div> <!-- end div#center_column -->
+
+<% end %> <!-- end :content_for middleBand -->

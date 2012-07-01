@@ -40,7 +40,7 @@
 		<%= stylesheet_link_tag "left_nav_popups_test.css" %> <!-- added by TA 1/4/2012; controls top alignment of popups for menu items -->
 		<%= stylesheet_link_tag "simple_form.css" %>
 		<%= stylesheet_link_tag "formtastic.css" %>
-		<%= stylesheet_link_tag "formtastic_changes.css" %>
+		<!-- <#= stylesheet_link_tag "formtastic_changes.css" %> Just one change: to RADIO Overrides; edited into formtastic.css -->
 		<%= stylesheet_link_tag "tipTip.css" %>
 		<!-- <#= stylesheet_link_tag "jquery_tools_tabs.css" %> -->
 		
@@ -359,7 +359,7 @@
 								<%= link_to "My Account", edit_user_registration_path %>
 							</li>
 							
-							<% if current_user.role == "administrator" %>				
+							<% if current_user.role == "Administrator" %>				
 								<li>
 									<%= link_to "Administer Clinic", edit_clinic_path(current_user.clinic.id) %>
 									<!--<a href="https://checkout.netsuite.com/app/center/nlvisitor.nl/c.1114349/sc.6/.f">Administer</a> -->

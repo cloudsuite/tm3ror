@@ -67,44 +67,20 @@
 			  <div><%= f.label :password_confirmation %><br />
 			  <%= f.password_field :password_confirmation %></div>
 			
-			<!-- Remove fields that should not be there in the Beta test system 
-			
-				Are you a __ patient/caregiver  __ clinician  __ clinic administrator
-				If either of the latter, then Clinic: ____ 
-				Figure out how to do a multi-valued field (role: 0=unspecified, 1=patient/caregiver, 2=clinician, 3=clinic administrator, 4=rep, 5=dealer, 6=affiliate ) 
-			-->
 				<div><%= f.label "Are you a clinician?" %><br />
 			  <%= f.check_box :clinician %></div>
 			
-			  	<div><%= f.label "Are you a clinic administrator? " %><br />
-			  		<%= f.check_box :administrator %></div>
-	
-				<div><%= f.label "Clinic id (for testing)" %><br />
-			  <%= f.text_field :clinic_id %></div>
-			<!--
 				<div><%= f.label "Clinic name" %><br />
 			  <%= f.text_field :clinic_name %></div>
-				<div><#= f.label "Customer Id (for testing)" %><br />
-			  <#= f.text_field :tm_customer_id %></div>
 			
-				<div><#= f.label "Internal Customer Id (for testing)" %><br />
-			  <#= f.text_field :netsuite_customer_id %></div>
-			-->
+				<div><%= f.label "Clinic id (for testing)" %><br />
+			  <%= f.text_field :clinic_id %></div>
 			
-				<div><%= f.label "Street Address" %><br />
-			  <%= f.text_field :address %></div>
+				<div><%= f.label "Customer Id (for testing)" %><br />
+			  <%= f.text_field :tm_customer_id %></div>
 			
-				<div><%= f.label "Street Address(2)" %><br />
-			  <%= f.text_field :address2 %></div>
-			
-				<div><%= f.label "City" %><br />
-			  <%= f.text_field :city %></div>
-			
-				<div><%= f.label "State" %><br />
-			  <%= f.text_field :state%></div>
-			
-				<div><%= f.label "Zip Code (5-digit)" %><br />
-			  <%= f.text_field :zip %></div>
+				<div><%= f.label "Internal Customer Id (for testing)" %><br />
+			  <%= f.text_field :netsuite_customer_id %></div>			
 			
 				<div><%= f.label "Work phone" %><br />
 			  <%= f.telephone_field :phone %></div>

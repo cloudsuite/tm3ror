@@ -1,5 +1,9 @@
 Tm3ror::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login" }
   # sign_out doesn't seem to getting set up properly. Why? needs :method => :delete ? stack overflow:
   #    ttp://stackoverflow.com/questions/6557311/no-route-matches-users-sign-out-devise-rails-3

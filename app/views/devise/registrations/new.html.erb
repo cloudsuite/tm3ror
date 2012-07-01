@@ -1,5 +1,5 @@
 <!-- ————————————————————————————————————————————————————
-	User#new 
+	Clinician#new 
 	_______________________________________________________
 	-->
 	<!-- header includes  ——————————————————————————————————————————————————  -->
@@ -25,52 +25,6 @@
 			padding-top:0px;
 		}
 	</style>
-	<style type="text/css">
-		/* move all of these to public/stylesheets/formtastic_changes.css */ 
-		label {
-		    display: block;
-		    float: left;
-		    padding-top: 0.2em;
-		    width: 21%;
-		}
-		form.formtastic input, form.formtastic textarea, form.formtastic select {
-		    font-size: 100%;
-		    margin-bottom: 10px;
-		}
-		form fieldset ol li { padding:5px 10px 3px; }
-		form fieldset > ol > li.check_boxes fieldset ol li, form fieldset > ol > li.radio fieldset ol li { display:inline; float:left; } /* this lines up checkboxes on a single line */
-		ol li label { font-weight:normal!important; color:gray!important; text-align:right;padding-right:10px; }
-		ol li.choice label { text-align:left; float:left; margin-left:10px; }
-
-		ol.fragments-group { margin-left:10px;}
-
-		/* hack to line up label for date/time fields with others */
-
-		
-			form.formtastic fieldset > ol > li {
-			    margin-bottom: 0;
-			    margin-top: -0.5em;
-			    padding: 0.5em 0;
-			}
-
-		form.formtastic input[type="text"],
-		form.formtastic input[type="password"],
-		form.formtastic input[type="email"],
-		form.formtastic input[type="url"],
-		form.formtastic input[type="tel"],
-		form.formtastic textarea {
-			border: 1px solid #C9D0D6d;
-			border-radius: 3px 3px 3px 3px;
-			font-family: Helvetica, Arial, sans-serif;
-			font-size:0.95em;
-			
-			padding: 3px 10px; /* was 8px 10px 7px but labels didn't line up*/
-			
-			}
-		p.ifoption { margin-top:10px!important; margin-bottom:5px!important; color:#0094DE; font-size:11px; font-weight:bold; padding-left:10px;}
-		p.ifoption2 { padding-left:10px;}
-		.registerButton {background-color:orange; color:white; border-radius: 3px 3px; border: none; height:24px;width:60px;} 
-	</style>
 <% end %>
 
 <!-- body includes  ————————————————————————————————————————————————————  -->
@@ -91,21 +45,56 @@
 		
 		<p class="notice"><%= notice %></p> <!-- needed by devise -->
 		<p class="alert"><%= alert %></p> <!-- needed by devise -->
+		
 		<div id="devise_generated_content">
 			<h2>Register</h2>
 			<hr></hr></br>
-			<!-- where is resource_name defined?  when is it set?  --> 
+			<!-- Where is resource_name defined?  when is it set?  -->
+			<!-- What does it refer to here?  administrators? clinicians? users? admin_users? 
+				 My best guess is users.  
+			     User has a type field which is used to define the subtypes clinician and administration (implicitly clinic-administrator).
+				 I am not setting both the 'type' field to make the Active Record STI implementation of 
+				 inheritance work, and also the 'role' field.  The latter should be unnecessary.  Remove the 
+				 lines that set this field from the semantic-form-for when remove it from the User class defn. 
+			 --> 
 			<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-			  <%= devise_error_messages! %>
+			  	<%= devise_error_messages! %>
 				<% f.inputs do %>
-					<%= if current_user.web_site_administrator? == false %>
+					<% if current_admin_user %>
+				
+						<!-- pass in clinic rather than putting drop down here.  Should be available if creating a clinic-administrator tuple -->
+						<%= f.input :clinic, :collection => Clinic.order("name ASC").all %>
+						<!-- pass in values for first name, last name, email from active admin Clinic record; note: clinic record currently don't have first/last name, just have name; maybe modify 'User' to just use a single name field? or put first/last name in clinic tuple  -->
 						<%= f.input :first_name, :input_html => {:size => '15'} %>
 						<%= f.input :last_name, :input_html => {:size => '15'} %>
 						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
 						<%= f.input :password, :as => :password, :input_html => {:size => '15'} %> 
 						<%= f.input :password_confirmation,:as => :password, :input_html => {:size => '15'} %>
-						<%= f.input :role, :as => :hidden, :input_html => { :value => "patient" } %>
+						<%= f.input :role, :as => :hidden, :input_html => { :value => 'Administrator' } %> <!-- drop when drop this field from the class defn -->
+						<%= f.input :type, :as => :hidden, :input_html => { :value => 'Administrator' } %> <!-- DEBUG: not getting set in database. Why? --> 
+						<%= f.input :phone, :label => 'Cell Phone', :as => :phone, :input_html => {:size => '30'}  %>
+					<% elsif current_user.type == "Administrator" %>
+						<!-- register a clinician, or a patient/caregiver
+							 NOTE: I need to know which to set the 'type' field correctly. How do I do that? 
+						-->
+						<%= f.input :first_name, :input_html => {:size => '15'} %>
+						<%= f.input :last_name, :input_html => {:size => '15'} %>
+						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
+						<%= f.input :password, :as => :password, :input_html => {:size => '15'} %> 
+						<%= f.input :password_confirmation,:as => :password, :input_html => {:size => '15'} %>
+						<%= f.input :role, :as => :hidden, :input_html => { :value => "Clinician" } %>
+						<%= f.input :type, :as => :hidden, :input_html => { :value => "Clinician" } %>
+						<!-- no address information necessary for clinicians; ship-to and bill-to use the clinic's address -->
+					<% else %>
+						<%= f.input :first_name, :input_html => {:size => '15'} %>
+						<%= f.input :last_name, :input_html => {:size => '15'} %>
+						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
+						<%= f.input :password, :as => :password, :input_html => {:size => '15'} %> 
+						<%= f.input :password_confirmation,:as => :password, :input_html => {:size => '15'} %>
+						<%= f.input :role, :as => :hidden, :input_html => { :value => "Patient" } %>
+						<%= f.input :type, :as => :hidden, :input_html => { :value => "Patient" } %>
 						<!-- maybe wait until checkout, so doesn't have to enter this twice
+							 Better: capture it here and pass it back to Netsuite 
 						<#= f.input :address, :input_html => {:size => '30'}  %>
 						<#= f.input :address2, :input_html => {:size => '30'}  %>
 						<#= f.input :city, :input_html => {:size => '30'}  %>
@@ -114,19 +103,6 @@
 						<#= f.input :phone, :as => :phone, :input_html => {:size => '30'}  %>
 						-->
 					<% end %>
-					<%= if current_user.web_site_administrator? %>
-						<!-- predefine values for first name, last name, email from active admin Clinic record -->
-						<%= f.input :first_name, :input_html => {:size => '15'} %>
-						<%= f.input :last_name, :input_html => {:size => '15'} %>
-						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
-						<%= f.input :password, :as => :password, :input_html => {:size => '15'} %> 
-						<%= f.input :password_confirmation,:as => :password, :input_html => {:size => '15'} %>
-						<%= f.input :role, :as => :hidden, :input_html => { :value => "administrator" } %>
-						<!-- predefine values for first name, last name, email from active admin Clinic record --> 
-						<%= f.input :phone, :label => 'Cell Phone', :as => :phone, :input_html => {:size => '30'}  %>
-						<!-- pass in/ pickup: already available if creating a clinic -->
-						<%= f.input :clinic, :collection => Clinic.order("name ASC").all #>
-					% end %>
 				<% end %>
 				<%= f.actions do %>
 					<%= f.action :submit, :label => 'Register', :button_html => { :class => 'registerButton'} %>
@@ -138,7 +114,7 @@
 			<%= render :partial => "devise/shared/links" %>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
-			
+						
 		</div> <!-- end div#devise_generated_content -->
 	</div> <!-- end div#center_column -->
 

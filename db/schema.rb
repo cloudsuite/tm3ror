@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701173617) do
+ActiveRecord::Schema.define(:version => 20120702060233) do
 
   create_table "accessories", :force => true do |t|
     t.integer  "category_id"
@@ -102,18 +102,9 @@ ActiveRecord::Schema.define(:version => 20120701173617) do
     t.string   "phone"
     t.string   "extension"
     t.string   "role"
-    t.boolean  "owner"
-    t.boolean  "administrator"
-    t.boolean  "clinician"
     t.integer  "clinic_id"
     t.integer  "clinic_tm_id"
     t.string   "clinic_name"
-    t.string   "address"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "price_schedule"
     t.integer  "wants_n_catelogs"
     t.string   "password"
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false

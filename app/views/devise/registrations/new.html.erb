@@ -62,9 +62,10 @@
 				<% f.inputs do %>
 					<% if current_admin_user %>
 				
-						<!-- pass in clinic rather than putting drop down here.  Should be available if creating a clinic-administrator tuple -->
+						<!-- In release 1.2 pass in clinic rather than putting drop down here.  Should be available if creating a clinic-administrator tuple -->
 						<%= f.input :clinic, :collection => Clinic.order("name ASC").all %>
 						<!-- pass in values for first name, last name, email from active admin Clinic record; note: clinic record currently don't have first/last name, just have name; maybe modify 'User' to just use a single name field? or put first/last name in clinic tuple  -->
+						<p style="font-weight:bold; margin-bottom:10px;">Clinic Administrator:</p>
 						<%= f.input :first_name, :input_html => {:size => '15'} %>
 						<%= f.input :last_name, :input_html => {:size => '15'} %>
 						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
@@ -74,9 +75,7 @@
 						<%= f.input :type, :as => :hidden, :input_html => { :value => 'Administrator' } %> <!-- DEBUG: not getting set in database. Why? --> 
 						<%= f.input :phone, :label => 'Cell Phone', :as => :phone, :input_html => {:size => '30'}  %>
 					<% elsif current_user.type == "Administrator" %>
-						<!-- register a clinician, or a patient/caregiver
-							 NOTE: I need to know which to set the 'type' field correctly. How do I do that? 
-						-->
+						<!-- register a clinician -->
 						<%= f.input :first_name, :input_html => {:size => '15'} %>
 						<%= f.input :last_name, :input_html => {:size => '15'} %>
 						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>
@@ -86,6 +85,7 @@
 						<%= f.input :type, :as => :hidden, :input_html => { :value => "Clinician" } %>
 						<!-- no address information necessary for clinicians; ship-to and bill-to use the clinic's address -->
 					<% else %>
+						<!-- register a patient/caregiver -->
 						<%= f.input :first_name, :input_html => {:size => '15'} %>
 						<%= f.input :last_name, :input_html => {:size => '15'} %>
 						<%= f.input :email,:as => :email, :input_html => {:size => '30'} %>

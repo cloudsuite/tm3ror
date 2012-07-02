@@ -6,6 +6,8 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "TRU-MEDICAL "
+  config.site_title_link = "/" # route to home page; Rails routing helpers cannot be used here 
+  config.site_title_image = "logos/logo_on_white_315.jpg"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.

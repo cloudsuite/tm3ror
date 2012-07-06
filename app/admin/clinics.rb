@@ -1,14 +1,19 @@
-ActiveAdmin.register Clinic do
+ActiveAdmin.register Clinic, { :sort_order => :tm_customer_id } do
+   
+   scope :alpha_test_clinics
+   scope :beta_test_clinics
 
-   index do
-       
+   index do  
+       column "Id",:id     
        column "TMS Id", :tm_customer_id
        column "NS Id", :netsuite_customer_id
-       column "Rails Id",:id
        column "Name", :name
        column "Type", :category
-       column "Administrator", :primary_contact
-       column "phone", :phone
+       #column "Administrator", :administrator_id
+       column "Administrator", :administrator_name
+       column "Email", :administrator_email
+       column "Password", :administrator_password
+       column "Phone", :administrator_phone
        column "Price Schedule", :price_schedule
        column "Terms", :terms
        default_actions
